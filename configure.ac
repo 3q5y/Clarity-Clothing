@@ -1149,4 +1149,311 @@ fi
 
 fi
 
-AM_CONDITIONAL([EMBEDDED_UNIVALUE],[test x$need_bundled_univalu
+AM_CONDITIONAL([EMBEDDED_UNIVALUE],[test x$need_bundled_univalue = xyes])
+AC_SUBST(UNIVALUE_CFLAGS)
+AC_SUBST(UNIVALUE_LIBS)
+
+BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
+
+AC_MSG_CHECKING([whether to build giantd])
+AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
+AC_MSG_RESULT($build_bitcoind)
+
+AC_MSG_CHECKING([whether to build utils (giant-cli giant-tx)])
+AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
+AC_MSG_RESULT($build_bitcoin_utils)
+
+AC_MSG_CHECKING([whether to build libraries])
+AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoin_libs = xyes])
+if test x$build_bitcoin_libs = xyes; then
+  AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
+  AC_CONFIG_FILES([libbitcoinconsensus.pc:libbitcoinconsensus.pc.in])
+fi
+AC_MSG_RESULT($build_bitcoin_libs)
+
+AC_LANG_POP
+
+if test "x$use_ccache" != "xno"; then
+  AC_MSG_CHECKING(if ccache should be used)
+  if test x$CCACHE = x; then
+    if test "x$use_ccache" = "xyes"; then
+      AC_MSG_ERROR([ccache not found.]);
+    else
+      use_ccache=no
+    fi
+  else
+    use_ccache=yes
+    CC="$ac_cv_path_CCACHE $CC"
+    CXX="$ac_cv_path_CCACHE $CXX"
+  fi
+  AC_MSG_RESULT($use_ccache)
+fi
+if test "x$use_ccache" = "xyes"; then
+    AX_CHECK_PREPROC_FLAG([-Qunused-arguments],[CPPFLAGS="-Qunused-arguments $CPPFLAGS"])
+fi
+
+dnl bignum value
+set_bignum=$req_bignum
+case $req_bignum in
+auto)
+  GMP_CHECK
+  if test x"$has_gmp" != x"yes"; then
+    AC_MSG_ERROR([gmp bignum automatically selected but libgmp is not available. Use depends,
+    install libgmp or select an other bignum implementation (ONLY gmp is fully SUPPORTED)])
+  else
+    set_bignum=gmp
+  fi
+  ;;
+gmp)
+  GMP_CHECK
+  if test x"$has_gmp" != x"yes"; then
+    AC_MSG_ERROR([gmp bignum explicitly requested but libgmp is not available])
+  fi
+  ;;
+openssl)
+    AC_MSG_WARN([openssl bignum explicitly requested. This is DEPRECATED.])
+  ;;
+*)
+  AC_MSG_ERROR([invalid bignum implementation selection])
+  ;;
+esac
+
+dnl enable wallet
+AC_MSG_CHECKING([if wallet should be enabled])
+if test x$enable_wallet != xno; then
+  AC_MSG_RESULT(yes)
+  AC_DEFINE_UNQUOTED([ENABLE_WALLET],[1],[Define to 1 to enable wallet functions])
+
+else
+  AC_MSG_RESULT(no)
+fi
+
+dnl enable upnp support
+AC_MSG_CHECKING([whether to build with support for UPnP])
+if test x$have_miniupnpc = xno; then
+  if test x$use_upnp = xyes; then
+     AC_MSG_ERROR("UPnP requested but cannot be built. use --without-miniupnpc")
+  fi
+  AC_MSG_RESULT(no)
+else
+  if test x$use_upnp != xno; then
+    AC_MSG_RESULT(yes)
+    AC_MSG_CHECKING([whether to build with UPnP enabled by default])
+    use_upnp=yes
+    upnp_setting=0
+    if test x$use_upnp_default != xno; then
+      use_upnp_default=yes
+      upnp_setting=1
+    fi
+    AC_MSG_RESULT($use_upnp_default)
+    AC_DEFINE_UNQUOTED([USE_UPNP],[$upnp_setting],[UPnP support not compiled if undefined, otherwise value (0 or 1) determines default state])
+    if test x$TARGET_OS = xwindows; then
+      MINIUPNPC_CPPFLAGS="-DSTATICLIB -DMINIUPNP_STATICLIB"
+    fi
+  else
+    AC_MSG_RESULT(no)
+  fi
+fi
+
+dnl these are only used when qt is enabled
+BUILD_TEST_QT=""
+if test x$bitcoin_enable_qt != xno; then
+  dnl enable dbus support
+  AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
+  if test x$bitcoin_enable_qt_dbus != xno; then
+    AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
+  fi
+  AC_MSG_RESULT($bitcoin_enable_qt_dbus)
+
+  dnl enable qr support
+  AC_MSG_CHECKING([whether to build GUI with support for QR codes])
+  if test x$have_qrencode = xno; then
+    if test x$use_qr = xyes; then
+     AC_MSG_ERROR("QR support requested but cannot be built. use --without-qrencode")
+    fi
+    AC_MSG_RESULT(no)
+  else
+    if test x$use_qr != xno; then
+      AC_MSG_RESULT(yes)
+      AC_DEFINE([USE_QRCODE],[1],[Define if QR support should be compiled in])
+      use_qr=yes
+    else
+      AC_MSG_RESULT(no)
+    fi
+  fi
+
+  if test x$XGETTEXT = x; then
+    AC_MSG_WARN("xgettext is required to update qt translations")
+  fi
+
+  AC_MSG_CHECKING([whether to build test_giant-qt])
+  if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
+    AC_MSG_RESULT([yes])
+    BUILD_TEST_QT="yes"
+  else
+    AC_MSG_RESULT([no])
+  fi
+fi
+
+AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
+
+# select bignum implementation
+case $set_bignum in
+gmp)
+  AC_DEFINE(USE_NUM_GMP, 1, [Define this symbol to use the gmp implementation])
+  ;;
+openssl)
+  AC_DEFINE(USE_NUM_OPENSSL, 1, [Define this symbol to use openssl implementation])
+  ;;
+*)
+  AC_MSG_ERROR([invalid bignum implementation])
+  ;;
+esac
+
+AM_CONDITIONAL([USE_NUM_GMP], [test "x$set_bignum" = "xgmp"])
+AM_CONDITIONAL([USE_NUM_OPENSSL], [test "x$set_bignum" = "xopenssl"])
+
+AC_MSG_CHECKING([whether to build test_giant])
+if test x$use_tests = xyes; then
+  AC_MSG_RESULT([yes])
+  BUILD_TEST="yes"
+else
+  AC_MSG_RESULT([no])
+  BUILD_TEST=""
+fi
+
+AC_MSG_CHECKING([whether to reduce exports])
+if test x$use_reduce_exports = xyes; then
+  AC_MSG_RESULT([yes])
+else
+  AC_MSG_RESULT([no])
+fi
+
+if test x$build_bitcoin_utils$build_bitcoin_libs$build_bitcoind$bitcoin_enable_qt$use_bench$use_tests = xnononononono; then
+  AC_MSG_ERROR([No targets! Please specify at least one of: --with-utils --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
+fi
+
+AM_CONDITIONAL([TARGET_DARWIN], [test x$TARGET_OS = xdarwin])
+AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
+AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
+AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet = xyes])
+AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
+AM_CONDITIONAL([ENABLE_QT],[test x$bitcoin_enable_qt = xyes])
+AM_CONDITIONAL([ENABLE_QT_TESTS],[test x$BUILD_TEST_QT = xyes])
+AM_CONDITIONAL([ENABLE_BENCH],[test x$use_bench = xyes])
+AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])
+AM_CONDITIONAL([USE_LCOV],[test x$use_lcov = xyes])
+AM_CONDITIONAL([GLIBC_BACK_COMPAT],[test x$use_glibc_compat = xyes])
+AM_CONDITIONAL([HARDEN],[test x$use_hardening = xyes])
+AM_CONDITIONAL([ENABLE_HWCRC32],[test x$enable_hwcrc32 = xyes])
+AM_CONDITIONAL([ENABLE_SSE41],[test x$enable_sse41 = xyes])
+AM_CONDITIONAL([ENABLE_AVX2],[test x$enable_avx2 = xyes])
+AM_CONDITIONAL([ENABLE_SHANI],[test x$enable_shani = xyes])
+AM_CONDITIONAL([USE_ASM],[test x$use_asm = xyes])
+
+AC_DEFINE(CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MAJOR, [Major version])
+AC_DEFINE(CLIENT_VERSION_MINOR, _CLIENT_VERSION_MINOR, [Minor version])
+AC_DEFINE(CLIENT_VERSION_REVISION, _CLIENT_VERSION_REVISION, [Build revision])
+AC_DEFINE(CLIENT_VERSION_BUILD, _CLIENT_VERSION_BUILD, [Version Build])
+AC_DEFINE(CLIENT_VERSION_IS_RELEASE, _CLIENT_VERSION_IS_RELEASE, [Version is release])
+AC_DEFINE(COPYRIGHT_YEAR, _COPYRIGHT_YEAR, [Version is release])
+AC_SUBST(CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MAJOR)
+AC_SUBST(CLIENT_VERSION_MINOR, _CLIENT_VERSION_MINOR)
+AC_SUBST(CLIENT_VERSION_REVISION, _CLIENT_VERSION_REVISION)
+AC_SUBST(CLIENT_VERSION_BUILD, _CLIENT_VERSION_BUILD)
+AC_SUBST(CLIENT_VERSION_IS_RELEASE, _CLIENT_VERSION_IS_RELEASE)
+AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
+AC_SUBST(BITCOIN_DAEMON_NAME)
+AC_SUBST(BITCOIN_GUI_NAME)
+AC_SUBST(BITCOIN_CLI_NAME)
+AC_SUBST(BITCOIN_TX_NAME)
+
+AC_SUBST(RELDFLAGS)
+AC_SUBST(DEBUG_CPPFLAGS)
+AC_SUBST(WARN_CXXFLAGS)
+AC_SUBST(NOWARN_CXXFLAGS)
+AC_SUBST(DEBUG_CXXFLAGS)
+AC_SUBST(COMPAT_LDFLAGS)
+AC_SUBST(ERROR_CXXFLAGS)
+AC_SUBST(GPROF_CXXFLAGS)
+AC_SUBST(GPROF_LDFLAGS)
+AC_SUBST(HARDENED_CXXFLAGS)
+AC_SUBST(HARDENED_CPPFLAGS)
+AC_SUBST(HARDENED_LDFLAGS)
+AC_SUBST(PIC_FLAGS)
+AC_SUBST(PIE_FLAGS)
+AC_SUBST(SANITIZER_CXXFLAGS)
+AC_SUBST(SANITIZER_LDFLAGS)
+AC_SUBST(SSE42_CXXFLAGS)
+AC_SUBST(SSE41_CXXFLAGS)
+AC_SUBST(AVX2_CXXFLAGS)
+AC_SUBST(SHANI_CXXFLAGS)
+AC_SUBST(LIBTOOL_APP_LDFLAGS)
+AC_SUBST(USE_UPNP)
+AC_SUBST(USE_QRCODE)
+AC_SUBST(BOOST_LIBS)
+AC_SUBST(TESTDEFS)
+AC_SUBST(LEVELDB_TARGET_FLAGS)
+AC_SUBST(MINIUPNPC_CPPFLAGS)
+AC_SUBST(MINIUPNPC_LIBS)
+AC_SUBST(CRYPTO_LIBS)
+AC_SUBST(SSL_LIBS)
+AC_SUBST(EVENT_LIBS)
+AC_SUBST(EVENT_PTHREADS_LIBS)
+AC_SUBST(ZMQ_LIBS)
+AC_SUBST(PROTOBUF_LIBS)
+AC_SUBST(QR_LIBS)
+AC_SUBST(USE_NUM_GMP)
+AC_SUBST(USE_NUM_OPENSSL)
+AC_CONFIG_FILES([Makefile src/Makefile doc/man/Makefile share/setup.nsi share/qt/Info.plist test/config.ini])
+AC_CONFIG_FILES([contrib/devtools/split-debug.sh],[chmod +x contrib/devtools/split-debug.sh])
+AM_COND_IF([HAVE_DOXYGEN], [AC_CONFIG_FILES([doc/Doxyfile])])
+AC_CONFIG_LINKS([contrib/filter-lcov.py:contrib/filter-lcov.py])
+AC_CONFIG_LINKS([test/functional/test_runner.py:test/functional/test_runner.py])
+AC_CONFIG_LINKS([test/util/bitcoin-util-test.py:test/util/bitcoin-util-test.py])
+AC_CONFIG_LINKS([test/util/rpcauth-test.py:test/util/rpcauth-test.py])
+
+dnl boost's m4 checks do something really nasty: they export these vars. As a
+dnl result, they leak into secp256k1's configure and crazy things happen.
+dnl Until this is fixed upstream and we've synced, we'll just un-export them.
+CPPFLAGS_TEMP="$CPPFLAGS"
+unset CPPFLAGS
+CPPFLAGS="$CPPFLAGS_TEMP"
+
+LDFLAGS_TEMP="$LDFLAGS"
+unset LDFLAGS
+LDFLAGS="$LDFLAGS_TEMP"
+
+LIBS_TEMP="$LIBS"
+unset LIBS
+LIBS="$LIBS_TEMP"
+
+PKGCONFIG_PATH_TEMP="$PKG_CONFIG_PATH"
+unset PKG_CONFIG_PATH
+PKG_CONFIG_PATH="$PKGCONFIG_PATH_TEMP"
+
+PKGCONFIG_LIBDIR_TEMP="$PKG_CONFIG_LIBDIR"
+unset PKG_CONFIG_LIBDIR
+PKG_CONFIG_LIBDIR="$PKGCONFIG_LIBDIR_TEMP"
+
+if test x$need_bundled_univalue = xyes; then
+  AC_CONFIG_SUBDIRS([src/univalue])
+fi
+
+ac_configure_args="${ac_configure_args} --disable-shared --with-pic --with-bignum=no --enable-module-recovery --disable-jni"
+AC_CONFIG_SUBDIRS([src/secp256k1])
+
+AC_OUTPUT
+
+dnl Taken from https://wiki.debian.org/RpathIssue
+case $host in
+   *-*-linux-gnu)
+     AC_MSG_RESULT([Fixing libtool for -rpath problems.])
+     sed < libtool > libtool-2 \
+     's/^hardcode_libdir_flag_spec.*$'/'hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
+     mv libtool-2 libtool
+     chmod 755 libtool
+   ;;
+esac
+
+dnl Replace the BUI
