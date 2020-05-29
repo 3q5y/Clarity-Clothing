@@ -1456,4 +1456,42 @@ case $host in
    ;;
 esac
 
-dnl Replace the BUI
+dnl Replace the BUILDDIR path with the correct Windows path if compiling on Native Windows
+case ${OS} in
+   *Windows*)
+     sed  's/BUILDDIR="\/\([[a-z]]\)/BUILDDIR="\1:/'  test/config.ini > test/config-2.ini
+     mv test/config-2.ini test/config.ini
+   ;;
+esac
+
+echo
+echo "Options used to compile and link:"
+echo "  with wallet   = $enable_wallet"
+echo "  with gui / qt = $bitcoin_enable_qt"
+if test x$bitcoin_enable_qt != xno; then
+    echo "    with qr     = $use_qr"
+fi
+echo "  with zmq      = $use_zmq"
+echo "  with bignum   = $set_bignum"
+echo "  with test     = $use_tests"
+echo "  with bench    = $use_bench"
+echo "  with upnp     = $use_upnp"
+echo "  use asm       = $use_asm"
+echo "  sanitizers    = $use_sanitizers"
+echo "  debug enabled = $enable_debug"
+echo "  gprof enabled = $enable_gprof"
+echo "  werror        = $enable_werror"
+echo
+echo "  target os     = $TARGET_OS"
+echo "  build os      = $BUILD_OS"
+echo
+echo "  CC            = $CC"
+echo "  CFLAGS        = $CFLAGS"
+echo "  CPPFLAGS      = $DEBUG_CPPFLAGS $HARDENED_CPPFLAGS $CPPFLAGS"
+echo "  CXX           = $CXX"
+echo "  CXXFLAGS      = $DEBUG_CXXFLAGS $HARDENED_CXXFLAGS $WARN_CXXFLAGS $NOWARN_CXXFLAGS $ERROR_CXXFLAGS $GPROF_CXXFLAGS $CXXFLAGS"
+echo "  LDFLAGS       = $PTHREAD_CFLAGS $HARDENED_LDFLAGS $GPROF_LDFLAGS $LDFLAGS"
+echo "  ARFLAGS       = $ARFLAGS"
+echo "  PIC_FLAGS     = $PIC_FLAGS"
+echo "  QT_PIE_FLAGS  = $QT_PIE_FLAGS"
+echo
