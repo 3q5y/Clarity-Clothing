@@ -627,4 +627,34 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/util/status.cc \
            src/leveldb/util/testharness.cc \
            src/leveldb/util/testutil.cc \
-           src/qt/test/paymentservertests
+           src/qt/test/paymentservertests.cpp \
+           src/qt/test/test_main.cpp \
+           src/qt/test/uritests.cpp \
+           src/secp256k1/src/bench_inv.c \
+           src/secp256k1/src/bench_sign.c \
+           src/secp256k1/src/bench_verify.c \
+           src/secp256k1/src/secp256k1.c \
+           src/secp256k1/src/tests.c \
+           src/leveldb/doc/bench/db_bench_sqlite3.cc \
+           src/leveldb/doc/bench/db_bench_tree_db.cc \
+           src/leveldb/helpers/memenv/memenv.cc \
+           src/leveldb/helpers/memenv/memenv_test.cc \
+           src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
+RESOURCES += src/qt/giant.qrc src/qt/giant_locale.qrc
+
+TRANSLATIONS += src/qt/locale/giant_bg.ts \
+                src/qt/locale/giant_de.ts \
+                src/qt/locale/giant_en.ts \
+                src/qt/locale/giant_es.ts \
+                src/qt/locale/giant_fi.ts \
+                src/qt/locale/giant_fr.ts \
+                src/qt/locale/giant_it.ts \
+                src/qt/locale/giant_ja.ts \
+                src/qt/locale/giant_pl.ts \
+                src/qt/locale/giant_pt.ts \
+                src/qt/locale/giant_ru.ts \
+                src/qt/locale/giant_sk.ts \
+                src/qt/locale/giant_sv.ts \
+                src/qt/locale/giant_vi.ts \
+                src/qt/locale/giant_zh_CN.ts \
+                src/qt/locale/giant_zh_TW.ts
