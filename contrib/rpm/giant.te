@@ -1,0 +1,15 @@
+policy_module(giant, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type giant_t;
+type giant_exec_t;
+init_daemon_domain(giant_t, giant_exec_t)
+
+permissive giant_t;
+
+type giant_initrc_exec_t;
+init_script_fi
