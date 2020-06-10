@@ -127,4 +127,45 @@ def filterbyasn(ips, max_per_asn, max_total):
             asn_count[asn] += 1
             result.append(ip)
         except:
-            sys.stderr.write('ERR: Coul
+            sys.stderr.write('ERR: Could not resolve ASN for "' + ip['ip'] + '"\n')
+
+    # TODO: filter IPv6 by ASN
+
+    # Add back non-IPv4
+    result.extend(ips_ipv6)
+    result.extend(ips_onion)
+    return result
+
+def main():
+    lines = sys.stdin.readlines()
+    ips = [parseline(line) for line in lines]
+
+    # Skip entries with valid address.
+    ips = [ip for ip in ips if ip is not None]
+    # Skip entries from suspicious hosts.
+    ips = [ip for ip in ips if ip['ip'] not in SUSPICIOUS_HOSTS]
+    # Enforce minimal number of blocks.
+    ips = [ip for ip in ips if ip['blocks'] >= MIN_BLOCKS]
+    # Require service bit 1.
+    ips = [ip for ip in ips if (ip['service'] & 1) == 1]
+    # Require at least 50% 30-day uptime.
+    ips = [ip for ip in ips if ip['uptime'] > 50]
+    # Require a known and recent user agent.
+    ips = [ip for ip in ips if PATTERN_AGENT.match(re.sub(' ', '-', ip['agent']))]
+    # Sort by availability (and use last success as tie breaker)
+    ips.sort(key=lambda x: (x['uptime'], x['lastsuccess'], x['ip']), reverse=True)
+    # Filter out hosts with multiple bitcoin ports, these are likely abusive
+    ips = filtermultiport(ips)
+    # Look up ASNs and limit results, both per ASN and globally.
+    ips = filterbyasn(ips, MAX_SEEDS_PER_ASN, NSEEDS)
+    # Sort the results by IP address (for deterministic output).
+    ips.sort(key=lambda x: (x['net'], x['sortkey']))
+
+    for ip in ips:
+        if ip['net'] == 'ipv6':
+            print('[%s]:%i' % (ip['ip'], ip['port']))
+        else:
+            print('%s:%i' % (ip['ip'], ip['port']))
+
+if __name__ == '__main__':
+    main()
