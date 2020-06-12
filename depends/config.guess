@@ -485,4 +485,356 @@ case "$UNAME_MACHINE:$UNAME_SYSTEM:$UNAME_RELEASE:$UNAME_VERSION" in
 	eval "$set_cc_for_build"
 	sed 's/^	//' << EOF > "$dummy.c"
 #ifdef __cplusplus
-#include <stdio.h>  /* for printf() prototyp
+#include <stdio.h>  /* for printf() prototype */
+	int main (int argc, char *argv[]) {
+#else
+	int main (argc, argv) int argc; char *argv[]; {
+#endif
+	#if defined (host_mips) && defined (MIPSEB)
+	#if defined (SYSTYPE_SYSV)
+	  printf ("mips-mips-riscos%ssysv\\n", argv[1]); exit (0);
+	#endif
+	#if defined (SYSTYPE_SVR4)
+	  printf ("mips-mips-riscos%ssvr4\\n", argv[1]); exit (0);
+	#endif
+	#if defined (SYSTYPE_BSD43) || defined(SYSTYPE_BSD)
+	  printf ("mips-mips-riscos%sbsd\\n", argv[1]); exit (0);
+	#endif
+	#endif
+	  exit (-1);
+	}
+EOF
+	$CC_FOR_BUILD -o "$dummy" "$dummy.c" &&
+	  dummyarg=`echo "$UNAME_RELEASE" | sed -n 's/\([0-9]*\).*/\1/p'` &&
+	  SYSTEM_NAME=`"$dummy" "$dummyarg"` &&
+	    { echo "$SYSTEM_NAME"; exit; }
+	echo mips-mips-riscos"$UNAME_RELEASE"
+	exit ;;
+    Motorola:PowerMAX_OS:*:*)
+	echo powerpc-motorola-powermax
+	exit ;;
+    Motorola:*:4.3:PL8-*)
+	echo powerpc-harris-powermax
+	exit ;;
+    Night_Hawk:*:*:PowerMAX_OS | Synergy:PowerMAX_OS:*:*)
+	echo powerpc-harris-powermax
+	exit ;;
+    Night_Hawk:Power_UNIX:*:*)
+	echo powerpc-harris-powerunix
+	exit ;;
+    m88k:CX/UX:7*:*)
+	echo m88k-harris-cxux7
+	exit ;;
+    m88k:*:4*:R4*)
+	echo m88k-motorola-sysv4
+	exit ;;
+    m88k:*:3*:R3*)
+	echo m88k-motorola-sysv3
+	exit ;;
+    AViiON:dgux:*:*)
+	# DG/UX returns AViiON for all architectures
+	UNAME_PROCESSOR=`/usr/bin/uname -p`
+	if [ "$UNAME_PROCESSOR" = mc88100 ] || [ "$UNAME_PROCESSOR" = mc88110 ]
+	then
+	    if [ "$TARGET_BINARY_INTERFACE"x = m88kdguxelfx ] || \
+	       [ "$TARGET_BINARY_INTERFACE"x = x ]
+	    then
+		echo m88k-dg-dgux"$UNAME_RELEASE"
+	    else
+		echo m88k-dg-dguxbcs"$UNAME_RELEASE"
+	    fi
+	else
+	    echo i586-dg-dgux"$UNAME_RELEASE"
+	fi
+	exit ;;
+    M88*:DolphinOS:*:*)	# DolphinOS (SVR3)
+	echo m88k-dolphin-sysv3
+	exit ;;
+    M88*:*:R3*:*)
+	# Delta 88k system running SVR3
+	echo m88k-motorola-sysv3
+	exit ;;
+    XD88*:*:*:*) # Tektronix XD88 system running UTekV (SVR3)
+	echo m88k-tektronix-sysv3
+	exit ;;
+    Tek43[0-9][0-9]:UTek:*:*) # Tektronix 4300 system running UTek (BSD)
+	echo m68k-tektronix-bsd
+	exit ;;
+    *:IRIX*:*:*)
+	echo mips-sgi-irix"`echo "$UNAME_RELEASE"|sed -e 's/-/_/g'`"
+	exit ;;
+    ????????:AIX?:[12].1:2)   # AIX 2.2.1 or AIX 2.1.1 is RT/PC AIX.
+	echo romp-ibm-aix     # uname -m gives an 8 hex-code CPU id
+	exit ;;               # Note that: echo "'`uname -s`'" gives 'AIX '
+    i*86:AIX:*:*)
+	echo i386-ibm-aix
+	exit ;;
+    ia64:AIX:*:*)
+	if [ -x /usr/bin/oslevel ] ; then
+		IBM_REV=`/usr/bin/oslevel`
+	else
+		IBM_REV="$UNAME_VERSION.$UNAME_RELEASE"
+	fi
+	echo "$UNAME_MACHINE"-ibm-aix"$IBM_REV"
+	exit ;;
+    *:AIX:2:3)
+	if grep bos325 /usr/include/stdio.h >/dev/null 2>&1; then
+		eval "$set_cc_for_build"
+		sed 's/^		//' << EOF > "$dummy.c"
+		#include <sys/systemcfg.h>
+
+		main()
+			{
+			if (!__power_pc())
+				exit(1);
+			puts("powerpc-ibm-aix3.2.5");
+			exit(0);
+			}
+EOF
+		if $CC_FOR_BUILD -o "$dummy" "$dummy.c" && SYSTEM_NAME=`"$dummy"`
+		then
+			echo "$SYSTEM_NAME"
+		else
+			echo rs6000-ibm-aix3.2.5
+		fi
+	elif grep bos324 /usr/include/stdio.h >/dev/null 2>&1; then
+		echo rs6000-ibm-aix3.2.4
+	else
+		echo rs6000-ibm-aix3.2
+	fi
+	exit ;;
+    *:AIX:*:[4567])
+	IBM_CPU_ID=`/usr/sbin/lsdev -C -c processor -S available | sed 1q | awk '{ print $1 }'`
+	if /usr/sbin/lsattr -El "$IBM_CPU_ID" | grep ' POWER' >/dev/null 2>&1; then
+		IBM_ARCH=rs6000
+	else
+		IBM_ARCH=powerpc
+	fi
+	if [ -x /usr/bin/lslpp ] ; then
+		IBM_REV=`/usr/bin/lslpp -Lqc bos.rte.libc |
+			   awk -F: '{ print $3 }' | sed s/[0-9]*$/0/`
+	else
+		IBM_REV="$UNAME_VERSION.$UNAME_RELEASE"
+	fi
+	echo "$IBM_ARCH"-ibm-aix"$IBM_REV"
+	exit ;;
+    *:AIX:*:*)
+	echo rs6000-ibm-aix
+	exit ;;
+    ibmrt:4.4BSD:*|romp-ibm:4.4BSD:*)
+	echo romp-ibm-bsd4.4
+	exit ;;
+    ibmrt:*BSD:*|romp-ibm:BSD:*)            # covers RT/PC BSD and
+	echo romp-ibm-bsd"$UNAME_RELEASE"   # 4.3 with uname added to
+	exit ;;                             # report: romp-ibm BSD 4.3
+    *:BOSX:*:*)
+	echo rs6000-bull-bosx
+	exit ;;
+    DPX/2?00:B.O.S.:*:*)
+	echo m68k-bull-sysv3
+	exit ;;
+    9000/[34]??:4.3bsd:1.*:*)
+	echo m68k-hp-bsd
+	exit ;;
+    hp300:4.4BSD:*:* | 9000/[34]??:4.3bsd:2.*:*)
+	echo m68k-hp-bsd4.4
+	exit ;;
+    9000/[34678]??:HP-UX:*:*)
+	HPUX_REV=`echo "$UNAME_RELEASE"|sed -e 's/[^.]*.[0B]*//'`
+	case "$UNAME_MACHINE" in
+	    9000/31?)            HP_ARCH=m68000 ;;
+	    9000/[34]??)         HP_ARCH=m68k ;;
+	    9000/[678][0-9][0-9])
+		if [ -x /usr/bin/getconf ]; then
+		    sc_cpu_version=`/usr/bin/getconf SC_CPU_VERSION 2>/dev/null`
+		    sc_kernel_bits=`/usr/bin/getconf SC_KERNEL_BITS 2>/dev/null`
+		    case "$sc_cpu_version" in
+		      523) HP_ARCH=hppa1.0 ;; # CPU_PA_RISC1_0
+		      528) HP_ARCH=hppa1.1 ;; # CPU_PA_RISC1_1
+		      532)                      # CPU_PA_RISC2_0
+			case "$sc_kernel_bits" in
+			  32) HP_ARCH=hppa2.0n ;;
+			  64) HP_ARCH=hppa2.0w ;;
+			  '') HP_ARCH=hppa2.0 ;;   # HP-UX 10.20
+			esac ;;
+		    esac
+		fi
+		if [ "$HP_ARCH" = "" ]; then
+		    eval "$set_cc_for_build"
+		    sed 's/^		//' << EOF > "$dummy.c"
+
+		#define _HPUX_SOURCE
+		#include <stdlib.h>
+		#include <unistd.h>
+
+		int main ()
+		{
+		#if defined(_SC_KERNEL_BITS)
+		    long bits = sysconf(_SC_KERNEL_BITS);
+		#endif
+		    long cpu  = sysconf (_SC_CPU_VERSION);
+
+		    switch (cpu)
+			{
+			case CPU_PA_RISC1_0: puts ("hppa1.0"); break;
+			case CPU_PA_RISC1_1: puts ("hppa1.1"); break;
+			case CPU_PA_RISC2_0:
+		#if defined(_SC_KERNEL_BITS)
+			    switch (bits)
+				{
+				case 64: puts ("hppa2.0w"); break;
+				case 32: puts ("hppa2.0n"); break;
+				default: puts ("hppa2.0"); break;
+				} break;
+		#else  /* !defined(_SC_KERNEL_BITS) */
+			    puts ("hppa2.0"); break;
+		#endif
+			default: puts ("hppa1.0"); break;
+			}
+		    exit (0);
+		}
+EOF
+		    (CCOPTS="" $CC_FOR_BUILD -o "$dummy" "$dummy.c" 2>/dev/null) && HP_ARCH=`"$dummy"`
+		    test -z "$HP_ARCH" && HP_ARCH=hppa
+		fi ;;
+	esac
+	if [ "$HP_ARCH" = hppa2.0w ]
+	then
+	    eval "$set_cc_for_build"
+
+	    # hppa2.0w-hp-hpux* has a 64-bit kernel and a compiler generating
+	    # 32-bit code.  hppa64-hp-hpux* has the same kernel and a compiler
+	    # generating 64-bit code.  GNU and HP use different nomenclature:
+	    #
+	    # $ CC_FOR_BUILD=cc ./config.guess
+	    # => hppa2.0w-hp-hpux11.23
+	    # $ CC_FOR_BUILD="cc +DA2.0w" ./config.guess
+	    # => hppa64-hp-hpux11.23
+
+	    if echo __LP64__ | (CCOPTS="" $CC_FOR_BUILD -E - 2>/dev/null) |
+		grep -q __LP64__
+	    then
+		HP_ARCH=hppa2.0w
+	    else
+		HP_ARCH=hppa64
+	    fi
+	fi
+	echo "$HP_ARCH"-hp-hpux"$HPUX_REV"
+	exit ;;
+    ia64:HP-UX:*:*)
+	HPUX_REV=`echo "$UNAME_RELEASE"|sed -e 's/[^.]*.[0B]*//'`
+	echo ia64-hp-hpux"$HPUX_REV"
+	exit ;;
+    3050*:HI-UX:*:*)
+	eval "$set_cc_for_build"
+	sed 's/^	//' << EOF > "$dummy.c"
+	#include <unistd.h>
+	int
+	main ()
+	{
+	  long cpu = sysconf (_SC_CPU_VERSION);
+	  /* The order matters, because CPU_IS_HP_MC68K erroneously returns
+	     true for CPU_PA_RISC1_0.  CPU_IS_PA_RISC returns correct
+	     results, however.  */
+	  if (CPU_IS_PA_RISC (cpu))
+	    {
+	      switch (cpu)
+		{
+		  case CPU_PA_RISC1_0: puts ("hppa1.0-hitachi-hiuxwe2"); break;
+		  case CPU_PA_RISC1_1: puts ("hppa1.1-hitachi-hiuxwe2"); break;
+		  case CPU_PA_RISC2_0: puts ("hppa2.0-hitachi-hiuxwe2"); break;
+		  default: puts ("hppa-hitachi-hiuxwe2"); break;
+		}
+	    }
+	  else if (CPU_IS_HP_MC68K (cpu))
+	    puts ("m68k-hitachi-hiuxwe2");
+	  else puts ("unknown-hitachi-hiuxwe2");
+	  exit (0);
+	}
+EOF
+	$CC_FOR_BUILD -o "$dummy" "$dummy.c" && SYSTEM_NAME=`"$dummy"` &&
+		{ echo "$SYSTEM_NAME"; exit; }
+	echo unknown-hitachi-hiuxwe2
+	exit ;;
+    9000/7??:4.3bsd:*:* | 9000/8?[79]:4.3bsd:*:*)
+	echo hppa1.1-hp-bsd
+	exit ;;
+    9000/8??:4.3bsd:*:*)
+	echo hppa1.0-hp-bsd
+	exit ;;
+    *9??*:MPE/iX:*:* | *3000*:MPE/iX:*:*)
+	echo hppa1.0-hp-mpeix
+	exit ;;
+    hp7??:OSF1:*:* | hp8?[79]:OSF1:*:*)
+	echo hppa1.1-hp-osf
+	exit ;;
+    hp8??:OSF1:*:*)
+	echo hppa1.0-hp-osf
+	exit ;;
+    i*86:OSF1:*:*)
+	if [ -x /usr/sbin/sysversion ] ; then
+	    echo "$UNAME_MACHINE"-unknown-osf1mk
+	else
+	    echo "$UNAME_MACHINE"-unknown-osf1
+	fi
+	exit ;;
+    parisc*:Lites*:*:*)
+	echo hppa1.1-hp-lites
+	exit ;;
+    C1*:ConvexOS:*:* | convex:ConvexOS:C1*:*)
+	echo c1-convex-bsd
+	exit ;;
+    C2*:ConvexOS:*:* | convex:ConvexOS:C2*:*)
+	if getsysinfo -f scalar_acc
+	then echo c32-convex-bsd
+	else echo c2-convex-bsd
+	fi
+	exit ;;
+    C34*:ConvexOS:*:* | convex:ConvexOS:C34*:*)
+	echo c34-convex-bsd
+	exit ;;
+    C38*:ConvexOS:*:* | convex:ConvexOS:C38*:*)
+	echo c38-convex-bsd
+	exit ;;
+    C4*:ConvexOS:*:* | convex:ConvexOS:C4*:*)
+	echo c4-convex-bsd
+	exit ;;
+    CRAY*Y-MP:*:*:*)
+	echo ymp-cray-unicos"$UNAME_RELEASE" | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*[A-Z]90:*:*:*)
+	echo "$UNAME_MACHINE"-cray-unicos"$UNAME_RELEASE" \
+	| sed -e 's/CRAY.*\([A-Z]90\)/\1/' \
+	      -e y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/ \
+	      -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*TS:*:*:*)
+	echo t90-cray-unicos"$UNAME_RELEASE" | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*T3E:*:*:*)
+	echo alphaev5-cray-unicosmk"$UNAME_RELEASE" | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*SV1:*:*:*)
+	echo sv1-cray-unicos"$UNAME_RELEASE" | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    *:UNICOS/mp:*:*)
+	echo craynv-cray-unicosmp"$UNAME_RELEASE" | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    F30[01]:UNIX_System_V:*:* | F700:UNIX_System_V:*:*)
+	FUJITSU_PROC=`uname -m | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz`
+	FUJITSU_SYS=`uname -p | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz | sed -e 's/\///'`
+	FUJITSU_REL=`echo "$UNAME_RELEASE" | sed -e 's/ /_/'`
+	echo "${FUJITSU_PROC}-fujitsu-${FUJITSU_SYS}${FUJITSU_REL}"
+	exit ;;
+    5000:UNIX_System_V:4.*:*)
+	FUJITSU_SYS=`uname -p | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz | sed -e 's/\///'`
+	FUJITSU_REL=`echo "$UNAME_RELEASE" | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz | sed -e 's/ /_/'`
+	echo "sparc-fujitsu-${FUJITSU_SYS}${FUJITSU_REL}"
+	exit ;;
+    i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+	echo "$UNAME_MACHINE"-pc-bsdi"$UNAME_RELEASE"
+	exit ;;
+    sparc*:BSD/OS:*:*)
+	echo sparc-unknown-bsdi"$UNAME_RELEASE"
+	exit ;;
+ 
