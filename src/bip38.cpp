@@ -222,4 +222,59 @@ bool BIP38_Decrypt(std::string strPassphrase, std::string strEncryptedKey, uint2
     if (!ComputePasspoint(passfactor, passpoint))
         return false;
 
-    uint5
+    uint512 seedBPass;
+    ComputeSeedBPass(passpoint, strAddressHash, ownersalt, seedBPass);
+
+    //get derived halfs, being mindful for endian switch
+    uint256 derivedHalf1(seedBPass.ToString().substr(64, 64));
+    uint256 derivedHalf2(seedBPass.ToString().substr(0, 64));
+
+    /** Decrypt encryptedpart2 using AES256Decrypt to yield the last 8 bytes of seedb and the last 8 bytes of encryptedpart1. **/
+    uint256 decryptedPart2;
+    DecryptAES(encryptedPart2, derivedHalf2, decryptedPart2);
+
+    //xor decryptedPart2 and 2nd half of derived half 1
+    uint256 x0 = derivedHalf1 >> 128; //drop off the first half (note: endian)
+    uint256 x1 = decryptedPart2 ^ x0;
+    uint256 seedbPart2 = x1 >> 64;
+
+    /** Decrypt encryptedpart1 to yield the remainder of seedb. **/
+    uint256 decryptedPart1;
+    uint256 x2 = x1 & uint256("0xffffffffffffffff"); // set x2 to seedbPart1 (still encrypted)
+    x2 = x2 << 64;                                   //make room to add encryptedPart1 to the front
+    x2 = encryptedPart1 | x2;                        //combine with encryptedPart1
+    DecryptAES(x2, derivedHalf2, decryptedPart1);
+
+    //decrypted part 1: seedb[0..15] xor derivedhalf1[0..15]
+    uint256 x3 = derivedHalf1 & uint256("0xffffffffffffffffffffffffffffffff");
+    uint256 seedbPart1 = decryptedPart1 ^ x3;
+    uint256 seedB = seedbPart1 | (seedbPart2 << 128);
+
+    uint256 factorB;
+    ComputeFactorB(seedB, factorB);
+
+    //multiply passfactor by factorb mod N to yield the priv key
+    secp256k1_context *ctx = secp256k1_context_create(SECP256K1_CONTEXT_SIGN);
+    assert(ctx != nullptr);
+    {
+        // Pass in a random blinding seed to the secp256k1 context.
+        std::vector<unsigned char, secure_allocator<unsigned char>> vseed(32);
+        GetRandBytes(vseed.data(), 32);
+        bool ret = secp256k1_context_randomize(ctx, vseed.data());
+        assert(ret);
+    }
+    privKey = factorB;
+    if (!secp256k1_ec_privkey_tweak_mul(ctx, privKey.begin(), passfactor.begin())) {
+        secp256k1_context_destroy(ctx);
+        return false;
+    }
+    secp256k1_context_destroy(ctx);
+
+    //double check that the address hash matches our final privkey
+    CKey k;
+    k.Set(privKey.begin(), privKey.end(), fCompressed);
+    CPubKey pubkey = k.GetPubKey();
+    string address = CBitcoinAddress(pubkey.GetID()).ToString();
+
+    return strAddressHash == AddressToBip38Hash(address);
+}
