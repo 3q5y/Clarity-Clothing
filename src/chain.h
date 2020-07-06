@@ -442,4 +442,165 @@ public:
 class CDiskBlockIndex : public CBlockIndex
 {
 public:
-    u
+    uint256 hashPrev;
+    uint256 hashNext;
+
+    CDiskBlockIndex()
+    {
+        hashPrev = uint256();
+        hashNext = uint256();
+    }
+
+    explicit CDiskBlockIndex(CBlockIndex* pindex) : CBlockIndex(*pindex)
+    {
+        hashPrev = (pprev ? pprev->GetBlockHash() : uint256());
+    }
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
+        if (!(nType & SER_GETHASH))
+            READWRITE(VARINT(nVersion));
+
+        READWRITE(VARINT(nHeight));
+        READWRITE(VARINT(nStatus));
+        READWRITE(VARINT(nTx));
+        if (nStatus & (BLOCK_HAVE_DATA | BLOCK_HAVE_UNDO))
+            READWRITE(VARINT(nFile));
+        if (nStatus & BLOCK_HAVE_DATA)
+            READWRITE(VARINT(nDataPos));
+        if (nStatus & BLOCK_HAVE_UNDO)
+            READWRITE(VARINT(nUndoPos));
+
+
+        READWRITE(nMint);
+        READWRITE(nMoneySupply);
+        READWRITE(nFlags);
+        READWRITE(nStakeModifier);
+        if (IsProofOfStake()) {
+            READWRITE(prevoutStake);
+            READWRITE(nStakeTime);
+        } else {
+            const_cast<CDiskBlockIndex*>(this)->prevoutStake.SetNull();
+            const_cast<CDiskBlockIndex*>(this)->nStakeTime = 0;
+            const_cast<CDiskBlockIndex*>(this)->hashProofOfStake = uint256();
+        }
+
+        // block header
+        READWRITE(this->nVersion);
+        READWRITE(hashPrev);
+        READWRITE(hashNext);
+        READWRITE(hashMerkleRoot);
+        READWRITE(nTime);
+        READWRITE(nBits);
+        READWRITE(nNonce);
+        if(this->nVersion > 3) {
+            READWRITE(nAccumulatorCheckpoint);
+            READWRITE(mapZerocoinSupply);
+            READWRITE(vMintDenominationsInBlock);
+        }
+
+    }
+
+    uint256 GetBlockHash() const
+    {
+        CBlockHeader block;
+        block.nVersion = nVersion;
+        block.hashPrevBlock = hashPrev;
+        block.hashMerkleRoot = hashMerkleRoot;
+        block.nTime = nTime;
+        block.nBits = nBits;
+        block.nNonce = nNonce;
+        block.nAccumulatorCheckpoint = nAccumulatorCheckpoint;
+        return block.GetHash();
+    }
+
+
+    std::string ToString() const
+    {
+        std::string str = "CDiskBlockIndex(";
+        str += CBlockIndex::ToString();
+        str += strprintf("\n                hashBlock=%s, hashPrev=%s)",
+            GetBlockHash().ToString(),
+            hashPrev.ToString());
+        return str;
+    }
+};
+
+/** An in-memory indexed chain of blocks. */
+class CChain
+{
+private:
+    std::vector<CBlockIndex*> vChain;
+
+public:
+    /** Returns the index entry for the genesis block of this chain, or NULL if none. */
+    CBlockIndex* Genesis() const
+    {
+        return vChain.size() > 0 ? vChain[0] : NULL;
+    }
+
+    /** Returns the index entry for the tip of this chain, or NULL if none. */
+    CBlockIndex* Tip(bool fProofOfStake = false) const
+    {
+        if (vChain.size() < 1)
+            return NULL;
+
+        CBlockIndex* pindex = vChain[vChain.size() - 1];
+
+        if (fProofOfStake) {
+            while (pindex && pindex->pprev && !pindex->IsProofOfStake())
+                pindex = pindex->pprev;
+        }
+        return pindex;
+    }
+
+    /** Returns the index entry at a particular height in this chain, or NULL if no such height exists. */
+    CBlockIndex* operator[](int nHeight) const
+    {
+        if (nHeight < 0 || nHeight >= (int)vChain.size())
+            return NULL;
+        return vChain[nHeight];
+    }
+
+    /** Compare two chains efficiently. */
+    friend bool operator==(const CChain& a, const CChain& b)
+    {
+        return a.vChain.size() == b.vChain.size() &&
+               a.vChain[a.vChain.size() - 1] == b.vChain[b.vChain.size() - 1];
+    }
+
+    /** Efficiently check whether a block is present in this chain. */
+    bool Contains(const CBlockIndex* pindex) const
+    {
+        return (*this)[pindex->nHeight] == pindex;
+    }
+
+    /** Find the successor of a block in this chain, or NULL if the given index is not found or is the tip. */
+    CBlockIndex* Next(const CBlockIndex* pindex) const
+    {
+        if (Contains(pindex))
+            return (*this)[pindex->nHeight + 1];
+        else
+            return NULL;
+    }
+
+    /** Return the maximal height in the chain. Is equal to chain.Tip() ? chain.Tip()->nHeight : -1. */
+    int Height() const
+    {
+        return vChain.size() - 1;
+    }
+
+    /** Set/initialize a chain with a given tip. */
+    void SetTip(CBlockIndex* pindex);
+
+    /** Return a CBlockLocator that refers to a block in this chain (by default the tip). */
+    CBlockLocator GetLocator(const CBlockIndex* pindex = NULL) const;
+
+    /** Find the last common block between this chain and a block index entry. */
+    const CBlockIndex* FindFork(const CBlockIndex* pindex) const;
+};
+
+#endif // BITCOIN_CHAIN_H
