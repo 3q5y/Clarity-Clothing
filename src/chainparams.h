@@ -88,4 +88,186 @@ public:
     std::string NetworkIDString() const { return strNetworkID; }
     const std::vector<CDNSSeedData>& DNSSeeds() const { return vSeeds; }
     const std::vector<unsigned char>& Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
-    const std::vector<CAddress>& FixedSeeds() 
+    const std::vector<CAddress>& FixedSeeds() const { return vFixedSeeds; }
+    virtual const Checkpoints::CCheckpointData& Checkpoints() const = 0;
+    int PoolMaxTransactions() const { return nPoolMaxTransactions; }
+    /** Return the number of blocks in a budget cycle */
+    int GetBudgetCycleBlocks() const { return nBudgetCycleBlocks; }
+    int64_t GetProposalEstablishmentTime() const { return nProposalEstablishmentTime; }
+
+    /** Spork key and Masternode Handling **/
+    std::string SporkKey() const { return strSporkKey; }
+    std::string SporkKeyOld() const { return strSporkKeyOld; }
+    int64_t NewSporkStart() const { return nEnforceNewSporkKey; }
+    int64_t RejectOldSporkKey() const { return nRejectOldSporkKey; }
+    std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
+    int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
+    int64_t Budget_Fee_Confirmations() const { return nBudget_Fee_Confirmations; }
+
+    CBaseChainParams::Network NetworkID() const { return networkID; }
+    CAmount StakeMinAmount() const { return nStakeMinAmount; }
+    CAmount DeprecatedCollateralPrice(int height) const { return !IsTiersMasternodeEnabled(height - nDeprecatedPeriod) ? nDeprecatedCollateralPrice : 0; } 
+    CAmount MasternodeCollateralPrice(int height) const { return IsTiersMasternodeEnabled(height) ? nMasternodeCollateralPrice : 0; }
+    CAmount SupernodeCollateralPrice(int height) const { return IsTiersMasternodeEnabled(height) ? nSupernodeCollateralPrice : 0; }
+    double MasternodeRewardFactor() const { return dMasternodeRewardFactor; }
+    double SupernodeRewardFactor() const { return dSupernodeRewardFactor; }
+    double DeprecatedRewardFactor() const { return dDeprecatedRewardFactor; }
+    /** Zerocoin **/
+    std::string Zerocoin_Modulus() const { return zerocoinModulus; }
+    libzerocoin::ZerocoinParams* Zerocoin_Params(bool useModulusV1) const;
+    int Zerocoin_MaxSpendsPerTransaction() const { return nMaxZerocoinSpendsPerTransaction; }
+    CAmount Zerocoin_MintFee() const { return nMinZerocoinMintFee; }
+    int Zerocoin_MintRequiredConfirmations() const { return nMintRequiredConfirmations; }
+    int Zerocoin_RequiredAccumulation() const { return nRequiredAccumulation; }
+    int Zerocoin_DefaultSpendSecurity() const { return nDefaultSecurityLevel; }
+    int Zerocoin_HeaderVersion() const { return nZerocoinHeaderVersion; }
+    int Zerocoin_RequiredStakeDepth() const { return nZerocoinRequiredStakeDepth; }
+
+    /** Height or Time Based Activations **/
+    int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
+    int LAST_POW_BLOCK() const { return nLastPOWBlock; }
+    int Zerocoin_StartHeight() const { return nZerocoinStartHeight; }
+    int Zerocoin_Block_EnforceSerialRange() const { return nBlockEnforceSerialRange; }
+    int Zerocoin_Block_RecalculateAccumulators() const { return nBlockRecalculateAccumulators; }
+    int Zerocoin_Block_FirstFraudulent() const { return nBlockFirstFraudulent; }
+    int Zerocoin_Block_LastGoodCheckpoint() const { return nBlockLastGoodCheckpoint; }
+    int Zerocoin_StartTime() const { return nZerocoinStartTime; }
+    int Block_Enforce_Invalid() const { return nBlockEnforceInvalidUTXO; }
+    int Zerocoin_Block_V2_Start() const { return nBlockZerocoinV2; }
+
+    // fake serial attack
+    int Zerocoin_Block_EndFakeSerial() const { return nFakeSerialBlockheightEnd; }
+    CAmount GetSupplyBeforeFakeSerial() const { return nSupplyBeforeFakeSerial; }
+
+    int Zerocoin_Block_Double_Accumulated() const { return nBlockDoubleAccumulated; }
+    CAmount InvalidAmountFiltered() const { return nInvalidAmountFiltered; }
+
+    int TiersActivationHeight() const { return nTiersActivationHeight; }
+    bool IsTiersMasternodeEnabled(int height) const { return height >= nTiersActivationHeight; }
+    bool IsMinStakeEnabled(int height) const { return height >= nMinStakeActivationHeight; }
+
+protected:
+    CChainParams() {}
+
+    uint256 hashGenesisBlock;
+    MessageStartChars pchMessageStart;
+    //! Raw pub key bytes for the broadcast alert signing key.
+    std::vector<unsigned char> vAlertPubKey;
+    int nDefaultPort;
+    uint256 bnProofOfWorkLimit;
+    int nMaxReorganizationDepth;
+    int nSubsidyHalvingInterval;
+    int nEnforceBlockUpgradeMajority;
+    int nRejectBlockOutdatedMajority;
+    int nToCheckBlockUpgradeMajority;
+    int64_t nTargetTimespan;
+    int64_t nTargetSpacing;
+    int nLastPOWBlock;
+    int nMasternodeCountDrift;
+    int nMaturity;
+    int nOldMaturity;
+    int nChangeMaturityHeight;
+    int nModifierUpdateBlock;
+    CAmount nMaxMoneyOut;
+    int nMinerThreads;
+    std::vector<CDNSSeedData> vSeeds;
+    std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
+    CBaseChainParams::Network networkID;
+    std::string strNetworkID;
+    CBlock genesis;
+    std::vector<CAddress> vFixedSeeds;
+    bool fMiningRequiresPeers;
+    bool fAllowMinDifficultyBlocks;
+    bool fDefaultConsistencyChecks;
+    bool fRequireStandard;
+    bool fMineBlocksOnDemand;
+    bool fSkipProofOfWorkCheck;
+    bool fTestnetToBeDeprecatedFieldRPC;
+    bool fHeadersFirstSyncingActive;
+    int nPoolMaxTransactions;
+    int nBudgetCycleBlocks;
+    std::string strSporkKey;
+    std::string strSporkKeyOld;
+    int64_t nEnforceNewSporkKey;
+    int64_t nRejectOldSporkKey;
+    std::string strObfuscationPoolDummyAddress;
+    int64_t nStartMasternodePayments;
+    CAmount nStakeMinAmount;
+    int nDeprecatedPeriod;
+    CAmount nDeprecatedCollateralPrice;
+    CAmount nMasternodeCollateralPrice;
+    CAmount nSupernodeCollateralPrice;
+    double dDeprecatedRewardFactor;
+    double dMasternodeRewardFactor;
+    double dSupernodeRewardFactor;
+    std::string zerocoinModulus;
+    int nMaxZerocoinSpendsPerTransaction;
+    CAmount nMinZerocoinMintFee;
+    CAmount nInvalidAmountFiltered;
+    int nMintRequiredConfirmations;
+    int nRequiredAccumulation;
+    int nDefaultSecurityLevel;
+    int nZerocoinHeaderVersion;
+    int64_t nBudget_Fee_Confirmations;
+    int nZerocoinStartHeight;
+    int nZerocoinStartTime;
+    int nZerocoinRequiredStakeDepth;
+    int64_t nProposalEstablishmentTime;
+
+    int nBlockEnforceSerialRange;
+    int nBlockRecalculateAccumulators;
+    int nBlockFirstFraudulent;
+    int nBlockLastGoodCheckpoint;
+    int nBlockEnforceInvalidUTXO;
+    int nBlockZerocoinV2;
+    int nBlockDoubleAccumulated;
+
+    // fake serial attack
+    int nFakeSerialBlockheightEnd = 0;
+    CAmount nSupplyBeforeFakeSerial = 0;
+    int nTiersActivationHeight = 0;
+    int nMinStakeActivationHeight = 0;
+};
+
+/**
+ * Modifiable parameters interface is used by test cases to adapt the parameters in order
+ * to test specific features more easily. Test cases should always restore the previous
+ * values after finalization.
+ */
+
+class CModifiableParams
+{
+public:
+    //! Published setters to allow changing values in unit test cases
+    virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval) = 0;
+    virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority) = 0;
+    virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority) = 0;
+    virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority) = 0;
+    virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks) = 0;
+    virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks) = 0;
+    virtual void setSkipProofOfWorkCheck(bool aSkipProofOfWorkCheck) = 0;
+};
+
+
+/**
+ * Return the currently selected parameters. This won't change after app startup
+ * outside of the unit tests.
+ */
+const CChainParams& Params();
+
+/** Return parameters for the given network. */
+CChainParams& Params(CBaseChainParams::Network network);
+
+/** Get modifiable network parameters (UNITTEST only) */
+CModifiableParams* ModifiableParams();
+
+/** Sets the params returned by Params() to those for the given network. */
+void SelectParams(CBaseChainParams::Network network);
+
+/**
+ * Looks for -regtest or -testnet and then calls SelectParams as appropriate.
+ * Returns false if an invalid combination is given.
+ */
+bool SelectParamsFromCommandLine();
+
+#endif // BITCOIN_CHAINPARAMS_H
