@@ -113,4 +113,96 @@ public:
 bool EncryptSecret(const CKeyingMaterial& vMasterKey, const CKeyingMaterial& vchPlaintext, const uint256& nIV, std::vector<unsigned char>& vchCiphertext);
 bool DecryptSecret(const CKeyingMaterial& vMasterKey, const std::vector<unsigned char>& vchCiphertext, const uint256& nIV, CKeyingMaterial& vchPlaintext);
 
-bool EncryptAES256(const SecureString& sKey, const SecureString& sPlaintext, const std::string& sIV, std::string& sCiphertex
+bool EncryptAES256(const SecureString& sKey, const SecureString& sPlaintext, const std::string& sIV, std::string& sCiphertext);
+bool DecryptAES256(const SecureString& sKey, const std::string& sCiphertext, const std::string& sIV, SecureString& sPlaintext);
+
+
+/** Keystore which keeps the private keys encrypted.
+ * It derives from the basic key store, which is used if no encryption is active.
+ */
+class CCryptoKeyStore : public CBasicKeyStore
+{
+private:
+    CryptedKeyMap mapCryptedKeys;
+
+    CKeyingMaterial vMasterKey;
+
+    //! if fUseCrypto is true, mapKeys must be empty
+    //! if fUseCrypto is false, vMasterKey must be empty
+    bool fUseCrypto;
+
+    //! keeps track of whether Unlock has run a thorough check before
+    bool fDecryptionThoroughlyChecked;
+
+protected:
+    bool SetCrypted();
+
+    //! will encrypt previously unencrypted keys
+    bool EncryptKeys(CKeyingMaterial& vMasterKeyIn);
+
+    bool Unlock(const CKeyingMaterial& vMasterKeyIn);
+
+public:
+    CCryptoKeyStore() : fUseCrypto(false), fDecryptionThoroughlyChecked(false)
+    {
+    }
+
+    bool IsCrypted() const
+    {
+        return fUseCrypto;
+    }
+
+    bool IsLocked() const
+    {
+        if (!IsCrypted())
+            return false;
+        bool result;
+        {
+            LOCK(cs_KeyStore);
+            result = vMasterKey.empty();
+        }
+        return result;
+    }
+
+    bool Lock();
+
+    virtual bool AddCryptedKey(const CPubKey& vchPubKey, const std::vector<unsigned char>& vchCryptedSecret);
+    bool AddKeyPubKey(const CKey& key, const CPubKey& pubkey);
+    bool HaveKey(const CKeyID& address) const
+    {
+        {
+            LOCK(cs_KeyStore);
+            if (!IsCrypted())
+                return CBasicKeyStore::HaveKey(address);
+            return mapCryptedKeys.count(address) > 0;
+        }
+        return false;
+    }
+    bool GetKey(const CKeyID& address, CKey& keyOut) const;
+    bool GetPubKey(const CKeyID& address, CPubKey& vchPubKeyOut) const;
+    void GetKeys(std::set<CKeyID>& setAddress) const
+    {
+        if (!IsCrypted()) {
+            CBasicKeyStore::GetKeys(setAddress);
+            return;
+        }
+        setAddress.clear();
+        CryptedKeyMap::const_iterator mi = mapCryptedKeys.begin();
+        while (mi != mapCryptedKeys.end()) {
+            setAddress.insert((*mi).first);
+            mi++;
+        }
+    }
+
+    bool GetDeterministicSeed(const uint256& hashSeed, uint256& seed);
+    bool AddDeterministicSeed(const uint256& seed);
+
+
+    /**
+     * Wallet status (encrypted, locked) changed.
+     * Note: Called without locks held.
+     */
+    boost::signals2::signal<void(CCryptoKeyStore* wallet)> NotifyStatusChanged;
+};
+
+#endif // BITCOIN_CRYPTER_H
