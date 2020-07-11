@@ -49,3 +49,22 @@ bool sanity_test_memcpy()
 //   as >0 and optimizations must be set to at least -O2.
 // test: Add a file descriptor to an empty fd_set. Verify that it has been
 //   correctly added.
+bool sanity_test_fdelt()
+{
+    fd_set fds;
+    FD_ZERO(&fds);
+    FD_SET(0, &fds);
+    return FD_ISSET(0, &fds);
+}
+#endif
+
+} // anon namespace
+
+bool glibc_sanity_test()
+{
+#if defined(HAVE_SYS_SELECT_H)
+    if (!sanity_test_fdelt())
+        return false;
+#endif
+    return sanity_test_memcpy<1025>();
+}
