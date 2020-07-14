@@ -577,4 +577,455 @@ mix_column(sph_u32 W[16][4], int ia, int ib, int ic, int id)
 		MIX_COLUMN(12, 13, 14, 15); \
 	} while (0)
 
-#define BIG_R
+#define BIG_ROUND   do { \
+		BIG_SUB_WORDS; \
+		BIG_SHIFT_ROWS; \
+		BIG_MIX_COLUMNS; \
+	} while (0)
+
+#define FINAL_SMALL   do { \
+		unsigned u; \
+		sph_u32 *VV = &sc->u.Vs[0][0]; \
+		sph_u32 *WW = &W[0][0]; \
+		for (u = 0; u < 16; u ++) { \
+			VV[u] ^= sph_dec32le_aligned(sc->buf + (u * 4)) \
+				^ sph_dec32le_aligned(sc->buf + (u * 4) + 64) \
+				^ sph_dec32le_aligned(sc->buf + (u * 4) + 128) \
+				^ WW[u] ^ WW[u + 16] \
+				^ WW[u + 32] ^ WW[u + 48]; \
+		} \
+	} while (0)
+
+#define FINAL_BIG   do { \
+		unsigned u; \
+		sph_u32 *VV = &sc->u.Vs[0][0]; \
+		sph_u32 *WW = &W[0][0]; \
+		for (u = 0; u < 32; u ++) { \
+			VV[u] ^= sph_dec32le_aligned(sc->buf + (u * 4)) \
+				^ WW[u] ^ WW[u + 32]; \
+		} \
+	} while (0)
+
+#define COMPRESS_SMALL(sc)   do { \
+		sph_u32 K0 = sc->C0; \
+		sph_u32 K1 = sc->C1; \
+		sph_u32 K2 = sc->C2; \
+		sph_u32 K3 = sc->C3; \
+		unsigned u; \
+		INPUT_BLOCK_SMALL(sc); \
+		for (u = 0; u < 8; u ++) { \
+			BIG_ROUND; \
+		} \
+		FINAL_SMALL; \
+	} while (0)
+
+#define COMPRESS_BIG(sc)   do { \
+		sph_u32 K0 = sc->C0; \
+		sph_u32 K1 = sc->C1; \
+		sph_u32 K2 = sc->C2; \
+		sph_u32 K3 = sc->C3; \
+		unsigned u; \
+		INPUT_BLOCK_BIG(sc); \
+		for (u = 0; u < 10; u ++) { \
+			BIG_ROUND; \
+		} \
+		FINAL_BIG; \
+	} while (0)
+
+#endif
+
+#define INCR_COUNTER(sc, val)   do { \
+		sc->C0 = T32(sc->C0 + (sph_u32)(val)); \
+		if (sc->C0 < (sph_u32)(val)) { \
+			if ((sc->C1 = T32(sc->C1 + 1)) == 0) \
+				if ((sc->C2 = T32(sc->C2 + 1)) == 0) \
+					sc->C3 = T32(sc->C3 + 1); \
+		} \
+	} while (0)
+
+static void
+echo_small_init(sph_echo_small_context *sc, unsigned out_len)
+{
+#if SPH_ECHO_64
+	sc->u.Vb[0][0] = (sph_u64)out_len;
+	sc->u.Vb[0][1] = 0;
+	sc->u.Vb[1][0] = (sph_u64)out_len;
+	sc->u.Vb[1][1] = 0;
+	sc->u.Vb[2][0] = (sph_u64)out_len;
+	sc->u.Vb[2][1] = 0;
+	sc->u.Vb[3][0] = (sph_u64)out_len;
+	sc->u.Vb[3][1] = 0;
+#else
+	sc->u.Vs[0][0] = (sph_u32)out_len;
+	sc->u.Vs[0][1] = sc->u.Vs[0][2] = sc->u.Vs[0][3] = 0;
+	sc->u.Vs[1][0] = (sph_u32)out_len;
+	sc->u.Vs[1][1] = sc->u.Vs[1][2] = sc->u.Vs[1][3] = 0;
+	sc->u.Vs[2][0] = (sph_u32)out_len;
+	sc->u.Vs[2][1] = sc->u.Vs[2][2] = sc->u.Vs[2][3] = 0;
+	sc->u.Vs[3][0] = (sph_u32)out_len;
+	sc->u.Vs[3][1] = sc->u.Vs[3][2] = sc->u.Vs[3][3] = 0;
+#endif
+	sc->ptr = 0;
+	sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+}
+
+static void
+echo_big_init(sph_echo_big_context *sc, unsigned out_len)
+{
+#if SPH_ECHO_64
+	sc->u.Vb[0][0] = (sph_u64)out_len;
+	sc->u.Vb[0][1] = 0;
+	sc->u.Vb[1][0] = (sph_u64)out_len;
+	sc->u.Vb[1][1] = 0;
+	sc->u.Vb[2][0] = (sph_u64)out_len;
+	sc->u.Vb[2][1] = 0;
+	sc->u.Vb[3][0] = (sph_u64)out_len;
+	sc->u.Vb[3][1] = 0;
+	sc->u.Vb[4][0] = (sph_u64)out_len;
+	sc->u.Vb[4][1] = 0;
+	sc->u.Vb[5][0] = (sph_u64)out_len;
+	sc->u.Vb[5][1] = 0;
+	sc->u.Vb[6][0] = (sph_u64)out_len;
+	sc->u.Vb[6][1] = 0;
+	sc->u.Vb[7][0] = (sph_u64)out_len;
+	sc->u.Vb[7][1] = 0;
+#else
+	sc->u.Vs[0][0] = (sph_u32)out_len;
+	sc->u.Vs[0][1] = sc->u.Vs[0][2] = sc->u.Vs[0][3] = 0;
+	sc->u.Vs[1][0] = (sph_u32)out_len;
+	sc->u.Vs[1][1] = sc->u.Vs[1][2] = sc->u.Vs[1][3] = 0;
+	sc->u.Vs[2][0] = (sph_u32)out_len;
+	sc->u.Vs[2][1] = sc->u.Vs[2][2] = sc->u.Vs[2][3] = 0;
+	sc->u.Vs[3][0] = (sph_u32)out_len;
+	sc->u.Vs[3][1] = sc->u.Vs[3][2] = sc->u.Vs[3][3] = 0;
+	sc->u.Vs[4][0] = (sph_u32)out_len;
+	sc->u.Vs[4][1] = sc->u.Vs[4][2] = sc->u.Vs[4][3] = 0;
+	sc->u.Vs[5][0] = (sph_u32)out_len;
+	sc->u.Vs[5][1] = sc->u.Vs[5][2] = sc->u.Vs[5][3] = 0;
+	sc->u.Vs[6][0] = (sph_u32)out_len;
+	sc->u.Vs[6][1] = sc->u.Vs[6][2] = sc->u.Vs[6][3] = 0;
+	sc->u.Vs[7][0] = (sph_u32)out_len;
+	sc->u.Vs[7][1] = sc->u.Vs[7][2] = sc->u.Vs[7][3] = 0;
+#endif
+	sc->ptr = 0;
+	sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+}
+
+static void
+echo_small_compress(sph_echo_small_context *sc)
+{
+	DECL_STATE_SMALL
+
+	COMPRESS_SMALL(sc);
+}
+
+static void
+echo_big_compress(sph_echo_big_context *sc)
+{
+	DECL_STATE_BIG
+
+	COMPRESS_BIG(sc);
+}
+
+static void
+echo_small_core(sph_echo_small_context *sc,
+	const unsigned char *data, size_t len)
+{
+	unsigned char *buf;
+	size_t ptr;
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	if (len < (sizeof sc->buf) - ptr) {
+		memcpy(buf + ptr, data, len);
+		ptr += len;
+		sc->ptr = ptr;
+		return;
+	}
+
+	while (len > 0) {
+		size_t clen;
+
+		clen = (sizeof sc->buf) - ptr;
+		if (clen > len)
+			clen = len;
+		memcpy(buf + ptr, data, clen);
+		ptr += clen;
+		data += clen;
+		len -= clen;
+		if (ptr == sizeof sc->buf) {
+			INCR_COUNTER(sc, 1536);
+			echo_small_compress(sc);
+			ptr = 0;
+		}
+	}
+	sc->ptr = ptr;
+}
+
+static void
+echo_big_core(sph_echo_big_context *sc,
+	const unsigned char *data, size_t len)
+{
+	unsigned char *buf;
+	size_t ptr;
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	if (len < (sizeof sc->buf) - ptr) {
+		memcpy(buf + ptr, data, len);
+		ptr += len;
+		sc->ptr = ptr;
+		return;
+	}
+
+	while (len > 0) {
+		size_t clen;
+
+		clen = (sizeof sc->buf) - ptr;
+		if (clen > len)
+			clen = len;
+		memcpy(buf + ptr, data, clen);
+		ptr += clen;
+		data += clen;
+		len -= clen;
+		if (ptr == sizeof sc->buf) {
+			INCR_COUNTER(sc, 1024);
+			echo_big_compress(sc);
+			ptr = 0;
+		}
+	}
+	sc->ptr = ptr;
+}
+
+static void
+echo_small_close(sph_echo_small_context *sc, unsigned ub, unsigned n,
+	void *dst, unsigned out_size_w32)
+{
+	unsigned char *buf;
+	size_t ptr;
+	unsigned z;
+	unsigned elen;
+	union {
+		unsigned char tmp[32];
+		sph_u32 dummy;
+#if SPH_ECHO_64
+		sph_u64 dummy2;
+#endif
+	} u;
+#if SPH_ECHO_64
+	sph_u64 *VV;
+#else
+	sph_u32 *VV;
+#endif
+	unsigned k;
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	elen = ((unsigned)ptr << 3) + n;
+	INCR_COUNTER(sc, elen);
+	sph_enc32le_aligned(u.tmp, sc->C0);
+	sph_enc32le_aligned(u.tmp + 4, sc->C1);
+	sph_enc32le_aligned(u.tmp + 8, sc->C2);
+	sph_enc32le_aligned(u.tmp + 12, sc->C3);
+	/*
+	 * If elen is zero, then this block actually contains no message
+	 * bit, only the first padding bit.
+	 */
+	if (elen == 0) {
+		sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+	}
+	z = 0x80 >> n;
+	buf[ptr ++] = ((ub & -z) | z) & 0xFF;
+	memset(buf + ptr, 0, (sizeof sc->buf) - ptr);
+	if (ptr > ((sizeof sc->buf) - 18)) {
+		echo_small_compress(sc);
+		sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+		memset(buf, 0, sizeof sc->buf);
+	}
+	sph_enc16le(buf + (sizeof sc->buf) - 18, out_size_w32 << 5);
+	memcpy(buf + (sizeof sc->buf) - 16, u.tmp, 16);
+	echo_small_compress(sc);
+#if SPH_ECHO_64
+	for (VV = &sc->u.Vb[0][0], k = 0; k < ((out_size_w32 + 1) >> 1); k ++)
+		sph_enc64le_aligned(u.tmp + (k << 3), VV[k]);
+#else
+	for (VV = &sc->u.Vs[0][0], k = 0; k < out_size_w32; k ++)
+		sph_enc32le_aligned(u.tmp + (k << 2), VV[k]);
+#endif
+	memcpy(dst, u.tmp, out_size_w32 << 2);
+	echo_small_init(sc, out_size_w32 << 5);
+}
+
+static void
+echo_big_close(sph_echo_big_context *sc, unsigned ub, unsigned n,
+	void *dst, unsigned out_size_w32)
+{
+	unsigned char *buf;
+	size_t ptr;
+	unsigned z;
+	unsigned elen;
+	union {
+		unsigned char tmp[64];
+		sph_u32 dummy;
+#if SPH_ECHO_64
+		sph_u64 dummy2;
+#endif
+	} u;
+#if SPH_ECHO_64
+	sph_u64 *VV;
+#else
+	sph_u32 *VV;
+#endif
+	unsigned k;
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	elen = ((unsigned)ptr << 3) + n;
+	INCR_COUNTER(sc, elen);
+	sph_enc32le_aligned(u.tmp, sc->C0);
+	sph_enc32le_aligned(u.tmp + 4, sc->C1);
+	sph_enc32le_aligned(u.tmp + 8, sc->C2);
+	sph_enc32le_aligned(u.tmp + 12, sc->C3);
+	/*
+	 * If elen is zero, then this block actually contains no message
+	 * bit, only the first padding bit.
+	 */
+	if (elen == 0) {
+		sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+	}
+	z = 0x80 >> n;
+	buf[ptr ++] = ((ub & -z) | z) & 0xFF;
+	memset(buf + ptr, 0, (sizeof sc->buf) - ptr);
+	if (ptr > ((sizeof sc->buf) - 18)) {
+		echo_big_compress(sc);
+		sc->C0 = sc->C1 = sc->C2 = sc->C3 = 0;
+		memset(buf, 0, sizeof sc->buf);
+	}
+	sph_enc16le(buf + (sizeof sc->buf) - 18, out_size_w32 << 5);
+	memcpy(buf + (sizeof sc->buf) - 16, u.tmp, 16);
+	echo_big_compress(sc);
+#if SPH_ECHO_64
+	for (VV = &sc->u.Vb[0][0], k = 0; k < ((out_size_w32 + 1) >> 1); k ++)
+		sph_enc64le_aligned(u.tmp + (k << 3), VV[k]);
+#else
+	for (VV = &sc->u.Vs[0][0], k = 0; k < out_size_w32; k ++)
+		sph_enc32le_aligned(u.tmp + (k << 2), VV[k]);
+#endif
+	memcpy(dst, u.tmp, out_size_w32 << 2);
+	echo_big_init(sc, out_size_w32 << 5);
+}
+
+/* see sph_echo.h */
+void
+sph_echo224_init(void *cc)
+{
+	echo_small_init(cc, 224);
+}
+
+/* see sph_echo.h */
+void
+sph_echo224(void *cc, const void *data, size_t len)
+{
+	echo_small_core(cc, data, len);
+}
+
+/* see sph_echo.h */
+void
+sph_echo224_close(void *cc, void *dst)
+{
+	echo_small_close(cc, 0, 0, dst, 7);
+}
+
+/* see sph_echo.h */
+void
+sph_echo224_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	echo_small_close(cc, ub, n, dst, 7);
+}
+
+/* see sph_echo.h */
+void
+sph_echo256_init(void *cc)
+{
+	echo_small_init(cc, 256);
+}
+
+/* see sph_echo.h */
+void
+sph_echo256(void *cc, const void *data, size_t len)
+{
+	echo_small_core(cc, data, len);
+}
+
+/* see sph_echo.h */
+void
+sph_echo256_close(void *cc, void *dst)
+{
+	echo_small_close(cc, 0, 0, dst, 8);
+}
+
+/* see sph_echo.h */
+void
+sph_echo256_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	echo_small_close(cc, ub, n, dst, 8);
+}
+
+/* see sph_echo.h */
+void
+sph_echo384_init(void *cc)
+{
+	echo_big_init(cc, 384);
+}
+
+/* see sph_echo.h */
+void
+sph_echo384(void *cc, const void *data, size_t len)
+{
+	echo_big_core(cc, data, len);
+}
+
+/* see sph_echo.h */
+void
+sph_echo384_close(void *cc, void *dst)
+{
+	echo_big_close(cc, 0, 0, dst, 12);
+}
+
+/* see sph_echo.h */
+void
+sph_echo384_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	echo_big_close(cc, ub, n, dst, 12);
+}
+
+/* see sph_echo.h */
+void
+sph_echo512_init(void *cc)
+{
+	echo_big_init(cc, 512);
+}
+
+/* see sph_echo.h */
+void
+sph_echo512(void *cc, const void *data, size_t len)
+{
+	echo_big_core(cc, data, len);
+}
+
+/* see sph_echo.h */
+void
+sph_echo512_close(void *cc, void *dst)
+{
+	echo_big_close(cc, 0, 0, dst, 16);
+}
+
+/* see sph_echo.h */
+void
+sph_echo512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	echo_big_close(cc, ub, n, dst, 16);
+}
+#ifdef __cplusplus
+}
+#endif
