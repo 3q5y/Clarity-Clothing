@@ -485,4 +485,372 @@ static const sph_u32 RC44[8] = {
 			MIX_WORD(V21, V25); \
 			MIX_WORD(V22, V26); \
 			MIX_WORD(V23, V27); \
-			V20 ^= RC20
+			V20 ^= RC20[r]; \
+			V24 ^= RC24[r]; \
+		} \
+	} while (0)
+
+#endif
+
+#define DECL_STATE4 \
+	sph_u32 V00, V01, V02, V03, V04, V05, V06, V07; \
+	sph_u32 V10, V11, V12, V13, V14, V15, V16, V17; \
+	sph_u32 V20, V21, V22, V23, V24, V25, V26, V27; \
+	sph_u32 V30, V31, V32, V33, V34, V35, V36, V37;
+
+#define READ_STATE4(state)   do { \
+		V00 = (state)->V[0][0]; \
+		V01 = (state)->V[0][1]; \
+		V02 = (state)->V[0][2]; \
+		V03 = (state)->V[0][3]; \
+		V04 = (state)->V[0][4]; \
+		V05 = (state)->V[0][5]; \
+		V06 = (state)->V[0][6]; \
+		V07 = (state)->V[0][7]; \
+		V10 = (state)->V[1][0]; \
+		V11 = (state)->V[1][1]; \
+		V12 = (state)->V[1][2]; \
+		V13 = (state)->V[1][3]; \
+		V14 = (state)->V[1][4]; \
+		V15 = (state)->V[1][5]; \
+		V16 = (state)->V[1][6]; \
+		V17 = (state)->V[1][7]; \
+		V20 = (state)->V[2][0]; \
+		V21 = (state)->V[2][1]; \
+		V22 = (state)->V[2][2]; \
+		V23 = (state)->V[2][3]; \
+		V24 = (state)->V[2][4]; \
+		V25 = (state)->V[2][5]; \
+		V26 = (state)->V[2][6]; \
+		V27 = (state)->V[2][7]; \
+		V30 = (state)->V[3][0]; \
+		V31 = (state)->V[3][1]; \
+		V32 = (state)->V[3][2]; \
+		V33 = (state)->V[3][3]; \
+		V34 = (state)->V[3][4]; \
+		V35 = (state)->V[3][5]; \
+		V36 = (state)->V[3][6]; \
+		V37 = (state)->V[3][7]; \
+	} while (0)
+
+#define WRITE_STATE4(state)   do { \
+		(state)->V[0][0] = V00; \
+		(state)->V[0][1] = V01; \
+		(state)->V[0][2] = V02; \
+		(state)->V[0][3] = V03; \
+		(state)->V[0][4] = V04; \
+		(state)->V[0][5] = V05; \
+		(state)->V[0][6] = V06; \
+		(state)->V[0][7] = V07; \
+		(state)->V[1][0] = V10; \
+		(state)->V[1][1] = V11; \
+		(state)->V[1][2] = V12; \
+		(state)->V[1][3] = V13; \
+		(state)->V[1][4] = V14; \
+		(state)->V[1][5] = V15; \
+		(state)->V[1][6] = V16; \
+		(state)->V[1][7] = V17; \
+		(state)->V[2][0] = V20; \
+		(state)->V[2][1] = V21; \
+		(state)->V[2][2] = V22; \
+		(state)->V[2][3] = V23; \
+		(state)->V[2][4] = V24; \
+		(state)->V[2][5] = V25; \
+		(state)->V[2][6] = V26; \
+		(state)->V[2][7] = V27; \
+		(state)->V[3][0] = V30; \
+		(state)->V[3][1] = V31; \
+		(state)->V[3][2] = V32; \
+		(state)->V[3][3] = V33; \
+		(state)->V[3][4] = V34; \
+		(state)->V[3][5] = V35; \
+		(state)->V[3][6] = V36; \
+		(state)->V[3][7] = V37; \
+	} while (0)
+
+#define MI4   do { \
+		DECL_TMP8(M) \
+		DECL_TMP8(a) \
+		DECL_TMP8(b) \
+		M0 = sph_dec32be_aligned(buf +  0); \
+		M1 = sph_dec32be_aligned(buf +  4); \
+		M2 = sph_dec32be_aligned(buf +  8); \
+		M3 = sph_dec32be_aligned(buf + 12); \
+		M4 = sph_dec32be_aligned(buf + 16); \
+		M5 = sph_dec32be_aligned(buf + 20); \
+		M6 = sph_dec32be_aligned(buf + 24); \
+		M7 = sph_dec32be_aligned(buf + 28); \
+		XOR(a, V0, V1); \
+		XOR(b, V2, V3); \
+		XOR(a, a, b); \
+		M2(a, a); \
+		XOR(V0, a, V0); \
+		XOR(V1, a, V1); \
+		XOR(V2, a, V2); \
+		XOR(V3, a, V3); \
+		M2(b, V0); \
+		XOR(b, b, V3); \
+		M2(V3, V3); \
+		XOR(V3, V3, V2); \
+		M2(V2, V2); \
+		XOR(V2, V2, V1); \
+		M2(V1, V1); \
+		XOR(V1, V1, V0); \
+		XOR(V0, b, M); \
+		M2(M, M); \
+		XOR(V1, V1, M); \
+		M2(M, M); \
+		XOR(V2, V2, M); \
+		M2(M, M); \
+		XOR(V3, V3, M); \
+	} while (0)
+
+#define TWEAK4   do { \
+		V14 = SPH_ROTL32(V14, 1); \
+		V15 = SPH_ROTL32(V15, 1); \
+		V16 = SPH_ROTL32(V16, 1); \
+		V17 = SPH_ROTL32(V17, 1); \
+		V24 = SPH_ROTL32(V24, 2); \
+		V25 = SPH_ROTL32(V25, 2); \
+		V26 = SPH_ROTL32(V26, 2); \
+		V27 = SPH_ROTL32(V27, 2); \
+		V34 = SPH_ROTL32(V34, 3); \
+		V35 = SPH_ROTL32(V35, 3); \
+		V36 = SPH_ROTL32(V36, 3); \
+		V37 = SPH_ROTL32(V37, 3); \
+	} while (0)
+
+#if SPH_LUFFA_PARALLEL
+
+#define P4   do { \
+		int r; \
+		sph_u64 W0, W1, W2, W3, W4, W5, W6, W7; \
+		TWEAK4; \
+		W0 = (sph_u64)V00 | ((sph_u64)V10 << 32); \
+		W1 = (sph_u64)V01 | ((sph_u64)V11 << 32); \
+		W2 = (sph_u64)V02 | ((sph_u64)V12 << 32); \
+		W3 = (sph_u64)V03 | ((sph_u64)V13 << 32); \
+		W4 = (sph_u64)V04 | ((sph_u64)V14 << 32); \
+		W5 = (sph_u64)V05 | ((sph_u64)V15 << 32); \
+		W6 = (sph_u64)V06 | ((sph_u64)V16 << 32); \
+		W7 = (sph_u64)V07 | ((sph_u64)V17 << 32); \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMBW(W0, W1, W2, W3); \
+			SUB_CRUMBW(W5, W6, W7, W4); \
+			MIX_WORDW(W0, W4); \
+			MIX_WORDW(W1, W5); \
+			MIX_WORDW(W2, W6); \
+			MIX_WORDW(W3, W7); \
+			W0 ^= RCW010[r]; \
+			W4 ^= RCW014[r]; \
+		} \
+		V00 = SPH_T32((sph_u32)W0); \
+		V10 = SPH_T32((sph_u32)(W0 >> 32)); \
+		V01 = SPH_T32((sph_u32)W1); \
+		V11 = SPH_T32((sph_u32)(W1 >> 32)); \
+		V02 = SPH_T32((sph_u32)W2); \
+		V12 = SPH_T32((sph_u32)(W2 >> 32)); \
+		V03 = SPH_T32((sph_u32)W3); \
+		V13 = SPH_T32((sph_u32)(W3 >> 32)); \
+		V04 = SPH_T32((sph_u32)W4); \
+		V14 = SPH_T32((sph_u32)(W4 >> 32)); \
+		V05 = SPH_T32((sph_u32)W5); \
+		V15 = SPH_T32((sph_u32)(W5 >> 32)); \
+		V06 = SPH_T32((sph_u32)W6); \
+		V16 = SPH_T32((sph_u32)(W6 >> 32)); \
+		V07 = SPH_T32((sph_u32)W7); \
+		V17 = SPH_T32((sph_u32)(W7 >> 32)); \
+		W0 = (sph_u64)V20 | ((sph_u64)V30 << 32); \
+		W1 = (sph_u64)V21 | ((sph_u64)V31 << 32); \
+		W2 = (sph_u64)V22 | ((sph_u64)V32 << 32); \
+		W3 = (sph_u64)V23 | ((sph_u64)V33 << 32); \
+		W4 = (sph_u64)V24 | ((sph_u64)V34 << 32); \
+		W5 = (sph_u64)V25 | ((sph_u64)V35 << 32); \
+		W6 = (sph_u64)V26 | ((sph_u64)V36 << 32); \
+		W7 = (sph_u64)V27 | ((sph_u64)V37 << 32); \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMBW(W0, W1, W2, W3); \
+			SUB_CRUMBW(W5, W6, W7, W4); \
+			MIX_WORDW(W0, W4); \
+			MIX_WORDW(W1, W5); \
+			MIX_WORDW(W2, W6); \
+			MIX_WORDW(W3, W7); \
+			W0 ^= RCW230[r]; \
+			W4 ^= RCW234[r]; \
+		} \
+		V20 = SPH_T32((sph_u32)W0); \
+		V30 = SPH_T32((sph_u32)(W0 >> 32)); \
+		V21 = SPH_T32((sph_u32)W1); \
+		V31 = SPH_T32((sph_u32)(W1 >> 32)); \
+		V22 = SPH_T32((sph_u32)W2); \
+		V32 = SPH_T32((sph_u32)(W2 >> 32)); \
+		V23 = SPH_T32((sph_u32)W3); \
+		V33 = SPH_T32((sph_u32)(W3 >> 32)); \
+		V24 = SPH_T32((sph_u32)W4); \
+		V34 = SPH_T32((sph_u32)(W4 >> 32)); \
+		V25 = SPH_T32((sph_u32)W5); \
+		V35 = SPH_T32((sph_u32)(W5 >> 32)); \
+		V26 = SPH_T32((sph_u32)W6); \
+		V36 = SPH_T32((sph_u32)(W6 >> 32)); \
+		V27 = SPH_T32((sph_u32)W7); \
+		V37 = SPH_T32((sph_u32)(W7 >> 32)); \
+	} while (0)
+
+#else
+
+#define P4   do { \
+		int r; \
+		TWEAK4; \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V00, V01, V02, V03); \
+			SUB_CRUMB(V05, V06, V07, V04); \
+			MIX_WORD(V00, V04); \
+			MIX_WORD(V01, V05); \
+			MIX_WORD(V02, V06); \
+			MIX_WORD(V03, V07); \
+			V00 ^= RC00[r]; \
+			V04 ^= RC04[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V10, V11, V12, V13); \
+			SUB_CRUMB(V15, V16, V17, V14); \
+			MIX_WORD(V10, V14); \
+			MIX_WORD(V11, V15); \
+			MIX_WORD(V12, V16); \
+			MIX_WORD(V13, V17); \
+			V10 ^= RC10[r]; \
+			V14 ^= RC14[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V20, V21, V22, V23); \
+			SUB_CRUMB(V25, V26, V27, V24); \
+			MIX_WORD(V20, V24); \
+			MIX_WORD(V21, V25); \
+			MIX_WORD(V22, V26); \
+			MIX_WORD(V23, V27); \
+			V20 ^= RC20[r]; \
+			V24 ^= RC24[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V30, V31, V32, V33); \
+			SUB_CRUMB(V35, V36, V37, V34); \
+			MIX_WORD(V30, V34); \
+			MIX_WORD(V31, V35); \
+			MIX_WORD(V32, V36); \
+			MIX_WORD(V33, V37); \
+			V30 ^= RC30[r]; \
+			V34 ^= RC34[r]; \
+		} \
+	} while (0)
+
+#endif
+
+#define DECL_STATE5 \
+	sph_u32 V00, V01, V02, V03, V04, V05, V06, V07; \
+	sph_u32 V10, V11, V12, V13, V14, V15, V16, V17; \
+	sph_u32 V20, V21, V22, V23, V24, V25, V26, V27; \
+	sph_u32 V30, V31, V32, V33, V34, V35, V36, V37; \
+	sph_u32 V40, V41, V42, V43, V44, V45, V46, V47;
+
+#define READ_STATE5(state)   do { \
+		V00 = (state)->V[0][0]; \
+		V01 = (state)->V[0][1]; \
+		V02 = (state)->V[0][2]; \
+		V03 = (state)->V[0][3]; \
+		V04 = (state)->V[0][4]; \
+		V05 = (state)->V[0][5]; \
+		V06 = (state)->V[0][6]; \
+		V07 = (state)->V[0][7]; \
+		V10 = (state)->V[1][0]; \
+		V11 = (state)->V[1][1]; \
+		V12 = (state)->V[1][2]; \
+		V13 = (state)->V[1][3]; \
+		V14 = (state)->V[1][4]; \
+		V15 = (state)->V[1][5]; \
+		V16 = (state)->V[1][6]; \
+		V17 = (state)->V[1][7]; \
+		V20 = (state)->V[2][0]; \
+		V21 = (state)->V[2][1]; \
+		V22 = (state)->V[2][2]; \
+		V23 = (state)->V[2][3]; \
+		V24 = (state)->V[2][4]; \
+		V25 = (state)->V[2][5]; \
+		V26 = (state)->V[2][6]; \
+		V27 = (state)->V[2][7]; \
+		V30 = (state)->V[3][0]; \
+		V31 = (state)->V[3][1]; \
+		V32 = (state)->V[3][2]; \
+		V33 = (state)->V[3][3]; \
+		V34 = (state)->V[3][4]; \
+		V35 = (state)->V[3][5]; \
+		V36 = (state)->V[3][6]; \
+		V37 = (state)->V[3][7]; \
+		V40 = (state)->V[4][0]; \
+		V41 = (state)->V[4][1]; \
+		V42 = (state)->V[4][2]; \
+		V43 = (state)->V[4][3]; \
+		V44 = (state)->V[4][4]; \
+		V45 = (state)->V[4][5]; \
+		V46 = (state)->V[4][6]; \
+		V47 = (state)->V[4][7]; \
+	} while (0)
+
+#define WRITE_STATE5(state)   do { \
+		(state)->V[0][0] = V00; \
+		(state)->V[0][1] = V01; \
+		(state)->V[0][2] = V02; \
+		(state)->V[0][3] = V03; \
+		(state)->V[0][4] = V04; \
+		(state)->V[0][5] = V05; \
+		(state)->V[0][6] = V06; \
+		(state)->V[0][7] = V07; \
+		(state)->V[1][0] = V10; \
+		(state)->V[1][1] = V11; \
+		(state)->V[1][2] = V12; \
+		(state)->V[1][3] = V13; \
+		(state)->V[1][4] = V14; \
+		(state)->V[1][5] = V15; \
+		(state)->V[1][6] = V16; \
+		(state)->V[1][7] = V17; \
+		(state)->V[2][0] = V20; \
+		(state)->V[2][1] = V21; \
+		(state)->V[2][2] = V22; \
+		(state)->V[2][3] = V23; \
+		(state)->V[2][4] = V24; \
+		(state)->V[2][5] = V25; \
+		(state)->V[2][6] = V26; \
+		(state)->V[2][7] = V27; \
+		(state)->V[3][0] = V30; \
+		(state)->V[3][1] = V31; \
+		(state)->V[3][2] = V32; \
+		(state)->V[3][3] = V33; \
+		(state)->V[3][4] = V34; \
+		(state)->V[3][5] = V35; \
+		(state)->V[3][6] = V36; \
+		(state)->V[3][7] = V37; \
+		(state)->V[4][0] = V40; \
+		(state)->V[4][1] = V41; \
+		(state)->V[4][2] = V42; \
+		(state)->V[4][3] = V43; \
+		(state)->V[4][4] = V44; \
+		(state)->V[4][5] = V45; \
+		(state)->V[4][6] = V46; \
+		(state)->V[4][7] = V47; \
+	} while (0)
+
+#define MI5   do { \
+		DECL_TMP8(M) \
+		DECL_TMP8(a) \
+		DECL_TMP8(b) \
+		M0 = sph_dec32be_aligned(buf +  0); \
+		M1 = sph_dec32be_aligned(buf +  4); \
+		M2 = sph_dec32be_aligned(buf +  8); \
+		M3 = sph_dec32be_aligned(buf + 12); \
+		M4 = sph_dec32be_aligned(buf + 16); \
+		M5 = sph_dec32be_aligned(buf + 20); \
+		M6 = sph_dec32be_aligned(buf + 24); \
+		M7 = sph_dec32be_aligned(buf + 28); \
+		XOR(a, V0, V1); \
+		XOR(b, V2, V3); \
+		XOR(a, a, b); \
+		XOR(a, a, V4);
