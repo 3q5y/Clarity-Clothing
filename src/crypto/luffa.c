@@ -853,4 +853,433 @@ static const sph_u32 RC44[8] = {
 		XOR(a, V0, V1); \
 		XOR(b, V2, V3); \
 		XOR(a, a, b); \
-		XOR(a, a, V4);
+		XOR(a, a, V4); \
+		M2(a, a); \
+		XOR(V0, a, V0); \
+		XOR(V1, a, V1); \
+		XOR(V2, a, V2); \
+		XOR(V3, a, V3); \
+		XOR(V4, a, V4); \
+		M2(b, V0); \
+		XOR(b, b, V1); \
+		M2(V1, V1); \
+		XOR(V1, V1, V2); \
+		M2(V2, V2); \
+		XOR(V2, V2, V3); \
+		M2(V3, V3); \
+		XOR(V3, V3, V4); \
+		M2(V4, V4); \
+		XOR(V4, V4, V0); \
+		M2(V0, b); \
+		XOR(V0, V0, V4); \
+		M2(V4, V4); \
+		XOR(V4, V4, V3); \
+		M2(V3, V3); \
+		XOR(V3, V3, V2); \
+		M2(V2, V2); \
+		XOR(V2, V2, V1); \
+		M2(V1, V1); \
+		XOR(V1, V1, b); \
+		XOR(V0, V0, M); \
+		M2(M, M); \
+		XOR(V1, V1, M); \
+		M2(M, M); \
+		XOR(V2, V2, M); \
+		M2(M, M); \
+		XOR(V3, V3, M); \
+		M2(M, M); \
+		XOR(V4, V4, M); \
+	} while (0)
+
+#define TWEAK5   do { \
+		V14 = SPH_ROTL32(V14, 1); \
+		V15 = SPH_ROTL32(V15, 1); \
+		V16 = SPH_ROTL32(V16, 1); \
+		V17 = SPH_ROTL32(V17, 1); \
+		V24 = SPH_ROTL32(V24, 2); \
+		V25 = SPH_ROTL32(V25, 2); \
+		V26 = SPH_ROTL32(V26, 2); \
+		V27 = SPH_ROTL32(V27, 2); \
+		V34 = SPH_ROTL32(V34, 3); \
+		V35 = SPH_ROTL32(V35, 3); \
+		V36 = SPH_ROTL32(V36, 3); \
+		V37 = SPH_ROTL32(V37, 3); \
+		V44 = SPH_ROTL32(V44, 4); \
+		V45 = SPH_ROTL32(V45, 4); \
+		V46 = SPH_ROTL32(V46, 4); \
+		V47 = SPH_ROTL32(V47, 4); \
+	} while (0)
+
+#if SPH_LUFFA_PARALLEL
+
+#define P5   do { \
+		int r; \
+		sph_u64 W0, W1, W2, W3, W4, W5, W6, W7; \
+		TWEAK5; \
+		W0 = (sph_u64)V00 | ((sph_u64)V10 << 32); \
+		W1 = (sph_u64)V01 | ((sph_u64)V11 << 32); \
+		W2 = (sph_u64)V02 | ((sph_u64)V12 << 32); \
+		W3 = (sph_u64)V03 | ((sph_u64)V13 << 32); \
+		W4 = (sph_u64)V04 | ((sph_u64)V14 << 32); \
+		W5 = (sph_u64)V05 | ((sph_u64)V15 << 32); \
+		W6 = (sph_u64)V06 | ((sph_u64)V16 << 32); \
+		W7 = (sph_u64)V07 | ((sph_u64)V17 << 32); \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMBW(W0, W1, W2, W3); \
+			SUB_CRUMBW(W5, W6, W7, W4); \
+			MIX_WORDW(W0, W4); \
+			MIX_WORDW(W1, W5); \
+			MIX_WORDW(W2, W6); \
+			MIX_WORDW(W3, W7); \
+			W0 ^= RCW010[r]; \
+			W4 ^= RCW014[r]; \
+		} \
+		V00 = SPH_T32((sph_u32)W0); \
+		V10 = SPH_T32((sph_u32)(W0 >> 32)); \
+		V01 = SPH_T32((sph_u32)W1); \
+		V11 = SPH_T32((sph_u32)(W1 >> 32)); \
+		V02 = SPH_T32((sph_u32)W2); \
+		V12 = SPH_T32((sph_u32)(W2 >> 32)); \
+		V03 = SPH_T32((sph_u32)W3); \
+		V13 = SPH_T32((sph_u32)(W3 >> 32)); \
+		V04 = SPH_T32((sph_u32)W4); \
+		V14 = SPH_T32((sph_u32)(W4 >> 32)); \
+		V05 = SPH_T32((sph_u32)W5); \
+		V15 = SPH_T32((sph_u32)(W5 >> 32)); \
+		V06 = SPH_T32((sph_u32)W6); \
+		V16 = SPH_T32((sph_u32)(W6 >> 32)); \
+		V07 = SPH_T32((sph_u32)W7); \
+		V17 = SPH_T32((sph_u32)(W7 >> 32)); \
+		W0 = (sph_u64)V20 | ((sph_u64)V30 << 32); \
+		W1 = (sph_u64)V21 | ((sph_u64)V31 << 32); \
+		W2 = (sph_u64)V22 | ((sph_u64)V32 << 32); \
+		W3 = (sph_u64)V23 | ((sph_u64)V33 << 32); \
+		W4 = (sph_u64)V24 | ((sph_u64)V34 << 32); \
+		W5 = (sph_u64)V25 | ((sph_u64)V35 << 32); \
+		W6 = (sph_u64)V26 | ((sph_u64)V36 << 32); \
+		W7 = (sph_u64)V27 | ((sph_u64)V37 << 32); \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMBW(W0, W1, W2, W3); \
+			SUB_CRUMBW(W5, W6, W7, W4); \
+			MIX_WORDW(W0, W4); \
+			MIX_WORDW(W1, W5); \
+			MIX_WORDW(W2, W6); \
+			MIX_WORDW(W3, W7); \
+			W0 ^= RCW230[r]; \
+			W4 ^= RCW234[r]; \
+		} \
+		V20 = SPH_T32((sph_u32)W0); \
+		V30 = SPH_T32((sph_u32)(W0 >> 32)); \
+		V21 = SPH_T32((sph_u32)W1); \
+		V31 = SPH_T32((sph_u32)(W1 >> 32)); \
+		V22 = SPH_T32((sph_u32)W2); \
+		V32 = SPH_T32((sph_u32)(W2 >> 32)); \
+		V23 = SPH_T32((sph_u32)W3); \
+		V33 = SPH_T32((sph_u32)(W3 >> 32)); \
+		V24 = SPH_T32((sph_u32)W4); \
+		V34 = SPH_T32((sph_u32)(W4 >> 32)); \
+		V25 = SPH_T32((sph_u32)W5); \
+		V35 = SPH_T32((sph_u32)(W5 >> 32)); \
+		V26 = SPH_T32((sph_u32)W6); \
+		V36 = SPH_T32((sph_u32)(W6 >> 32)); \
+		V27 = SPH_T32((sph_u32)W7); \
+		V37 = SPH_T32((sph_u32)(W7 >> 32)); \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V40, V41, V42, V43); \
+			SUB_CRUMB(V45, V46, V47, V44); \
+			MIX_WORD(V40, V44); \
+			MIX_WORD(V41, V45); \
+			MIX_WORD(V42, V46); \
+			MIX_WORD(V43, V47); \
+			V40 ^= RC40[r]; \
+			V44 ^= RC44[r]; \
+		} \
+	} while (0)
+
+#else
+
+#define P5   do { \
+		int r; \
+		TWEAK5; \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V00, V01, V02, V03); \
+			SUB_CRUMB(V05, V06, V07, V04); \
+			MIX_WORD(V00, V04); \
+			MIX_WORD(V01, V05); \
+			MIX_WORD(V02, V06); \
+			MIX_WORD(V03, V07); \
+			V00 ^= RC00[r]; \
+			V04 ^= RC04[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V10, V11, V12, V13); \
+			SUB_CRUMB(V15, V16, V17, V14); \
+			MIX_WORD(V10, V14); \
+			MIX_WORD(V11, V15); \
+			MIX_WORD(V12, V16); \
+			MIX_WORD(V13, V17); \
+			V10 ^= RC10[r]; \
+			V14 ^= RC14[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V20, V21, V22, V23); \
+			SUB_CRUMB(V25, V26, V27, V24); \
+			MIX_WORD(V20, V24); \
+			MIX_WORD(V21, V25); \
+			MIX_WORD(V22, V26); \
+			MIX_WORD(V23, V27); \
+			V20 ^= RC20[r]; \
+			V24 ^= RC24[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V30, V31, V32, V33); \
+			SUB_CRUMB(V35, V36, V37, V34); \
+			MIX_WORD(V30, V34); \
+			MIX_WORD(V31, V35); \
+			MIX_WORD(V32, V36); \
+			MIX_WORD(V33, V37); \
+			V30 ^= RC30[r]; \
+			V34 ^= RC34[r]; \
+		} \
+		for (r = 0; r < 8; r ++) { \
+			SUB_CRUMB(V40, V41, V42, V43); \
+			SUB_CRUMB(V45, V46, V47, V44); \
+			MIX_WORD(V40, V44); \
+			MIX_WORD(V41, V45); \
+			MIX_WORD(V42, V46); \
+			MIX_WORD(V43, V47); \
+			V40 ^= RC40[r]; \
+			V44 ^= RC44[r]; \
+		} \
+	} while (0)
+
+#endif
+
+static void
+luffa3(sph_luffa224_context *sc, const void *data, size_t len)
+{
+	unsigned char *buf;
+	size_t ptr;
+	DECL_STATE3
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	if (len < (sizeof sc->buf) - ptr) {
+		memcpy(buf + ptr, data, len);
+		ptr += len;
+		sc->ptr = ptr;
+		return;
+	}
+
+	READ_STATE3(sc);
+	while (len > 0) {
+		size_t clen;
+
+		clen = (sizeof sc->buf) - ptr;
+		if (clen > len)
+			clen = len;
+		memcpy(buf + ptr, data, clen);
+		ptr += clen;
+		data = (const unsigned char *)data + clen;
+		len -= clen;
+		if (ptr == sizeof sc->buf) {
+			MI3;
+			P3;
+			ptr = 0;
+		}
+	}
+	WRITE_STATE3(sc);
+	sc->ptr = ptr;
+}
+
+static void
+luffa3_close(sph_luffa224_context *sc, unsigned ub, unsigned n,
+	void *dst, unsigned out_size_w32)
+{
+	unsigned char *buf, *out;
+	size_t ptr;
+	unsigned z;
+	int i;
+	DECL_STATE3
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	z = 0x80 >> n;
+	buf[ptr ++] = ((ub & -z) | z) & 0xFF;
+	memset(buf + ptr, 0, (sizeof sc->buf) - ptr);
+	READ_STATE3(sc);
+	for (i = 0; i < 2; i ++) {
+		MI3;
+		P3;
+		memset(buf, 0, sizeof sc->buf);
+	}
+	out = dst;
+	sph_enc32be(out +  0, V00 ^ V10 ^ V20);
+	sph_enc32be(out +  4, V01 ^ V11 ^ V21);
+	sph_enc32be(out +  8, V02 ^ V12 ^ V22);
+	sph_enc32be(out + 12, V03 ^ V13 ^ V23);
+	sph_enc32be(out + 16, V04 ^ V14 ^ V24);
+	sph_enc32be(out + 20, V05 ^ V15 ^ V25);
+	sph_enc32be(out + 24, V06 ^ V16 ^ V26);
+	if (out_size_w32 > 7)
+		sph_enc32be(out + 28, V07 ^ V17 ^ V27);
+}
+
+static void
+luffa4(sph_luffa384_context *sc, const void *data, size_t len)
+{
+	unsigned char *buf;
+	size_t ptr;
+	DECL_STATE4
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	if (len < (sizeof sc->buf) - ptr) {
+		memcpy(buf + ptr, data, len);
+		ptr += len;
+		sc->ptr = ptr;
+		return;
+	}
+
+	READ_STATE4(sc);
+	while (len > 0) {
+		size_t clen;
+
+		clen = (sizeof sc->buf) - ptr;
+		if (clen > len)
+			clen = len;
+		memcpy(buf + ptr, data, clen);
+		ptr += clen;
+		data = (const unsigned char *)data + clen;
+		len -= clen;
+		if (ptr == sizeof sc->buf) {
+			MI4;
+			P4;
+			ptr = 0;
+		}
+	}
+	WRITE_STATE4(sc);
+	sc->ptr = ptr;
+}
+
+static void
+luffa4_close(sph_luffa384_context *sc, unsigned ub, unsigned n, void *dst)
+{
+	unsigned char *buf, *out;
+	size_t ptr;
+	unsigned z;
+	int i;
+	DECL_STATE4
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	out = dst;
+	z = 0x80 >> n;
+	buf[ptr ++] = ((ub & -z) | z) & 0xFF;
+	memset(buf + ptr, 0, (sizeof sc->buf) - ptr);
+	READ_STATE4(sc);
+	for (i = 0; i < 3; i ++) {
+		MI4;
+		P4;
+		switch (i) {
+		case 0:
+			memset(buf, 0, sizeof sc->buf);
+			break;
+		case 1:
+			sph_enc32be(out +  0, V00 ^ V10 ^ V20 ^ V30);
+			sph_enc32be(out +  4, V01 ^ V11 ^ V21 ^ V31);
+			sph_enc32be(out +  8, V02 ^ V12 ^ V22 ^ V32);
+			sph_enc32be(out + 12, V03 ^ V13 ^ V23 ^ V33);
+			sph_enc32be(out + 16, V04 ^ V14 ^ V24 ^ V34);
+			sph_enc32be(out + 20, V05 ^ V15 ^ V25 ^ V35);
+			sph_enc32be(out + 24, V06 ^ V16 ^ V26 ^ V36);
+			sph_enc32be(out + 28, V07 ^ V17 ^ V27 ^ V37);
+			break;
+		case 2:
+			sph_enc32be(out + 32, V00 ^ V10 ^ V20 ^ V30);
+			sph_enc32be(out + 36, V01 ^ V11 ^ V21 ^ V31);
+			sph_enc32be(out + 40, V02 ^ V12 ^ V22 ^ V32);
+			sph_enc32be(out + 44, V03 ^ V13 ^ V23 ^ V33);
+			break;
+		}
+	}
+}
+
+static void
+luffa5(sph_luffa512_context *sc, const void *data, size_t len)
+{
+	unsigned char *buf;
+	size_t ptr;
+	DECL_STATE5
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	if (len < (sizeof sc->buf) - ptr) {
+		memcpy(buf + ptr, data, len);
+		ptr += len;
+		sc->ptr = ptr;
+		return;
+	}
+
+	READ_STATE5(sc);
+	while (len > 0) {
+		size_t clen;
+
+		clen = (sizeof sc->buf) - ptr;
+		if (clen > len)
+			clen = len;
+		memcpy(buf + ptr, data, clen);
+		ptr += clen;
+		data = (const unsigned char *)data + clen;
+		len -= clen;
+		if (ptr == sizeof sc->buf) {
+			MI5;
+			P5;
+			ptr = 0;
+		}
+	}
+	WRITE_STATE5(sc);
+	sc->ptr = ptr;
+}
+
+static void
+luffa5_close(sph_luffa512_context *sc, unsigned ub, unsigned n, void *dst)
+{
+	unsigned char *buf, *out;
+	size_t ptr;
+	unsigned z;
+	int i;
+	DECL_STATE5
+
+	buf = sc->buf;
+	ptr = sc->ptr;
+	out = dst;
+	z = 0x80 >> n;
+	buf[ptr ++] = ((ub & -z) | z) & 0xFF;
+	memset(buf + ptr, 0, (sizeof sc->buf) - ptr);
+	READ_STATE5(sc);
+	for (i = 0; i < 3; i ++) {
+		MI5;
+		P5;
+		switch (i) {
+		case 0:
+			memset(buf, 0, sizeof sc->buf);
+			break;
+		case 1:
+			sph_enc32be(out +  0, V00 ^ V10 ^ V20 ^ V30 ^ V40);
+			sph_enc32be(out +  4, V01 ^ V11 ^ V21 ^ V31 ^ V41);
+			sph_enc32be(out +  8, V02 ^ V12 ^ V22 ^ V32 ^ V42);
+			sph_enc32be(out + 12, V03 ^ V13 ^ V23 ^ V33 ^ V43);
+			sph_enc32be(out + 16, V04 ^ V14 ^ V24 ^ V34 ^ V44);
+			sph_enc32be(out + 20, V05 ^ V15 ^ V25 ^ V35 ^ V45);
+			sph_enc32be(out + 24, V06 ^ V16 ^ V26 ^ V36 ^ V46);
+			sph_enc32be(out + 28, V07 ^ V17 ^ V27 ^ V37 ^ V47);
+			break;
+		case 2:
+			sph_enc32be(out + 32, V00 ^ V10 ^ V20 ^ V30 ^ V40);
+			sph_enc32be(out + 36, V01 ^ V11 ^ V21 ^ V31 ^ V41);
+			sph_enc32be(out + 40, V02 ^ V12 ^ V22 ^ V32 ^ V42);
+			sph_enc32be(out + 44, V03 ^ V13 ^ V23 ^ V33 ^ V43);
+			sph_enc32be(out + 48, V04 ^ V14 ^ V24 ^ V34 ^ V44);
+			sph_enc32be(out + 52, V05 ^ V15 ^ V25 ^ V35 ^ V45);
+			sph_enc32
