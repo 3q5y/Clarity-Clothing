@@ -1282,4 +1282,145 @@ luffa5_close(sph_luffa512_context *sc, unsigned ub, unsigned n, void *dst)
 			sph_enc32be(out + 44, V03 ^ V13 ^ V23 ^ V33 ^ V43);
 			sph_enc32be(out + 48, V04 ^ V14 ^ V24 ^ V34 ^ V44);
 			sph_enc32be(out + 52, V05 ^ V15 ^ V25 ^ V35 ^ V45);
-			sph_enc32
+			sph_enc32be(out + 56, V06 ^ V16 ^ V26 ^ V36 ^ V46);
+			sph_enc32be(out + 60, V07 ^ V17 ^ V27 ^ V37 ^ V47);
+			break;
+		}
+	}
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa224_init(void *cc)
+{
+	sph_luffa224_context *sc;
+
+	sc = cc;
+	memcpy(sc->V, V_INIT, sizeof(sc->V));
+	sc->ptr = 0;
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa224(void *cc, const void *data, size_t len)
+{
+	luffa3(cc, data, len);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa224_close(void *cc, void *dst)
+{
+	sph_luffa224_addbits_and_close(cc, 0, 0, dst);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa224_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	luffa3_close(cc, ub, n, dst, 7);
+	sph_luffa224_init(cc);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa256_init(void *cc)
+{
+	sph_luffa256_context *sc;
+
+	sc = cc;
+	memcpy(sc->V, V_INIT, sizeof(sc->V));
+	sc->ptr = 0;
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa256(void *cc, const void *data, size_t len)
+{
+	luffa3(cc, data, len);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa256_close(void *cc, void *dst)
+{
+	sph_luffa256_addbits_and_close(cc, 0, 0, dst);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa256_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	luffa3_close(cc, ub, n, dst, 8);
+	sph_luffa256_init(cc);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa384_init(void *cc)
+{
+	sph_luffa384_context *sc;
+
+	sc = cc;
+	memcpy(sc->V, V_INIT, sizeof(sc->V));
+	sc->ptr = 0;
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa384(void *cc, const void *data, size_t len)
+{
+	luffa4(cc, data, len);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa384_close(void *cc, void *dst)
+{
+	sph_luffa384_addbits_and_close(cc, 0, 0, dst);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa384_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	luffa4_close(cc, ub, n, dst);
+	sph_luffa384_init(cc);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa512_init(void *cc)
+{
+	sph_luffa512_context *sc;
+
+	sc = cc;
+	memcpy(sc->V, V_INIT, sizeof(sc->V));
+	sc->ptr = 0;
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa512(void *cc, const void *data, size_t len)
+{
+	luffa5(cc, data, len);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa512_close(void *cc, void *dst)
+{
+	sph_luffa512_addbits_and_close(cc, 0, 0, dst);
+}
+
+/* see sph_luffa.h */
+void
+sph_luffa512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+{
+	luffa5_close(cc, ub, n, dst);
+	sph_luffa512_init(cc);
+}
+
+#ifdef __cplusplus
+}
+#endif
