@@ -283,4 +283,239 @@
  * as published for the third round of the SHA-3 competition (BLAKE,
  * Groestl, JH, Keccak and Skein have been tweaked for third round).
  *
- * - BLAKE family: file <code>sph_blake.h</
+ * - BLAKE family: file <code>sph_blake.h</code>
+ *   - BLAKE-224: short name: <code>blake224</code>
+ *   - BLAKE-256: short name: <code>blake256</code>
+ *   - BLAKE-384: short name: <code>blake384</code>
+ *   - BLAKE-512: short name: <code>blake512</code>
+ * - BMW (Blue Midnight Wish) family: file <code>sph_bmw.h</code>
+ *   - BMW-224: short name: <code>bmw224</code>
+ *   - BMW-256: short name: <code>bmw256</code>
+ *   - BMW-384: short name: <code>bmw384</code> (64)
+ *   - BMW-512: short name: <code>bmw512</code> (64)
+ * - CubeHash family: file <code>sph_cubehash.h</code> (specified as
+ *   CubeHash16/32 in the CubeHash specification)
+ *   - CubeHash-224: short name: <code>cubehash224</code>
+ *   - CubeHash-256: short name: <code>cubehash256</code>
+ *   - CubeHash-384: short name: <code>cubehash384</code>
+ *   - CubeHash-512: short name: <code>cubehash512</code>
+ * - ECHO family: file <code>sph_echo.h</code>
+ *   - ECHO-224: short name: <code>echo224</code>
+ *   - ECHO-256: short name: <code>echo256</code>
+ *   - ECHO-384: short name: <code>echo384</code>
+ *   - ECHO-512: short name: <code>echo512</code>
+ * - Fugue family: file <code>sph_fugue.h</code>
+ *   - Fugue-224: short name: <code>fugue224</code>
+ *   - Fugue-256: short name: <code>fugue256</code>
+ *   - Fugue-384: short name: <code>fugue384</code>
+ *   - Fugue-512: short name: <code>fugue512</code>
+ * - Groestl family: file <code>sph_groestl.h</code>
+ *   - Groestl-224: short name: <code>groestl224</code>
+ *   - Groestl-256: short name: <code>groestl256</code>
+ *   - Groestl-384: short name: <code>groestl384</code>
+ *   - Groestl-512: short name: <code>groestl512</code>
+ * - Hamsi family: file <code>sph_hamsi.h</code>
+ *   - Hamsi-224: short name: <code>hamsi224</code>
+ *   - Hamsi-256: short name: <code>hamsi256</code>
+ *   - Hamsi-384: short name: <code>hamsi384</code>
+ *   - Hamsi-512: short name: <code>hamsi512</code>
+ * - JH family: file <code>sph_jh.h</code>
+ *   - JH-224: short name: <code>jh224</code>
+ *   - JH-256: short name: <code>jh256</code>
+ *   - JH-384: short name: <code>jh384</code>
+ *   - JH-512: short name: <code>jh512</code>
+ * - Keccak family: file <code>sph_keccak.h</code>
+ *   - Keccak-224: short name: <code>keccak224</code>
+ *   - Keccak-256: short name: <code>keccak256</code>
+ *   - Keccak-384: short name: <code>keccak384</code>
+ *   - Keccak-512: short name: <code>keccak512</code>
+ * - Luffa family: file <code>sph_luffa.h</code>
+ *   - Luffa-224: short name: <code>luffa224</code>
+ *   - Luffa-256: short name: <code>luffa256</code>
+ *   - Luffa-384: short name: <code>luffa384</code>
+ *   - Luffa-512: short name: <code>luffa512</code>
+ * - Shabal family: file <code>sph_shabal.h</code>
+ *   - Shabal-192: short name: <code>shabal192</code>
+ *   - Shabal-224: short name: <code>shabal224</code>
+ *   - Shabal-256: short name: <code>shabal256</code>
+ *   - Shabal-384: short name: <code>shabal384</code>
+ *   - Shabal-512: short name: <code>shabal512</code>
+ * - SHAvite-3 family: file <code>sph_shavite.h</code>
+ *   - SHAvite-224 (nominally "SHAvite-3 with 224-bit output"):
+ *     short name: <code>shabal224</code>
+ *   - SHAvite-256 (nominally "SHAvite-3 with 256-bit output"):
+ *     short name: <code>shabal256</code>
+ *   - SHAvite-384 (nominally "SHAvite-3 with 384-bit output"):
+ *     short name: <code>shabal384</code>
+ *   - SHAvite-512 (nominally "SHAvite-3 with 512-bit output"):
+ *     short name: <code>shabal512</code>
+ * - SIMD family: file <code>sph_simd.h</code>
+ *   - SIMD-224: short name: <code>simd224</code>
+ *   - SIMD-256: short name: <code>simd256</code>
+ *   - SIMD-384: short name: <code>simd384</code>
+ *   - SIMD-512: short name: <code>simd512</code>
+ * - Skein family: file <code>sph_skein.h</code>
+ *   - Skein-224 (nominally specified as Skein-512-224): short name:
+ *     <code>skein224</code> (64)
+ *   - Skein-256 (nominally specified as Skein-512-256): short name:
+ *     <code>skein256</code> (64)
+ *   - Skein-384 (nominally specified as Skein-512-384): short name:
+ *     <code>skein384</code> (64)
+ *   - Skein-512 (nominally specified as Skein-512-512): short name:
+ *     <code>skein512</code> (64)
+ *
+ * For the second-round SHA-3 candidates, the functions are as specified
+ * for round 2, i.e. with the "tweaks" that some candidates added
+ * between round 1 and round 2. Also, some of the submitted packages for
+ * round 2 contained errors, in the specification, reference code, or
+ * both. <code>sphlib</code> implements the corrected versions.
+ */
+
+/** @hideinitializer
+ * Unsigned integer type whose length is at least 32 bits; on most
+ * architectures, it will have a width of exactly 32 bits. Unsigned C
+ * types implement arithmetics modulo a power of 2; use the
+ * <code>SPH_T32()</code> macro to ensure that the value is truncated
+ * to exactly 32 bits. Unless otherwise specified, all macros and
+ * functions which accept <code>sph_u32</code> values assume that these
+ * values fit on 32 bits, i.e. do not exceed 2^32-1, even on architectures
+ * where <code>sph_u32</code> is larger than that.
+ */
+typedef __arch_dependant__ sph_u32;
+
+/** @hideinitializer
+ * Signed integer type corresponding to <code>sph_u32</code>; it has
+ * width 32 bits or more.
+ */
+typedef __arch_dependant__ sph_s32;
+
+/** @hideinitializer
+ * Unsigned integer type whose length is at least 64 bits; on most
+ * architectures which feature such a type, it will have a width of
+ * exactly 64 bits. C99-compliant platform will have this type; it
+ * is also defined when the GNU compiler (gcc) is used, and on
+ * platforms where <code>unsigned long</code> is large enough. If this
+ * type is not available, then some hash functions which depends on
+ * a 64-bit type will not be available (most notably SHA-384, SHA-512,
+ * Tiger and WHIRLPOOL).
+ */
+typedef __arch_dependant__ sph_u64;
+
+/** @hideinitializer
+ * Signed integer type corresponding to <code>sph_u64</code>; it has
+ * width 64 bits or more.
+ */
+typedef __arch_dependant__ sph_s64;
+
+/**
+ * This macro expands the token <code>x</code> into a suitable
+ * constant expression of type <code>sph_u32</code>. Depending on
+ * how this type is defined, a suffix such as <code>UL</code> may
+ * be appended to the argument.
+ *
+ * @param x   the token to expand into a suitable constant expression
+ */
+#define SPH_C32(x)
+
+/**
+ * Truncate a 32-bit value to exactly 32 bits. On most systems, this is
+ * a no-op, recognized as such by the compiler.
+ *
+ * @param x   the value to truncate (of type <code>sph_u32</code>)
+ */
+#define SPH_T32(x)
+
+/**
+ * Rotate a 32-bit value by a number of bits to the left. The rotate
+ * count must reside between 1 and 31. This macro assumes that its
+ * first argument fits in 32 bits (no extra bit allowed on machines where
+ * <code>sph_u32</code> is wider); both arguments may be evaluated
+ * several times.
+ *
+ * @param x   the value to rotate (of type <code>sph_u32</code>)
+ * @param n   the rotation count (between 1 and 31, inclusive)
+ */
+#define SPH_ROTL32(x, n)
+
+/**
+ * Rotate a 32-bit value by a number of bits to the left. The rotate
+ * count must reside between 1 and 31. This macro assumes that its
+ * first argument fits in 32 bits (no extra bit allowed on machines where
+ * <code>sph_u32</code> is wider); both arguments may be evaluated
+ * several times.
+ *
+ * @param x   the value to rotate (of type <code>sph_u32</code>)
+ * @param n   the rotation count (between 1 and 31, inclusive)
+ */
+#define SPH_ROTR32(x, n)
+
+/**
+ * This macro is defined on systems for which a 64-bit type has been
+ * detected, and is used for <code>sph_u64</code>.
+ */
+#define SPH_64
+
+/**
+ * This macro is defined on systems for the "native" integer size is
+ * 64 bits (64-bit values fit in one register).
+ */
+#define SPH_64_TRUE
+
+/**
+ * This macro expands the token <code>x</code> into a suitable
+ * constant expression of type <code>sph_u64</code>. Depending on
+ * how this type is defined, a suffix such as <code>ULL</code> may
+ * be appended to the argument. This macro is defined only if a
+ * 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param x   the token to expand into a suitable constant expression
+ */
+#define SPH_C64(x)
+
+/**
+ * Truncate a 64-bit value to exactly 64 bits. On most systems, this is
+ * a no-op, recognized as such by the compiler. This macro is defined only
+ * if a 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param x   the value to truncate (of type <code>sph_u64</code>)
+ */
+#define SPH_T64(x)
+
+/**
+ * Rotate a 64-bit value by a number of bits to the left. The rotate
+ * count must reside between 1 and 63. This macro assumes that its
+ * first argument fits in 64 bits (no extra bit allowed on machines where
+ * <code>sph_u64</code> is wider); both arguments may be evaluated
+ * several times. This macro is defined only if a 64-bit type was detected
+ * and used for <code>sph_u64</code>.
+ *
+ * @param x   the value to rotate (of type <code>sph_u64</code>)
+ * @param n   the rotation count (between 1 and 63, inclusive)
+ */
+#define SPH_ROTL64(x, n)
+
+/**
+ * Rotate a 64-bit value by a number of bits to the left. The rotate
+ * count must reside between 1 and 63. This macro assumes that its
+ * first argument fits in 64 bits (no extra bit allowed on machines where
+ * <code>sph_u64</code> is wider); both arguments may be evaluated
+ * several times. This macro is defined only if a 64-bit type was detected
+ * and used for <code>sph_u64</code>.
+ *
+ * @param x   the value to rotate (of type <code>sph_u64</code>)
+ * @param n   the rotation count (between 1 and 63, inclusive)
+ */
+#define SPH_ROTR64(x, n)
+
+/**
+ * This macro evaluates to <code>inline</code> or an equivalent construction,
+ * if available on the compilation platform, or to nothing otherwise. This
+ * is used to declare inline functions, for which the compiler should
+ * endeavour to include the code directly in the caller. Inline functions
+ * are typically defined in header files as replacement for macros.
+ */
+#define SPH_INLINE
+
+/**
+ * This macro is defined if the platform has been detected as using
+ 
