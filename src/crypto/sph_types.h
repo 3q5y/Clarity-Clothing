@@ -518,4 +518,284 @@ typedef __arch_dependant__ sph_s64;
 
 /**
  * This macro is defined if the platform has been detected as using
- 
+ * little-endian convention. This implies that the <code>sph_u32</code>
+ * type (and the <code>sph_u64</code> type also, if it is defined) has
+ * an exact width (i.e. exactly 32-bit, respectively 64-bit).
+ */
+#define SPH_LITTLE_ENDIAN
+
+/**
+ * This macro is defined if the platform has been detected as using
+ * big-endian convention. This implies that the <code>sph_u32</code>
+ * type (and the <code>sph_u64</code> type also, if it is defined) has
+ * an exact width (i.e. exactly 32-bit, respectively 64-bit).
+ */
+#define SPH_BIG_ENDIAN
+
+/**
+ * This macro is defined if 32-bit words (and 64-bit words, if defined)
+ * can be read from and written to memory efficiently in little-endian
+ * convention. This is the case for little-endian platforms, and also
+ * for the big-endian platforms which have special little-endian access
+ * opcodes (e.g. Ultrasparc).
+ */
+#define SPH_LITTLE_FAST
+
+/**
+ * This macro is defined if 32-bit words (and 64-bit words, if defined)
+ * can be read from and written to memory efficiently in big-endian
+ * convention. This is the case for little-endian platforms, and also
+ * for the little-endian platforms which have special big-endian access
+ * opcodes.
+ */
+#define SPH_BIG_FAST
+
+/**
+ * On some platforms, this macro is defined to an unsigned integer type
+ * into which pointer values may be cast. The resulting value can then
+ * be tested for being a multiple of 2, 4 or 8, indicating an aligned
+ * pointer for, respectively, 16-bit, 32-bit or 64-bit memory accesses.
+ */
+#define SPH_UPTR
+
+/**
+ * When defined, this macro indicates that unaligned memory accesses
+ * are possible with only a minor penalty, and thus should be prefered
+ * over strategies which first copy data to an aligned buffer.
+ */
+#define SPH_UNALIGNED
+
+/**
+ * Byte-swap a 32-bit word (i.e. <code>0x12345678</code> becomes
+ * <code>0x78563412</code>). This is an inline function which resorts
+ * to inline assembly on some platforms, for better performance.
+ *
+ * @param x   the 32-bit value to byte-swap
+ * @return  the byte-swapped value
+ */
+static inline sph_u32 sph_bswap32(sph_u32 x);
+
+/**
+ * Byte-swap a 64-bit word. This is an inline function which resorts
+ * to inline assembly on some platforms, for better performance. This
+ * function is defined only if a suitable 64-bit type was found for
+ * <code>sph_u64</code>
+ *
+ * @param x   the 64-bit value to byte-swap
+ * @return  the byte-swapped value
+ */
+static inline sph_u64 sph_bswap64(sph_u64 x);
+
+/**
+ * Decode a 16-bit unsigned value from memory, in little-endian convention
+ * (least significant byte comes first).
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline unsigned sph_dec16le(const void *src);
+
+/**
+ * Encode a 16-bit unsigned value into memory, in little-endian convention
+ * (least significant byte comes first).
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc16le(void *dst, unsigned val);
+
+/**
+ * Decode a 16-bit unsigned value from memory, in big-endian convention
+ * (most significant byte comes first).
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline unsigned sph_dec16be(const void *src);
+
+/**
+ * Encode a 16-bit unsigned value into memory, in big-endian convention
+ * (most significant byte comes first).
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc16be(void *dst, unsigned val);
+
+/**
+ * Decode a 32-bit unsigned value from memory, in little-endian convention
+ * (least significant byte comes first).
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u32 sph_dec32le(const void *src);
+
+/**
+ * Decode a 32-bit unsigned value from memory, in little-endian convention
+ * (least significant byte comes first). This function assumes that the
+ * source address is suitably aligned for a direct access, if the platform
+ * supports such things; it can thus be marginally faster than the generic
+ * <code>sph_dec32le()</code> function.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u32 sph_dec32le_aligned(const void *src);
+
+/**
+ * Encode a 32-bit unsigned value into memory, in little-endian convention
+ * (least significant byte comes first).
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc32le(void *dst, sph_u32 val);
+
+/**
+ * Encode a 32-bit unsigned value into memory, in little-endian convention
+ * (least significant byte comes first). This function assumes that the
+ * destination address is suitably aligned for a direct access, if the
+ * platform supports such things; it can thus be marginally faster than
+ * the generic <code>sph_enc32le()</code> function.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc32le_aligned(void *dst, sph_u32 val);
+
+/**
+ * Decode a 32-bit unsigned value from memory, in big-endian convention
+ * (most significant byte comes first).
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u32 sph_dec32be(const void *src);
+
+/**
+ * Decode a 32-bit unsigned value from memory, in big-endian convention
+ * (most significant byte comes first). This function assumes that the
+ * source address is suitably aligned for a direct access, if the platform
+ * supports such things; it can thus be marginally faster than the generic
+ * <code>sph_dec32be()</code> function.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u32 sph_dec32be_aligned(const void *src);
+
+/**
+ * Encode a 32-bit unsigned value into memory, in big-endian convention
+ * (most significant byte comes first).
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc32be(void *dst, sph_u32 val);
+
+/**
+ * Encode a 32-bit unsigned value into memory, in big-endian convention
+ * (most significant byte comes first). This function assumes that the
+ * destination address is suitably aligned for a direct access, if the
+ * platform supports such things; it can thus be marginally faster than
+ * the generic <code>sph_enc32be()</code> function.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc32be_aligned(void *dst, sph_u32 val);
+
+/**
+ * Decode a 64-bit unsigned value from memory, in little-endian convention
+ * (least significant byte comes first). This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u64 sph_dec64le(const void *src);
+
+/**
+ * Decode a 64-bit unsigned value from memory, in little-endian convention
+ * (least significant byte comes first). This function assumes that the
+ * source address is suitably aligned for a direct access, if the platform
+ * supports such things; it can thus be marginally faster than the generic
+ * <code>sph_dec64le()</code> function. This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u64 sph_dec64le_aligned(const void *src);
+
+/**
+ * Encode a 64-bit unsigned value into memory, in little-endian convention
+ * (least significant byte comes first). This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc64le(void *dst, sph_u64 val);
+
+/**
+ * Encode a 64-bit unsigned value into memory, in little-endian convention
+ * (least significant byte comes first). This function assumes that the
+ * destination address is suitably aligned for a direct access, if the
+ * platform supports such things; it can thus be marginally faster than
+ * the generic <code>sph_enc64le()</code> function. This function is defined
+ * only if a suitable 64-bit type was detected and used for
+ * <code>sph_u64</code>.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc64le_aligned(void *dst, sph_u64 val);
+
+/**
+ * Decode a 64-bit unsigned value from memory, in big-endian convention
+ * (most significant byte comes first). This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u64 sph_dec64be(const void *src);
+
+/**
+ * Decode a 64-bit unsigned value from memory, in big-endian convention
+ * (most significant byte comes first). This function assumes that the
+ * source address is suitably aligned for a direct access, if the platform
+ * supports such things; it can thus be marginally faster than the generic
+ * <code>sph_dec64be()</code> function. This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param src   the source address
+ * @return  the decoded value
+ */
+static inline sph_u64 sph_dec64be_aligned(const void *src);
+
+/**
+ * Encode a 64-bit unsigned value into memory, in big-endian convention
+ * (most significant byte comes first). This function is defined only
+ * if a suitable 64-bit type was detected and used for <code>sph_u64</code>.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inline void sph_enc64be(void *dst, sph_u64 val);
+
+/**
+ * Encode a 64-bit unsigned value into memory, in big-endian convention
+ * (most significant byte comes first). This function assumes that the
+ * destination address is suitably aligned for a direct access, if the
+ * platform supports such things; it can thus be marginally faster than
+ * the generic <code>sph_enc64be()</code> function. This function is defined
+ * only if a suitable 64-bit type was detected and used for
+ * <code>sph_u64</code>.
+ *
+ * @param dst   the destination buffer
+ * @param val   the value to encode
+ */
+static inl
