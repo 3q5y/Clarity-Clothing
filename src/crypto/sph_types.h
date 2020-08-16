@@ -1156,4 +1156,420 @@ typedef long long sph_s64;
 #if defined SPH_DETECT_AMD64_GCC && !defined SPH_AMD64_GCC
 #define SPH_AMD64_GCC         SPH_DETECT_AMD64_GCC
 #endif
-#i
+#if defined SPH_DETECT_AMD64_MSVC && !defined SPH_AMD64_MSVC
+#define SPH_AMD64_MSVC        SPH_DETECT_AMD64_MSVC
+#endif
+#if defined SPH_DETECT_PPC32_GCC && !defined SPH_PPC32_GCC
+#define SPH_PPC32_GCC         SPH_DETECT_PPC32_GCC
+#endif
+#if defined SPH_DETECT_PPC64_GCC && !defined SPH_PPC64_GCC
+#define SPH_PPC64_GCC         SPH_DETECT_PPC64_GCC
+#endif
+
+#if SPH_LITTLE_ENDIAN && !defined SPH_LITTLE_FAST
+#define SPH_LITTLE_FAST              1
+#endif
+#if SPH_BIG_ENDIAN && !defined SPH_BIG_FAST
+#define SPH_BIG_FAST                 1
+#endif
+
+#if defined SPH_UPTR && !(SPH_LITTLE_ENDIAN || SPH_BIG_ENDIAN)
+#error SPH_UPTR defined, but endianness is not known.
+#endif
+
+#if SPH_I386_GCC && !SPH_NO_ASM
+
+/*
+ * On x86 32-bit, with gcc, we use the bswapl opcode to byte-swap 32-bit
+ * values.
+ */
+
+static SPH_INLINE sph_u32
+sph_bswap32(sph_u32 x)
+{
+	__asm__ __volatile__ ("bswapl %0" : "=r" (x) : "0" (x));
+	return x;
+}
+
+#if SPH_64
+
+static SPH_INLINE sph_u64
+sph_bswap64(sph_u64 x)
+{
+	return ((sph_u64)sph_bswap32((sph_u32)x) << 32)
+		| (sph_u64)sph_bswap32((sph_u32)(x >> 32));
+}
+
+#endif
+
+#elif SPH_AMD64_GCC && !SPH_NO_ASM
+
+/*
+ * On x86 64-bit, with gcc, we use the bswapl opcode to byte-swap 32-bit
+ * and 64-bit values.
+ */
+
+static SPH_INLINE sph_u32
+sph_bswap32(sph_u32 x)
+{
+	__asm__ __volatile__ ("bswapl %0" : "=r" (x) : "0" (x));
+	return x;
+}
+
+#if SPH_64
+
+static SPH_INLINE sph_u64
+sph_bswap64(sph_u64 x)
+{
+	__asm__ __volatile__ ("bswapq %0" : "=r" (x) : "0" (x));
+	return x;
+}
+
+#endif
+
+/*
+ * Disabled code. Apparently, Microsoft Visual C 2005 is smart enough
+ * to generate proper opcodes for endianness swapping with the pure C
+ * implementation below.
+ *
+
+#elif SPH_I386_MSVC && !SPH_NO_ASM
+
+static __inline sph_u32 __declspec(naked) __fastcall
+sph_bswap32(sph_u32 x)
+{
+	__asm {
+		bswap  ecx
+		mov    eax,ecx
+		ret
+	}
+}
+
+#if SPH_64
+
+static SPH_INLINE sph_u64
+sph_bswap64(sph_u64 x)
+{
+	return ((sph_u64)sph_bswap32((sph_u32)x) << 32)
+		| (sph_u64)sph_bswap32((sph_u32)(x >> 32));
+}
+
+#endif
+
+ *
+ * [end of disabled code]
+ */
+
+#else
+
+static SPH_INLINE sph_u32
+sph_bswap32(sph_u32 x)
+{
+	x = SPH_T32((x << 16) | (x >> 16));
+	x = ((x & SPH_C32(0xFF00FF00)) >> 8)
+		| ((x & SPH_C32(0x00FF00FF)) << 8);
+	return x;
+}
+
+#if SPH_64
+
+/**
+ * Byte-swap a 64-bit value.
+ *
+ * @param x   the input value
+ * @return  the byte-swapped value
+ */
+static SPH_INLINE sph_u64
+sph_bswap64(sph_u64 x)
+{
+	x = SPH_T64((x << 32) | (x >> 32));
+	x = ((x & SPH_C64(0xFFFF0000FFFF0000)) >> 16)
+		| ((x & SPH_C64(0x0000FFFF0000FFFF)) << 16);
+	x = ((x & SPH_C64(0xFF00FF00FF00FF00)) >> 8)
+		| ((x & SPH_C64(0x00FF00FF00FF00FF)) << 8);
+	return x;
+}
+
+#endif
+
+#endif
+
+#if SPH_SPARCV9_GCC && !SPH_NO_ASM
+
+/*
+ * On UltraSPARC systems, native ordering is big-endian, but it is
+ * possible to perform little-endian read accesses by specifying the
+ * address space 0x88 (ASI_PRIMARY_LITTLE). Basically, either we use
+ * the opcode "lda [%reg]0x88,%dst", where %reg is the register which
+ * contains the source address and %dst is the destination register,
+ * or we use "lda [%reg+imm]%asi,%dst", which uses the %asi register
+ * to get the address space name. The latter format is better since it
+ * combines an addition and the actual access in a single opcode; but
+ * it requires the setting (and subsequent resetting) of %asi, which is
+ * slow. Some operations (i.e. MD5 compression function) combine many
+ * successive little-endian read accesses, which may share the same
+ * %asi setting. The macros below contain the appropriate inline
+ * assembly.
+ */
+
+#define SPH_SPARCV9_SET_ASI   \
+	sph_u32 sph_sparcv9_asi; \
+	__asm__ __volatile__ ( \
+		"rd %%asi,%0\n\twr %%g0,0x88,%%asi" : "=r" (sph_sparcv9_asi));
+
+#define SPH_SPARCV9_RESET_ASI  \
+	__asm__ __volatile__ ("wr %%g0,%0,%%asi" : : "r" (sph_sparcv9_asi));
+
+#define SPH_SPARCV9_DEC32LE(base, idx)   ({ \
+		sph_u32 sph_sparcv9_tmp; \
+		__asm__ __volatile__ ("lda [%1+" #idx "*4]%%asi,%0" \
+			: "=r" (sph_sparcv9_tmp) : "r" (base)); \
+		sph_sparcv9_tmp; \
+	})
+
+#endif
+
+static SPH_INLINE void
+sph_enc16be(void *dst, unsigned val)
+{
+	((unsigned char *)dst)[0] = (val >> 8);
+	((unsigned char *)dst)[1] = val;
+}
+
+static SPH_INLINE unsigned
+sph_dec16be(const void *src)
+{
+	return ((unsigned)(((const unsigned char *)src)[0]) << 8)
+		| (unsigned)(((const unsigned char *)src)[1]);
+}
+
+static SPH_INLINE void
+sph_enc16le(void *dst, unsigned val)
+{
+	((unsigned char *)dst)[0] = val;
+	((unsigned char *)dst)[1] = val >> 8;
+}
+
+static SPH_INLINE unsigned
+sph_dec16le(const void *src)
+{
+	return (unsigned)(((const unsigned char *)src)[0])
+		| ((unsigned)(((const unsigned char *)src)[1]) << 8);
+}
+
+/**
+ * Encode a 32-bit value into the provided buffer (big endian convention).
+ *
+ * @param dst   the destination buffer
+ * @param val   the 32-bit value to encode
+ */
+static SPH_INLINE void
+sph_enc32be(void *dst, sph_u32 val)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_LITTLE_ENDIAN
+	val = sph_bswap32(val);
+#endif
+	*(sph_u32 *)dst = val;
+#else
+	if (((SPH_UPTR)dst & 3) == 0) {
+#if SPH_LITTLE_ENDIAN
+		val = sph_bswap32(val);
+#endif
+		*(sph_u32 *)dst = val;
+	} else {
+		((unsigned char *)dst)[0] = (val >> 24);
+		((unsigned char *)dst)[1] = (val >> 16);
+		((unsigned char *)dst)[2] = (val >> 8);
+		((unsigned char *)dst)[3] = val;
+	}
+#endif
+#else
+	((unsigned char *)dst)[0] = (val >> 24);
+	((unsigned char *)dst)[1] = (val >> 16);
+	((unsigned char *)dst)[2] = (val >> 8);
+	((unsigned char *)dst)[3] = val;
+#endif
+}
+
+/**
+ * Encode a 32-bit value into the provided buffer (big endian convention).
+ * The destination buffer must be properly aligned.
+ *
+ * @param dst   the destination buffer (32-bit aligned)
+ * @param val   the value to encode
+ */
+static SPH_INLINE void
+sph_enc32be_aligned(void *dst, sph_u32 val)
+{
+#if SPH_LITTLE_ENDIAN
+	*(sph_u32 *)dst = sph_bswap32(val);
+#elif SPH_BIG_ENDIAN
+	*(sph_u32 *)dst = val;
+#else
+	((unsigned char *)dst)[0] = (val >> 24);
+	((unsigned char *)dst)[1] = (val >> 16);
+	((unsigned char *)dst)[2] = (val >> 8);
+	((unsigned char *)dst)[3] = val;
+#endif
+}
+
+/**
+ * Decode a 32-bit value from the provided buffer (big endian convention).
+ *
+ * @param src   the source buffer
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u32
+sph_dec32be(const void *src)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_LITTLE_ENDIAN
+	return sph_bswap32(*(const sph_u32 *)src);
+#else
+	return *(const sph_u32 *)src;
+#endif
+#else
+	if (((SPH_UPTR)src & 3) == 0) {
+#if SPH_LITTLE_ENDIAN
+		return sph_bswap32(*(const sph_u32 *)src);
+#else
+		return *(const sph_u32 *)src;
+#endif
+	} else {
+		return ((sph_u32)(((const unsigned char *)src)[0]) << 24)
+			| ((sph_u32)(((const unsigned char *)src)[1]) << 16)
+			| ((sph_u32)(((const unsigned char *)src)[2]) << 8)
+			| (sph_u32)(((const unsigned char *)src)[3]);
+	}
+#endif
+#else
+	return ((sph_u32)(((const unsigned char *)src)[0]) << 24)
+		| ((sph_u32)(((const unsigned char *)src)[1]) << 16)
+		| ((sph_u32)(((const unsigned char *)src)[2]) << 8)
+		| (sph_u32)(((const unsigned char *)src)[3]);
+#endif
+}
+
+/**
+ * Decode a 32-bit value from the provided buffer (big endian convention).
+ * The source buffer must be properly aligned.
+ *
+ * @param src   the source buffer (32-bit aligned)
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u32
+sph_dec32be_aligned(const void *src)
+{
+#if SPH_LITTLE_ENDIAN
+	return sph_bswap32(*(const sph_u32 *)src);
+#elif SPH_BIG_ENDIAN
+	return *(const sph_u32 *)src;
+#else
+	return ((sph_u32)(((const unsigned char *)src)[0]) << 24)
+		| ((sph_u32)(((const unsigned char *)src)[1]) << 16)
+		| ((sph_u32)(((const unsigned char *)src)[2]) << 8)
+		| (sph_u32)(((const unsigned char *)src)[3]);
+#endif
+}
+
+/**
+ * Encode a 32-bit value into the provided buffer (little endian convention).
+ *
+ * @param dst   the destination buffer
+ * @param val   the 32-bit value to encode
+ */
+static SPH_INLINE void
+sph_enc32le(void *dst, sph_u32 val)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_BIG_ENDIAN
+	val = sph_bswap32(val);
+#endif
+	*(sph_u32 *)dst = val;
+#else
+	if (((SPH_UPTR)dst & 3) == 0) {
+#if SPH_BIG_ENDIAN
+		val = sph_bswap32(val);
+#endif
+		*(sph_u32 *)dst = val;
+	} else {
+		((unsigned char *)dst)[0] = val;
+		((unsigned char *)dst)[1] = (val >> 8);
+		((unsigned char *)dst)[2] = (val >> 16);
+		((unsigned char *)dst)[3] = (val >> 24);
+	}
+#endif
+#else
+	((unsigned char *)dst)[0] = val;
+	((unsigned char *)dst)[1] = (val >> 8);
+	((unsigned char *)dst)[2] = (val >> 16);
+	((unsigned char *)dst)[3] = (val >> 24);
+#endif
+}
+
+/**
+ * Encode a 32-bit value into the provided buffer (little endian convention).
+ * The destination buffer must be properly aligned.
+ *
+ * @param dst   the destination buffer (32-bit aligned)
+ * @param val   the value to encode
+ */
+static SPH_INLINE void
+sph_enc32le_aligned(void *dst, sph_u32 val)
+{
+#if SPH_LITTLE_ENDIAN
+	*(sph_u32 *)dst = val;
+#elif SPH_BIG_ENDIAN
+	*(sph_u32 *)dst = sph_bswap32(val);
+#else
+	((unsigned char *)dst)[0] = val;
+	((unsigned char *)dst)[1] = (val >> 8);
+	((unsigned char *)dst)[2] = (val >> 16);
+	((unsigned char *)dst)[3] = (val >> 24);
+#endif
+}
+
+/**
+ * Decode a 32-bit value from the provided buffer (little endian convention).
+ *
+ * @param src   the source buffer
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u32
+sph_dec32le(const void *src)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_BIG_ENDIAN
+	return sph_bswap32(*(const sph_u32 *)src);
+#else
+	return *(const sph_u32 *)src;
+#endif
+#else
+	if (((SPH_UPTR)src & 3) == 0) {
+#if SPH_BIG_ENDIAN
+#if SPH_SPARCV9_GCC && !SPH_NO_ASM
+		sph_u32 tmp;
+
+		/*
+		 * "__volatile__" is needed here because without it,
+		 * gcc-3.4.3 miscompiles the code and performs the
+		 * access before the test on the address, thus triggering
+		 * a bus error...
+		 */
+		__asm__ __volatile__ (
+			"lda [%1]0x88,%0" : "=r" (tmp) : "r" (src));
+		return tmp;
+/*
+ * On PowerPC, this turns out not to be worth the effort: the inline
+ * assembly makes GCC optimizer uncomfortable, which tends to nullify
+ * the decoding gains.
+ *
+ * For most hash functions, using this inline assembly trick changes
+ * hashing speed by less than 5% and often _reduces_ it. The biggest
+ * gains are for MD4 (+11%) and CubeHash (+30%). For all others, it is
+ * les
