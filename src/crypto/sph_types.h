@@ -1572,4 +1572,369 @@ sph_dec32le(const void *src)
  * For most hash functions, using this inline assembly trick changes
  * hashing speed by less than 5% and often _reduces_ it. The biggest
  * gains are for MD4 (+11%) and CubeHash (+30%). For all others, it is
- * les
+ * less then 10%. The speed gain on CubeHash is probably due to the
+ * chronic shortage of registers that CubeHash endures; for the other
+ * functions, the generic code appears to be efficient enough already.
+ *
+#elif (SPH_PPC32_GCC || SPH_PPC64_GCC) && !SPH_NO_ASM
+		sph_u32 tmp;
+
+		__asm__ __volatile__ (
+			"lwbrx %0,0,%1" : "=r" (tmp) : "r" (src));
+		return tmp;
+ */
+#else
+		return sph_bswap32(*(const sph_u32 *)src);
+#endif
+#else
+		return *(const sph_u32 *)src;
+#endif
+	} else {
+		return (sph_u32)(((const unsigned char *)src)[0])
+			| ((sph_u32)(((const unsigned char *)src)[1]) << 8)
+			| ((sph_u32)(((const unsigned char *)src)[2]) << 16)
+			| ((sph_u32)(((const unsigned char *)src)[3]) << 24);
+	}
+#endif
+#else
+	return (sph_u32)(((const unsigned char *)src)[0])
+		| ((sph_u32)(((const unsigned char *)src)[1]) << 8)
+		| ((sph_u32)(((const unsigned char *)src)[2]) << 16)
+		| ((sph_u32)(((const unsigned char *)src)[3]) << 24);
+#endif
+}
+
+/**
+ * Decode a 32-bit value from the provided buffer (little endian convention).
+ * The source buffer must be properly aligned.
+ *
+ * @param src   the source buffer (32-bit aligned)
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u32
+sph_dec32le_aligned(const void *src)
+{
+#if SPH_LITTLE_ENDIAN
+	return *(const sph_u32 *)src;
+#elif SPH_BIG_ENDIAN
+#if SPH_SPARCV9_GCC && !SPH_NO_ASM
+	sph_u32 tmp;
+
+	__asm__ __volatile__ ("lda [%1]0x88,%0" : "=r" (tmp) : "r" (src));
+	return tmp;
+/*
+ * Not worth it generally.
+ *
+#elif (SPH_PPC32_GCC || SPH_PPC64_GCC) && !SPH_NO_ASM
+	sph_u32 tmp;
+
+	__asm__ __volatile__ ("lwbrx %0,0,%1" : "=r" (tmp) : "r" (src));
+	return tmp;
+ */
+#else
+	return sph_bswap32(*(const sph_u32 *)src);
+#endif
+#else
+	return (sph_u32)(((const unsigned char *)src)[0])
+		| ((sph_u32)(((const unsigned char *)src)[1]) << 8)
+		| ((sph_u32)(((const unsigned char *)src)[2]) << 16)
+		| ((sph_u32)(((const unsigned char *)src)[3]) << 24);
+#endif
+}
+
+#if SPH_64
+
+/**
+ * Encode a 64-bit value into the provided buffer (big endian convention).
+ *
+ * @param dst   the destination buffer
+ * @param val   the 64-bit value to encode
+ */
+static SPH_INLINE void
+sph_enc64be(void *dst, sph_u64 val)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_LITTLE_ENDIAN
+	val = sph_bswap64(val);
+#endif
+	*(sph_u64 *)dst = val;
+#else
+	if (((SPH_UPTR)dst & 7) == 0) {
+#if SPH_LITTLE_ENDIAN
+		val = sph_bswap64(val);
+#endif
+		*(sph_u64 *)dst = val;
+	} else {
+		((unsigned char *)dst)[0] = (val >> 56);
+		((unsigned char *)dst)[1] = (val >> 48);
+		((unsigned char *)dst)[2] = (val >> 40);
+		((unsigned char *)dst)[3] = (val >> 32);
+		((unsigned char *)dst)[4] = (val >> 24);
+		((unsigned char *)dst)[5] = (val >> 16);
+		((unsigned char *)dst)[6] = (val >> 8);
+		((unsigned char *)dst)[7] = val;
+	}
+#endif
+#else
+	((unsigned char *)dst)[0] = (val >> 56);
+	((unsigned char *)dst)[1] = (val >> 48);
+	((unsigned char *)dst)[2] = (val >> 40);
+	((unsigned char *)dst)[3] = (val >> 32);
+	((unsigned char *)dst)[4] = (val >> 24);
+	((unsigned char *)dst)[5] = (val >> 16);
+	((unsigned char *)dst)[6] = (val >> 8);
+	((unsigned char *)dst)[7] = val;
+#endif
+}
+
+/**
+ * Encode a 64-bit value into the provided buffer (big endian convention).
+ * The destination buffer must be properly aligned.
+ *
+ * @param dst   the destination buffer (64-bit aligned)
+ * @param val   the value to encode
+ */
+static SPH_INLINE void
+sph_enc64be_aligned(void *dst, sph_u64 val)
+{
+#if SPH_LITTLE_ENDIAN
+	*(sph_u64 *)dst = sph_bswap64(val);
+#elif SPH_BIG_ENDIAN
+	*(sph_u64 *)dst = val;
+#else
+	((unsigned char *)dst)[0] = (val >> 56);
+	((unsigned char *)dst)[1] = (val >> 48);
+	((unsigned char *)dst)[2] = (val >> 40);
+	((unsigned char *)dst)[3] = (val >> 32);
+	((unsigned char *)dst)[4] = (val >> 24);
+	((unsigned char *)dst)[5] = (val >> 16);
+	((unsigned char *)dst)[6] = (val >> 8);
+	((unsigned char *)dst)[7] = val;
+#endif
+}
+
+/**
+ * Decode a 64-bit value from the provided buffer (big endian convention).
+ *
+ * @param src   the source buffer
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u64
+sph_dec64be(const void *src)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_LITTLE_ENDIAN
+	return sph_bswap64(*(const sph_u64 *)src);
+#else
+	return *(const sph_u64 *)src;
+#endif
+#else
+	if (((SPH_UPTR)src & 7) == 0) {
+#if SPH_LITTLE_ENDIAN
+		return sph_bswap64(*(const sph_u64 *)src);
+#else
+		return *(const sph_u64 *)src;
+#endif
+	} else {
+		return ((sph_u64)(((const unsigned char *)src)[0]) << 56)
+			| ((sph_u64)(((const unsigned char *)src)[1]) << 48)
+			| ((sph_u64)(((const unsigned char *)src)[2]) << 40)
+			| ((sph_u64)(((const unsigned char *)src)[3]) << 32)
+			| ((sph_u64)(((const unsigned char *)src)[4]) << 24)
+			| ((sph_u64)(((const unsigned char *)src)[5]) << 16)
+			| ((sph_u64)(((const unsigned char *)src)[6]) << 8)
+			| (sph_u64)(((const unsigned char *)src)[7]);
+	}
+#endif
+#else
+	return ((sph_u64)(((const unsigned char *)src)[0]) << 56)
+		| ((sph_u64)(((const unsigned char *)src)[1]) << 48)
+		| ((sph_u64)(((const unsigned char *)src)[2]) << 40)
+		| ((sph_u64)(((const unsigned char *)src)[3]) << 32)
+		| ((sph_u64)(((const unsigned char *)src)[4]) << 24)
+		| ((sph_u64)(((const unsigned char *)src)[5]) << 16)
+		| ((sph_u64)(((const unsigned char *)src)[6]) << 8)
+		| (sph_u64)(((const unsigned char *)src)[7]);
+#endif
+}
+
+/**
+ * Decode a 64-bit value from the provided buffer (big endian convention).
+ * The source buffer must be properly aligned.
+ *
+ * @param src   the source buffer (64-bit aligned)
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u64
+sph_dec64be_aligned(const void *src)
+{
+#if SPH_LITTLE_ENDIAN
+	return sph_bswap64(*(const sph_u64 *)src);
+#elif SPH_BIG_ENDIAN
+	return *(const sph_u64 *)src;
+#else
+	return ((sph_u64)(((const unsigned char *)src)[0]) << 56)
+		| ((sph_u64)(((const unsigned char *)src)[1]) << 48)
+		| ((sph_u64)(((const unsigned char *)src)[2]) << 40)
+		| ((sph_u64)(((const unsigned char *)src)[3]) << 32)
+		| ((sph_u64)(((const unsigned char *)src)[4]) << 24)
+		| ((sph_u64)(((const unsigned char *)src)[5]) << 16)
+		| ((sph_u64)(((const unsigned char *)src)[6]) << 8)
+		| (sph_u64)(((const unsigned char *)src)[7]);
+#endif
+}
+
+/**
+ * Encode a 64-bit value into the provided buffer (little endian convention).
+ *
+ * @param dst   the destination buffer
+ * @param val   the 64-bit value to encode
+ */
+static SPH_INLINE void
+sph_enc64le(void *dst, sph_u64 val)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_BIG_ENDIAN
+	val = sph_bswap64(val);
+#endif
+	*(sph_u64 *)dst = val;
+#else
+	if (((SPH_UPTR)dst & 7) == 0) {
+#if SPH_BIG_ENDIAN
+		val = sph_bswap64(val);
+#endif
+		*(sph_u64 *)dst = val;
+	} else {
+		((unsigned char *)dst)[0] = val;
+		((unsigned char *)dst)[1] = (val >> 8);
+		((unsigned char *)dst)[2] = (val >> 16);
+		((unsigned char *)dst)[3] = (val >> 24);
+		((unsigned char *)dst)[4] = (val >> 32);
+		((unsigned char *)dst)[5] = (val >> 40);
+		((unsigned char *)dst)[6] = (val >> 48);
+		((unsigned char *)dst)[7] = (val >> 56);
+	}
+#endif
+#else
+	((unsigned char *)dst)[0] = val;
+	((unsigned char *)dst)[1] = (val >> 8);
+	((unsigned char *)dst)[2] = (val >> 16);
+	((unsigned char *)dst)[3] = (val >> 24);
+	((unsigned char *)dst)[4] = (val >> 32);
+	((unsigned char *)dst)[5] = (val >> 40);
+	((unsigned char *)dst)[6] = (val >> 48);
+	((unsigned char *)dst)[7] = (val >> 56);
+#endif
+}
+
+/**
+ * Encode a 64-bit value into the provided buffer (little endian convention).
+ * The destination buffer must be properly aligned.
+ *
+ * @param dst   the destination buffer (64-bit aligned)
+ * @param val   the value to encode
+ */
+static SPH_INLINE void
+sph_enc64le_aligned(void *dst, sph_u64 val)
+{
+#if SPH_LITTLE_ENDIAN
+	*(sph_u64 *)dst = val;
+#elif SPH_BIG_ENDIAN
+	*(sph_u64 *)dst = sph_bswap64(val);
+#else
+	((unsigned char *)dst)[0] = val;
+	((unsigned char *)dst)[1] = (val >> 8);
+	((unsigned char *)dst)[2] = (val >> 16);
+	((unsigned char *)dst)[3] = (val >> 24);
+	((unsigned char *)dst)[4] = (val >> 32);
+	((unsigned char *)dst)[5] = (val >> 40);
+	((unsigned char *)dst)[6] = (val >> 48);
+	((unsigned char *)dst)[7] = (val >> 56);
+#endif
+}
+
+/**
+ * Decode a 64-bit value from the provided buffer (little endian convention).
+ *
+ * @param src   the source buffer
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u64
+sph_dec64le(const void *src)
+{
+#if defined SPH_UPTR
+#if SPH_UNALIGNED
+#if SPH_BIG_ENDIAN
+	return sph_bswap64(*(const sph_u64 *)src);
+#else
+	return *(const sph_u64 *)src;
+#endif
+#else
+	if (((SPH_UPTR)src & 7) == 0) {
+#if SPH_BIG_ENDIAN
+#if SPH_SPARCV9_GCC_64 && !SPH_NO_ASM
+		sph_u64 tmp;
+
+		__asm__ __volatile__ (
+			"ldxa [%1]0x88,%0" : "=r" (tmp) : "r" (src));
+		return tmp;
+/*
+ * Not worth it generally.
+ *
+#elif SPH_PPC32_GCC && !SPH_NO_ASM
+		return (sph_u64)sph_dec32le_aligned(src)
+			| ((sph_u64)sph_dec32le_aligned(
+				(const char *)src + 4) << 32);
+#elif SPH_PPC64_GCC && !SPH_NO_ASM
+		sph_u64 tmp;
+
+		__asm__ __volatile__ (
+			"ldbrx %0,0,%1" : "=r" (tmp) : "r" (src));
+		return tmp;
+ */
+#else
+		return sph_bswap64(*(const sph_u64 *)src);
+#endif
+#else
+		return *(const sph_u64 *)src;
+#endif
+	} else {
+		return (sph_u64)(((const unsigned char *)src)[0])
+			| ((sph_u64)(((const unsigned char *)src)[1]) << 8)
+			| ((sph_u64)(((const unsigned char *)src)[2]) << 16)
+			| ((sph_u64)(((const unsigned char *)src)[3]) << 24)
+			| ((sph_u64)(((const unsigned char *)src)[4]) << 32)
+			| ((sph_u64)(((const unsigned char *)src)[5]) << 40)
+			| ((sph_u64)(((const unsigned char *)src)[6]) << 48)
+			| ((sph_u64)(((const unsigned char *)src)[7]) << 56);
+	}
+#endif
+#else
+	return (sph_u64)(((const unsigned char *)src)[0])
+		| ((sph_u64)(((const unsigned char *)src)[1]) << 8)
+		| ((sph_u64)(((const unsigned char *)src)[2]) << 16)
+		| ((sph_u64)(((const unsigned char *)src)[3]) << 24)
+		| ((sph_u64)(((const unsigned char *)src)[4]) << 32)
+		| ((sph_u64)(((const unsigned char *)src)[5]) << 40)
+		| ((sph_u64)(((const unsigned char *)src)[6]) << 48)
+		| ((sph_u64)(((const unsigned char *)src)[7]) << 56);
+#endif
+}
+
+/**
+ * Decode a 64-bit value from the provided buffer (little endian convention).
+ * The source buffer must be properly aligned.
+ *
+ * @param src   the source buffer (64-bit aligned)
+ * @return  the decoded value
+ */
+static SPH_INLINE sph_u64
+sph_dec64le_aligned(const void *src)
+{
+#if SPH_LITTLE_ENDIAN
+	return *(const sph_u64 *)src;
+#elif SPH_BIG_ENDIAN
+#if SPH_SPA
