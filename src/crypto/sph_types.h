@@ -1937,4 +1937,40 @@ sph_dec64le_aligned(const void *src)
 #if SPH_LITTLE_ENDIAN
 	return *(const sph_u64 *)src;
 #elif SPH_BIG_ENDIAN
-#if SPH_SPA
+#if SPH_SPARCV9_GCC_64 && !SPH_NO_ASM
+	sph_u64 tmp;
+
+	__asm__ __volatile__ ("ldxa [%1]0x88,%0" : "=r" (tmp) : "r" (src));
+	return tmp;
+/*
+ * Not worth it generally.
+ *
+#elif SPH_PPC32_GCC && !SPH_NO_ASM
+	return (sph_u64)sph_dec32le_aligned(src)
+		| ((sph_u64)sph_dec32le_aligned((const char *)src + 4) << 32);
+#elif SPH_PPC64_GCC && !SPH_NO_ASM
+	sph_u64 tmp;
+
+	__asm__ __volatile__ ("ldbrx %0,0,%1" : "=r" (tmp) : "r" (src));
+	return tmp;
+ */
+#else
+	return sph_bswap64(*(const sph_u64 *)src);
+#endif
+#else
+	return (sph_u64)(((const unsigned char *)src)[0])
+		| ((sph_u64)(((const unsigned char *)src)[1]) << 8)
+		| ((sph_u64)(((const unsigned char *)src)[2]) << 16)
+		| ((sph_u64)(((const unsigned char *)src)[3]) << 24)
+		| ((sph_u64)(((const unsigned char *)src)[4]) << 32)
+		| ((sph_u64)(((const unsigned char *)src)[5]) << 40)
+		| ((sph_u64)(((const unsigned char *)src)[6]) << 48)
+		| ((sph_u64)(((const unsigned char *)src)[7]) << 56);
+#endif
+}
+
+#endif
+
+#endif /* Doxygen excluded block */
+
+#endif
