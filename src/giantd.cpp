@@ -76,4 +76,94 @@ bool AppInit(int argc, char* argv[])
             strUsage += "\n" + _("Usage:") + "\n" +
                         "  giantd [options]                     " + _("Start Giant Core Daemon") + "\n";
 
-            strUsage += "\n" 
+            strUsage += "\n" + HelpMessage(HMM_BITCOIND);
+        }
+
+        fprintf(stdout, "%s", strUsage.c_str());
+        return false;
+    }
+
+    try {
+        if (!boost::filesystem::is_directory(GetDataDir(false))) {
+            fprintf(stderr, "Error: Specified data directory \"%s\" does not exist.\n", mapArgs["-datadir"].c_str());
+            return false;
+        }
+        try {
+            ReadConfigFile(mapArgs, mapMultiArgs);
+        } catch (std::exception& e) {
+            fprintf(stderr, "Error reading configuration file: %s\n", e.what());
+            return false;
+        }
+        // Check for -testnet or -regtest parameter (Params() calls are only valid after this clause)
+        if (!SelectParamsFromCommandLine()) {
+            fprintf(stderr, "Error: Invalid combination of -regtest and -testnet.\n");
+            return false;
+        }
+
+        // parse masternode.conf
+        std::string strErr;
+        if (!masternodeConfig.read(strErr)) {
+            fprintf(stderr, "Error reading masternode configuration file: %s\n", strErr.c_str());
+            return false;
+        }
+
+        // Command-line RPC
+        bool fCommandLine = false;
+        for (int i = 1; i < argc; i++)
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "giant:"))
+                fCommandLine = true;
+
+        if (fCommandLine) {
+            fprintf(stderr, "Error: There is no RPC client functionality in giantd anymore. Use the giant-cli utility instead.\n");
+            exit(1);
+        }
+#ifndef WIN32
+        fDaemon = GetBoolArg("-daemon", false);
+        if (fDaemon) {
+            fprintf(stdout, "GIANT server starting\n");
+
+            // Daemonize
+            pid_t pid = fork();
+            if (pid < 0) {
+                fprintf(stderr, "Error: fork() returned %d errno %d\n", pid, errno);
+                return false;
+            }
+            if (pid > 0) // Parent process, pid is child process id
+            {
+                return true;
+            }
+            // Child process falls through to rest of initialization
+
+            pid_t sid = setsid();
+            if (sid < 0)
+                fprintf(stderr, "Error: setsid() returned %d errno %d\n", sid, errno);
+        }
+#endif
+        SoftSetBoolArg("-server", true);
+
+        fRet = AppInit2();
+    } catch (std::exception& e) {
+        PrintExceptionContinue(&e, "AppInit()");
+    } catch (...) {
+        PrintExceptionContinue(NULL, "AppInit()");
+    }
+
+    if (!fRet) {
+        Interrupt();
+    } else {
+        WaitForShutdown();
+    }
+    Shutdown();
+
+    return fRet;
+}
+
+int main(int argc, char* argv[])
+{
+    SetupEnvironment();
+
+    // Connect giantd signal handlers
+    noui_connect();
+
+    return (AppInit(argc, argv) ? 0 : 1);
+}
