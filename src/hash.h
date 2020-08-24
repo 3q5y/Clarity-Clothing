@@ -396,4 +396,15 @@ inline uint256 HashQuark(const T1 pbegin, const T1 pend)
         // ZKECCAK;
         sph_keccak512(&ctx_keccak, static_cast<const void*>(&hash[7]), 64);
         sph_keccak512_close(&ctx_keccak, static_cast<void*>(&hash[8]));
-   
+    } else {
+        sph_jh512_init(&ctx_jh);
+        // ZJH;
+        sph_jh512(&ctx_jh, static_cast<const void*>(&hash[7]), 64);
+        sph_jh512_close(&ctx_jh, static_cast<void*>(&hash[8]));
+    }
+    return hash[8].trim256();
+}
+
+void scrypt_hash(const char* pass, unsigned int pLen, const char* salt, unsigned int sLen, char* output, unsigned int N, unsigned int r, unsigned int p, unsigned int dkLen);
+
+#endif // GIANT_HASH_H
