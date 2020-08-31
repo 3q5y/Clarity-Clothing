@@ -994,4 +994,199 @@ bool AppInit2() {
     fAlerts = GetBoolArg("-alerts", DEFAULT_ALERTS);
 
     if (GetBoolArg("-peerbloomfilterszc", DEFAULT_PEERBLOOMFILTERS_ZC))
-        nLo
+        nLocalServices |= NODE_BLOOM_LIGHT_ZC;
+
+    if (nLocalServices != NODE_BLOOM_LIGHT_ZC) {
+
+        if (GetBoolArg("-peerbloomfilters", DEFAULT_PEERBLOOMFILTERS))
+            nLocalServices |= NODE_BLOOM;
+
+    }
+
+    // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
+
+    // Initialize elliptic curve code
+    ECC_Start();
+    globalVerifyHandle.reset(new ECCVerifyHandle());
+
+    // Sanity check
+    if (!InitSanityCheck())
+        return InitError(_("Initialization sanity check failed. GIANT Core is shutting down."));
+
+    std::string strDataDir = GetDataDir().string();
+#ifdef ENABLE_WALLET
+    // Wallet file must be a plain filename without a directory
+    if (strWalletFile != boost::filesystem::basename(strWalletFile) + boost::filesystem::extension(strWalletFile))
+        return InitError(strprintf(_("Wallet %s resides outside data directory %s"), strWalletFile, strDataDir));
+#endif
+    // Make sure only a single GIANT process is using the data directory.
+    boost::filesystem::path pathLockFile = GetDataDir() / ".lock";
+    FILE* file = fopen(pathLockFile.string().c_str(), "a"); // empty lock file; created if it doesn't exist.
+    if (file) fclose(file);
+    static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
+
+    // Wait maximum 10 seconds if an old wallet is still running. Avoids lockup during restart
+    if (!lock.timed_lock(boost::get_system_time() + boost::posix_time::seconds(10)))
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. GIANT Core is probably already running."), strDataDir));
+
+#ifndef WIN32
+    CreatePidFile(GetPidFile(), getpid());
+#endif
+    if (GetBoolArg("-shrinkdebugfile", !fDebug))
+        ShrinkDebugFile();
+    LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    LogPrintf("GIANT version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
+    LogPrintf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
+#ifdef ENABLE_WALLET
+    LogPrintf("Using BerkeleyDB version %s\n", DbEnv::version(0, 0, 0));
+#endif
+    if (!fLogTimestamps)
+        LogPrintf("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()));
+    LogPrintf("Default data directory %s\n", GetDefaultDataDir().string());
+    LogPrintf("Using data directory %s\n", strDataDir);
+    LogPrintf("Using config file %s\n", GetConfigFile().string());
+    LogPrintf("Using at most %i connections (%i file descriptors available)\n", nMaxConnections, nFD);
+    std::ostringstream strErrors;
+
+    LogPrintf("Using %u threads for script verification\n", nScriptCheckThreads);
+    if (nScriptCheckThreads) {
+        for (int i = 0; i < nScriptCheckThreads - 1; i++)
+            threadGroup.create_thread(&ThreadScriptCheck);
+    }
+
+    if (mapArgs.count("-sporkkey")) // spork priv key
+    {
+        if (!sporkManager.SetPrivKey(GetArg("-sporkkey", "")))
+            return InitError(_("Unable to sign spork message, wrong key?"));
+    }
+
+    // Start the lightweight task scheduler thread
+    CScheduler::Function serviceLoop = boost::bind(&CScheduler::serviceQueue, &scheduler);
+    threadGroup.create_thread(boost::bind(&TraceThread<CScheduler::Function>, "scheduler", serviceLoop));
+
+    /* Start the RPC server already.  It will be started in "warmup" mode
+     * and not really process calls already (but it will signify connections
+     * that the server is there and will be ready later).  Warmup mode will
+     * be disabled when initialisation is finished.
+     */
+    if (fServer) {
+        uiInterface.InitMessage.connect(SetRPCWarmupStatus);
+        if (!AppInitServers())
+            return InitError(_("Unable to start HTTP server. See debug log for details."));
+    }
+
+    int64_t nStart;
+
+    // ********************************************************* Step 5: Backup wallet and verify wallet database integrity
+#ifdef ENABLE_WALLET
+    if (!fDisableWallet) {
+        filesystem::path backupDir = GetDataDir() / "backups";
+        if (!filesystem::exists(backupDir)) {
+            // Always create backup folder to not confuse the operating system's file browser
+            filesystem::create_directories(backupDir);
+        }
+        nWalletBackups = GetArg("-createwalletbackups", 10);
+        nWalletBackups = std::max(0, std::min(10, nWalletBackups));
+        if (nWalletBackups > 0) {
+            if (filesystem::exists(backupDir)) {
+                // Create backup of the wallet
+                std::string dateTimeStr = DateTimeStrFormat(".%Y-%m-%d-%H-%M", GetTime());
+                std::string backupPathStr = backupDir.string();
+                backupPathStr += "/" + strWalletFile;
+                std::string sourcePathStr = GetDataDir().string();
+                sourcePathStr += "/" + strWalletFile;
+                boost::filesystem::path sourceFile = sourcePathStr;
+                boost::filesystem::path backupFile = backupPathStr + dateTimeStr;
+                sourceFile.make_preferred();
+                backupFile.make_preferred();
+                if (boost::filesystem::exists(sourceFile)) {
+#if BOOST_VERSION >= 105800
+                    try {
+                        boost::filesystem::copy_file(sourceFile, backupFile);
+                        LogPrintf("Creating backup of %s -> %s\n", sourceFile, backupFile);
+                    } catch (boost::filesystem::filesystem_error& error) {
+                        LogPrintf("Failed to create backup %s\n", error.what());
+                    }
+#else
+                    std::ifstream src(sourceFile.string(), std::ios::binary);
+                    std::ofstream dst(backupFile.string(), std::ios::binary);
+                    dst << src.rdbuf();
+#endif
+                }
+                // Keep only the last 10 backups, including the new one of course
+                typedef std::multimap<std::time_t, boost::filesystem::path> folder_set_t;
+                folder_set_t folder_set;
+                boost::filesystem::directory_iterator end_iter;
+                boost::filesystem::path backupFolder = backupDir.string();
+                backupFolder.make_preferred();
+                // Build map of backup files for current(!) wallet sorted by last write time
+                boost::filesystem::path currentFile;
+                for (boost::filesystem::directory_iterator dir_iter(backupFolder); dir_iter != end_iter; ++dir_iter) {
+                    // Only check regular files
+                    if (boost::filesystem::is_regular_file(dir_iter->status())) {
+                        currentFile = dir_iter->path().filename();
+                        // Only add the backups for the current wallet, e.g. wallet.dat.*
+                        if (dir_iter->path().stem().string() == strWalletFile) {
+                            folder_set.insert(folder_set_t::value_type(boost::filesystem::last_write_time(dir_iter->path()), *dir_iter));
+                        }
+                    }
+                }
+                // Loop backward through backup files and keep the N newest ones (1 <= N <= 10)
+                int counter = 0;
+
+                BOOST_REVERSE_FOREACH(PAIRTYPE(const std::time_t, boost::filesystem::path) file, folder_set) {
+                    counter++;
+                    if (counter > nWalletBackups) {
+                        // More than nWalletBackups backups: delete oldest one(s)
+                        try {
+                            boost::filesystem::remove(file.second);
+                            LogPrintf("Old backup deleted: %s\n", file.second);
+                        } catch (boost::filesystem::filesystem_error& error) {
+                            LogPrintf("Failed to delete backup %s\n", error.what());
+                        }
+                    }
+                }
+            }
+        }
+
+        if (GetBoolArg("-resync", false)) {
+            uiInterface.InitMessage(_("Preparing for resync..."));
+            // Delete the local blockchain folders to force a resync from scratch to get a consitent blockchain-state
+            filesystem::path blocksDir = GetDataDir() / "blocks";
+            filesystem::path chainstateDir = GetDataDir() / "chainstate";
+            filesystem::path sporksDir = GetDataDir() / "sporks";
+            filesystem::path zerocoinDir = GetDataDir() / "zerocoin";
+
+            LogPrintf("Deleting blockchain folders blocks, chainstate, sporks and zerocoin\n");
+            // We delete in 4 individual steps in case one of the folder is missing already
+            try {
+                if (filesystem::exists(blocksDir)) {
+                    boost::filesystem::remove_all(blocksDir);
+                    LogPrintf("-resync: folder deleted: %s\n", blocksDir.string().c_str());
+                }
+
+                if (filesystem::exists(chainstateDir)) {
+                    boost::filesystem::remove_all(chainstateDir);
+                    LogPrintf("-resync: folder deleted: %s\n", chainstateDir.string().c_str());
+                }
+
+                if (filesystem::exists(sporksDir)) {
+                    boost::filesystem::remove_all(sporksDir);
+                    LogPrintf("-resync: folder deleted: %s\n", sporksDir.string().c_str());
+                }
+
+                if (filesystem::exists(zerocoinDir)) {
+                    boost::filesystem::remove_all(zerocoinDir);
+                    LogPrintf("-resync: folder deleted: %s\n", zerocoinDir.string().c_str());
+                }
+            } catch (boost::filesystem::filesystem_error& error) {
+                LogPrintf("Failed to delete blockchain folders %s\n", error.what());
+            }
+        }
+
+        LogPrintf("Using wallet %s\n", strWalletFile);
+        uiInterface.InitMessage(_("Verifying wallet..."));
+
+        if (!bitdb.Open(GetDataDir())) {
+            // try moving the database env out of the way
+            boost::filesystem::path pathDatabase = Get
