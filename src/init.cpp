@@ -1601,4 +1601,236 @@ bool AppInit2() {
                     fReindex = true;
                     fRequestShutdown = false;
                 } else {
-                    LogPrintf("Ab
+                    LogPrintf("Aborted block database rebuild. Exiting.\n");
+                    return false;
+                }
+            } else {
+                return InitError(strLoadError);
+            }
+        }
+    }
+
+    // As LoadBlockIndex can take several minutes, it's possible the user
+    // requested to kill the GUI during the last operation. If so, exit.
+    // As the program has not fully started yet, Shutdown() is possibly overkill.
+    if (fRequestShutdown) {
+        LogPrintf("Shutdown requested. Exiting.\n");
+        return false;
+    }
+    LogPrintf(" block index %15dms\n", GetTimeMillis() - nStart);
+
+    boost::filesystem::path est_path = GetDataDir() / FEE_ESTIMATES_FILENAME;
+    CAutoFile est_filein(fopen(est_path.string().c_str(), "rb"), SER_DISK, CLIENT_VERSION);
+    // Allowed to fail as this file IS missing on first startup.
+    if (!est_filein.IsNull())
+        mempool.ReadFeeEstimates(est_filein);
+    fFeeEstimatesInitialized = true;
+
+    // ********************************************************* Step 8: load wallet
+#ifdef ENABLE_WALLET
+    if (fDisableWallet) {
+        pwalletMain = NULL;
+        zwalletMain = NULL;
+        LogPrintf("Wallet disabled!\n");
+    } else {
+        // needed to restore wallet transaction meta data after -zapwallettxes
+        std::vector<CWalletTx> vWtx;
+
+        if (GetBoolArg("-zapwallettxes", false)) {
+            uiInterface.InitMessage(_("Zapping all transactions from wallet..."));
+
+            pwalletMain = new CWallet(strWalletFile);
+            DBErrors nZapWalletRet = pwalletMain->ZapWalletTx(vWtx);
+            if (nZapWalletRet != DB_LOAD_OK) {
+                uiInterface.InitMessage(_("Error loading wallet.dat: Wallet corrupted"));
+                return false;
+            }
+
+            delete pwalletMain;
+            pwalletMain = NULL;
+        }
+
+        uiInterface.InitMessage(_("Loading wallet..."));
+        fVerifyingBlocks = true;
+
+        nStart = GetTimeMillis();
+        bool fFirstRun = true;
+        pwalletMain = new CWallet(strWalletFile);
+        DBErrors nLoadWalletRet = pwalletMain->LoadWallet(fFirstRun);
+        if (nLoadWalletRet != DB_LOAD_OK) {
+            if (nLoadWalletRet == DB_CORRUPT)
+                strErrors << _("Error loading wallet.dat: Wallet corrupted") << "\n";
+            else if (nLoadWalletRet == DB_NONCRITICAL_ERROR) {
+                string msg(_("Warning: error reading wallet.dat! All keys read correctly, but transaction data"
+                        " or address book entries might be missing or incorrect."));
+                InitWarning(msg);
+            } else if (nLoadWalletRet == DB_TOO_NEW)
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of GIANT Core") << "\n";
+            else if (nLoadWalletRet == DB_NEED_REWRITE) {
+                strErrors << _("Wallet needed to be rewritten: restart GIANT Core to complete") << "\n";
+                LogPrintf("%s", strErrors.str());
+                return InitError(strErrors.str());
+            } else
+                strErrors << _("Error loading wallet.dat") << "\n";
+        }
+
+        if (GetBoolArg("-upgradewallet", fFirstRun)) {
+            int nMaxVersion = GetArg("-upgradewallet", 0);
+            if (nMaxVersion == 0) // the -upgradewallet without argument case
+            {
+                LogPrintf("Performing wallet upgrade to %i\n", FEATURE_LATEST);
+                nMaxVersion = CLIENT_VERSION;
+                pwalletMain->SetMinVersion(FEATURE_LATEST); // permanently upgrade the wallet immediately
+            } else
+                LogPrintf("Allowing wallet upgrade up to %i\n", nMaxVersion);
+            if (nMaxVersion < pwalletMain->GetVersion())
+                strErrors << _("Cannot downgrade wallet") << "\n";
+            pwalletMain->SetMaxVersion(nMaxVersion);
+        }
+
+        if (fFirstRun) {
+            // Create new keyUser and set as default key
+            RandAddSeedPerfmon();
+
+            CPubKey newDefaultKey;
+            if (pwalletMain->GetKeyFromPool(newDefaultKey)) {
+                pwalletMain->SetDefaultKey(newDefaultKey);
+                if (!pwalletMain->SetAddressBook(pwalletMain->vchDefaultKey.GetID(), "", "receive"))
+                    strErrors << _("Cannot write default address") << "\n";
+            }
+
+            pwalletMain->SetBestChain(chainActive.GetLocator());
+        }
+
+        LogPrintf("%s", strErrors.str());
+        LogPrintf(" wallet      %15dms\n", GetTimeMillis() - nStart);
+        zwalletMain = new CzGICWallet(pwalletMain->strWalletFile);
+        pwalletMain->setZWallet(zwalletMain);
+
+        RegisterValidationInterface(pwalletMain);
+
+        CBlockIndex* pindexRescan = chainActive.Tip();
+        if (GetBoolArg("-rescan", false))
+            pindexRescan = chainActive.Genesis();
+        else {
+            CWalletDB walletdb(strWalletFile);
+            CBlockLocator locator;
+            if (walletdb.ReadBestBlock(locator))
+                pindexRescan = FindForkInGlobalIndex(chainActive, locator);
+            else
+                pindexRescan = chainActive.Genesis();
+        }
+        if (chainActive.Tip() && chainActive.Tip() != pindexRescan) {
+            uiInterface.InitMessage(_("Rescanning..."));
+            LogPrintf("Rescanning last %i blocks (from block %i)...\n", chainActive.Height() - pindexRescan->nHeight, pindexRescan->nHeight);
+            nStart = GetTimeMillis();
+            pwalletMain->ScanForWalletTransactions(pindexRescan, true);
+            LogPrintf(" rescan      %15dms\n", GetTimeMillis() - nStart);
+            pwalletMain->SetBestChain(chainActive.GetLocator());
+            nWalletDBUpdated++;
+
+            // Restore wallet transaction metadata after -zapwallettxes=1
+            if (GetBoolArg("-zapwallettxes", false) && GetArg("-zapwallettxes", "1") != "2") {
+                for (const CWalletTx& wtxOld : vWtx) {
+                    uint256 hash = wtxOld.GetHash();
+                    std::map<uint256, CWalletTx>::iterator mi = pwalletMain->mapWallet.find(hash);
+                    if (mi != pwalletMain->mapWallet.end()) {
+                        const CWalletTx* copyFrom = &wtxOld;
+                        CWalletTx* copyTo = &mi->second;
+                        copyTo->mapValue = copyFrom->mapValue;
+                        copyTo->vOrderForm = copyFrom->vOrderForm;
+                        copyTo->nTimeReceived = copyFrom->nTimeReceived;
+                        copyTo->nTimeSmart = copyFrom->nTimeSmart;
+                        copyTo->fFromMe = copyFrom->fFromMe;
+                        copyTo->strFromAccount = copyFrom->strFromAccount;
+                        copyTo->nOrderPos = copyFrom->nOrderPos;
+                        copyTo->WriteToDisk();
+                    }
+                }
+            }
+        }
+        fVerifyingBlocks = false;
+
+        //Inititalize zGICWallet
+        uiInterface.InitMessage(_("Syncing zGIC wallet..."));
+
+        pwalletMain->InitAutoConvertAddresses();
+
+        bool fEnableZGICBackups = false; //GetBoolArg("-backupzgic", true);
+        pwalletMain->setZGICAutoBackups(fEnableZGICBackups);
+
+        //Load zerocoin mint hashes to memory
+        pwalletMain->zgicTracker->Init();
+        zwalletMain->LoadMintPoolFromDB();
+        zwalletMain->SyncWithChain();
+    } // (!fDisableWallet)
+#else  // ENABLE_WALLET
+    LogPrintf("No wallet compiled in!\n");
+#endif // !ENABLE_WALLET
+    // ********************************************************* Step 9: import blocks
+
+    if (mapArgs.count("-blocknotify"))
+        uiInterface.NotifyBlockTip.connect(BlockNotifyCallback);
+
+    if (mapArgs.count("-blocksizenotify"))
+        uiInterface.NotifyBlockSize.connect(BlockSizeNotifyCallback);
+
+    // scan for better chains in the block chain database, that are not yet connected in the active best chain
+    CValidationState state;
+    if (!ActivateBestChain(state))
+        strErrors << "Failed to connect best block";
+
+    std::vector<boost::filesystem::path> vImportFiles;
+    if (mapArgs.count("-loadblock")) {
+        for (string strFile : mapMultiArgs["-loadblock"])
+            vImportFiles.push_back(strFile);
+    }
+    threadGroup.create_thread(boost::bind(&ThreadImport, vImportFiles));
+    if (chainActive.Tip() == NULL) {
+        LogPrintf("Waiting for genesis block to be imported...\n");
+        while (!fRequestShutdown && chainActive.Tip() == NULL)
+            MilliSleep(10);
+    }
+
+    // ********************************************************* Step 10: setup ObfuScation
+
+    uiInterface.InitMessage(_("Loading masternode cache..."));
+
+    CMasternodeDB mndb;
+    CMasternodeDB::ReadResult readResult = mndb.Read(mnodeman);
+    if (readResult == CMasternodeDB::FileError)
+        LogPrintf("Missing masternode cache file - mncache.dat, will try to recreate\n");
+    else if (readResult != CMasternodeDB::Ok) {
+        LogPrintf("Error reading mncache.dat: ");
+        if (readResult == CMasternodeDB::IncorrectFormat)
+            LogPrintf("magic is ok but data has invalid format, will try to recreate\n");
+        else
+            LogPrintf("file format is unknown or invalid, please fix it manually\n");
+    }
+
+    uiInterface.InitMessage(_("Loading budget cache..."));
+
+    CBudgetDB budgetdb;
+    CBudgetDB::ReadResult readResult2 = budgetdb.Read(budget);
+
+    if (readResult2 == CBudgetDB::FileError)
+        LogPrintf("Missing budget cache - budget.dat, will try to recreate\n");
+    else if (readResult2 != CBudgetDB::Ok) {
+        LogPrintf("Error reading budget.dat: ");
+        if (readResult2 == CBudgetDB::IncorrectFormat)
+            LogPrintf("magic is ok but data has invalid format, will try to recreate\n");
+        else
+            LogPrintf("file format is unknown or invalid, please fix it manually\n");
+    }
+
+    //flag our cached items so we send them to our peers
+    budget.ResetSync();
+    budget.ClearSeen();
+
+
+    uiInterface.InitMessage(_("Loading masternode payment cache..."));
+
+    CMasternodePaymentDB mnpayments;
+    CMasternodePaymentDB::ReadResult readResult3 = mnpayments.Read(masternodePayments);
+
+    if (readResult3 == CMas
