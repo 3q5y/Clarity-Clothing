@@ -1407,4 +1407,198 @@ bool AppInit2() {
     else if (nTotalCache > (nMaxDbCache << 20))
         nTotalCache = (nMaxDbCache << 20); // total cache cannot be greater than nMaxDbCache
     size_t nBlockTreeDBCache = nTotalCache / 8;
-    if (nBlockTree
+    if (nBlockTreeDBCache > (1 << 21) && !GetBoolArg("-txindex", true))
+        nBlockTreeDBCache = (1 << 21); // block tree db cache shouldn't be larger than 2 MiB
+    nTotalCache -= nBlockTreeDBCache;
+    size_t nCoinDBCache = nTotalCache / 2; // use half of the remaining cache for coindb cache
+    nTotalCache -= nCoinDBCache;
+    nCoinCacheSize = nTotalCache / 300; // coins in memory require around 300 bytes
+
+    bool fLoaded = false;
+    while (!fLoaded) {
+        bool fReset = fReindex;
+        std::string strLoadError;
+
+        uiInterface.InitMessage(_("Loading block index..."));
+
+        nStart = GetTimeMillis();
+        do {
+            try {
+                UnloadBlockIndex();
+                delete pcoinsTip;
+                delete pcoinsdbview;
+                delete pcoinscatcher;
+                delete pblocktree;
+                delete zerocoinDB;
+                delete pSporkDB;
+
+                //GIANT specific: zerocoin and spork DB's
+                zerocoinDB = new CZerocoinDB(0, false, fReindex);
+                pSporkDB = new CSporkDB(0, false, false);
+
+                pblocktree = new CBlockTreeDB(nBlockTreeDBCache, false, fReindex);
+                pcoinsdbview = new CCoinsViewDB(nCoinDBCache, false, fReindex);
+                pcoinscatcher = new CCoinsViewErrorCatcher(pcoinsdbview);
+                pcoinsTip = new CCoinsViewCache(pcoinscatcher);
+
+                if (fReindex)
+                    pblocktree->WriteReindexing(true);
+
+                // GIANT: load previous sessions sporks if we have them.
+                uiInterface.InitMessage(_("Loading sporks..."));
+                LoadSporksFromDB();
+
+                uiInterface.InitMessage(_("Loading block index..."));
+                string strBlockIndexError = "";
+                if (!LoadBlockIndex(strBlockIndexError)) {
+                    strLoadError = _("Error loading block database");
+                    strLoadError = strprintf("%s : %s", strLoadError, strBlockIndexError);
+                    break;
+                }
+
+                // If the loaded chain has a wrong genesis, bail out immediately
+                // (we're likely using a testnet datadir, or the other way around).
+                if (!mapBlockIndex.empty() && mapBlockIndex.count(Params().HashGenesisBlock()) == 0)
+                    return InitError(_("Incorrect or no genesis block found. Wrong datadir for network?"));
+
+                // Initialize the block index (no-op if non-empty database was already loaded)
+                if (!InitBlockIndex()) {
+                    strLoadError = _("Error initializing block database");
+                    break;
+                }
+
+                // Check for changed -txindex state
+                if (fTxIndex != GetBoolArg("-txindex", true)) {
+                    strLoadError = _("You need to rebuild the database using -reindex to change -txindex");
+                    break;
+                }
+
+                // Populate list of invalid/fraudulent outpoints that are banned from the chain
+                invalid_out::LoadOutpoints();
+                invalid_out::LoadSerials();
+
+                // Drop all information from the zerocoinDB and repopulate
+//                if (GetBoolArg("-reindexzerocoin", false)) {
+//                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+//                        uiInterface.InitMessage(_("Reindexing zerocoin database..."));
+//                        std::string strError = ReindexZerocoinDB();
+//                        if (strError != "") {
+//                            strLoadError = strError;
+//                            break;
+//                        }
+//                    }
+//                }
+
+                // Wrapped serials inflation check
+                bool reindexDueWrappedSerials = false;
+                bool reindexZerocoin = false;
+                int chainHeight = chainActive.Height();
+                if (Params().NetworkID() == CBaseChainParams::MAIN && chainHeight > Params().Zerocoin_Block_EndFakeSerial()) {
+
+                    // Supply needs to be exactly GetSupplyBeforeFakeSerial + GetWrapppedSerialInflationAmount
+                    CBlockIndex* pblockindex = chainActive[Params().Zerocoin_Block_EndFakeSerial() + 1];
+                    CAmount zgicSupplyCheckpoint = Params().GetSupplyBeforeFakeSerial() + GetWrapppedSerialInflationAmount();
+
+                    if (pblockindex->GetZerocoinSupply() < zgicSupplyCheckpoint) {
+                        // Trigger reindex due wrapping serials
+                        LogPrintf("Current GetZerocoinSupply: %d vs %d\n", pblockindex->GetZerocoinSupply() / COIN, zgicSupplyCheckpoint / COIN);
+                        reindexDueWrappedSerials = true;
+                    } else if (pblockindex->GetZerocoinSupply() > zgicSupplyCheckpoint) {
+                        // Trigger global zGIC reindex
+                        reindexZerocoin = true;
+                        LogPrintf("Current GetZerocoinSupply: %d vs %d\n", pblockindex->GetZerocoinSupply() / COIN, zgicSupplyCheckpoint / COIN);
+                    }
+
+                }
+
+                // Reindex only for wrapped serials inflation.
+                if (reindexDueWrappedSerials)
+                    AddWrappedSerialsInflation();
+
+                // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
+                if (GetBoolArg("-reindexmoneysupply", false) || reindexZerocoin) {
+                    if (chainHeight > Params().Zerocoin_StartHeight()) {
+                        RecalculateZGICMinted();
+                        RecalculateZGICSpent();
+                    }
+                    // Recalculate from the zerocoin activation or from scratch.
+                    RecalculateGICSupply(reindexZerocoin ? Params().Zerocoin_StartHeight() : 1);
+                }
+
+                // Check Recalculation result
+                if (Params().NetworkID() == CBaseChainParams::MAIN && chainHeight > Params().Zerocoin_Block_EndFakeSerial()) {
+                    CBlockIndex* pblockindex = chainActive[Params().Zerocoin_Block_EndFakeSerial() + 1];
+                    CAmount zgicSupplyCheckpoint = Params().GetSupplyBeforeFakeSerial() + GetWrapppedSerialInflationAmount();
+                    if (pblockindex->GetZerocoinSupply() != zgicSupplyCheckpoint)
+                        return InitError(strprintf("ZerocoinSupply Recalculation failed: %d vs %d", pblockindex->GetZerocoinSupply() / COIN, zgicSupplyCheckpoint / COIN));
+                }
+
+                // Force recalculation of accumulators.
+                if (GetBoolArg("-reindexaccumulators", false)) {
+                    if (chainHeight > Params().Zerocoin_Block_V2_Start()) {
+                        CBlockIndex *pindex = chainActive[Params().Zerocoin_Block_V2_Start()];
+                        while (pindex->nHeight < chainActive.Height()) {
+                            if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
+                                    pindex->nAccumulatorCheckpoint))
+                                listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                            pindex = chainActive.Next(pindex);
+                        }
+                        // GIANT: recalculate Accumulator Checkpoints that failed to database properly
+                        if (!listAccCheckpointsNoDB.empty()) {
+                            uiInterface.InitMessage(_("Calculating missing accumulators..."));
+                            LogPrintf("%s : finding missing checkpoints\n", __func__);
+
+                            string strError;
+                            if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
+                                return InitError(strError);
+                        }
+                    }
+                }
+
+                if (!fReindex) {
+                    uiInterface.InitMessage(_("Verifying blocks..."));
+
+                    // Flag sent to validation code to let it know it can skip certain checks
+                    fVerifyingBlocks = true;
+
+                    {
+                        LOCK(cs_main);
+                        CBlockIndex *tip = chainActive[chainActive.Height()];
+                        RPCNotifyBlockChange(tip->GetBlockHash());
+                        if (tip && tip->nTime > GetAdjustedTime() + 2 * 60 * 60) {
+                            strLoadError = _("The block database contains a block which appears to be from the future. "
+                                    "This may be due to your computer's date and time being set incorrectly. "
+                                    "Only rebuild the block database if you are sure that your computer's date and time are correct");
+                            break;
+                        }
+                    }
+
+                    // Zerocoin must check at level 4
+                    if (!CVerifyDB().VerifyDB(pcoinsdbview, 4, GetArg("-checkblocks", 100))) {
+                        strLoadError = _("Corrupted block database detected");
+                        fVerifyingBlocks = false;
+                        break;
+                    }
+                }
+            } catch (std::exception& e) {
+                if (fDebug) LogPrintf("%s\n", e.what());
+                strLoadError = _("Error opening block database");
+                fVerifyingBlocks = false;
+                break;
+            }
+
+            fVerifyingBlocks = false;
+            fLoaded = true;
+        } while (false);
+
+        if (!fLoaded) {
+            // first suggest a reindex
+            if (!fReset) {
+                bool fRet = uiInterface.ThreadSafeMessageBox(
+                        strLoadError + ".\n\n" + _("Do you want to rebuild the block database now?"),
+                        "", CClientUIInterface::MSG_ERROR | CClientUIInterface::BTN_ABORT);
+                if (fRet) {
+                    fReindex = true;
+                    fRequestShutdown = false;
+                } else {
+                    LogPrintf("Ab
