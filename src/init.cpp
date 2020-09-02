@@ -1833,4 +1833,190 @@ bool AppInit2() {
     CMasternodePaymentDB mnpayments;
     CMasternodePaymentDB::ReadResult readResult3 = mnpayments.Read(masternodePayments);
 
-    if (readResult3 == CMas
+    if (readResult3 == CMasternodePaymentDB::FileError)
+        LogPrintf("Missing masternode payment cache - mnpayments.dat, will try to recreate\n");
+    else if (readResult3 != CMasternodePaymentDB::Ok) {
+        LogPrintf("Error reading mnpayments.dat: ");
+        if (readResult3 == CMasternodePaymentDB::IncorrectFormat)
+            LogPrintf("magic is ok but data has invalid format, will try to recreate\n");
+        else
+            LogPrintf("file format is unknown or invalid, please fix it manually\n");
+    }
+
+    fMasterNode = GetBoolArg("-masternode", false);
+
+    if ((fMasterNode || masternodeConfig.getCount() > -1) && fTxIndex == false) {
+        return InitError("Enabling Masternode support requires turning on transaction indexing."
+                "Please add txindex=1 to your configuration and start with -reindex");
+    }
+
+    if (fMasterNode) {
+        LogPrintf("IS MASTER NODE\n");
+        strMasterNodeAddr = GetArg("-masternodeaddr", "");
+
+        LogPrintf(" addr %s\n", strMasterNodeAddr.c_str());
+
+        if (!strMasterNodeAddr.empty()) {
+            CService addrTest = CService(strMasterNodeAddr);
+            if (!addrTest.IsValid()) {
+                return InitError("Invalid -masternodeaddr address: " + strMasterNodeAddr);
+            }
+        }
+
+        strMasterNodePrivKey = GetArg("-masternodeprivkey", "");
+        if (!strMasterNodePrivKey.empty()) {
+            std::string errorMessage;
+
+            CKey key;
+            CPubKey pubkey;
+
+            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key, pubkey)) {
+                return InitError(_("Invalid masternodeprivkey. Please see documenation."));
+            }
+
+            activeMasternode.pubKeyMasternode = pubkey;
+
+        } else {
+            return InitError(_("You must specify a masternodeprivkey in the configuration. Please see documentation for help."));
+        }
+    }
+
+    //get the mode of budget voting for this masternode
+    strBudgetMode = GetArg("-budgetvotemode", "auto");
+
+    if (GetBoolArg("-mnconflock", true) && pwalletMain) {
+        LOCK(pwalletMain->cs_wallet);
+        LogPrintf("Locking Masternodes:\n");
+        uint256 mnTxHash;
+        for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
+            LogPrintf("  %s %s\n", mne.getTxHash(), mne.getOutputIndex());
+            mnTxHash.SetHex(mne.getTxHash());
+            COutPoint outpoint = COutPoint(mnTxHash, (unsigned int) std::stoul(mne.getOutputIndex().c_str()));
+            pwalletMain->LockCoin(outpoint);
+        }
+    }
+
+    fEnableZeromint = false; //GetBoolArg("-enablezeromint", true);
+
+    nZeromintPercentage = GetArg("-zeromintpercentage", 10);
+    if (nZeromintPercentage > 100) nZeromintPercentage = 100;
+    if (nZeromintPercentage < 1) nZeromintPercentage = 1;
+
+    nPreferredDenom = GetArg("-preferredDenom", 0);
+    if (nPreferredDenom != 0 && nPreferredDenom != 1 && nPreferredDenom != 5 && nPreferredDenom != 10 && nPreferredDenom != 50 &&
+            nPreferredDenom != 100 && nPreferredDenom != 500 && nPreferredDenom != 1000 && nPreferredDenom != 5000) {
+        LogPrintf("-preferredDenom: invalid denomination parameter %d. Default value used\n", nPreferredDenom);
+        nPreferredDenom = 0;
+    }
+
+    // XX42 Remove/refactor code below. Until then provide safe defaults
+    nAnonymizeGiantAmount = 2;
+
+    //    nLiquidityProvider = GetArg("-liquidityprovider", 0); //0-100
+    //    if (nLiquidityProvider != 0) {
+    //        obfuScationPool.SetMinBlockSpacing(std::min(nLiquidityProvider, 100) * 15);
+    //        fEnableZeromint = true;
+    //        nZeromintPercentage = 99999;
+    //    }
+    //
+    //    nAnonymizeGiantAmount = GetArg("-anonymizegiantamount", 0);
+    //    if (nAnonymizeGiantAmount > 999999) nAnonymizeGiantAmount = 999999;
+    //    if (nAnonymizeGiantAmount < 2) nAnonymizeGiantAmount = 2;
+
+    fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
+    nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);
+    nSwiftTXDepth = std::min(std::max(nSwiftTXDepth, 0), 60);
+
+    //lite mode disables all Masternode and Obfuscation related functionality
+    fLiteMode = GetBoolArg("-litemode", false);
+    if (fMasterNode && fLiteMode) {
+        return InitError("You can not start a masternode in litemode");
+    }
+
+    LogPrintf("fLiteMode %d\n", fLiteMode);
+    LogPrintf("nSwiftTXDepth %d\n", nSwiftTXDepth);
+    LogPrintf("Anonymize GIANT Amount %d\n", nAnonymizeGiantAmount);
+    LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
+
+    /* Denominations
+
+       A note about convertability. Within Obfuscation pools, each denomination
+       is convertable to another.
+
+       For example:
+       1GIC+1000 == (.1GIC+100)*10
+       10GIC+10000 == (1GIC+1000)*10
+     */
+    obfuScationDenominations.push_back((10000 * COIN) + 10000000);
+    obfuScationDenominations.push_back((1000 * COIN) + 1000000);
+    obfuScationDenominations.push_back((100 * COIN) + 100000);
+    obfuScationDenominations.push_back((10 * COIN) + 10000);
+    obfuScationDenominations.push_back((1 * COIN) + 1000);
+    obfuScationDenominations.push_back((.1 * COIN) + 100);
+    /* Disabled till we need them
+    obfuScationDenominations.push_back( (.01      * COIN)+10 );
+    obfuScationDenominations.push_back( (.001     * COIN)+1 );
+     */
+
+    obfuScationPool.InitCollateralAddress();
+
+    threadGroup.create_thread(boost::bind(&ThreadCheckObfuScationPool));
+
+    // ********************************************************* Step 11: start node
+
+    if (!CheckDiskSpace())
+        return false;
+
+    if (!strErrors.str().empty())
+        return InitError(strErrors.str());
+
+    RandAddSeedPerfmon();
+
+    //// debug print
+    LogPrintf("mapBlockIndex.size() = %u\n", mapBlockIndex.size());
+    LogPrintf("chainActive.Height() = %d\n", chainActive.Height());
+#ifdef ENABLE_WALLET
+    LogPrintf("setKeyPool.size() = %u\n", pwalletMain ? pwalletMain->setKeyPool.size() : 0);
+    LogPrintf("mapWallet.size() = %u\n", pwalletMain ? pwalletMain->mapWallet.size() : 0);
+    LogPrintf("mapAddressBook.size() = %u\n", pwalletMain ? pwalletMain->mapAddressBook.size() : 0);
+#endif
+
+    if (GetBoolArg("-listenonion", DEFAULT_LISTEN_ONION))
+        StartTorControl(threadGroup);
+
+    StartNode(threadGroup, scheduler);
+
+    if (nLocalServices & NODE_BLOOM_LIGHT_ZC) {
+        // Run a thread to compute witnesses
+        lightWorker.StartLightZgicThread(threadGroup);
+    }
+
+#ifdef ENABLE_WALLET
+    // Generate coins in the background
+    if (pwalletMain)
+        GenerateBitcoins(GetBoolArg("-gen", false), pwalletMain, GetArg("-genproclimit", 1));
+#endif
+
+    // ********************************************************* Step 12: finished
+
+    SetRPCWarmupFinished();
+    uiInterface.InitMessage(_("Done loading"));
+
+#ifdef ENABLE_WALLET
+    if (pwalletMain) {
+        // Add wallet transactions that aren't already in a block to mapTransactions
+        pwalletMain->ReacceptWalletTransactions();
+
+        // Run a thread to flush wallet periodically
+        threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
+
+        if (GetBoolArg("-precompute", false)) {
+            // Run a thread to precompute any zGIC spends
+            threadGroup.create_thread(boost::bind(&ThreadPrecomputeSpends));
+        }
+    }
+#endif
+
+
+    return !fRequestShutdown;
+}
