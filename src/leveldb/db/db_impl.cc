@@ -1339,4 +1339,230 @@ Status DBImpl::MakeRoomForWrite(bool force) {
       allow_delay = false;  // Do not delay a single write more than once
       mutex_.Lock();
     } else if (!force &&
-               (mem_->ApproximateMemoryUsage() <= options_.write_bu
+               (mem_->ApproximateMemoryUsage() <= options_.write_buffer_size)) {
+      // There is room in current memtable
+      break;
+    } else if (imm_ != NULL) {
+      // We have filled up the current memtable, but the previous
+      // one is still being compacted, so we wait.
+      Log(options_.info_log, "Current memtable full; waiting...\n");
+      bg_cv_.Wait();
+    } else if (versions_->NumLevelFiles(0) >= config::kL0_StopWritesTrigger) {
+      // There are too many level-0 files.
+      Log(options_.info_log, "Too many L0 files; waiting...\n");
+      bg_cv_.Wait();
+    } else {
+      // Attempt to switch to a new memtable and trigger compaction of old
+      assert(versions_->PrevLogNumber() == 0);
+      uint64_t new_log_number = versions_->NewFileNumber();
+      WritableFile* lfile = NULL;
+      s = env_->NewWritableFile(LogFileName(dbname_, new_log_number), &lfile);
+      if (!s.ok()) {
+        // Avoid chewing through file number space in a tight loop.
+        versions_->ReuseFileNumber(new_log_number);
+        break;
+      }
+      delete log_;
+      delete logfile_;
+      logfile_ = lfile;
+      logfile_number_ = new_log_number;
+      log_ = new log::Writer(lfile);
+      imm_ = mem_;
+      has_imm_.Release_Store(imm_);
+      mem_ = new MemTable(internal_comparator_);
+      mem_->Ref();
+      force = false;   // Do not force another compaction if have room
+      MaybeScheduleCompaction();
+    }
+  }
+  return s;
+}
+
+bool DBImpl::GetProperty(const Slice& property, std::string* value) {
+  value->clear();
+
+  MutexLock l(&mutex_);
+  Slice in = property;
+  Slice prefix("leveldb.");
+  if (!in.starts_with(prefix)) return false;
+  in.remove_prefix(prefix.size());
+
+  if (in.starts_with("num-files-at-level")) {
+    in.remove_prefix(strlen("num-files-at-level"));
+    uint64_t level;
+    bool ok = ConsumeDecimalNumber(&in, &level) && in.empty();
+    if (!ok || level >= config::kNumLevels) {
+      return false;
+    } else {
+      char buf[100];
+      snprintf(buf, sizeof(buf), "%d",
+               versions_->NumLevelFiles(static_cast<int>(level)));
+      *value = buf;
+      return true;
+    }
+  } else if (in == "stats") {
+    char buf[200];
+    snprintf(buf, sizeof(buf),
+             "                               Compactions\n"
+             "Level  Files Size(MB) Time(sec) Read(MB) Write(MB)\n"
+             "--------------------------------------------------\n"
+             );
+    value->append(buf);
+    for (int level = 0; level < config::kNumLevels; level++) {
+      int files = versions_->NumLevelFiles(level);
+      if (stats_[level].micros > 0 || files > 0) {
+        snprintf(
+            buf, sizeof(buf),
+            "%3d %8d %8.0f %9.0f %8.0f %9.0f\n",
+            level,
+            files,
+            versions_->NumLevelBytes(level) / 1048576.0,
+            stats_[level].micros / 1e6,
+            stats_[level].bytes_read / 1048576.0,
+            stats_[level].bytes_written / 1048576.0);
+        value->append(buf);
+      }
+    }
+    return true;
+  } else if (in == "sstables") {
+    *value = versions_->current()->DebugString();
+    return true;
+  } else if (in == "approximate-memory-usage") {
+    size_t total_usage = options_.block_cache->TotalCharge();
+    if (mem_) {
+      total_usage += mem_->ApproximateMemoryUsage();
+    }
+    if (imm_) {
+      total_usage += imm_->ApproximateMemoryUsage();
+    }
+    char buf[50];
+    snprintf(buf, sizeof(buf), "%llu",
+             static_cast<unsigned long long>(total_usage));
+    value->append(buf);
+    return true;
+  }
+
+  return false;
+}
+
+void DBImpl::GetApproximateSizes(
+    const Range* range, int n,
+    uint64_t* sizes) {
+  // TODO(opt): better implementation
+  Version* v;
+  {
+    MutexLock l(&mutex_);
+    versions_->current()->Ref();
+    v = versions_->current();
+  }
+
+  for (int i = 0; i < n; i++) {
+    // Convert user_key into a corresponding internal key.
+    InternalKey k1(range[i].start, kMaxSequenceNumber, kValueTypeForSeek);
+    InternalKey k2(range[i].limit, kMaxSequenceNumber, kValueTypeForSeek);
+    uint64_t start = versions_->ApproximateOffsetOf(v, k1);
+    uint64_t limit = versions_->ApproximateOffsetOf(v, k2);
+    sizes[i] = (limit >= start ? limit - start : 0);
+  }
+
+  {
+    MutexLock l(&mutex_);
+    v->Unref();
+  }
+}
+
+// Default implementations of convenience methods that subclasses of DB
+// can call if they wish
+Status DB::Put(const WriteOptions& opt, const Slice& key, const Slice& value) {
+  WriteBatch batch;
+  batch.Put(key, value);
+  return Write(opt, &batch);
+}
+
+Status DB::Delete(const WriteOptions& opt, const Slice& key) {
+  WriteBatch batch;
+  batch.Delete(key);
+  return Write(opt, &batch);
+}
+
+DB::~DB() { }
+
+Status DB::Open(const Options& options, const std::string& dbname,
+                DB** dbptr) {
+  *dbptr = NULL;
+
+  DBImpl* impl = new DBImpl(options, dbname);
+  impl->mutex_.Lock();
+  VersionEdit edit;
+  // Recover handles create_if_missing, error_if_exists
+  bool save_manifest = false;
+  Status s = impl->Recover(&edit, &save_manifest);
+  if (s.ok() && impl->mem_ == NULL) {
+    // Create new log and a corresponding memtable.
+    uint64_t new_log_number = impl->versions_->NewFileNumber();
+    WritableFile* lfile;
+    s = options.env->NewWritableFile(LogFileName(dbname, new_log_number),
+                                     &lfile);
+    if (s.ok()) {
+      edit.SetLogNumber(new_log_number);
+      impl->logfile_ = lfile;
+      impl->logfile_number_ = new_log_number;
+      impl->log_ = new log::Writer(lfile);
+      impl->mem_ = new MemTable(impl->internal_comparator_);
+      impl->mem_->Ref();
+    }
+  }
+  if (s.ok() && save_manifest) {
+    edit.SetPrevLogNumber(0);  // No older logs needed after recovery.
+    edit.SetLogNumber(impl->logfile_number_);
+    s = impl->versions_->LogAndApply(&edit, &impl->mutex_);
+  }
+  if (s.ok()) {
+    impl->DeleteObsoleteFiles();
+    impl->MaybeScheduleCompaction();
+  }
+  impl->mutex_.Unlock();
+  if (s.ok()) {
+    assert(impl->mem_ != NULL);
+    *dbptr = impl;
+  } else {
+    delete impl;
+  }
+  return s;
+}
+
+Snapshot::~Snapshot() {
+}
+
+Status DestroyDB(const std::string& dbname, const Options& options) {
+  Env* env = options.env;
+  std::vector<std::string> filenames;
+  // Ignore error in case directory does not exist
+  env->GetChildren(dbname, &filenames);
+  if (filenames.empty()) {
+    return Status::OK();
+  }
+
+  FileLock* lock;
+  const std::string lockname = LockFileName(dbname);
+  Status result = env->LockFile(lockname, &lock);
+  if (result.ok()) {
+    uint64_t number;
+    FileType type;
+    for (size_t i = 0; i < filenames.size(); i++) {
+      if (ParseFileName(filenames[i], &number, &type) &&
+          type != kDBLockFile) {  // Lock file will be deleted at end
+        Status del = env->DeleteFile(dbname + "/" + filenames[i]);
+        if (result.ok() && !del.ok()) {
+          result = del;
+        }
+      }
+    }
+    env->UnlockFile(lock);  // Ignore error since state is already gone
+    env->DeleteFile(lockname);
+    env->DeleteDir(dbname);  // Ignore error in case dir contains other files
+  }
+  return result;
+}
+
+}  // namespace leveldb
