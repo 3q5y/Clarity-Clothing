@@ -207,4 +207,24 @@ class LookupKey {
   // We construct a char array of the form:
   //    klength  varint32               <-- start_
   //    userkey  char[klength]          <-- kstart_
-  //    tag      ui
+  //    tag      uint64
+  //                                    <-- end_
+  // The array is a suitable MemTable key.
+  // The suffix starting with "userkey" can be used as an InternalKey.
+  const char* start_;
+  const char* kstart_;
+  const char* end_;
+  char space_[200];      // Avoid allocation for short keys
+
+  // No copying allowed
+  LookupKey(const LookupKey&);
+  void operator=(const LookupKey&);
+};
+
+inline LookupKey::~LookupKey() {
+  if (start_ != space_) delete[] start_;
+}
+
+}  // namespace leveldb
+
+#endif  // STORAGE_LEVELDB_DB_DBFORMAT_H_
