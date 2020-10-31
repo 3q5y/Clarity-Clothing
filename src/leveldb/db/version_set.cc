@@ -734,4 +734,349 @@ class VersionSet::Builder {
       }
 
       // Add remaining base files
-      for (; base_iter != base_en
+      for (; base_iter != base_end; ++base_iter) {
+        MaybeAddFile(v, level, *base_iter);
+      }
+
+#ifndef NDEBUG
+      // Make sure there is no overlap in levels > 0
+      if (level > 0) {
+        for (uint32_t i = 1; i < v->files_[level].size(); i++) {
+          const InternalKey& prev_end = v->files_[level][i-1]->largest;
+          const InternalKey& this_begin = v->files_[level][i]->smallest;
+          if (vset_->icmp_.Compare(prev_end, this_begin) >= 0) {
+            fprintf(stderr, "overlapping ranges in same level %s vs. %s\n",
+                    prev_end.DebugString().c_str(),
+                    this_begin.DebugString().c_str());
+            abort();
+          }
+        }
+      }
+#endif
+    }
+  }
+
+  void MaybeAddFile(Version* v, int level, FileMetaData* f) {
+    if (levels_[level].deleted_files.count(f->number) > 0) {
+      // File is deleted: do nothing
+    } else {
+      std::vector<FileMetaData*>* files = &v->files_[level];
+      if (level > 0 && !files->empty()) {
+        // Must not overlap
+        assert(vset_->icmp_.Compare((*files)[files->size()-1]->largest,
+                                    f->smallest) < 0);
+      }
+      f->refs++;
+      files->push_back(f);
+    }
+  }
+};
+
+VersionSet::VersionSet(const std::string& dbname,
+                       const Options* options,
+                       TableCache* table_cache,
+                       const InternalKeyComparator* cmp)
+    : env_(options->env),
+      dbname_(dbname),
+      options_(options),
+      table_cache_(table_cache),
+      icmp_(*cmp),
+      next_file_number_(2),
+      manifest_file_number_(0),  // Filled by Recover()
+      last_sequence_(0),
+      log_number_(0),
+      prev_log_number_(0),
+      descriptor_file_(NULL),
+      descriptor_log_(NULL),
+      dummy_versions_(this),
+      current_(NULL) {
+  AppendVersion(new Version(this));
+}
+
+VersionSet::~VersionSet() {
+  current_->Unref();
+  assert(dummy_versions_.next_ == &dummy_versions_);  // List must be empty
+  delete descriptor_log_;
+  delete descriptor_file_;
+}
+
+void VersionSet::AppendVersion(Version* v) {
+  // Make "v" current
+  assert(v->refs_ == 0);
+  assert(v != current_);
+  if (current_ != NULL) {
+    current_->Unref();
+  }
+  current_ = v;
+  v->Ref();
+
+  // Append to linked list
+  v->prev_ = dummy_versions_.prev_;
+  v->next_ = &dummy_versions_;
+  v->prev_->next_ = v;
+  v->next_->prev_ = v;
+}
+
+Status VersionSet::LogAndApply(VersionEdit* edit, port::Mutex* mu) {
+  if (edit->has_log_number_) {
+    assert(edit->log_number_ >= log_number_);
+    assert(edit->log_number_ < next_file_number_);
+  } else {
+    edit->SetLogNumber(log_number_);
+  }
+
+  if (!edit->has_prev_log_number_) {
+    edit->SetPrevLogNumber(prev_log_number_);
+  }
+
+  edit->SetNextFile(next_file_number_);
+  edit->SetLastSequence(last_sequence_);
+
+  Version* v = new Version(this);
+  {
+    Builder builder(this, current_);
+    builder.Apply(edit);
+    builder.SaveTo(v);
+  }
+  Finalize(v);
+
+  // Initialize new descriptor log file if necessary by creating
+  // a temporary file that contains a snapshot of the current version.
+  std::string new_manifest_file;
+  Status s;
+  if (descriptor_log_ == NULL) {
+    // No reason to unlock *mu here since we only hit this path in the
+    // first call to LogAndApply (when opening the database).
+    assert(descriptor_file_ == NULL);
+    new_manifest_file = DescriptorFileName(dbname_, manifest_file_number_);
+    edit->SetNextFile(next_file_number_);
+    s = env_->NewWritableFile(new_manifest_file, &descriptor_file_);
+    if (s.ok()) {
+      descriptor_log_ = new log::Writer(descriptor_file_);
+      s = WriteSnapshot(descriptor_log_);
+    }
+  }
+
+  // Unlock during expensive MANIFEST log write
+  {
+    mu->Unlock();
+
+    // Write new record to MANIFEST log
+    if (s.ok()) {
+      std::string record;
+      edit->EncodeTo(&record);
+      s = descriptor_log_->AddRecord(record);
+      if (s.ok()) {
+        s = descriptor_file_->Sync();
+      }
+      if (!s.ok()) {
+        Log(options_->info_log, "MANIFEST write: %s\n", s.ToString().c_str());
+      }
+    }
+
+    // If we just created a new descriptor file, install it by writing a
+    // new CURRENT file that points to it.
+    if (s.ok() && !new_manifest_file.empty()) {
+      s = SetCurrentFile(env_, dbname_, manifest_file_number_);
+    }
+
+    mu->Lock();
+  }
+
+  // Install the new version
+  if (s.ok()) {
+    AppendVersion(v);
+    log_number_ = edit->log_number_;
+    prev_log_number_ = edit->prev_log_number_;
+  } else {
+    delete v;
+    if (!new_manifest_file.empty()) {
+      delete descriptor_log_;
+      delete descriptor_file_;
+      descriptor_log_ = NULL;
+      descriptor_file_ = NULL;
+      env_->DeleteFile(new_manifest_file);
+    }
+  }
+
+  return s;
+}
+
+Status VersionSet::Recover(bool *save_manifest) {
+  struct LogReporter : public log::Reader::Reporter {
+    Status* status;
+    virtual void Corruption(size_t bytes, const Status& s) {
+      if (this->status->ok()) *this->status = s;
+    }
+  };
+
+  // Read "CURRENT" file, which contains a pointer to the current manifest file
+  std::string current;
+  Status s = ReadFileToString(env_, CurrentFileName(dbname_), &current);
+  if (!s.ok()) {
+    return s;
+  }
+  if (current.empty() || current[current.size()-1] != '\n') {
+    return Status::Corruption("CURRENT file does not end with newline");
+  }
+  current.resize(current.size() - 1);
+
+  std::string dscname = dbname_ + "/" + current;
+  SequentialFile* file;
+  s = env_->NewSequentialFile(dscname, &file);
+  if (!s.ok()) {
+    return s;
+  }
+
+  bool have_log_number = false;
+  bool have_prev_log_number = false;
+  bool have_next_file = false;
+  bool have_last_sequence = false;
+  uint64_t next_file = 0;
+  uint64_t last_sequence = 0;
+  uint64_t log_number = 0;
+  uint64_t prev_log_number = 0;
+  Builder builder(this, current_);
+
+  {
+    LogReporter reporter;
+    reporter.status = &s;
+    log::Reader reader(file, &reporter, true/*checksum*/, 0/*initial_offset*/);
+    Slice record;
+    std::string scratch;
+    while (reader.ReadRecord(&record, &scratch) && s.ok()) {
+      VersionEdit edit;
+      s = edit.DecodeFrom(record);
+      if (s.ok()) {
+        if (edit.has_comparator_ &&
+            edit.comparator_ != icmp_.user_comparator()->Name()) {
+          s = Status::InvalidArgument(
+              edit.comparator_ + " does not match existing comparator ",
+              icmp_.user_comparator()->Name());
+        }
+      }
+
+      if (s.ok()) {
+        builder.Apply(&edit);
+      }
+
+      if (edit.has_log_number_) {
+        log_number = edit.log_number_;
+        have_log_number = true;
+      }
+
+      if (edit.has_prev_log_number_) {
+        prev_log_number = edit.prev_log_number_;
+        have_prev_log_number = true;
+      }
+
+      if (edit.has_next_file_number_) {
+        next_file = edit.next_file_number_;
+        have_next_file = true;
+      }
+
+      if (edit.has_last_sequence_) {
+        last_sequence = edit.last_sequence_;
+        have_last_sequence = true;
+      }
+    }
+  }
+  delete file;
+  file = NULL;
+
+  if (s.ok()) {
+    if (!have_next_file) {
+      s = Status::Corruption("no meta-nextfile entry in descriptor");
+    } else if (!have_log_number) {
+      s = Status::Corruption("no meta-lognumber entry in descriptor");
+    } else if (!have_last_sequence) {
+      s = Status::Corruption("no last-sequence-number entry in descriptor");
+    }
+
+    if (!have_prev_log_number) {
+      prev_log_number = 0;
+    }
+
+    MarkFileNumberUsed(prev_log_number);
+    MarkFileNumberUsed(log_number);
+  }
+
+  if (s.ok()) {
+    Version* v = new Version(this);
+    builder.SaveTo(v);
+    // Install recovered version
+    Finalize(v);
+    AppendVersion(v);
+    manifest_file_number_ = next_file;
+    next_file_number_ = next_file + 1;
+    last_sequence_ = last_sequence;
+    log_number_ = log_number;
+    prev_log_number_ = prev_log_number;
+
+    // See if we can reuse the existing MANIFEST file.
+    if (ReuseManifest(dscname, current)) {
+      // No need to save new manifest
+    } else {
+      *save_manifest = true;
+    }
+  }
+
+  return s;
+}
+
+bool VersionSet::ReuseManifest(const std::string& dscname,
+                               const std::string& dscbase) {
+  if (!options_->reuse_logs) {
+    return false;
+  }
+  FileType manifest_type;
+  uint64_t manifest_number;
+  uint64_t manifest_size;
+  if (!ParseFileName(dscbase, &manifest_number, &manifest_type) ||
+      manifest_type != kDescriptorFile ||
+      !env_->GetFileSize(dscname, &manifest_size).ok() ||
+      // Make new compacted MANIFEST if old one is too big
+      manifest_size >= TargetFileSize(options_)) {
+    return false;
+  }
+
+  assert(descriptor_file_ == NULL);
+  assert(descriptor_log_ == NULL);
+  Status r = env_->NewAppendableFile(dscname, &descriptor_file_);
+  if (!r.ok()) {
+    Log(options_->info_log, "Reuse MANIFEST: %s\n", r.ToString().c_str());
+    assert(descriptor_file_ == NULL);
+    return false;
+  }
+
+  Log(options_->info_log, "Reusing MANIFEST %s\n", dscname.c_str());
+  descriptor_log_ = new log::Writer(descriptor_file_, manifest_size);
+  manifest_file_number_ = manifest_number;
+  return true;
+}
+
+void VersionSet::MarkFileNumberUsed(uint64_t number) {
+  if (next_file_number_ <= number) {
+    next_file_number_ = number + 1;
+  }
+}
+
+void VersionSet::Finalize(Version* v) {
+  // Precomputed best level for next compaction
+  int best_level = -1;
+  double best_score = -1;
+
+  for (int level = 0; level < config::kNumLevels-1; level++) {
+    double score;
+    if (level == 0) {
+      // We treat level-0 specially by bounding the number of files
+      // instead of number of bytes for two reasons:
+      //
+      // (1) With larger write-buffer sizes, it is nice not to do too
+      // many level-0 compactions.
+      //
+      // (2) The files in level-0 are merged on every read and
+      // therefore we wish to avoid too many files when the individual
+      // file size is small (perhaps because of a small write-buffer
+      // setting, or very high compression ratios, or lots of
+      // overwrites/
