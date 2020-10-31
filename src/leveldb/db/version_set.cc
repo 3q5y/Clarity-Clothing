@@ -1079,4 +1079,293 @@ void VersionSet::Finalize(Version* v) {
       // therefore we wish to avoid too many files when the individual
       // file size is small (perhaps because of a small write-buffer
       // setting, or very high compression ratios, or lots of
-      // overwrites/
+      // overwrites/deletions).
+      score = v->files_[level].size() /
+          static_cast<double>(config::kL0_CompactionTrigger);
+    } else {
+      // Compute the ratio of current size to size limit.
+      const uint64_t level_bytes = TotalFileSize(v->files_[level]);
+      score =
+          static_cast<double>(level_bytes) / MaxBytesForLevel(options_, level);
+    }
+
+    if (score > best_score) {
+      best_level = level;
+      best_score = score;
+    }
+  }
+
+  v->compaction_level_ = best_level;
+  v->compaction_score_ = best_score;
+}
+
+Status VersionSet::WriteSnapshot(log::Writer* log) {
+  // TODO: Break up into multiple records to reduce memory usage on recovery?
+
+  // Save metadata
+  VersionEdit edit;
+  edit.SetComparatorName(icmp_.user_comparator()->Name());
+
+  // Save compaction pointers
+  for (int level = 0; level < config::kNumLevels; level++) {
+    if (!compact_pointer_[level].empty()) {
+      InternalKey key;
+      key.DecodeFrom(compact_pointer_[level]);
+      edit.SetCompactPointer(level, key);
+    }
+  }
+
+  // Save files
+  for (int level = 0; level < config::kNumLevels; level++) {
+    const std::vector<FileMetaData*>& files = current_->files_[level];
+    for (size_t i = 0; i < files.size(); i++) {
+      const FileMetaData* f = files[i];
+      edit.AddFile(level, f->number, f->file_size, f->smallest, f->largest);
+    }
+  }
+
+  std::string record;
+  edit.EncodeTo(&record);
+  return log->AddRecord(record);
+}
+
+int VersionSet::NumLevelFiles(int level) const {
+  assert(level >= 0);
+  assert(level < config::kNumLevels);
+  return current_->files_[level].size();
+}
+
+const char* VersionSet::LevelSummary(LevelSummaryStorage* scratch) const {
+  // Update code if kNumLevels changes
+  assert(config::kNumLevels == 7);
+  snprintf(scratch->buffer, sizeof(scratch->buffer),
+           "files[ %d %d %d %d %d %d %d ]",
+           int(current_->files_[0].size()),
+           int(current_->files_[1].size()),
+           int(current_->files_[2].size()),
+           int(current_->files_[3].size()),
+           int(current_->files_[4].size()),
+           int(current_->files_[5].size()),
+           int(current_->files_[6].size()));
+  return scratch->buffer;
+}
+
+uint64_t VersionSet::ApproximateOffsetOf(Version* v, const InternalKey& ikey) {
+  uint64_t result = 0;
+  for (int level = 0; level < config::kNumLevels; level++) {
+    const std::vector<FileMetaData*>& files = v->files_[level];
+    for (size_t i = 0; i < files.size(); i++) {
+      if (icmp_.Compare(files[i]->largest, ikey) <= 0) {
+        // Entire file is before "ikey", so just add the file size
+        result += files[i]->file_size;
+      } else if (icmp_.Compare(files[i]->smallest, ikey) > 0) {
+        // Entire file is after "ikey", so ignore
+        if (level > 0) {
+          // Files other than level 0 are sorted by meta->smallest, so
+          // no further files in this level will contain data for
+          // "ikey".
+          break;
+        }
+      } else {
+        // "ikey" falls in the range for this table.  Add the
+        // approximate offset of "ikey" within the table.
+        Table* tableptr;
+        Iterator* iter = table_cache_->NewIterator(
+            ReadOptions(), files[i]->number, files[i]->file_size, &tableptr);
+        if (tableptr != NULL) {
+          result += tableptr->ApproximateOffsetOf(ikey.Encode());
+        }
+        delete iter;
+      }
+    }
+  }
+  return result;
+}
+
+void VersionSet::AddLiveFiles(std::set<uint64_t>* live) {
+  for (Version* v = dummy_versions_.next_;
+       v != &dummy_versions_;
+       v = v->next_) {
+    for (int level = 0; level < config::kNumLevels; level++) {
+      const std::vector<FileMetaData*>& files = v->files_[level];
+      for (size_t i = 0; i < files.size(); i++) {
+        live->insert(files[i]->number);
+      }
+    }
+  }
+}
+
+int64_t VersionSet::NumLevelBytes(int level) const {
+  assert(level >= 0);
+  assert(level < config::kNumLevels);
+  return TotalFileSize(current_->files_[level]);
+}
+
+int64_t VersionSet::MaxNextLevelOverlappingBytes() {
+  int64_t result = 0;
+  std::vector<FileMetaData*> overlaps;
+  for (int level = 1; level < config::kNumLevels - 1; level++) {
+    for (size_t i = 0; i < current_->files_[level].size(); i++) {
+      const FileMetaData* f = current_->files_[level][i];
+      current_->GetOverlappingInputs(level+1, &f->smallest, &f->largest,
+                                     &overlaps);
+      const int64_t sum = TotalFileSize(overlaps);
+      if (sum > result) {
+        result = sum;
+      }
+    }
+  }
+  return result;
+}
+
+// Stores the minimal range that covers all entries in inputs in
+// *smallest, *largest.
+// REQUIRES: inputs is not empty
+void VersionSet::GetRange(const std::vector<FileMetaData*>& inputs,
+                          InternalKey* smallest,
+                          InternalKey* largest) {
+  assert(!inputs.empty());
+  smallest->Clear();
+  largest->Clear();
+  for (size_t i = 0; i < inputs.size(); i++) {
+    FileMetaData* f = inputs[i];
+    if (i == 0) {
+      *smallest = f->smallest;
+      *largest = f->largest;
+    } else {
+      if (icmp_.Compare(f->smallest, *smallest) < 0) {
+        *smallest = f->smallest;
+      }
+      if (icmp_.Compare(f->largest, *largest) > 0) {
+        *largest = f->largest;
+      }
+    }
+  }
+}
+
+// Stores the minimal range that covers all entries in inputs1 and inputs2
+// in *smallest, *largest.
+// REQUIRES: inputs is not empty
+void VersionSet::GetRange2(const std::vector<FileMetaData*>& inputs1,
+                           const std::vector<FileMetaData*>& inputs2,
+                           InternalKey* smallest,
+                           InternalKey* largest) {
+  std::vector<FileMetaData*> all = inputs1;
+  all.insert(all.end(), inputs2.begin(), inputs2.end());
+  GetRange(all, smallest, largest);
+}
+
+Iterator* VersionSet::MakeInputIterator(Compaction* c) {
+  ReadOptions options;
+  options.verify_checksums = options_->paranoid_checks;
+  options.fill_cache = false;
+
+  // Level-0 files have to be merged together.  For other levels,
+  // we will make a concatenating iterator per level.
+  // TODO(opt): use concatenating iterator for level-0 if there is no overlap
+  const int space = (c->level() == 0 ? c->inputs_[0].size() + 1 : 2);
+  Iterator** list = new Iterator*[space];
+  int num = 0;
+  for (int which = 0; which < 2; which++) {
+    if (!c->inputs_[which].empty()) {
+      if (c->level() + which == 0) {
+        const std::vector<FileMetaData*>& files = c->inputs_[which];
+        for (size_t i = 0; i < files.size(); i++) {
+          list[num++] = table_cache_->NewIterator(
+              options, files[i]->number, files[i]->file_size);
+        }
+      } else {
+        // Create concatenating iterator for the files from this level
+        list[num++] = NewTwoLevelIterator(
+            new Version::LevelFileNumIterator(icmp_, &c->inputs_[which]),
+            &GetFileIterator, table_cache_, options);
+      }
+    }
+  }
+  assert(num <= space);
+  Iterator* result = NewMergingIterator(&icmp_, list, num);
+  delete[] list;
+  return result;
+}
+
+Compaction* VersionSet::PickCompaction() {
+  Compaction* c;
+  int level;
+
+  // We prefer compactions triggered by too much data in a level over
+  // the compactions triggered by seeks.
+  const bool size_compaction = (current_->compaction_score_ >= 1);
+  const bool seek_compaction = (current_->file_to_compact_ != NULL);
+  if (size_compaction) {
+    level = current_->compaction_level_;
+    assert(level >= 0);
+    assert(level+1 < config::kNumLevels);
+    c = new Compaction(options_, level);
+
+    // Pick the first file that comes after compact_pointer_[level]
+    for (size_t i = 0; i < current_->files_[level].size(); i++) {
+      FileMetaData* f = current_->files_[level][i];
+      if (compact_pointer_[level].empty() ||
+          icmp_.Compare(f->largest.Encode(), compact_pointer_[level]) > 0) {
+        c->inputs_[0].push_back(f);
+        break;
+      }
+    }
+    if (c->inputs_[0].empty()) {
+      // Wrap-around to the beginning of the key space
+      c->inputs_[0].push_back(current_->files_[level][0]);
+    }
+  } else if (seek_compaction) {
+    level = current_->file_to_compact_level_;
+    c = new Compaction(options_, level);
+    c->inputs_[0].push_back(current_->file_to_compact_);
+  } else {
+    return NULL;
+  }
+
+  c->input_version_ = current_;
+  c->input_version_->Ref();
+
+  // Files in level 0 may overlap each other, so pick up all overlapping ones
+  if (level == 0) {
+    InternalKey smallest, largest;
+    GetRange(c->inputs_[0], &smallest, &largest);
+    // Note that the next call will discard the file we placed in
+    // c->inputs_[0] earlier and replace it with an overlapping set
+    // which will include the picked file.
+    current_->GetOverlappingInputs(0, &smallest, &largest, &c->inputs_[0]);
+    assert(!c->inputs_[0].empty());
+  }
+
+  SetupOtherInputs(c);
+
+  return c;
+}
+
+void VersionSet::SetupOtherInputs(Compaction* c) {
+  const int level = c->level();
+  InternalKey smallest, largest;
+  GetRange(c->inputs_[0], &smallest, &largest);
+
+  current_->GetOverlappingInputs(level+1, &smallest, &largest, &c->inputs_[1]);
+
+  // Get entire range covered by compaction
+  InternalKey all_start, all_limit;
+  GetRange2(c->inputs_[0], c->inputs_[1], &all_start, &all_limit);
+
+  // See if we can grow the number of inputs in "level" without
+  // changing the number of "level+1" files we pick up.
+  if (!c->inputs_[1].empty()) {
+    std::vector<FileMetaData*> expanded0;
+    current_->GetOverlappingInputs(level, &all_start, &all_limit, &expanded0);
+    const int64_t inputs0_size = TotalFileSize(c->inputs_[0]);
+    const int64_t inputs1_size = TotalFileSize(c->inputs_[1]);
+    const int64_t expanded0_size = TotalFileSize(expanded0);
+    if (expanded0.size() > c->inputs_[0].size() &&
+        inputs1_size + expanded0_size <
+            ExpandedCompactionByteSizeLimit(options_)) {
+      InternalKey new_start, new_limit;
+      GetRange(expanded0, &new_start, &new_limit);
+      std::vector<FileMetaData*> expanded1;
+      current_->GetOverlappingInputs(level+1, &new_start, &new_limit,
+                         
