@@ -1368,4 +1368,168 @@ void VersionSet::SetupOtherInputs(Compaction* c) {
       GetRange(expanded0, &new_start, &new_limit);
       std::vector<FileMetaData*> expanded1;
       current_->GetOverlappingInputs(level+1, &new_start, &new_limit,
-                         
+                                     &expanded1);
+      if (expanded1.size() == c->inputs_[1].size()) {
+        Log(options_->info_log,
+            "Expanding@%d %d+%d (%ld+%ld bytes) to %d+%d (%ld+%ld bytes)\n",
+            level,
+            int(c->inputs_[0].size()),
+            int(c->inputs_[1].size()),
+            long(inputs0_size), long(inputs1_size),
+            int(expanded0.size()),
+            int(expanded1.size()),
+            long(expanded0_size), long(inputs1_size));
+        smallest = new_start;
+        largest = new_limit;
+        c->inputs_[0] = expanded0;
+        c->inputs_[1] = expanded1;
+        GetRange2(c->inputs_[0], c->inputs_[1], &all_start, &all_limit);
+      }
+    }
+  }
+
+  // Compute the set of grandparent files that overlap this compaction
+  // (parent == level+1; grandparent == level+2)
+  if (level + 2 < config::kNumLevels) {
+    current_->GetOverlappingInputs(level + 2, &all_start, &all_limit,
+                                   &c->grandparents_);
+  }
+
+  if (false) {
+    Log(options_->info_log, "Compacting %d '%s' .. '%s'",
+        level,
+        smallest.DebugString().c_str(),
+        largest.DebugString().c_str());
+  }
+
+  // Update the place where we will do the next compaction for this level.
+  // We update this immediately instead of waiting for the VersionEdit
+  // to be applied so that if the compaction fails, we will try a different
+  // key range next time.
+  compact_pointer_[level] = largest.Encode().ToString();
+  c->edit_.SetCompactPointer(level, largest);
+}
+
+Compaction* VersionSet::CompactRange(
+    int level,
+    const InternalKey* begin,
+    const InternalKey* end) {
+  std::vector<FileMetaData*> inputs;
+  current_->GetOverlappingInputs(level, begin, end, &inputs);
+  if (inputs.empty()) {
+    return NULL;
+  }
+
+  // Avoid compacting too much in one shot in case the range is large.
+  // But we cannot do this for level-0 since level-0 files can overlap
+  // and we must not pick one file and drop another older file if the
+  // two files overlap.
+  if (level > 0) {
+    const uint64_t limit = MaxFileSizeForLevel(options_, level);
+    uint64_t total = 0;
+    for (size_t i = 0; i < inputs.size(); i++) {
+      uint64_t s = inputs[i]->file_size;
+      total += s;
+      if (total >= limit) {
+        inputs.resize(i + 1);
+        break;
+      }
+    }
+  }
+
+  Compaction* c = new Compaction(options_, level);
+  c->input_version_ = current_;
+  c->input_version_->Ref();
+  c->inputs_[0] = inputs;
+  SetupOtherInputs(c);
+  return c;
+}
+
+Compaction::Compaction(const Options* options, int level)
+    : level_(level),
+      max_output_file_size_(MaxFileSizeForLevel(options, level)),
+      input_version_(NULL),
+      grandparent_index_(0),
+      seen_key_(false),
+      overlapped_bytes_(0) {
+  for (int i = 0; i < config::kNumLevels; i++) {
+    level_ptrs_[i] = 0;
+  }
+}
+
+Compaction::~Compaction() {
+  if (input_version_ != NULL) {
+    input_version_->Unref();
+  }
+}
+
+bool Compaction::IsTrivialMove() const {
+  const VersionSet* vset = input_version_->vset_;
+  // Avoid a move if there is lots of overlapping grandparent data.
+  // Otherwise, the move could create a parent file that will require
+  // a very expensive merge later on.
+  return (num_input_files(0) == 1 && num_input_files(1) == 0 &&
+          TotalFileSize(grandparents_) <=
+              MaxGrandParentOverlapBytes(vset->options_));
+}
+
+void Compaction::AddInputDeletions(VersionEdit* edit) {
+  for (int which = 0; which < 2; which++) {
+    for (size_t i = 0; i < inputs_[which].size(); i++) {
+      edit->DeleteFile(level_ + which, inputs_[which][i]->number);
+    }
+  }
+}
+
+bool Compaction::IsBaseLevelForKey(const Slice& user_key) {
+  // Maybe use binary search to find right entry instead of linear search?
+  const Comparator* user_cmp = input_version_->vset_->icmp_.user_comparator();
+  for (int lvl = level_ + 2; lvl < config::kNumLevels; lvl++) {
+    const std::vector<FileMetaData*>& files = input_version_->files_[lvl];
+    for (; level_ptrs_[lvl] < files.size(); ) {
+      FileMetaData* f = files[level_ptrs_[lvl]];
+      if (user_cmp->Compare(user_key, f->largest.user_key()) <= 0) {
+        // We've advanced far enough
+        if (user_cmp->Compare(user_key, f->smallest.user_key()) >= 0) {
+          // Key falls in this file's range, so definitely not base level
+          return false;
+        }
+        break;
+      }
+      level_ptrs_[lvl]++;
+    }
+  }
+  return true;
+}
+
+bool Compaction::ShouldStopBefore(const Slice& internal_key) {
+  const VersionSet* vset = input_version_->vset_;
+  // Scan to find earliest grandparent file that contains key.
+  const InternalKeyComparator* icmp = &vset->icmp_;
+  while (grandparent_index_ < grandparents_.size() &&
+      icmp->Compare(internal_key,
+                    grandparents_[grandparent_index_]->largest.Encode()) > 0) {
+    if (seen_key_) {
+      overlapped_bytes_ += grandparents_[grandparent_index_]->file_size;
+    }
+    grandparent_index_++;
+  }
+  seen_key_ = true;
+
+  if (overlapped_bytes_ > MaxGrandParentOverlapBytes(vset->options_)) {
+    // Too much overlap for current output; start new output
+    overlapped_bytes_ = 0;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void Compaction::ReleaseInputs() {
+  if (input_version_ != NULL) {
+    input_version_->Unref();
+    input_version_ = NULL;
+  }
+}
+
+}  // namespace leveldb
