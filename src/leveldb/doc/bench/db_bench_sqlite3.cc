@@ -658,4 +658,61 @@ class Benchmark {
       FinishedSingleOp();
     }
 
-    status = sqlite3_finalize(pStmt)
+    status = sqlite3_finalize(pStmt);
+    ErrorCheck(status);
+  }
+
+};
+
+}  // namespace leveldb
+
+int main(int argc, char** argv) {
+  std::string default_db_path;
+  for (int i = 1; i < argc; i++) {
+    double d;
+    int n;
+    char junk;
+    if (leveldb::Slice(argv[i]).starts_with("--benchmarks=")) {
+      FLAGS_benchmarks = argv[i] + strlen("--benchmarks=");
+    } else if (sscanf(argv[i], "--histogram=%d%c", &n, &junk) == 1 &&
+               (n == 0 || n == 1)) {
+      FLAGS_histogram = n;
+    } else if (sscanf(argv[i], "--compression_ratio=%lf%c", &d, &junk) == 1) {
+      FLAGS_compression_ratio = d;
+    } else if (sscanf(argv[i], "--use_existing_db=%d%c", &n, &junk) == 1 &&
+               (n == 0 || n == 1)) {
+      FLAGS_use_existing_db = n;
+    } else if (sscanf(argv[i], "--num=%d%c", &n, &junk) == 1) {
+      FLAGS_num = n;
+    } else if (sscanf(argv[i], "--reads=%d%c", &n, &junk) == 1) {
+      FLAGS_reads = n;
+    } else if (sscanf(argv[i], "--value_size=%d%c", &n, &junk) == 1) {
+      FLAGS_value_size = n;
+    } else if (leveldb::Slice(argv[i]) == leveldb::Slice("--no_transaction")) {
+      FLAGS_transaction = false;
+    } else if (sscanf(argv[i], "--page_size=%d%c", &n, &junk) == 1) {
+      FLAGS_page_size = n;
+    } else if (sscanf(argv[i], "--num_pages=%d%c", &n, &junk) == 1) {
+      FLAGS_num_pages = n;
+    } else if (sscanf(argv[i], "--WAL_enabled=%d%c", &n, &junk) == 1 &&
+               (n == 0 || n == 1)) {
+      FLAGS_WAL_enabled = n;
+    } else if (strncmp(argv[i], "--db=", 5) == 0) {
+      FLAGS_db = argv[i] + 5;
+    } else {
+      fprintf(stderr, "Invalid flag '%s'\n", argv[i]);
+      exit(1);
+    }
+  }
+
+  // Choose a location for the test database if none given with --db=<path>
+  if (FLAGS_db == NULL) {
+      leveldb::Env::Default()->GetTestDirectory(&default_db_path);
+      default_db_path += "/dbbench";
+      FLAGS_db = default_db_path.c_str();
+  }
+
+  leveldb::Benchmark benchmark;
+  benchmark.Run();
+  return 0;
+}
