@@ -131,4 +131,40 @@ Solution 2: We might want to decrease write rate artificially when the number of
 level-0 files goes up.
 
 Solution 3: We work on reducing the cost of very wide merges. Perhaps most of
-the level-0 files will ha
+the level-0 files will have their blocks sitting uncompressed in the cache and
+we will only need to worry about the O(N) complexity in the merging iterator.
+
+### Number of files
+
+Instead of always making 2MB files, we could make larger files for larger levels
+to reduce the total file count, though at the expense of more bursty
+compactions.  Alternatively, we could shard the set of files into multiple
+directories.
+
+An experiment on an ext3 filesystem on Feb 04, 2011 shows the following timings
+to do 100K file opens in directories with varying number of files:
+
+
+| Files in directory | Microseconds to open a file |
+|-------------------:|----------------------------:|
+|               1000 |                           9 |
+|              10000 |                          10 |
+|             100000 |                          16 |
+
+So maybe even the sharding is not necessary on modern filesystems?
+
+## Recovery
+
+* Read CURRENT to find name of the latest committed MANIFEST
+* Read the named MANIFEST file
+* Clean up stale files
+* We could open all sstables here, but it is probably better to be lazy...
+* Convert log chunk to a new level-0 sstable
+* Start directing new writes to a new log file with recovered sequence#
+
+## Garbage collection of files
+
+`DeleteObsoleteFiles()` is called at the end of every compaction and at the end
+of recovery. It finds the names of all files in the database. It deletes all log
+files that are not the current log file. It deletes all table files that are not
+referenced from some level and are not the output of an active compaction.
