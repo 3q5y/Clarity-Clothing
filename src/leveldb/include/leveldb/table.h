@@ -72,4 +72,14 @@ class Table {
       void (*handle_result)(void* arg, const Slice& k, const Slice& v));
 
 
-  void ReadMeta(
+  void ReadMeta(const Footer& footer);
+  void ReadFilter(const Slice& filter_handle_value);
+
+  // No copying allowed
+  Table(const Table&);
+  void operator=(const Table&);
+};
+
+}  // namespace leveldb
+
+#endif  // STORAGE_LEVELDB_INCLUDE_TABLE_H_
