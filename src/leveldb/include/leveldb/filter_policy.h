@@ -60,4 +60,11 @@ class FilterPolicy {
 // of the keys being compared, you must not use NewBloomFilterPolicy()
 // and must provide your own FilterPolicy that also ignores the
 // corresponding parts of the keys.  For example, if the comparator
-// ignores trailing spaces, it would be inco
+// ignores trailing spaces, it would be incorrect to use a
+// FilterPolicy (like NewBloomFilterPolicy) that does not ignore
+// trailing spaces in keys.
+extern const FilterPolicy* NewBloomFilterPolicy(int bits_per_key);
+
+}
+
+#endif  // STORAGE_LEVELDB_INCLUDE_FILTER_POLICY_H_
