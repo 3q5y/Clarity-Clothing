@@ -424,4 +424,388 @@ BOOL Win32RandomAccessFile::isEnable()
 
 void Win32RandomAccessFile::_CleanUp()
 {
- 
+    if(_hFile){
+        ::CloseHandle(_hFile);
+        _hFile = NULL;
+    }
+}
+
+Win32WritableFile::Win32WritableFile(const std::string& fname, bool append)
+    : filename_(fname)
+{
+    std::wstring path;
+    ToWidePath(fname, path);
+    // NewAppendableFile: append to an existing file, or create a new one
+    //     if none exists - this is OPEN_ALWAYS behavior, with
+    //     FILE_APPEND_DATA to avoid having to manually position the file
+    //     pointer at the end of the file.
+    // NewWritableFile: create a new file, delete if it exists - this is
+    //     CREATE_ALWAYS behavior. This file is used for writing only so
+    //     use GENERIC_WRITE.
+    _hFile = CreateFileW(path.c_str(),
+                         append ? FILE_APPEND_DATA : GENERIC_WRITE,
+                         FILE_SHARE_READ|FILE_SHARE_DELETE|FILE_SHARE_WRITE,
+                         NULL,
+                         append ? OPEN_ALWAYS : CREATE_ALWAYS,
+                         FILE_ATTRIBUTE_NORMAL,
+                         NULL);
+    // CreateFileW returns INVALID_HANDLE_VALUE in case of error, always check isEnable() before use
+}
+
+Win32WritableFile::~Win32WritableFile()
+{
+    if (_hFile != INVALID_HANDLE_VALUE)
+        Close();
+}
+
+Status Win32WritableFile::Append(const Slice& data)
+{
+    DWORD r = 0;
+    if (!WriteFile(_hFile, data.data(), data.size(), &r, NULL) || r != data.size()) {
+        return Status::IOError("Win32WritableFile.Append::WriteFile: "+filename_, Win32::GetLastErrSz());
+    }
+    return Status::OK();
+}
+
+Status Win32WritableFile::Close()
+{
+    if (!CloseHandle(_hFile)) {
+        return Status::IOError("Win32WritableFile.Close::CloseHandle: "+filename_, Win32::GetLastErrSz());
+    }
+    _hFile = INVALID_HANDLE_VALUE;
+    return Status::OK();
+}
+
+Status Win32WritableFile::Flush()
+{
+    // Nothing to do here, there are no application-side buffers
+    return Status::OK();
+}
+
+Status Win32WritableFile::Sync()
+{
+    if (!FlushFileBuffers(_hFile)) {
+        return Status::IOError("Win32WritableFile.Sync::FlushFileBuffers "+filename_, Win32::GetLastErrSz());
+    }
+    return Status::OK();
+}
+
+BOOL Win32WritableFile::isEnable()
+{
+    return _hFile != INVALID_HANDLE_VALUE;
+}
+
+Win32FileLock::Win32FileLock( const std::string& fname ) :
+    _hFile(NULL),_filename(fname)
+{
+	std::wstring path;
+	ToWidePath(fname, path);
+	_Init(path.c_str());
+}
+
+Win32FileLock::~Win32FileLock()
+{
+    _CleanUp();
+}
+
+BOOL Win32FileLock::_Init( LPCWSTR path )
+{
+    BOOL bRet = FALSE;
+    if(!_hFile)
+        _hFile = ::CreateFileW(path,0,0,NULL,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,NULL);
+    if(!_hFile || _hFile == INVALID_HANDLE_VALUE ){
+        _hFile = NULL;
+    }
+    else
+        bRet = TRUE;
+    return bRet;
+}
+
+void Win32FileLock::_CleanUp()
+{
+    ::CloseHandle(_hFile);
+    _hFile = NULL;
+}
+
+BOOL Win32FileLock::isEnable()
+{
+    return _hFile ? TRUE : FALSE;
+}
+
+Win32Logger::Win32Logger(WritableFile* pFile) : _pFileProxy(pFile)
+{
+    assert(_pFileProxy);
+}
+
+Win32Logger::~Win32Logger()
+{
+    if(_pFileProxy)
+        delete _pFileProxy;
+}
+
+void Win32Logger::Logv( const char* format, va_list ap )
+{
+    uint64_t thread_id = ::GetCurrentThreadId();
+
+    // We try twice: the first time with a fixed-size stack allocated buffer,
+    // and the second time with a much larger dynamically allocated buffer.
+    char buffer[500];
+    for (int iter = 0; iter < 2; iter++) {
+        char* base;
+        int bufsize;
+        if (iter == 0) {
+            bufsize = sizeof(buffer);
+            base = buffer;
+        } else {
+            bufsize = 30000;
+            base = new char[bufsize];
+        }
+        char* p = base;
+        char* limit = base + bufsize;
+
+        SYSTEMTIME st;
+        GetLocalTime(&st);
+        p += snprintf(p, limit - p,
+            "%04d/%02d/%02d-%02d:%02d:%02d.%06d %llx ",
+            int(st.wYear),
+            int(st.wMonth),
+            int(st.wDay),
+            int(st.wHour),
+            int(st.wMinute),
+            int(st.wMinute),
+            int(st.wMilliseconds),
+            static_cast<long long unsigned int>(thread_id));
+
+        // Print the message
+        if (p < limit) {
+            va_list backup_ap;
+            va_copy(backup_ap, ap);
+            p += vsnprintf(p, limit - p, format, backup_ap);
+            va_end(backup_ap);
+        }
+
+        // Truncate to available space if necessary
+        if (p >= limit) {
+            if (iter == 0) {
+                continue;       // Try again with larger buffer
+            } else {
+                p = limit - 1;
+            }
+        }
+
+        // Add newline if necessary
+        if (p == base || p[-1] != '\n') {
+            *p++ = '\n';
+        }
+
+        assert(p <= limit);
+        DWORD hasWritten = 0;
+        if(_pFileProxy){
+            _pFileProxy->Append(Slice(base, p - base));
+            _pFileProxy->Flush();
+        }
+        if (base != buffer) {
+            delete[] base;
+        }
+        break;
+    }
+}
+
+bool Win32Env::FileExists(const std::string& fname)
+{
+	std::string path = fname;
+    std::wstring wpath;
+	ToWidePath(ModifyPath(path), wpath);
+    return ::PathFileExistsW(wpath.c_str()) ? true : false;
+}
+
+Status Win32Env::GetChildren(const std::string& dir, std::vector<std::string>* result)
+{
+    Status sRet;
+    ::WIN32_FIND_DATAW wfd;
+    std::string path = dir;
+    ModifyPath(path);
+    path += "\\*.*";
+	std::wstring wpath;
+	ToWidePath(path, wpath);
+
+	::HANDLE hFind = ::FindFirstFileW(wpath.c_str() ,&wfd);
+    if(hFind && hFind != INVALID_HANDLE_VALUE){
+        BOOL hasNext = TRUE;
+        std::string child;
+        while(hasNext){
+            ToNarrowPath(wfd.cFileName, child); 
+            if(child != ".." && child != ".")  {
+                result->push_back(child);
+            }
+            hasNext = ::FindNextFileW(hFind,&wfd);
+        }
+        ::FindClose(hFind);
+    }
+    else
+        sRet = Status::IOError(dir,"Could not get children.");
+    return sRet;
+}
+
+void Win32Env::SleepForMicroseconds( int micros )
+{
+    ::Sleep((micros + 999) /1000);
+}
+
+
+Status Win32Env::DeleteFile( const std::string& fname )
+{
+    Status sRet;
+    std::string path = fname;
+    std::wstring wpath;
+	ToWidePath(ModifyPath(path), wpath);
+
+    if(!::DeleteFileW(wpath.c_str())) {
+        sRet = Status::IOError(path, "Could not delete file.");
+    }
+    return sRet;
+}
+
+Status Win32Env::GetFileSize( const std::string& fname, uint64_t* file_size )
+{
+    Status sRet;
+    std::string path = fname;
+    std::wstring wpath;
+	ToWidePath(ModifyPath(path), wpath);
+
+    HANDLE file = ::CreateFileW(wpath.c_str(),
+        GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
+    LARGE_INTEGER li;
+    if(::GetFileSizeEx(file,&li)){
+        *file_size = (uint64_t)li.QuadPart;
+    }else
+        sRet = Status::IOError(path,"Could not get the file size.");
+    CloseHandle(file);
+    return sRet;
+}
+
+Status Win32Env::RenameFile( const std::string& src, const std::string& target )
+{
+    Status sRet;
+    std::string src_path = src;
+    std::wstring wsrc_path;
+	ToWidePath(ModifyPath(src_path), wsrc_path);
+	std::string target_path = target;
+    std::wstring wtarget_path;
+	ToWidePath(ModifyPath(target_path), wtarget_path);
+
+    if(!MoveFileW(wsrc_path.c_str(), wtarget_path.c_str() ) ){
+        DWORD err = GetLastError();
+        if(err == 0x000000b7){
+            if(!::DeleteFileW(wtarget_path.c_str() ) )
+                sRet = Status::IOError(src, "Could not rename file.");
+			else if(!::MoveFileW(wsrc_path.c_str(),
+                                 wtarget_path.c_str() ) )
+                sRet = Status::IOError(src, "Could not rename file.");    
+        }
+    }
+    return sRet;
+}
+
+Status Win32Env::LockFile( const std::string& fname, FileLock** lock )
+{
+    Status sRet;
+    std::string path = fname;
+    ModifyPath(path);
+    Win32FileLock* _lock = new Win32FileLock(path);
+    if(!_lock->isEnable()){
+        delete _lock;
+        *lock = NULL;
+        sRet = Status::IOError(path, "Could not lock file.");
+    }
+    else
+        *lock = _lock;
+    return sRet;
+}
+
+Status Win32Env::UnlockFile( FileLock* lock )
+{
+    Status sRet;
+    delete lock;
+    return sRet;
+}
+
+void Win32Env::Schedule( void (*function)(void* arg), void* arg )
+{
+    QueueUserWorkItem(Win32::WorkItemWrapperProc,
+                      new Win32::WorkItemWrapper(function,arg),
+                      WT_EXECUTEDEFAULT);
+}
+
+void Win32Env::StartThread( void (*function)(void* arg), void* arg )
+{
+    ::_beginthread(function,0,arg);
+}
+
+Status Win32Env::GetTestDirectory( std::string* path )
+{
+    Status sRet;
+    WCHAR TempPath[MAX_PATH];
+    ::GetTempPathW(MAX_PATH,TempPath);
+	ToNarrowPath(TempPath, *path);
+    path->append("leveldb\\test\\");
+    ModifyPath(*path);
+    return sRet;
+}
+
+uint64_t Win32Env::NowMicros()
+{
+#ifndef USE_VISTA_API
+#define GetTickCount64 GetTickCount
+#endif
+    return (uint64_t)(GetTickCount64()*1000);
+}
+
+static Status CreateDirInner( const std::string& dirname )
+{
+    Status sRet;
+    DWORD attr = ::GetFileAttributes(dirname.c_str());
+    if (attr == INVALID_FILE_ATTRIBUTES) { // doesn't exist:
+      std::size_t slash = dirname.find_last_of("\\");
+      if (slash != std::string::npos){
+	sRet = CreateDirInner(dirname.substr(0, slash));
+	if (!sRet.ok()) return sRet;
+      }
+      BOOL result = ::CreateDirectory(dirname.c_str(), NULL);
+      if (result == FALSE) {
+	sRet = Status::IOError(dirname, "Could not create directory.");
+	return sRet;
+      }
+    }
+    return sRet;
+}
+
+Status Win32Env::CreateDir( const std::string& dirname )
+{
+    std::string path = dirname;
+    if(path[path.length() - 1] != '\\'){
+        path += '\\';
+    }
+    ModifyPath(path);
+
+    return CreateDirInner(path);
+}
+
+Status Win32Env::DeleteDir( const std::string& dirname )
+{
+    Status sRet;
+    std::wstring path;
+	ToWidePath(dirname, path);
+    ModifyPath(path);
+    if(!::RemoveDirectoryW( path.c_str() ) ){
+        sRet = Status::IOError(dirname, "Could not delete directory.");
+    }
+    return sRet;
+}
+
+Status Win32Env::NewSequentialFile( const std::string& fname, SequentialFile** result )
+{
+    Status sRet;
+    std::string path = fname;
+    ModifyPath(path);
+    Win32SequentialFile* pFile = 
