@@ -808,4 +808,94 @@ Status Win32Env::NewSequentialFile( const std::string& fname, SequentialFile** r
     Status sRet;
     std::string path = fname;
     ModifyPath(path);
-    Win32SequentialFile* pFile = 
+    Win32SequentialFile* pFile = new Win32SequentialFile(path);
+    if(pFile->isEnable()){
+        *result = pFile;
+    }else {
+        delete pFile;
+        sRet = Status::IOError(path, Win32::GetLastErrSz());
+    }
+    return sRet;
+}
+
+Status Win32Env::NewRandomAccessFile( const std::string& fname, RandomAccessFile** result )
+{
+    Status sRet;
+    std::string path = fname;
+    Win32RandomAccessFile* pFile = new Win32RandomAccessFile(ModifyPath(path));
+    if(!pFile->isEnable()){
+        delete pFile;
+        *result = NULL;
+        sRet = Status::IOError(path, Win32::GetLastErrSz());
+    }else
+        *result = pFile;
+    return sRet;
+}
+
+Status Win32Env::NewLogger( const std::string& fname, Logger** result )
+{
+    Status sRet;
+    std::string path = fname;
+    // Logs are opened with write semantics, not with append semantics
+    // (see PosixEnv::NewLogger)
+    Win32WritableFile* pMapFile = new Win32WritableFile(ModifyPath(path), false);
+    if(!pMapFile->isEnable()){
+        delete pMapFile;
+        *result = NULL;
+        sRet = Status::IOError(path,"could not create a logger.");
+    }else
+        *result = new Win32Logger(pMapFile);
+    return sRet;
+}
+
+Status Win32Env::NewWritableFile( const std::string& fname, WritableFile** result )
+{
+    Status sRet;
+    std::string path = fname;
+    Win32WritableFile* pFile = new Win32WritableFile(ModifyPath(path), false);
+    if(!pFile->isEnable()){
+        *result = NULL;
+        sRet = Status::IOError(fname,Win32::GetLastErrSz());
+    }else
+        *result = pFile;
+    return sRet;
+}
+
+Status Win32Env::NewAppendableFile( const std::string& fname, WritableFile** result )
+{
+    Status sRet;
+    std::string path = fname;
+    Win32WritableFile* pFile = new Win32WritableFile(ModifyPath(path), true);
+    if(!pFile->isEnable()){
+        *result = NULL;
+        sRet = Status::IOError(fname,Win32::GetLastErrSz());
+    }else
+        *result = pFile;
+    return sRet;
+}
+
+Win32Env::Win32Env()
+{
+
+}
+
+Win32Env::~Win32Env()
+{
+
+}
+
+
+}  // Win32 namespace
+
+static port::OnceType once = LEVELDB_ONCE_INIT;
+static Env* default_env;
+static void InitDefaultEnv() { default_env = new Win32::Win32Env(); }
+
+Env* Env::Default() {
+  port::InitOnce(&once, InitDefaultEnv);
+  return default_env;
+}
+
+}  // namespace leveldb
+
+#endif // defined(LEVELDB_PLATFORM_WINDOWS)
