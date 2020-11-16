@@ -123,4 +123,17 @@ std::string Histogram::ToString() const {
              "[ %7.0f, %7.0f ) %7.0f %7.3f%% %7.3f%% ",
              ((b == 0) ? 0.0 : kBucketLimit[b-1]),      // left
              kBucketLimit[b],                           // right
-             buckets_[b],                               // coun
+             buckets_[b],                               // count
+             mult * buckets_[b],                        // percentage
+             mult * sum);                               // cumulative percentage
+    r.append(buf);
+
+    // Add hash marks based on percentage; 20 marks for 100%.
+    int marks = static_cast<int>(20*(buckets_[b] / num_) + 0.5);
+    r.append(marks, '#');
+    r.push_back('\n');
+  }
+  return r;
+}
+
+}  // namespace leveldb
