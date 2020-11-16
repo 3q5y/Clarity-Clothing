@@ -124,4 +124,15 @@ class TCONCAT(_Test_,name) : public base {                              \
   }                                                                     \
 };                                                                      \
 bool TCONCAT(_Test_ignored_,name) =                                     \
-  ::leveldb::test::RegisterTest(#base, #name, &TCONCAT(_Test
+  ::leveldb::test::RegisterTest(#base, #name, &TCONCAT(_Test_,name)::_RunIt); \
+void TCONCAT(_Test_,name)::_Run()
+
+// Register the specified test.  Typically not used directly, but
+// invoked via the macro expansion of TEST.
+extern bool RegisterTest(const char* base, const char* name, void (*func)());
+
+
+}  // namespace test
+}  // namespace leveldb
+
+#endif  // STORAGE_LEVELDB_UTIL_TESTHARNESS_H_
