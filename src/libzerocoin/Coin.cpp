@@ -179,4 +179,125 @@ void PrivateCoin::mintCoin(const CoinDenomination denomination) {
 		// Now verify that the commitment is a prime number
 		// in the appropriate range. If not, we'll throw this coin
 		// away and generate a new one.
-		if (coin.get
+		if (coin.getCommitmentValue().isPrime(ZEROCOIN_MINT_PRIME_PARAM) &&
+		        coin.getCommitmentValue() >= params->accumulatorParams.minCoinValue &&
+		        coin.getCommitmentValue() <= params->accumulatorParams.maxCoinValue) {
+			// Found a valid coin. Store it.
+			this->serialNumber = s;
+			this->randomness = coin.getRandomness();
+			this->publicCoin = PublicCoin(params,coin.getCommitmentValue(), denomination);
+			this->privkey = key.GetPrivKey();
+			this->version = 2;
+
+			// Success! We're done.
+			return;
+		}
+	}
+
+	// We only get here if we did not find a coin within
+	// MAX_COINMINT_ATTEMPTS. Throw an exception.
+	throw std::runtime_error("Unable to mint a new Zerocoin (too many attempts)");
+}
+
+void PrivateCoin::mintCoinFast(const CoinDenomination denomination) {
+
+	// Generate a random serial number in the range 0...{q-1} where
+	// "q" is the order of the commitment group.
+	// And where the serial also doubles as a public key
+	CKey key;
+	CBigNum s;
+    bool isValid = false;
+    while (!isValid) {
+        isValid = GenerateKeyPair(this->params->coinCommitmentGroup.groupOrder, uint256(0), key, s);
+    }
+	// Generate a random number "r" in the range 0...{q-1}
+	CBigNum r = CBigNum::randBignum(this->params->coinCommitmentGroup.groupOrder);
+	
+	// Manually compute a Pedersen commitment to the serial number "s" under randomness "r"
+	// C = g^s * h^r mod p
+	CBigNum commitmentValue = this->params->coinCommitmentGroup.g.pow_mod(s, this->params->coinCommitmentGroup.modulus).mul_mod(this->params->coinCommitmentGroup.h.pow_mod(r, this->params->coinCommitmentGroup.modulus), this->params->coinCommitmentGroup.modulus);
+	
+	// Repeat this process up to MAX_COINMINT_ATTEMPTS times until
+	// we obtain a prime number
+	for (uint32_t attempt = 0; attempt < MAX_COINMINT_ATTEMPTS; attempt++) {
+		// First verify that the commitment is a prime number
+		// in the appropriate range. If not, we'll throw this coin
+		// away and generate a new one.
+		if (commitmentValue.isPrime(ZEROCOIN_MINT_PRIME_PARAM) &&
+			commitmentValue >= params->accumulatorParams.minCoinValue &&
+			commitmentValue <= params->accumulatorParams.maxCoinValue) {
+			// Found a valid coin. Store it.
+			this->serialNumber = s;
+			this->randomness = r;
+			this->publicCoin = PublicCoin(params, commitmentValue, denomination);
+			this->privkey = key.GetPrivKey();
+			this->version = 2;
+
+			// Success! We're done.
+			return;
+		}
+		
+		// Generate a new random "r_delta" in 0...{q-1}
+		CBigNum r_delta = CBigNum::randBignum(this->params->coinCommitmentGroup.groupOrder);
+
+		// The commitment was not prime. Increment "r" and recalculate "C":
+		// r = r + r_delta mod q
+		// C = C * h mod p
+		r = (r + r_delta) % this->params->coinCommitmentGroup.groupOrder;
+		commitmentValue = commitmentValue.mul_mod(this->params->coinCommitmentGroup.h.pow_mod(r_delta, this->params->coinCommitmentGroup.modulus), this->params->coinCommitmentGroup.modulus);
+	}
+		
+	// We only get here if we did not find a coin within
+	// MAX_COINMINT_ATTEMPTS. Throw an exception.
+	throw std::runtime_error("Unable to mint a new Zerocoin (too many attempts)");
+}
+
+int ExtractVersionFromSerial(const CBigNum& bnSerial)
+{
+    try {
+        //Serial is marked as v2 only if the first byte is 0xF
+        uint256 nMark = bnSerial.getuint256() >> (256 - PrivateCoin::V2_BITSHIFT);
+        if (nMark == 0xf)
+            return PrivateCoin::PUBKEY_VERSION;
+    } catch (std::range_error &e) {
+        //std::cout << "ExtractVersionFromSerial(): " << e.what() << std::endl;
+        // Only serial version 2 appeared with this range error..
+        return 2;
+    }
+
+	return 1;
+}
+
+//Remove the first four bits for V2 serials
+CBigNum GetAdjustedSerial(const CBigNum& bnSerial)
+{
+    uint256 serial = bnSerial.getuint256();
+    serial &= ~uint256(0) >> PrivateCoin::V2_BITSHIFT;
+    CBigNum bnSerialAdjusted;
+    bnSerialAdjusted.setuint256(serial);
+    return bnSerialAdjusted;
+}
+
+
+bool IsValidSerial(const ZerocoinParams* params, const CBigNum& bnSerial)
+{
+    if (bnSerial <= 0)
+        return false;
+
+    if (ExtractVersionFromSerial(bnSerial) < PrivateCoin::PUBKEY_VERSION)
+        return bnSerial < params->coinCommitmentGroup.groupOrder;
+
+    // If V2, the serial is marked with 0xF in the first 4 bits. So It's always > groupOrder.
+    // This is removed for the adjusted serial - so it's always < groupOrder.
+    // So we check only the bitsize here.
+    return bnSerial.bitSize() <= 256;
+}
+
+
+bool IsValidCommitmentToCoinRange(const ZerocoinParams* params, const CBigNum& bnCommitment)
+{
+    return bnCommitment > CBigNum(0) && bnCommitment < params->serialNumberSoKCommitmentGroup.modulus;
+}
+
+
+} /* namespace libzerocoin */
