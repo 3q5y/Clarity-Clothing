@@ -276,4 +276,242 @@ deriveIntegerGroupParams(uint256 seed, uint32_t pLen, uint32_t qLen)
 	        ((result.h.pow_mod(CBigNum(100), result.modulus)).isOne()) ||        // h^100 mod modulus != 1
 	        result.g == result.h ||                                 // g != h
 	        result.g.isOne()) {                                     // g != 1
-		// If any of the above tests fail, th
+		// If any of the above tests fail, throw an exception
+		throw std::runtime_error("Group parameters are not valid");
+	}
+
+	return result;
+}
+
+/// \brief Deterministically compute a  set of group parameters with a specified order.
+/// \param groupOrder   The order of the group
+/// \return         An IntegerGroupParams object
+///
+/// Given "q" calculates the description of a group G of prime order "q" embedded within
+/// a field "F_p".
+
+IntegerGroupParams
+deriveIntegerGroupFromOrder(CBigNum &groupOrder)
+{
+	IntegerGroupParams result;
+
+	// Set the order to "groupOrder"
+	result.groupOrder = groupOrder;
+
+	// Try possible values for "modulus" of the form "groupOrder * 2 * i" where
+	// "p" is prime and i is a counter starting at 1.
+	for (uint32_t i = 1; i < NUM_SCHNORRGEN_ATTEMPTS; i++) {
+		// Set modulus equal to "groupOrder * 2 * i"
+		result.modulus = (result.groupOrder * CBigNum(i*2)) + CBigNum(1);
+
+		// Test the result for primality
+		// TODO: This is a probabilistic routine and thus not the right choice
+		if (result.modulus.isPrime(256)) {
+
+			// Success.
+			//
+			// Calculate the generators "g", "h" using the process described in
+			// NIST FIPS 186-3, Appendix A.2.3. This algorithm takes ("p", "q",
+			// "domain_parameter_seed", "index"). We use "index" value 1
+			// to generate "g" and "index" value 2 to generate "h".
+			uint256 seed = calculateSeed(groupOrder, "", 128, "");
+			uint256 pSeed = calculateHash(seed);
+			uint256 qSeed = calculateHash(pSeed);
+			result.g = calculateGroupGenerator(seed, pSeed, qSeed, result.modulus, result.groupOrder, 1);
+			result.h = calculateGroupGenerator(seed, pSeed, qSeed, result.modulus, result.groupOrder, 2);
+
+			// Perform some basic tests to make sure we have good parameters
+			if (!(result.modulus.isPrime()) ||                          // modulus is prime
+			        !(result.groupOrder.isPrime()) ||                       // order is prime
+			        !((result.g.pow_mod(result.groupOrder, result.modulus)).isOne()) || // g^order mod modulus = 1
+			        !((result.h.pow_mod(result.groupOrder, result.modulus)).isOne()) || // h^order mod modulus = 1
+			        ((result.g.pow_mod(CBigNum(100), result.modulus)).isOne()) ||        // g^100 mod modulus != 1
+			        ((result.h.pow_mod(CBigNum(100), result.modulus)).isOne()) ||        // h^100 mod modulus != 1
+			        result.g == result.h ||                                 // g != h
+			        result.g.isOne()) {                                     // g != 1
+				// If any of the above tests fail, throw an exception
+				throw std::runtime_error("Group parameters are not valid");
+			}
+
+			return result;
+		}
+	}
+
+	// If we reached this point group generation has failed. Throw an exception.
+	throw std::runtime_error("Too many attempts to generate Schnorr group.");
+}
+
+/// \brief Deterministically compute a group description using NIST procedures.
+/// \param seed                         A byte string seeding the process.
+/// \param pLen                         The desired length of the modulus "p" in bits
+/// \param qLen                         The desired length of the order "q" in bits
+/// \param resultModulus                A value "p" describing a finite field "F_p"
+/// \param resultGroupOrder             A value "q" describing the order of a subgroup
+/// \param resultDomainParameterSeed    A resulting seed for use in later calculations.
+///
+/// Calculates the description of a group G of prime order "q" embedded within
+/// a field "F_p". The input to this routine is in arbitrary seed. It uses the
+/// algorithms described in FIPS 186-3 Appendix A.1.2 to calculate
+/// primes "p" and "q".
+
+void
+calculateGroupModulusAndOrder(uint256 seed, uint32_t pLen, uint32_t qLen,
+                              CBigNum *resultModulus, CBigNum *resultGroupOrder,
+                              uint256 *resultPseed, uint256 *resultQseed)
+{
+	// Verify that the seed length is >= qLen
+	if (qLen > (sizeof(seed)) * 8) {
+		// TODO: The use of 256-bit seeds limits us to 256-bit group orders. We should probably change this.
+		// throw std::runtime_error("Seed is too short to support the required security level.");
+	}
+
+#ifdef ZEROCOIN_DEBUG
+	cout << "calculateGroupModulusAndOrder: pLen = " << pLen << endl;
+#endif
+
+	// Generate a random prime for the group order.
+	// This may throw an exception, which we'll pass upwards.
+	// Result is the value "resultGroupOrder", "qseed" and "qgen_counter".
+	uint256     qseed;
+	uint32_t    qgen_counter;
+	*resultGroupOrder = generateRandomPrime(qLen, seed, &qseed, &qgen_counter);
+
+	// Using ⎡pLen / 2 + 1⎤ as the length and qseed as the input_seed, use the random prime
+	// routine to obtain p0 , pseed, and pgen_counter. We pass exceptions upward.
+	uint32_t    p0len = ceil((pLen / 2.0) + 1);
+	uint256     pseed;
+	uint32_t    pgen_counter;
+	CBigNum p0 = generateRandomPrime(p0len, qseed, &pseed, &pgen_counter);
+
+	// Set x = 0, old_counter = pgen_counter
+	uint32_t    old_counter = pgen_counter;
+
+	// Generate a random integer "x" of pLen bits
+	uint32_t iterations;
+	CBigNum x = generateIntegerFromSeed(pLen, pseed, &iterations);
+	pseed += (iterations + 1);
+
+	// Set x = 2^{pLen−1} + (x mod 2^{pLen–1}).
+	CBigNum powerOfTwo = CBigNum(2).pow(pLen-1);
+	x = powerOfTwo + (x % powerOfTwo);
+
+	// t = ⎡x / (2 * resultGroupOrder * p0)⎤.
+	// TODO: we don't have a ceiling function
+	CBigNum t = x / (CBigNum(2) * (*resultGroupOrder) * p0);
+
+	// Now loop until we find a valid prime "p" or we fail due to
+	// pgen_counter exceeding ((4*pLen) + old_counter).
+	for ( ; pgen_counter <= ((4*pLen) + old_counter) ; pgen_counter++) {
+		// If (2 * t * resultGroupOrder * p0 + 1) > 2^{pLen}, then
+		// t = ⎡2^{pLen−1} / (2 * resultGroupOrder * p0)⎤.
+		powerOfTwo = CBigNum(2).pow(pLen);
+		CBigNum prod = (CBigNum(2) * t * (*resultGroupOrder) * p0) + CBigNum(1);
+		if (prod > powerOfTwo) {
+			// TODO: implement a ceil function
+			t = CBigNum(2).pow(pLen-1) / (CBigNum(2) * (*resultGroupOrder) * p0);
+		}
+
+		// Compute a candidate prime resultModulus = 2tqp0 + 1.
+		*resultModulus = (CBigNum(2) * t * (*resultGroupOrder) * p0) + CBigNum(1);
+
+		// Verify that resultModulus is prime. First generate a pseudorandom integer "a".
+		CBigNum a = generateIntegerFromSeed(pLen, pseed, &iterations);
+		pseed += iterations + 1;
+
+		// Set a = 2 + (a mod (resultModulus–3)).
+		a = CBigNum(2) + (a % ((*resultModulus) - CBigNum(3)));
+
+		// Set z = a^{2 * t * resultGroupOrder} mod resultModulus
+		CBigNum z = a.pow_mod(CBigNum(2) * t * (*resultGroupOrder), (*resultModulus));
+
+		// If GCD(z–1, resultModulus) == 1 AND (z^{p0} mod resultModulus == 1)
+		// then we have found our result. Return.
+		if ((resultModulus->gcd(z - CBigNum(1))).isOne() &&
+		        (z.pow_mod(p0, (*resultModulus))).isOne()) {
+			// Success! Return the seeds and primes.
+			*resultPseed = pseed;
+			*resultQseed = qseed;
+			return;
+		}
+
+		// This prime did not work out. Increment "t" and try again.
+		t = t + CBigNum(1);
+	} // loop continues until pgen_counter exceeds a limit
+
+	// We reach this point only if we exceeded our maximum iteration count.
+	// Throw an exception.
+	throw std::runtime_error("Unable to generate a prime modulus for the group");
+}
+
+/// \brief Deterministically compute a generator for a given group.
+/// \param seed                         A first seed for the process.
+/// \param pSeed                        A second seed for the process.
+/// \param qSeed                        A third seed for the process.
+/// \param modulus                      Proposed prime modulus for the field.
+/// \param groupOrder                   Proposed order of the group.
+/// \param index                        Index value, selects which generator you're building.
+/// \return                             The resulting generator.
+/// \throws                             A std::runtime_error if error.
+///
+/// Generates a random group generator deterministically as a function of (seed,pSeed,qSeed)
+/// Uses the algorithm described in FIPS 186-3 Appendix A.2.3.
+
+CBigNum
+calculateGroupGenerator(uint256 seed, uint256 pSeed, uint256 qSeed, CBigNum modulus, CBigNum groupOrder, uint32_t index)
+{
+	CBigNum result;
+
+	// Verify that 0 <= index < 256
+	if (index > 255) {
+		throw std::runtime_error("Invalid index for group generation");
+	}
+
+	// Compute e = (modulus - 1) / groupOrder
+	CBigNum e = (modulus - CBigNum(1)) / groupOrder;
+
+	// Loop until we find a generator
+	for (uint32_t count = 1; count < MAX_GENERATOR_ATTEMPTS; count++) {
+		// hash = Hash(seed || pSeed || qSeed || “ggen” || index || count
+		uint256 hash = calculateGeneratorSeed(seed, pSeed, qSeed, "ggen", index, count);
+		CBigNum W(hash);
+
+		// Compute result = W^e mod p
+		result = W.pow_mod(e, modulus);
+
+		// If result > 1, we have a generator
+		if (result > 1) {
+			return result;
+		}
+	}
+
+	// We only get here if we failed to find a generator
+	throw std::runtime_error("Unable to find a generator, too many attempts");
+}
+
+/// \brief Deterministically compute a random prime number.
+/// \param primeBitLen                  Desired bit length of the prime.
+/// \param in_seed                      Input seed for the process.
+/// \param out_seed                     Result: output seed from the process.
+/// \param prime_gen_counter            Result: number of iterations required.
+/// \return                             The resulting prime number.
+/// \throws                             A std::runtime_error if error.
+///
+/// Generates a random prime number of primeBitLen bits from a given input
+/// seed. Uses the Shawe-Taylor algorithm as described in FIPS 186-3
+/// Appendix C.6. This is a recursive function.
+
+CBigNum
+generateRandomPrime(uint32_t primeBitLen, uint256 in_seed, uint256 *out_seed,
+                    uint32_t *prime_gen_counter)
+{
+	// Verify that primeBitLen is not too small
+	if (primeBitLen < 2) {
+		throw std::runtime_error("Prime length is too short");
+	}
+
+	// If primeBitLen < 33 bits, perform the base case.
+	if (primeBitLen < 33) {
+		CBigNum result(0);
+
+		// Set prime_seed = in_seed, prime_gen_counter = 0.
+		uint25
