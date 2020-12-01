@@ -514,4 +514,146 @@ generateRandomPrime(uint32_t primeBitLen, uint256 in_seed, uint256 *out_seed,
 		CBigNum result(0);
 
 		// Set prime_seed = in_seed, prime_gen_counter = 0.
-		uint25
+		uint256     prime_seed = in_seed;
+		(*prime_gen_counter) = 0;
+
+		// Loop up to "4 * primeBitLen" iterations.
+		while ((*prime_gen_counter) < (4 * primeBitLen)) {
+
+			// Generate a pseudorandom integer "c" of length primeBitLength bits
+			uint32_t iteration_count;
+			CBigNum c = generateIntegerFromSeed(primeBitLen, prime_seed, &iteration_count);
+#ifdef ZEROCOIN_DEBUG
+			cout << "generateRandomPrime: primeBitLen = " << primeBitLen << endl;
+			cout << "Generated c = " << c << endl;
+#endif
+
+			prime_seed += (iteration_count + 1);
+			(*prime_gen_counter)++;
+
+			// Set "intc" to be the least odd integer >= "c" we just generated
+			uint32_t intc = c.getulong();
+			intc = (2 * floor(intc / 2.0)) + 1;
+#ifdef ZEROCOIN_DEBUG
+			cout << "Should be odd. c = " << intc << endl;
+			cout << "The big num is: c = " << c << endl;
+#endif
+
+			// Perform trial division on this (relatively small) integer to determine if "intc"
+			// is prime. If so, return success.
+			if (primalityTestByTrialDivision(intc)) {
+				// Return "intc" converted back into a CBigNum and "prime_seed". We also updated
+				// the variable "prime_gen_counter" in previous statements.
+				result = intc;
+				*out_seed = prime_seed;
+
+				// Success
+				return result;
+			}
+		} // while()
+
+		// If we reached this point there was an error finding a candidate prime
+		// so throw an exception.
+		throw std::runtime_error("Unable to find prime in Shawe-Taylor algorithm");
+
+		// END OF BASE CASE
+	}
+	// If primeBitLen >= 33 bits, perform the recursive case.
+	else {
+		// Recurse to find a new random prime of roughly half the size
+		uint32_t newLength = ceil((double)primeBitLen / 2.0) + 1;
+		CBigNum c0 = generateRandomPrime(newLength, in_seed, out_seed, prime_gen_counter);
+
+		// Generate a random integer "x" of primeBitLen bits using the output
+		// of the previous call.
+		uint32_t numIterations;
+		CBigNum x = generateIntegerFromSeed(primeBitLen, *out_seed, &numIterations);
+		(*out_seed) += numIterations + 1;
+
+		// Compute "t" = ⎡x / (2 * c0⎤
+		// TODO no Ceiling call
+		CBigNum t = x / (CBigNum(2) * c0);
+
+		// Repeat the following procedure until we find a prime (or time out)
+		for (uint32_t testNum = 0; testNum < MAX_PRIMEGEN_ATTEMPTS; testNum++) {
+
+			// If ((2 * t * c0) + 1 > 2^{primeBitLen}),
+			// then t = ⎡2^{primeBitLen} – 1 / (2 * c0)⎤.
+			if ((CBigNum(2) * t * c0) > (CBigNum(2).pow(CBigNum(primeBitLen)))) {
+				t = ((CBigNum(2).pow(CBigNum(primeBitLen))) - CBigNum(1)) / (CBigNum(2) * c0);
+			}
+
+			// Set c = (2 * t * c0) + 1
+			CBigNum c = (CBigNum(2) * t * c0) + CBigNum(1);
+
+			// Increment prime_gen_counter
+			(*prime_gen_counter)++;
+
+			// Test "c" for primality as follows:
+			// 1. First pick an integer "a" in between 2 and (c - 2)
+			CBigNum a = generateIntegerFromSeed(c.bitSize(), (*out_seed), &numIterations);
+			a = CBigNum(2) + (a % (c - CBigNum(3)));
+			(*out_seed) += (numIterations + 1);
+
+			// 2. Compute "z" = a^{2*t} mod c
+			CBigNum z = a.pow_mod(CBigNum(2) * t, c);
+
+			// 3. Check if "c" is prime.
+			//    Specifically, verify that gcd((z-1), c) == 1 AND (z^c0 mod c) == 1
+			// If so we return "c" as our result.
+			if (c.gcd(z - CBigNum(1)).isOne() && z.pow_mod(c0, c).isOne()) {
+				// Return "c", out_seed and prime_gen_counter
+				// (the latter two of which were already updated)
+				return c;
+			}
+
+			// 4. If the test did not succeed, increment "t" and loop
+			t = t + CBigNum(1);
+		} // end of test loop
+	}
+
+	// We only reach this point if the test loop has iterated MAX_PRIMEGEN_ATTEMPTS
+	// and failed to identify a valid prime. Throw an exception.
+	throw std::runtime_error("Unable to generate random prime (too many tests)");
+}
+
+CBigNum
+generateIntegerFromSeed(uint32_t numBits, uint256 seed, uint32_t *numIterations)
+{
+	CBigNum      result(0);
+	uint32_t    iterations = ceil((double)numBits / (double)HASH_OUTPUT_BITS);
+
+#ifdef ZEROCOIN_DEBUG
+	cout << "numBits = " << numBits << endl;
+	cout << "iterations = " << iterations << endl;
+#endif
+
+	// Loop "iterations" times filling up the value "result" with random bits
+	for (uint32_t count = 0; count < iterations; count++) {
+		// result += ( H(pseed + count) * 2^{count * p0len} )
+		result += CBigNum(calculateHash(seed + count)) * CBigNum(2).pow(count * HASH_OUTPUT_BITS);
+	}
+
+	result = CBigNum(2).pow(numBits - 1) + (result % (CBigNum(2).pow(numBits - 1)));
+
+	// Return the number of iterations and the result
+	*numIterations = iterations;
+	return result;
+}
+
+/// \brief Determines whether a uint32_t is a prime through trial division.
+/// \param candidate       Candidate to test.
+/// \return                true if the value is prime, false otherwise
+///
+/// Performs trial division to determine whether a uint32_t is prime.
+
+bool
+primalityTestByTrialDivision(uint32_t candidate)
+{
+	// TODO: HACK HACK WRONG WRONG
+	CBigNum canBignum(candidate);
+
+	return canBignum.isPrime();
+}
+
+} // namespace libzerocoin
