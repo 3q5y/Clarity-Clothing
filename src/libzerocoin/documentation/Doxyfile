@@ -485,4 +485,234 @@ SORT_MEMBER_DOCS       = YES
 
 SORT_BRIEF_DOCS        = NO
 
-# If the SORT_MEMBERS_CTORS_1ST tag is set to YES then
+# If the SORT_MEMBERS_CTORS_1ST tag is set to YES then doxygen
+# will sort the (brief and detailed) documentation of class members so that
+# constructors and destructors are listed first. If set to NO (the default)
+# the constructors will appear in the respective orders defined by
+# SORT_MEMBER_DOCS and SORT_BRIEF_DOCS.
+# This tag will be ignored for brief docs if SORT_BRIEF_DOCS is set to NO
+# and ignored for detailed docs if SORT_MEMBER_DOCS is set to NO.
+
+SORT_MEMBERS_CTORS_1ST = NO
+
+# If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the
+# hierarchy of group names into alphabetical order. If set to NO (the default)
+# the group names will appear in their defined order.
+
+SORT_GROUP_NAMES       = NO
+
+# If the SORT_BY_SCOPE_NAME tag is set to YES, the class list will be
+# sorted by fully-qualified names, including namespaces. If set to
+# NO (the default), the class list will be sorted only by class name,
+# not including the namespace part.
+# Note: This option is not very useful if HIDE_SCOPE_NAMES is set to YES.
+# Note: This option applies only to the class list, not to the
+# alphabetical list.
+
+SORT_BY_SCOPE_NAME     = NO
+
+# If the STRICT_PROTO_MATCHING option is enabled and doxygen fails to
+# do proper type resolution of all parameters of a function it will reject a
+# match between the prototype and the implementation of a member function even
+# if there is only one candidate or it is obvious which candidate to choose
+# by doing a simple string match. By disabling STRICT_PROTO_MATCHING doxygen
+# will still accept a match between prototype and implementation in such cases.
+
+STRICT_PROTO_MATCHING  = NO
+
+# The GENERATE_TODOLIST tag can be used to enable (YES) or
+# disable (NO) the todo list. This list is created by putting \todo
+# commands in the documentation.
+
+GENERATE_TODOLIST      = YES
+
+# The GENERATE_TESTLIST tag can be used to enable (YES) or
+# disable (NO) the test list. This list is created by putting \test
+# commands in the documentation.
+
+GENERATE_TESTLIST      = YES
+
+# The GENERATE_BUGLIST tag can be used to enable (YES) or
+# disable (NO) the bug list. This list is created by putting \bug
+# commands in the documentation.
+
+GENERATE_BUGLIST       = YES
+
+# The GENERATE_DEPRECATEDLIST tag can be used to enable (YES) or
+# disable (NO) the deprecated list. This list is created by putting
+# \deprecated commands in the documentation.
+
+GENERATE_DEPRECATEDLIST= YES
+
+# The ENABLED_SECTIONS tag can be used to enable conditional
+# documentation sections, marked by \if section-label ... \endif
+# and \cond section-label ... \endcond blocks.
+
+ENABLED_SECTIONS       =
+
+# The MAX_INITIALIZER_LINES tag determines the maximum number of lines
+# the initial value of a variable or macro consists of for it to appear in
+# the documentation. If the initializer consists of more lines than specified
+# here it will be hidden. Use a value of 0 to hide initializers completely.
+# The appearance of the initializer of individual variables and macros in the
+# documentation can be controlled using \showinitializer or \hideinitializer
+# command in the documentation regardless of this setting.
+
+MAX_INITIALIZER_LINES  = 30
+
+# Set the SHOW_USED_FILES tag to NO to disable the list of files generated
+# at the bottom of the documentation of classes and structs. If set to YES the
+# list will mention the files that were used to generate the documentation.
+
+SHOW_USED_FILES        = YES
+
+# Set the SHOW_FILES tag to NO to disable the generation of the Files page.
+# This will remove the Files entry from the Quick Index and from the
+# Folder Tree View (if specified). The default is YES.
+
+SHOW_FILES             = YES
+
+# Set the SHOW_NAMESPACES tag to NO to disable the generation of the
+# Namespaces page.
+# This will remove the Namespaces entry from the Quick Index
+# and from the Folder Tree View (if specified). The default is YES.
+
+SHOW_NAMESPACES        = YES
+
+# The FILE_VERSION_FILTER tag can be used to specify a program or script that
+# doxygen should invoke to get the current version for each file (typically from
+# the version control system). Doxygen will invoke the program by executing (via
+# popen()) the command <command> <input-file>, where <command> is the value of
+# the FILE_VERSION_FILTER tag, and <input-file> is the name of an input file
+# provided by doxygen. Whatever the program writes to standard output
+# is used as the file version. See the manual for examples.
+
+FILE_VERSION_FILTER    =
+
+# The LAYOUT_FILE tag can be used to specify a layout file which will be parsed
+# by doxygen. The layout file controls the global structure of the generated
+# output files in an output format independent way. To create the layout file
+# that represents doxygen's defaults, run doxygen with the -l option.
+# You can optionally specify a file name after the option, if omitted
+# DoxygenLayout.xml will be used as the name of the layout file.
+
+LAYOUT_FILE            =
+
+# The CITE_BIB_FILES tag can be used to specify one or more bib files
+# containing the references data. This must be a list of .bib files. The
+# .bib extension is automatically appended if omitted. Using this command
+# requires the bibtex tool to be installed. See also
+# http://en.wikipedia.org/wiki/BibTeX for more info. For LaTeX the style
+# of the bibliography can be controlled using LATEX_BIB_STYLE. To use this
+# feature you need bibtex and perl available in the search path. Do not use
+# file names with spaces, bibtex cannot handle them.
+
+CITE_BIB_FILES         =
+
+#---------------------------------------------------------------------------
+# configuration options related to warning and progress messages
+#---------------------------------------------------------------------------
+
+# The QUIET tag can be used to turn on/off the messages that are generated
+# by doxygen. Possible values are YES and NO. If left blank NO is used.
+
+QUIET                  = NO
+
+# The WARNINGS tag can be used to turn on/off the warning messages that are
+# generated by doxygen. Possible values are YES and NO. If left blank
+# NO is used.
+
+WARNINGS               = YES
+
+# If WARN_IF_UNDOCUMENTED is set to YES, then doxygen will generate warnings
+# for undocumented members. If EXTRACT_ALL is set to YES then this flag will
+# automatically be disabled.
+
+WARN_IF_UNDOCUMENTED   = YES
+
+# If WARN_IF_DOC_ERROR is set to YES, doxygen will generate warnings for
+# potential errors in the documentation, such as not documenting some
+# parameters in a documented function, or documenting parameters that
+# don't exist or using markup commands wrongly.
+
+WARN_IF_DOC_ERROR      = YES
+
+# The WARN_NO_PARAMDOC option can be enabled to get warnings for
+# functions that are documented, but have no documentation for their parameters
+# or return value. If set to NO (the default) doxygen will only warn about
+# wrong or incomplete parameter documentation, but not about the absence of
+# documentation.
+
+WARN_NO_PARAMDOC       = NO
+
+# The WARN_FORMAT tag determines the format of the warning messages that
+# doxygen can produce. The string should contain the $file, $line, and $text
+# tags, which will be replaced by the file and line number from which the
+# warning originated and the warning text. Optionally the format may contain
+# $version, which will be replaced by the version of the file (if it could
+# be obtained via FILE_VERSION_FILTER)
+
+WARN_FORMAT            = "$file:$line: $text"
+
+# The WARN_LOGFILE tag can be used to specify a file to which warning
+# and error messages should be written. If left blank the output is written
+# to stderr.
+
+WARN_LOGFILE           =
+
+#---------------------------------------------------------------------------
+# configuration options related to the input files
+#---------------------------------------------------------------------------
+
+# The INPUT tag can be used to specify the files and/or directories that contain
+# documented source files. You may enter file names like "myfile.cpp" or
+# directories like "/usr/src/myproject". Separate the files or directories
+# with spaces.
+
+INPUT                  = ../
+
+# This tag can be used to specify the character encoding of the source files
+# that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
+# also the default input encoding. Doxygen uses libiconv (or the iconv built
+# into libc) for the transcoding. See http://www.gnu.org/software/libiconv for
+# the list of possible encodings.
+
+INPUT_ENCODING         = UTF-8
+
+# If the value of the INPUT tag contains directories, you can use the
+# FILE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
+# and *.h) to filter out the source-files in the directories. If left
+# blank the following patterns are tested:
+# *.c *.cc *.cxx *.cpp *.c++ *.d *.java *.ii *.ixx *.ipp *.i++ *.inl *.h *.hh
+# *.hxx *.hpp *.h++ *.idl *.odl *.cs *.php *.php3 *.inc *.m *.mm *.dox *.py
+# *.f90 *.f *.for *.vhd *.vhdl
+
+FILE_PATTERNS          =
+
+# The RECURSIVE tag can be used to turn specify whether or not subdirectories
+# should be searched for input files as well. Possible values are YES and NO.
+# If left blank NO is used.
+
+RECURSIVE              = NO
+
+# The EXCLUDE tag can be used to specify files and/or directories that should be
+# excluded from the INPUT source files. This way you can easily exclude a
+# subdirectory from a directory tree whose root is specified with the INPUT tag.
+# Note that relative paths are relative to the directory from which doxygen is
+# run.
+
+EXCLUDE                =
+
+# The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
+# directories that are symbolic links (a Unix file system feature) are excluded
+# from the input.
+
+EXCLUDE_SYMLINKS       = NO
+
+# If the value of the INPUT tag contains directories, you can use the
+# EXCLUDE_PATTERNS tag to specify one or more wildcard patterns to exclude
+# certain files from those directories. Note that the wildcards are matched
+# against the file with absolute path, so to exclude all test directories
+# for example use the pattern */test/*
+
+EXCLUDE
