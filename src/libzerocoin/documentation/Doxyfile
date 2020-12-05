@@ -715,4 +715,240 @@ EXCLUDE_SYMLINKS       = NO
 # against the file with absolute path, so to exclude all test directories
 # for example use the pattern */test/*
 
-EXCLUDE
+EXCLUDE_PATTERNS       =
+
+# The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
+# (namespaces, classes, functions, etc.) that should be excluded from the
+# output. The symbol name can be a fully qualified name, a word, or if the
+# wildcard * is used, a substring. Examples: ANamespace, AClass,
+# AClass::ANamespace, ANamespace::*Test
+
+EXCLUDE_SYMBOLS        =
+
+# The EXAMPLE_PATH tag can be used to specify one or more files or
+# directories that contain example code fragments that are included (see
+# the \include command).
+
+EXAMPLE_PATH           =
+
+# If the value of the EXAMPLE_PATH tag contains directories, you can use the
+# EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
+# and *.h) to filter out the source-files in the directories. If left
+# blank all files are included.
+
+EXAMPLE_PATTERNS       =
+
+# If the EXAMPLE_RECURSIVE tag is set to YES then subdirectories will be
+# searched for input files to be used with the \include or \dontinclude
+# commands irrespective of the value of the RECURSIVE tag.
+# Possible values are YES and NO. If left blank NO is used.
+
+EXAMPLE_RECURSIVE      = NO
+
+# The IMAGE_PATH tag can be used to specify one or more files or
+# directories that contain image that are included in the documentation (see
+# the \image command).
+
+IMAGE_PATH             =
+
+# The INPUT_FILTER tag can be used to specify a program that doxygen should
+# invoke to filter for each input file. Doxygen will invoke the filter program
+# by executing (via popen()) the command <filter> <input-file>, where <filter>
+# is the value of the INPUT_FILTER tag, and <input-file> is the name of an
+# input file. Doxygen will then use the output that the filter program writes
+# to standard output.
+# If FILTER_PATTERNS is specified, this tag will be
+# ignored.
+
+INPUT_FILTER           =
+
+# The FILTER_PATTERNS tag can be used to specify filters on a per file pattern
+# basis.
+# Doxygen will compare the file name with each pattern and apply the
+# filter if there is a match.
+# The filters are a list of the form:
+# pattern=filter (like *.cpp=my_cpp_filter). See INPUT_FILTER for further
+# info on how filters are used. If FILTER_PATTERNS is empty or if
+# non of the patterns match the file name, INPUT_FILTER is applied.
+
+FILTER_PATTERNS        =
+
+# If the FILTER_SOURCE_FILES tag is set to YES, the input filter (if set using
+# INPUT_FILTER) will be used to filter the input files when producing source
+# files to browse (i.e. when SOURCE_BROWSER is set to YES).
+
+FILTER_SOURCE_FILES    = NO
+
+# The FILTER_SOURCE_PATTERNS tag can be used to specify source filters per file
+# pattern. A pattern will override the setting for FILTER_PATTERN (if any)
+# and it is also possible to disable source filtering for a specific pattern
+# using *.ext= (so without naming a filter). This option only has effect when
+# FILTER_SOURCE_FILES is enabled.
+
+FILTER_SOURCE_PATTERNS =
+
+# If the USE_MD_FILE_AS_MAINPAGE tag refers to the name of a markdown file that
+# is part of the input, its contents will be placed on the main page (index.html).
+# This can be useful if you have a project on for instance GitHub and want reuse
+# the introduction page also for the doxygen output.
+
+USE_MDFILE_AS_MAINPAGE =
+
+#---------------------------------------------------------------------------
+# configuration options related to source browsing
+#---------------------------------------------------------------------------
+
+# If the SOURCE_BROWSER tag is set to YES then a list of source files will
+# be generated. Documented entities will be cross-referenced with these sources.
+# Note: To get rid of all source code in the generated output, make sure also
+# VERBATIM_HEADERS is set to NO.
+
+SOURCE_BROWSER         = NO
+
+# Setting the INLINE_SOURCES tag to YES will include the body
+# of functions and classes directly in the documentation.
+
+INLINE_SOURCES         = NO
+
+# Setting the STRIP_CODE_COMMENTS tag to YES (the default) will instruct
+# doxygen to hide any special comment blocks from generated source code
+# fragments. Normal C, C++ and Fortran comments will always remain visible.
+
+STRIP_CODE_COMMENTS    = YES
+
+# If the REFERENCED_BY_RELATION tag is set to YES
+# then for each documented function all documented
+# functions referencing it will be listed.
+
+REFERENCED_BY_RELATION = NO
+
+# If the REFERENCES_RELATION tag is set to YES
+# then for each documented function all documented entities
+# called/used by that function will be listed.
+
+REFERENCES_RELATION    = NO
+
+# If the REFERENCES_LINK_SOURCE tag is set to YES (the default)
+# and SOURCE_BROWSER tag is set to YES, then the hyperlinks from
+# functions in REFERENCES_RELATION and REFERENCED_BY_RELATION lists will
+# link to the source code.
+# Otherwise they will link to the documentation.
+
+REFERENCES_LINK_SOURCE = YES
+
+# If the USE_HTAGS tag is set to YES then the references to source code
+# will point to the HTML generated by the htags(1) tool instead of doxygen
+# built-in source browser. The htags tool is part of GNU's global source
+# tagging system (see http://www.gnu.org/software/global/global.html). You
+# will need version 4.8.6 or higher.
+
+USE_HTAGS              = NO
+
+# If the VERBATIM_HEADERS tag is set to YES (the default) then Doxygen
+# will generate a verbatim copy of the header file for each class for
+# which an include is specified. Set to NO to disable this.
+
+VERBATIM_HEADERS       = YES
+
+#---------------------------------------------------------------------------
+# configuration options related to the alphabetical class index
+#---------------------------------------------------------------------------
+
+# If the ALPHABETICAL_INDEX tag is set to YES, an alphabetical index
+# of all compounds will be generated. Enable this if the project
+# contains a lot of classes, structs, unions or interfaces.
+
+ALPHABETICAL_INDEX     = YES
+
+# If the alphabetical index is enabled (see ALPHABETICAL_INDEX) then
+# the COLS_IN_ALPHA_INDEX tag can be used to specify the number of columns
+# in which this list will be split (can be a number in the range [1..20])
+
+COLS_IN_ALPHA_INDEX    = 5
+
+# In case all classes in a project start with a common prefix, all
+# classes will be put under the same header in the alphabetical index.
+# The IGNORE_PREFIX tag can be used to specify one or more prefixes that
+# should be ignored while generating the index headers.
+
+IGNORE_PREFIX          =
+
+#---------------------------------------------------------------------------
+# configuration options related to the HTML output
+#---------------------------------------------------------------------------
+
+# If the GENERATE_HTML tag is set to YES (the default) Doxygen will
+# generate HTML output.
+
+GENERATE_HTML          = YES
+
+# The HTML_OUTPUT tag is used to specify where the HTML docs will be put.
+# If a relative path is entered the value of OUTPUT_DIRECTORY will be
+# put in front of it. If left blank `html' will be used as the default path.
+
+HTML_OUTPUT            = html
+
+# The HTML_FILE_EXTENSION tag can be used to specify the file extension for
+# each generated HTML page (for example: .htm,.php,.asp). If it is left blank
+# doxygen will generate files with .html extension.
+
+HTML_FILE_EXTENSION    = .html
+
+# The HTML_HEADER tag can be used to specify a personal HTML header for
+# each generated HTML page. If it is left blank doxygen will generate a
+# standard header. Note that when using a custom header you are responsible
+#  for the proper inclusion of any scripts and style sheets that doxygen
+# needs, which is dependent on the configuration options used.
+# It is advised to generate a default header using "doxygen -w html
+# header.html footer.html stylesheet.css YourConfigFile" and then modify
+# that header. Note that the header is subject to change so you typically
+# have to redo this when upgrading to a newer version of doxygen or when
+# changing the value of configuration settings such as GENERATE_TREEVIEW!
+
+HTML_HEADER            =
+
+# The HTML_FOOTER tag can be used to specify a personal HTML footer for
+# each generated HTML page. If it is left blank doxygen will generate a
+# standard footer.
+
+HTML_FOOTER            =
+
+# The HTML_STYLESHEET tag can be used to specify a user-defined cascading
+# style sheet that is used by each HTML page. It can be used to
+# fine-tune the look of the HTML output. If left blank doxygen will
+# generate a default style sheet. Note that it is recommended to use
+# HTML_EXTRA_STYLESHEET instead of this one, as it is more robust and this
+# tag will in the future become obsolete.
+
+HTML_STYLESHEET        =
+
+# The HTML_EXTRA_STYLESHEET tag can be used to specify an additional
+# user-defined cascading style sheet that is included after the standard
+# style sheets created by doxygen. Using this option one can overrule
+# certain style aspects. This is preferred over using HTML_STYLESHEET
+# since it does not replace the standard style sheet and is therefor more
+# robust against future updates. Doxygen will copy the style sheet file to
+# the output directory.
+
+HTML_EXTRA_STYLESHEET  =
+
+# The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
+# other source files which should be copied to the HTML output directory. Note
+# that these files will be copied to the base HTML output directory. Use the
+# $relpath$ marker in the HTML_HEADER and/or HTML_FOOTER files to load these
+# files. In the HTML_STYLESHEET file, use the file name only. Also note that
+# the files will be copied as-is; there are no commands or markers available.
+
+HTML_EXTRA_FILES       =
+
+# The HTML_COLORSTYLE_HUE tag controls the color of the HTML output.
+# Doxygen will adjust the colors in the style sheet and background images
+# according to this color. Hue is specified as an angle on a colorwheel,
+# see http://en.wikipedia.org/wiki/Hue for more information.
+# For instance the value 0 represents red, 60 is yellow, 120 is green,
+# 180 is cyan, 240 is blue, 300 purple, and 360 is red again.
+# The allowed range is 0 to 359.
+
+HTML_COLORSTYLE_HUE    = 220
+
+# The HTML_COLORSTYLE_SAT tag c
