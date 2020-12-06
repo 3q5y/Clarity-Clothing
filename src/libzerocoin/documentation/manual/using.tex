@@ -9,4 +9,6 @@ In addition to $N$, all clients must agree on a security level $k$ (an integer $
 
 \item {\bf Coin generation.} To Mint a zerocoin, a client first generates a new coin $c$ using operations in the \libzerocoin~library. 
 
-Once the coin is Minted, the client must now form
+Once the coin is Minted, the client must now format and transmit a \textsf{ZEROCOIN\_MINT} transaction to the network, using routines not present in \libzerocoin. This transaction is similar to a normal Bitcoin/Litecoin transaction: it consists of inputs combining to the value of one zerocoin. Unlike a standard transaction, this transaction does not provide any outputs. Instead it simply embeds the Zerocoin value $c$. 
+ 
+\end{enumerate} 
