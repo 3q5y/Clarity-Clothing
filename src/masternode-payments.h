@@ -285,4 +285,20 @@ public:
     int GetMinMasternodePaymentsProto();
     void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
     std::string GetRequiredPaymentsString(int nBlockHeight);
-    CAmo
+    CAmount FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake);
+    std::string ToString() const;
+    int GetOldestBlock();
+    int GetNewestBlock();
+
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
+    {
+        READWRITE(mapMasternodePayeeVotes);
+        READWRITE(mapMasternodeBlocks);
+    }
+};
+
+
+#endif
