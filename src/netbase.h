@@ -209,4 +209,20 @@ bool IsProxy(const CNetAddr& addr);
 bool SetNameProxy(const proxyType &addrProxy);
 bool HaveNameProxy();
 bool LookupHost(const char* pszName, std::vector<CNetAddr>& vIP, unsigned int nMaxSolutions = 0, bool fAllowLookup = true);
-bool Lookup(const char* pszName, CSer
+bool Lookup(const char* pszName, CService& addr, int portDefault = 0, bool fAllowLookup = true);
+bool Lookup(const char* pszName, std::vector<CService>& vAddr, int portDefault = 0, bool fAllowLookup = true, unsigned int nMaxSolutions = 0);
+bool LookupNumeric(const char* pszName, CService& addr, int portDefault = 0);
+bool ConnectSocket(const CService& addr, SOCKET& hSocketRet, int nTimeout, bool* outProxyConnectionFailed = 0);
+bool ConnectSocketByName(CService& addr, SOCKET& hSocketRet, const char* pszDest, int portDefault, int nTimeout, bool* outProxyConnectionFailed = 0);
+/** Return readable error string for a network error code */
+std::string NetworkErrorString(int err);
+/** Close socket and set hSocket to INVALID_SOCKET */
+bool CloseSocket(SOCKET& hSocket);
+/** Disable or enable blocking-mode for a socket */
+bool SetSocketNonBlocking(SOCKET& hSocket, bool fNonBlocking);
+/**
+ * Convert milliseconds to a struct timeval for e.g. select.
+ */
+struct timeval MillisToTimeval(int64_t nTimeout);
+
+#endif // BITCOIN_NETBASE_H
