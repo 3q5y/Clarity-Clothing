@@ -641,4 +641,275 @@ void CObfuscationPool::CheckFinalTransaction()
         RelayInv(inv);
 
         // Tell the clients it was successful
-        RelayCompletedTransaction(sessionID, false, MSG_SUCC
+        RelayCompletedTransaction(sessionID, false, MSG_SUCCESS);
+
+        // Randomly charge clients
+        ChargeRandomFees();
+
+        // Reset
+        LogPrint("obfuscation", "CObfuscationPool::Check() -- COMPLETED -- RESETTING\n");
+        SetNull();
+        RelayStatus(sessionID, GetState(), GetEntriesCount(), MASTERNODE_RESET);
+    }
+}
+
+//
+// Charge clients a fee if they're abusive
+//
+// Why bother? Obfuscation uses collateral to ensure abuse to the process is kept to a minimum.
+// The submission and signing stages in Obfuscation are completely separate. In the cases where
+// a client submits a transaction then refused to sign, there must be a cost. Otherwise they
+// would be able to do this over and over again and bring the mixing to a hault.
+//
+// How does this work? Messages to Masternodes come in via "dsi", these require a valid collateral
+// transaction for the client to be able to enter the pool. This transaction is kept by the Masternode
+// until the transaction is either complete or fails.
+//
+void CObfuscationPool::ChargeFees()
+{
+    if (!fMasterNode) return;
+
+    //we don't need to charge collateral for every offence.
+    int offences = 0;
+    int r = rand() % 100;
+    if (r > 33) return;
+
+    if (state == POOL_STATUS_ACCEPTING_ENTRIES) {
+        for (const CTransaction& txCollateral : vecSessionCollateral) {
+            bool found = false;
+            for (const CObfuScationEntry& v : entries) {
+                if (v.collateral == txCollateral) {
+                    found = true;
+                }
+            }
+
+            // This queue entry didn't send us the promised transaction
+            if (!found) {
+                LogPrintf("CObfuscationPool::ChargeFees -- found uncooperative node (didn't send transaction). Found offence.\n");
+                offences++;
+            }
+        }
+    }
+
+    if (state == POOL_STATUS_SIGNING) {
+        // who didn't sign?
+        for (const CObfuScationEntry &v : entries) {
+            for (const CTxDSIn &s : v.sev) {
+                if (!s.fHasSig) {
+                    LogPrintf("CObfuscationPool::ChargeFees -- found uncooperative node (didn't sign). Found offence\n");
+                    offences++;
+                }
+            }
+        }
+    }
+
+    r = rand() % 100;
+    int target = 0;
+
+    //mostly offending?
+    if (offences >= Params().PoolMaxTransactions() - 1 && r > 33) return;
+
+    //everyone is an offender? That's not right
+    if (offences >= Params().PoolMaxTransactions()) return;
+
+    //charge one of the offenders randomly
+    if (offences > 1) target = 50;
+
+    //pick random client to charge
+    r = rand() % 100;
+
+    if (state == POOL_STATUS_ACCEPTING_ENTRIES) {
+        for (const CTransaction& txCollateral : vecSessionCollateral) {
+            bool found = false;
+            for (const CObfuScationEntry& v : entries) {
+                if (v.collateral == txCollateral) {
+                    found = true;
+                }
+            }
+
+            // This queue entry didn't send us the promised transaction
+            if (!found && r > target) {
+                LogPrintf("CObfuscationPool::ChargeFees -- found uncooperative node (didn't send transaction). charging fees.\n");
+
+                CWalletTx wtxCollateral = CWalletTx(pwalletMain, txCollateral);
+
+                // Broadcast
+                if (!wtxCollateral.AcceptToMemoryPool(true)) {
+                    // This must not fail. The transaction has already been signed and recorded.
+                    LogPrintf("CObfuscationPool::ChargeFees() : Error: Transaction not valid");
+                }
+                wtxCollateral.RelayWalletTransaction();
+                return;
+            }
+        }
+    }
+
+    if (state == POOL_STATUS_SIGNING) {
+        // who didn't sign?
+        for (const CObfuScationEntry &v : entries) {
+            for (const CTxDSIn &s : v.sev) {
+                if (!s.fHasSig && r > target) {
+                    LogPrintf("CObfuscationPool::ChargeFees -- found uncooperative node (didn't sign). charging fees.\n");
+
+                    CWalletTx wtxCollateral = CWalletTx(pwalletMain, v.collateral);
+
+                    // Broadcast
+                    if (!wtxCollateral.AcceptToMemoryPool(false)) {
+                        // This must not fail. The transaction has already been signed and recorded.
+                        LogPrintf("CObfuscationPool::ChargeFees() : Error: Transaction not valid");
+                    }
+                    wtxCollateral.RelayWalletTransaction();
+                    return;
+                }
+            }
+        }
+    }
+}
+
+// charge the collateral randomly
+//  - Obfuscation is completely free, to pay miners we randomly pay the collateral of users.
+void CObfuscationPool::ChargeRandomFees()
+{
+    if (fMasterNode) {
+        int i = 0;
+
+        for (const CTransaction& txCollateral : vecSessionCollateral) {
+            int r = rand() % 100;
+
+            /*
+                Collateral Fee Charges:
+
+                Being that Obfuscation has "no fees" we need to have some kind of cost associated
+                with using it to stop abuse. Otherwise it could serve as an attack vector and
+                allow endless transaction that would bloat GIANT and make it unusable. To
+                stop these kinds of attacks 1 in 10 successful transactions are charged. This
+                adds up to a cost of 0.001 GIC per transaction on average.
+            */
+            if (r <= 10) {
+                LogPrintf("CObfuscationPool::ChargeRandomFees -- charging random fees. %u\n", i);
+
+                CWalletTx wtxCollateral = CWalletTx(pwalletMain, txCollateral);
+
+                // Broadcast
+                if (!wtxCollateral.AcceptToMemoryPool(true)) {
+                    // This must not fail. The transaction has already been signed and recorded.
+                    LogPrintf("CObfuscationPool::ChargeRandomFees() : Error: Transaction not valid");
+                }
+                wtxCollateral.RelayWalletTransaction();
+            }
+        }
+    }
+}
+
+//
+// Check for various timeouts (queue objects, Obfuscation, etc)
+//
+void CObfuscationPool::CheckTimeout()
+{
+    if (!fEnableZeromint && !fMasterNode) return;
+
+    // catching hanging sessions
+    if (!fMasterNode) {
+        switch (state) {
+        case POOL_STATUS_TRANSMISSION:
+            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session complete -- Running Check()\n");
+            Check();
+            break;
+        case POOL_STATUS_ERROR:
+            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Pool error -- Running Check()\n");
+            Check();
+            break;
+        case POOL_STATUS_SUCCESS:
+            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Pool success -- Running Check()\n");
+            Check();
+            break;
+        }
+    }
+
+    // check Obfuscation queue objects for timeouts
+    int c = 0;
+    vector<CObfuscationQueue>::iterator it = vecObfuscationQueue.begin();
+    while (it != vecObfuscationQueue.end()) {
+        if ((*it).IsExpired()) {
+            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() : Removing expired queue entry - %d\n", c);
+            it = vecObfuscationQueue.erase(it);
+        } else
+            ++it;
+        c++;
+    }
+
+    int addLagTime = 0;
+    if (!fMasterNode) addLagTime = 10000; //if we're the client, give the server a few extra seconds before resetting.
+
+    if (state == POOL_STATUS_ACCEPTING_ENTRIES || state == POOL_STATUS_QUEUE) {
+        c = 0;
+
+        // check for a timeout and reset if needed
+        vector<CObfuScationEntry>::iterator it2 = entries.begin();
+        while (it2 != entries.end()) {
+            if ((*it2).IsExpired()) {
+                LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() : Removing expired entry - %d\n", c);
+                it2 = entries.erase(it2);
+                if (entries.size() == 0) {
+                    UnlockCoins();
+                    SetNull();
+                }
+                if (fMasterNode) {
+                    RelayStatus(sessionID, GetState(), GetEntriesCount(), MASTERNODE_RESET);
+                }
+            } else
+                ++it2;
+            c++;
+        }
+
+        if (GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_QUEUE_TIMEOUT * 1000) + addLagTime) {
+            UnlockCoins();
+            SetNull();
+        }
+    } else if (GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_QUEUE_TIMEOUT * 1000) + addLagTime) {
+        LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session timed out (%ds) -- resetting\n", OBFUSCATION_QUEUE_TIMEOUT);
+        UnlockCoins();
+        SetNull();
+
+        UpdateState(POOL_STATUS_ERROR);
+        lastMessage = _("Session timed out.");
+    }
+
+    if (state == POOL_STATUS_SIGNING && GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_SIGNING_TIMEOUT * 1000) + addLagTime) {
+        LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session timed out (%ds) -- restting\n", OBFUSCATION_SIGNING_TIMEOUT);
+        ChargeFees();
+        UnlockCoins();
+        SetNull();
+
+        UpdateState(POOL_STATUS_ERROR);
+        lastMessage = _("Signing timed out.");
+    }
+}
+
+//
+// Check for complete queue
+//
+void CObfuscationPool::CheckForCompleteQueue()
+{
+    if (!fEnableZeromint && !fMasterNode) return;
+
+    /* Check to see if we're ready for submissions from clients */
+    //
+    // After receiving multiple dsa messages, the queue will switch to "accepting entries"
+    // which is the active state right before merging the transaction
+    //
+    if (state == POOL_STATUS_QUEUE && sessionUsers == GetMaxPoolTransactions()) {
+        UpdateState(POOL_STATUS_ACCEPTING_ENTRIES);
+
+        CObfuscationQueue dsq;
+        dsq.nDenom = sessionDenom;
+        dsq.vin = activeMasternode.vin;
+        dsq.time = GetTime();
+        dsq.ready = true;
+        dsq.Sign();
+        dsq.Relay();
+    }
+}
+
+// check to see if the signature is valid
+bool CObfuscatio
