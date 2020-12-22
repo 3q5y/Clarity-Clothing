@@ -1219,4 +1219,264 @@ bool CObfuscationPool::StatusUpdate(int newState, int newEntriesCount, int newAc
     UpdateState(newState);
     entriesCount = newEntriesCount;
 
-    if (errorID != MSG
+    if (errorID != MSG_NOERR) strAutoDenomResult = _("Masternode:") + " " + GetMessageByID(errorID);
+
+    if (newAccepted != -1) {
+        lastEntryAccepted = newAccepted;
+        countEntriesAccepted += newAccepted;
+        if (newAccepted == 0) {
+            UpdateState(POOL_STATUS_ERROR);
+            lastMessage = GetMessageByID(errorID);
+        }
+
+        if (newAccepted == 1 && newSessionID != 0) {
+            sessionID = newSessionID;
+            LogPrintf("CObfuscationPool::StatusUpdate - set sessionID to %d\n", sessionID);
+            sessionFoundMasternode = true;
+        }
+    }
+
+    if (newState == POOL_STATUS_ACCEPTING_ENTRIES) {
+        if (newAccepted == 1) {
+            LogPrintf("CObfuscationPool::StatusUpdate - entry accepted! \n");
+            sessionFoundMasternode = true;
+            //wait for other users. Masternode will report when ready
+            UpdateState(POOL_STATUS_QUEUE);
+        } else if (newAccepted == 0 && sessionID == 0 && !sessionFoundMasternode) {
+            LogPrintf("CObfuscationPool::StatusUpdate - entry not accepted by Masternode \n");
+            UnlockCoins();
+            UpdateState(POOL_STATUS_ACCEPTING_ENTRIES);
+            DoAutomaticDenominating(); //try another Masternode
+        }
+        if (sessionFoundMasternode) return true;
+    }
+
+    return true;
+}
+
+//
+// After we receive the finalized transaction from the Masternode, we must
+// check it to make sure it's what we want, then sign it if we agree.
+// If we refuse to sign, it's possible we'll be charged collateral
+//
+bool CObfuscationPool::SignFinalTransaction(CTransaction& finalTransactionNew, CNode* node)
+{
+    if (fMasterNode) return false;
+
+    finalTransaction = finalTransactionNew;
+    LogPrintf("CObfuscationPool::SignFinalTransaction %s", finalTransaction.ToString());
+
+    vector<CTxIn> sigs;
+
+    //make sure my inputs/outputs are present, otherwise refuse to sign
+    for (const CObfuScationEntry &e : entries) {
+        for (const CTxDSIn &s : e.sev) {
+            /* Sign my transaction and all outputs */
+            int mine = -1;
+            CScript prevPubKey = CScript();
+            CTxIn vin = CTxIn();
+
+            for (unsigned int i = 0; i < finalTransaction.vin.size(); i++) {
+                if (finalTransaction.vin[i] == s) {
+                    mine = i;
+                    prevPubKey = s.prevPubKey;
+                    vin = s;
+                }
+            }
+
+            if (mine >= 0) { //might have to do this one input at a time?
+                int foundOutputs = 0;
+                CAmount nValue1 = 0;
+                CAmount nValue2 = 0;
+
+                for (unsigned int i = 0; i < finalTransaction.vout.size(); i++) {
+                    for (const CTxOut& o : e.vout) {
+                        if (finalTransaction.vout[i] == o) {
+                            foundOutputs++;
+                            nValue1 += finalTransaction.vout[i].nValue;
+                        }
+                    }
+                }
+
+                for (const CTxOut &o : e.vout)
+                    nValue2 += o.nValue;
+
+                int targetOuputs = e.vout.size();
+                if (foundOutputs < targetOuputs || nValue1 != nValue2) {
+                    // in this case, something went wrong and we'll refuse to sign. It's possible we'll be charged collateral. But that's
+                    // better then signing if the transaction doesn't look like what we wanted.
+                    LogPrintf("CObfuscationPool::Sign - My entries are not correct! Refusing to sign. %d entries %d target. \n", foundOutputs, targetOuputs);
+                    UnlockCoins();
+                    SetNull();
+
+                    return false;
+                }
+
+                const CKeyStore& keystore = *pwalletMain;
+
+                LogPrint("obfuscation", "CObfuscationPool::Sign - Signing my input %i\n", mine);
+                if (!SignSignature(keystore, prevPubKey, finalTransaction, mine, int(SIGHASH_ALL | SIGHASH_ANYONECANPAY))) { // changes scriptSig
+                    LogPrint("obfuscation", "CObfuscationPool::Sign - Unable to sign my own transaction! \n");
+                    // not sure what to do here, it will timeout...?
+                }
+
+                sigs.push_back(finalTransaction.vin[mine]);
+                LogPrint("obfuscation", " -- dss %d %d %s\n", mine, (int)sigs.size(), finalTransaction.vin[mine].scriptSig.ToString());
+            }
+        }
+
+        LogPrint("obfuscation", "CObfuscationPool::Sign - txNew:\n%s", finalTransaction.ToString());
+    }
+
+    // push all of our signatures to the Masternode
+    if (sigs.size() > 0 && node != NULL)
+        node->PushMessage("dss", sigs);
+
+
+    return true;
+}
+
+void CObfuscationPool::NewBlock()
+{
+    LogPrint("obfuscation", "CObfuscationPool::NewBlock \n");
+
+    //we we're processing lots of blocks, we'll just leave
+    if (GetTime() - lastNewBlock < 10) return;
+    lastNewBlock = GetTime();
+
+    obfuScationPool.CheckTimeout();
+}
+
+// Obfuscation transaction was completed (failed or successful)
+void CObfuscationPool::CompletedTransaction(bool error, int errorID)
+{
+    if (fMasterNode) return;
+
+    if (error) {
+        LogPrintf("CompletedTransaction -- error \n");
+        UpdateState(POOL_STATUS_ERROR);
+
+        Check();
+        UnlockCoins();
+        SetNull();
+    } else {
+        LogPrintf("CompletedTransaction -- success \n");
+        UpdateState(POOL_STATUS_SUCCESS);
+
+        UnlockCoins();
+        SetNull();
+
+        // To avoid race conditions, we'll only let DS run once per block
+        cachedLastSuccess = chainActive.Tip()->nHeight;
+    }
+    lastMessage = GetMessageByID(errorID);
+}
+
+void CObfuscationPool::ClearLastMessage()
+{
+    lastMessage = "";
+}
+
+//
+// Passively run Obfuscation in the background to anonymize funds based on the given configuration.
+//
+// This does NOT run by default for daemons, only for QT.
+//
+bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
+{
+    return false;  // Disabled until Obfuscation is completely removed
+
+    if (!fEnableZeromint) return false;
+    if (fMasterNode) return false;
+    if (state == POOL_STATUS_ERROR || state == POOL_STATUS_SUCCESS) return false;
+    if (GetEntriesCount() > 0) {
+        strAutoDenomResult = _("Mixing in progress...");
+        return false;
+    }
+
+    TRY_LOCK(cs_obfuscation, lockDS);
+    if (!lockDS) {
+        strAutoDenomResult = _("Lock is already in place.");
+        return false;
+    }
+
+    if (!masternodeSync.IsBlockchainSynced()) {
+        strAutoDenomResult = _("Can't mix while sync in progress.");
+        return false;
+    }
+
+    if (!fDryRun && pwalletMain->IsLocked()) {
+        strAutoDenomResult = _("Wallet is locked.");
+        return false;
+    }
+
+    if (chainActive.Tip()->nHeight - cachedLastSuccess < minBlockSpacing) {
+        LogPrintf("CObfuscationPool::DoAutomaticDenominating - Last successful Obfuscation action was too recent\n");
+        strAutoDenomResult = _("Last successful Obfuscation action was too recent.");
+        return false;
+    }
+
+    if (mnodeman.size() == 0) {
+        LogPrint("obfuscation", "CObfuscationPool::DoAutomaticDenominating - No Masternodes detected\n");
+        strAutoDenomResult = _("No Masternodes detected.");
+        return false;
+    }
+
+    // ** find the coins we'll use
+    std::vector<CTxIn> vCoins;
+    CAmount nValueMin = CENT;
+    CAmount nValueIn = 0;
+
+    CAmount nOnlyDenominatedBalance;
+    CAmount nBalanceNeedsDenominated;
+
+    // should not be less than fees in OBFUSCATION_COLLATERAL + few (lets say 5) smallest denoms
+    CAmount nLowestDenom = OBFUSCATION_COLLATERAL + obfuScationDenominations[obfuScationDenominations.size() - 1] * 5;
+
+    // if there are no OBF collateral inputs yet
+    if (!pwalletMain->HasCollateralInputs())
+        // should have some additional amount for them
+        nLowestDenom += OBFUSCATION_COLLATERAL * 4;
+
+    CAmount nBalanceNeedsAnonymized = nAnonymizeGiantAmount * COIN - pwalletMain->GetAnonymizedBalance();
+
+    // if balanceNeedsAnonymized is more than pool max, take the pool max
+    if (nBalanceNeedsAnonymized > OBFUSCATION_POOL_MAX) nBalanceNeedsAnonymized = OBFUSCATION_POOL_MAX;
+
+    // if balanceNeedsAnonymized is more than non-anonymized, take non-anonymized
+    CAmount nAnonymizableBalance = pwalletMain->GetAnonymizableBalance();
+    if (nBalanceNeedsAnonymized > nAnonymizableBalance) nBalanceNeedsAnonymized = nAnonymizableBalance;
+
+    if (nBalanceNeedsAnonymized < nLowestDenom) {
+        LogPrintf("DoAutomaticDenominating : No funds detected in need of denominating \n");
+        strAutoDenomResult = _("No funds detected in need of denominating.");
+        return false;
+    }
+
+    LogPrint("obfuscation", "DoAutomaticDenominating : nLowestDenom=%d, nBalanceNeedsAnonymized=%d\n", nLowestDenom, nBalanceNeedsAnonymized);
+
+    // select coins that should be given to the pool
+    if (!pwalletMain->SelectCoinsDark(nValueMin, nBalanceNeedsAnonymized, vCoins, nValueIn, 0, nZeromintPercentage)) {
+        nValueIn = 0;
+        vCoins.clear();
+
+        if (pwalletMain->SelectCoinsDark(nValueMin, 9999999 * COIN, vCoins, nValueIn, -2, 0)) {
+            nOnlyDenominatedBalance = pwalletMain->GetDenominatedBalance(true) + pwalletMain->GetDenominatedBalance() - pwalletMain->GetAnonymizedBalance();
+            nBalanceNeedsDenominated = nBalanceNeedsAnonymized - nOnlyDenominatedBalance;
+
+            if (nBalanceNeedsDenominated > nValueIn) nBalanceNeedsDenominated = nValueIn;
+
+            if (nBalanceNeedsDenominated < nLowestDenom) return false; // most likely we just waiting for denoms to confirm
+            if (!fDryRun) return CreateDenominated(nBalanceNeedsDenominated);
+
+            return true;
+        } else {
+            LogPrintf("DoAutomaticDenominating : Can't denominate - no compatible inputs left\n");
+            strAutoDenomResult = _("Can't denominate: no compatible inputs left.");
+            return false;
+        }
+    }
+
+    if (fDryRun) return true;
+
+    nOnlyDenominatedBalance = pwalletMain->GetDenomina
