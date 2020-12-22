@@ -912,4 +912,311 @@ void CObfuscationPool::CheckForCompleteQueue()
 }
 
 // check to see if the signature is valid
-bool CObfuscatio
+bool CObfuscationPool::SignatureValid(const CScript& newSig, const CTxIn& newVin)
+{
+    CMutableTransaction txNew;
+    txNew.vin.clear();
+    txNew.vout.clear();
+
+    int found = -1;
+    CScript sigPubKey = CScript();
+    unsigned int i = 0;
+
+    for (CObfuScationEntry& e : entries) {
+        for (const CTxOut& out : e.vout)
+            txNew.vout.push_back(out);
+
+        for (const CTxDSIn& s : e.sev) {
+            txNew.vin.push_back(s);
+
+            if (s == newVin) {
+                found = i;
+                sigPubKey = s.prevPubKey;
+            }
+            i++;
+        }
+    }
+
+    if (found >= 0) { //might have to do this one input at a time?
+        int n = found;
+        txNew.vin[n].scriptSig = newSig;
+        LogPrint("obfuscation", "CObfuscationPool::SignatureValid() - Sign with sig %s\n", newSig.ToString().substr(0, 24));
+        if (!VerifyScript(txNew.vin[n].scriptSig, sigPubKey, SCRIPT_VERIFY_P2SH | SCRIPT_VERIFY_STRICTENC, MutableTransactionSignatureChecker(&txNew, n))) {
+            LogPrint("obfuscation", "CObfuscationPool::SignatureValid() - Signing - Error signing input %u\n", n);
+            return false;
+        }
+    }
+
+    LogPrint("obfuscation", "CObfuscationPool::SignatureValid() - Signing - Successfully validated input\n");
+    return true;
+}
+
+// check to make sure the collateral provided by the client is valid
+bool CObfuscationPool::IsCollateralValid(const CTransaction& txCollateral)
+{
+    if (txCollateral.vout.size() < 1) return false;
+    if (txCollateral.nLockTime != 0) return false;
+
+    int64_t nValueIn = 0;
+    int64_t nValueOut = 0;
+    bool missingTx = false;
+
+    for (const CTxOut &o : txCollateral.vout) {
+        nValueOut += o.nValue;
+
+        if (!o.scriptPubKey.IsNormalPaymentScript()) {
+            LogPrintf("CObfuscationPool::IsCollateralValid - Invalid Script %s\n", txCollateral.ToString());
+            return false;
+        }
+    }
+
+    for (const CTxIn &i : txCollateral.vin) {
+        CTransaction tx2;
+        uint256 hash;
+        if (GetTransaction(i.prevout.hash, tx2, hash, true)) {
+            if (tx2.vout.size() > i.prevout.n) {
+                nValueIn += tx2.vout[i.prevout.n].nValue;
+            }
+        } else {
+            missingTx = true;
+        }
+    }
+
+    if (missingTx) {
+        LogPrint("obfuscation", "CObfuscationPool::IsCollateralValid - Unknown inputs in collateral transaction - %s\n", txCollateral.ToString());
+        return false;
+    }
+
+    //collateral transactions are required to pay out OBFUSCATION_COLLATERAL as a fee to the miners
+    if (nValueIn - nValueOut < OBFUSCATION_COLLATERAL) {
+        LogPrint("obfuscation", "CObfuscationPool::IsCollateralValid - did not include enough fees in transaction %d\n%s\n", nValueOut - nValueIn, txCollateral.ToString());
+        return false;
+    }
+
+    LogPrint("obfuscation", "CObfuscationPool::IsCollateralValid %s\n", txCollateral.ToString());
+
+    {
+        LOCK(cs_main);
+        CValidationState state;
+        if (!AcceptableInputs(mempool, state, txCollateral, true, NULL)) {
+            if (fDebug) LogPrintf("CObfuscationPool::IsCollateralValid - didn't pass IsAcceptable\n");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+//
+// Add a clients transaction to the pool
+//
+bool CObfuscationPool::AddEntry(const std::vector<CTxIn>& newInput, const CAmount& nAmount, const CTransaction& txCollateral, const std::vector<CTxOut>& newOutput, int& errorID)
+{
+    if (!fMasterNode) return false;
+
+    for (CTxIn in : newInput) {
+        if (in.prevout.IsNull() || nAmount < 0) {
+            LogPrint("obfuscation", "CObfuscationPool::AddEntry - input not valid!\n");
+            errorID = ERR_INVALID_INPUT;
+            sessionUsers--;
+            return false;
+        }
+    }
+
+    if (!IsCollateralValid(txCollateral)) {
+        LogPrint("obfuscation", "CObfuscationPool::AddEntry - collateral not valid!\n");
+        errorID = ERR_INVALID_COLLATERAL;
+        sessionUsers--;
+        return false;
+    }
+
+    if ((int)entries.size() >= GetMaxPoolTransactions()) {
+        LogPrint("obfuscation", "CObfuscationPool::AddEntry - entries is full!\n");
+        errorID = ERR_ENTRIES_FULL;
+        sessionUsers--;
+        return false;
+    }
+
+    for (CTxIn in : newInput) {
+        LogPrint("obfuscation", "looking for vin -- %s\n", in.ToString());
+        for (const CObfuScationEntry& v : entries) {
+            for (const CTxDSIn& s : v.sev) {
+                if ((CTxIn)s == in) {
+                    LogPrint("obfuscation", "CObfuscationPool::AddEntry - found in vin\n");
+                    errorID = ERR_ALREADY_HAVE;
+                    sessionUsers--;
+                    return false;
+                }
+            }
+        }
+    }
+
+    CObfuScationEntry v;
+    v.Add(newInput, nAmount, txCollateral, newOutput);
+    entries.push_back(v);
+
+    LogPrint("obfuscation", "CObfuscationPool::AddEntry -- adding %s\n", newInput[0].ToString());
+    errorID = MSG_ENTRIES_ADDED;
+
+    return true;
+}
+
+bool CObfuscationPool::AddScriptSig(const CTxIn& newVin)
+{
+    LogPrint("obfuscation", "CObfuscationPool::AddScriptSig -- new sig  %s\n", newVin.scriptSig.ToString().substr(0, 24));
+
+
+    for (const CObfuScationEntry& v : entries) {
+        for (const CTxDSIn& s : v.sev) {
+            if (s.scriptSig == newVin.scriptSig) {
+                LogPrint("obfuscation", "CObfuscationPool::AddScriptSig - already exists\n");
+                return false;
+            }
+        }
+    }
+
+    if (!SignatureValid(newVin.scriptSig, newVin)) {
+        LogPrint("obfuscation", "CObfuscationPool::AddScriptSig - Invalid Sig\n");
+        return false;
+    }
+
+    LogPrint("obfuscation", "CObfuscationPool::AddScriptSig -- sig %s\n", newVin.ToString());
+
+    for (CTxIn& vin : finalTransaction.vin) {
+        if (newVin.prevout == vin.prevout && vin.nSequence == newVin.nSequence) {
+            vin.scriptSig = newVin.scriptSig;
+            vin.prevPubKey = newVin.prevPubKey;
+            LogPrint("obfuscation", "CObfuScationPool::AddScriptSig -- adding to finalTransaction  %s\n", newVin.scriptSig.ToString().substr(0, 24));
+        }
+    }
+    for (unsigned int i = 0; i < entries.size(); i++) {
+        if (entries[i].AddSig(newVin)) {
+            LogPrint("obfuscation", "CObfuScationPool::AddScriptSig -- adding  %s\n", newVin.scriptSig.ToString().substr(0, 24));
+            return true;
+        }
+    }
+
+    LogPrintf("CObfuscationPool::AddScriptSig -- Couldn't set sig!\n");
+    return false;
+}
+
+// Check to make sure everything is signed
+bool CObfuscationPool::SignaturesComplete()
+{
+    for (const CObfuScationEntry& v : entries) {
+        for (const CTxDSIn& s : v.sev) {
+            if (!s.fHasSig) return false;
+        }
+    }
+    return true;
+}
+
+//
+// Execute a Obfuscation denomination via a Masternode.
+// This is only ran from clients
+//
+void CObfuscationPool::SendObfuscationDenominate(std::vector<CTxIn>& vin, std::vector<CTxOut>& vout, CAmount amount)
+{
+    if (fMasterNode) {
+        LogPrintf("CObfuscationPool::SendObfuscationDenominate() - Obfuscation from a Masternode is not supported currently.\n");
+        return;
+    }
+
+    if (txCollateral == CMutableTransaction()) {
+        LogPrintf("CObfuscationPool:SendObfuscationDenominate() - Obfuscation collateral not set");
+        return;
+    }
+
+    // lock the funds we're going to use
+    for (CTxIn in : txCollateral.vin)
+        lockedCoins.push_back(in);
+
+    for (CTxIn in : vin)
+        lockedCoins.push_back(in);
+
+    //for (CTxOut o : vout)
+    //    LogPrintf(" vout - %s\n", o.ToString());
+
+
+    // we should already be connected to a Masternode
+    if (!sessionFoundMasternode) {
+        LogPrintf("CObfuscationPool::SendObfuscationDenominate() - No Masternode has been selected yet.\n");
+        UnlockCoins();
+        SetNull();
+        return;
+    }
+
+    if (!CheckDiskSpace()) {
+        UnlockCoins();
+        SetNull();
+        fEnableZeromint = false;
+        LogPrintf("CObfuscationPool::SendObfuscationDenominate() - Not enough disk space, disabling Obfuscation.\n");
+        return;
+    }
+
+    UpdateState(POOL_STATUS_ACCEPTING_ENTRIES);
+
+    LogPrintf("CObfuscationPool::SendObfuscationDenominate() - Added transaction to pool.\n");
+
+    ClearLastMessage();
+
+    //check it against the memory pool to make sure it's valid
+    {
+        CAmount nValueOut = 0;
+
+        CValidationState state;
+        CMutableTransaction tx;
+
+        for (const CTxOut& o : vout) {
+            nValueOut += o.nValue;
+            tx.vout.push_back(o);
+        }
+
+        for (const CTxIn& i : vin) {
+            tx.vin.push_back(i);
+
+            LogPrint("obfuscation", "dsi -- tx in %s\n", i.ToString());
+        }
+
+        LogPrintf("Submitting tx %s\n", tx.ToString());
+
+        while (true) {
+            TRY_LOCK(cs_main, lockMain);
+            if (!lockMain) {
+                MilliSleep(50);
+                continue;
+            }
+            if (!AcceptableInputs(mempool, state, CTransaction(tx), false, NULL, false, true)) {
+                LogPrintf("dsi -- transaction not valid! %s \n", tx.ToString());
+                UnlockCoins();
+                SetNull();
+                return;
+            }
+            break;
+        }
+    }
+
+    // store our entry for later use
+    CObfuScationEntry e;
+    e.Add(vin, amount, txCollateral, vout);
+    entries.push_back(e);
+
+    RelayIn(entries[0].sev, entries[0].amount, txCollateral, entries[0].vout);
+    Check();
+}
+
+// Incoming message from Masternode updating the progress of Obfuscation
+//    newAccepted:  -1 mean's it'n not a "transaction accepted/not accepted" message, just a standard update
+//                  0 means transaction was not accepted
+//                  1 means transaction was accepted
+
+bool CObfuscationPool::StatusUpdate(int newState, int newEntriesCount, int newAccepted, int& errorID, int newSessionID)
+{
+    if (fMasterNode) return false;
+    if (state == POOL_STATUS_ERROR || state == POOL_STATUS_SUCCESS) return false;
+
+    UpdateState(newState);
+    entriesCount = newEntriesCount;
+
+    if (errorID != MSG
