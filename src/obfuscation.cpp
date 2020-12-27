@@ -2330,4 +2330,8 @@ void ThreadCheckObfuScationPool()
             obfuScationPool.CheckForCompleteQueue();
 
             if (obfuScationPool.GetState() == POOL_STATUS_IDLE && c % 15 == 0) {
-                obfuScationPool.DoAut
+                obfuScationPool.DoAutomaticDenominating();
+            }
+        }
+    }
+}
