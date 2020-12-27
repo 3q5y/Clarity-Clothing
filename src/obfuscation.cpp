@@ -2008,4 +2008,326 @@ int CObfuscationPool::GetDenominationsByAmounts(std::vector<CAmount>& vecAmount)
     CScript e = CScript();
     std::vector<CTxOut> vout1;
 
-    // Make outputs by looping through
+    // Make outputs by looping through denominations, from small to large
+    BOOST_REVERSE_FOREACH (CAmount v, vecAmount) {
+        CTxOut o(v, e);
+        vout1.push_back(o);
+    }
+
+    return GetDenominations(vout1, true);
+}
+
+int CObfuscationPool::GetDenominationsByAmount(CAmount nAmount, int nDenomTarget)
+{
+    CScript e = CScript();
+    CAmount nValueLeft = nAmount;
+
+    std::vector<CTxOut> vout1;
+
+    // Make outputs by looping through denominations, from small to large
+    BOOST_REVERSE_FOREACH (CAmount v, obfuScationDenominations) {
+        if (nDenomTarget != 0) {
+            bool fAccepted = false;
+            if ((nDenomTarget & (1 << 0)) && v == ((100 * COIN) + 100000)) {
+                fAccepted = true;
+            } else if ((nDenomTarget & (1 << 1)) && v == ((10 * COIN) + 10000)) {
+                fAccepted = true;
+            } else if ((nDenomTarget & (1 << 2)) && v == ((1 * COIN) + 1000)) {
+                fAccepted = true;
+            } else if ((nDenomTarget & (1 << 3)) && v == ((.1 * COIN) + 100)) {
+                fAccepted = true;
+            }
+            if (!fAccepted) continue;
+        }
+
+        int nOutputs = 0;
+
+        // add each output up to 10 times until it can't be added again
+        while (nValueLeft - v >= 0 && nOutputs <= 10) {
+            CTxOut o(v, e);
+            vout1.push_back(o);
+            nValueLeft -= v;
+            nOutputs++;
+        }
+        LogPrintf("GetDenominationsByAmount --- %d nOutputs %d\n", v, nOutputs);
+    }
+
+    return GetDenominations(vout1);
+}
+
+std::string CObfuscationPool::GetMessageByID(int messageID)
+{
+    switch (messageID) {
+    case ERR_ALREADY_HAVE:
+        return _("Already have that input.");
+    case ERR_DENOM:
+        return _("No matching denominations found for mixing.");
+    case ERR_ENTRIES_FULL:
+        return _("Entries are full.");
+    case ERR_EXISTING_TX:
+        return _("Not compatible with existing transactions.");
+    case ERR_FEES:
+        return _("Transaction fees are too high.");
+    case ERR_INVALID_COLLATERAL:
+        return _("Collateral not valid.");
+    case ERR_INVALID_INPUT:
+        return _("Input is not valid.");
+    case ERR_INVALID_SCRIPT:
+        return _("Invalid script detected.");
+    case ERR_INVALID_TX:
+        return _("Transaction not valid.");
+    case ERR_MAXIMUM:
+        return _("Value more than Obfuscation pool maximum allows.");
+    case ERR_MN_LIST:
+        return _("Not in the Masternode list.");
+    case ERR_MODE:
+        return _("Incompatible mode.");
+    case ERR_NON_STANDARD_PUBKEY:
+        return _("Non-standard public key detected.");
+    case ERR_NOT_A_MN:
+        return _("This is not a Masternode.");
+    case ERR_QUEUE_FULL:
+        return _("Masternode queue is full.");
+    case ERR_RECENT:
+        return _("Last Obfuscation was too recent.");
+    case ERR_SESSION:
+        return _("Session not complete!");
+    case ERR_MISSING_TX:
+        return _("Missing input transaction information.");
+    case ERR_VERSION:
+        return _("Incompatible version.");
+    case MSG_SUCCESS:
+        return _("Transaction created successfully.");
+    case MSG_ENTRIES_ADDED:
+        return _("Your entries added successfully.");
+    case MSG_NOERR:
+    default:
+        return "";
+    }
+}
+
+bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
+{
+    CScript payee2;
+    payee2 = GetScriptForDestination(pubkey.GetID());
+
+    CTransaction txVin;
+    uint256 hash;
+    CAmount nCollateralPrice;
+    CMasternode::IsAppropriateTxIn(vin, nCollateralPrice);
+
+    LogPrintf("CObfuScationSigner::IsVinAssociatedWithPubkey : vin=%s, collateralPrice=%d\n",
+            vin.ToString(),
+            nCollateralPrice);
+
+    if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
+        for (CTxOut out : txVin.vout) {
+            if (out.nValue == nCollateralPrice) {
+                if (out.scriptPubKey == payee2) return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool CObfuScationSigner::SetKey(std::string strSecret, std::string& errorMessage, CKey& key, CPubKey& pubkey)
+{
+    CBitcoinSecret vchSecret;
+    bool fGood = vchSecret.SetString(strSecret);
+
+    if (!fGood) {
+        errorMessage = _("Invalid private key.");
+        return false;
+    }
+
+    key = vchSecret.GetKey();
+    pubkey = key.GetPubKey();
+
+    return true;
+}
+
+bool CObfuScationSigner::GetKeysFromSecret(std::string strSecret, CKey& keyRet, CPubKey& pubkeyRet)
+{
+    CBitcoinSecret vchSecret;
+
+    if (!vchSecret.SetString(strSecret)) return false;
+
+    keyRet = vchSecret.GetKey();
+    pubkeyRet = keyRet.GetPubKey();
+
+    return true;
+}
+
+bool CObfuScationSigner::SignMessage(std::string strMessage, std::string& errorMessage, vector<unsigned char>& vchSig, CKey key)
+{
+    CHashWriter ss(SER_GETHASH, 0);
+    ss << strMessageMagic;
+    ss << strMessage;
+
+    if (!key.SignCompact(ss.GetHash(), vchSig)) {
+        errorMessage = _("Signing failed.");
+        return false;
+    }
+
+    return true;
+}
+
+bool CObfuScationSigner::VerifyMessage(CPubKey pubkey, vector<unsigned char>& vchSig, std::string strMessage, std::string& errorMessage)
+{
+    CHashWriter ss(SER_GETHASH, 0);
+    ss << strMessageMagic;
+    ss << strMessage;
+
+    CPubKey pubkey2;
+    if (!pubkey2.RecoverCompact(ss.GetHash(), vchSig)) {
+        errorMessage = _("Error recovering public key.");
+        return false;
+    }
+
+    if (fDebug && pubkey2.GetID() != pubkey.GetID())
+        LogPrintf("CObfuScationSigner::VerifyMessage -- keys don't match: %s %s\n", pubkey2.GetID().ToString(), pubkey.GetID().ToString());
+
+    return (pubkey2.GetID() == pubkey.GetID());
+}
+
+bool CObfuscationQueue::Sign()
+{
+    if (!fMasterNode) return false;
+
+    std::string strMessage = vin.ToString() + std::to_string(nDenom) + std::to_string(time) + std::to_string(ready);
+
+    CKey key2;
+    CPubKey pubkey2;
+    std::string errorMessage = "";
+
+    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key2, pubkey2)) {
+        LogPrintf("CObfuscationQueue():Relay - ERROR: Invalid Masternodeprivkey: '%s'\n", errorMessage);
+        return false;
+    }
+
+    if (!obfuScationSigner.SignMessage(strMessage, errorMessage, vchSig, key2)) {
+        LogPrintf("CObfuscationQueue():Relay - Sign message failed");
+        return false;
+    }
+
+    if (!obfuScationSigner.VerifyMessage(pubkey2, vchSig, strMessage, errorMessage)) {
+        LogPrintf("CObfuscationQueue():Relay - Verify message failed");
+        return false;
+    }
+
+    return true;
+}
+
+bool CObfuscationQueue::Relay()
+{
+    LOCK(cs_vNodes);
+    for (CNode* pnode : vNodes) {
+        // always relay to everyone
+        pnode->PushMessage("dsq", (*this));
+    }
+
+    return true;
+}
+
+bool CObfuscationQueue::CheckSignature()
+{
+    CMasternode* pmn = mnodeman.Find(vin);
+
+    if (pmn != NULL) {
+        std::string strMessage = vin.ToString() + std::to_string(nDenom) + std::to_string(time) + std::to_string(ready);
+
+        std::string errorMessage = "";
+        if (!obfuScationSigner.VerifyMessage(pmn->pubKeyMasternode, vchSig, strMessage, errorMessage)) {
+            return error("CObfuscationQueue::CheckSignature() - Got bad Masternode address signature %s \n", vin.ToString().c_str());
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
+
+void CObfuscationPool::RelayFinalTransaction(const int sessionID, const CTransaction& txNew)
+{
+    LOCK(cs_vNodes);
+    for (CNode* pnode : vNodes) {
+        pnode->PushMessage("dsf", sessionID, txNew);
+    }
+}
+
+void CObfuscationPool::RelayIn(const std::vector<CTxDSIn>& vin, const int64_t& nAmount, const CTransaction& txCollateral, const std::vector<CTxDSOut>& vout)
+{
+    if (!pSubmittedToMasternode) return;
+
+    std::vector<CTxIn> vin2;
+    std::vector<CTxOut> vout2;
+
+    for (CTxDSIn in : vin)
+        vin2.push_back(in);
+
+    for (CTxDSOut out : vout)
+        vout2.push_back(out);
+
+    CNode* pnode = FindNode(pSubmittedToMasternode->addr);
+    if (pnode != NULL) {
+        LogPrintf("RelayIn - found master, relaying message - %s \n", pnode->addr.ToString());
+        pnode->PushMessage("dsi", vin2, nAmount, txCollateral, vout2);
+    }
+}
+
+void CObfuscationPool::RelayStatus(const int sessionID, const int newState, const int newEntriesCount, const int newAccepted, const int errorID)
+{
+    LOCK(cs_vNodes);
+    for (CNode* pnode : vNodes)
+        pnode->PushMessage("dssu", sessionID, newState, newEntriesCount, newAccepted, errorID);
+}
+
+void CObfuscationPool::RelayCompletedTransaction(const int sessionID, const bool error, const int errorID)
+{
+    LOCK(cs_vNodes);
+    for (CNode* pnode : vNodes)
+        pnode->PushMessage("dsc", sessionID, error, errorID);
+}
+
+//TODO: Rename/move to core
+void ThreadCheckObfuScationPool()
+{
+    if (fLiteMode) return; //disable all Obfuscation/Masternode related functionality
+
+    // Make this thread recognisable as the wallet flushing thread
+    RenameThread("giant-obfuscation");
+
+    unsigned int c = 0;
+
+    while (true) {
+        MilliSleep(1000);
+        //LogPrintf("ThreadCheckObfuScationPool::check timeout\n");
+
+        // try to sync from all available nodes, one step at a time
+        masternodeSync.Process();
+
+        if (masternodeSync.IsBlockchainSynced()) {
+            c++;
+
+            // check if we should activate or ping every few minutes,
+            // start right after sync is considered to be done
+            if (c % MASTERNODE_PING_SECONDS == 1) {
+                activeMasternode.ManageStatus();
+            }
+
+            if (c % 60 == 0) {
+                mnodeman.CheckAndRemove();
+                mnodeman.ProcessMasternodeConnections();
+                masternodePayments.CleanPaymentList();
+                CleanTransactionLocksList();
+            }
+
+            //if(c % MASTERNODES_DUMP_SECONDS == 0) DumpMasternodes();
+
+            obfuScationPool.CheckTimeout();
+            obfuScationPool.CheckForCompleteQueue();
+
+            if (obfuScationPool.GetState() == POOL_STATUS_IDLE && c % 15 == 0) {
+                obfuScationPool.DoAut
