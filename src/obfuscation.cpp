@@ -1711,4 +1711,301 @@ bool CObfuscationPool::SendRandomPaymentToSelf()
 // Split up large inputs or create fee sized inputs
 bool CObfuscationPool::MakeCollateralAmounts()
 {
-    
+    CWalletTx wtx;
+    CAmount nFeeRet = 0;
+    std::string strFail = "";
+    vector<pair<CScript, CAmount> > vecSend;
+    CCoinControl coinControl;
+    coinControl.fAllowOtherInputs = false;
+    coinControl.fAllowWatchOnly = false;
+    // make our collateral address
+    CReserveKey reservekeyCollateral(pwalletMain);
+    // make our change address
+    CReserveKey reservekeyChange(pwalletMain);
+
+    CScript scriptCollateral;
+    CPubKey vchPubKey;
+    assert(reservekeyCollateral.GetReservedKey(vchPubKey)); // should never fail, as we just unlocked
+    scriptCollateral = GetScriptForDestination(vchPubKey.GetID());
+
+    vecSend.push_back(make_pair(scriptCollateral, OBFUSCATION_COLLATERAL * 4));
+
+    // try to use non-denominated and not mn-like funds
+    bool success = pwalletMain->CreateTransaction(vecSend, wtx, reservekeyChange,
+        nFeeRet, strFail, &coinControl, ONLY_NONDENOMINATED_NOTCOLLATERALPRICEIFMN);
+    if (!success) {
+        // if we failed (most likeky not enough funds), try to use all coins instead -
+        // MN-like funds should not be touched in any case and we can't mix denominated without collaterals anyway
+        CCoinControl* coinControlNull = NULL;
+        LogPrintf("MakeCollateralAmounts: ONLY_NONDENOMINATED_NOT1000IFMN Error - %s\n", strFail);
+        success = pwalletMain->CreateTransaction(vecSend, wtx, reservekeyChange,
+            nFeeRet, strFail, coinControlNull, ONLY_NOTCOLLATERALPRICEIFMN);
+        if (!success) {
+            LogPrintf("MakeCollateralAmounts: ONLY_NOT1000IFMN Error - %s\n", strFail);
+            reservekeyCollateral.ReturnKey();
+            return false;
+        }
+    }
+
+    reservekeyCollateral.KeepKey();
+
+    LogPrintf("MakeCollateralAmounts: tx %s\n", wtx.GetHash().GetHex());
+
+    // use the same cachedLastSuccess as for DS mixinx to prevent race
+    if (!pwalletMain->CommitTransaction(wtx, reservekeyChange)) {
+        LogPrintf("MakeCollateralAmounts: CommitTransaction failed!\n");
+        return false;
+    }
+
+    cachedLastSuccess = chainActive.Tip()->nHeight;
+
+    return true;
+}
+
+// Create denominations
+bool CObfuscationPool::CreateDenominated(CAmount nTotalValue)
+{
+    CWalletTx wtx;
+    CAmount nFeeRet = 0;
+    std::string strFail = "";
+    vector<pair<CScript, CAmount> > vecSend;
+    CAmount nValueLeft = nTotalValue;
+
+    // make our collateral address
+    CReserveKey reservekeyCollateral(pwalletMain);
+    // make our change address
+    CReserveKey reservekeyChange(pwalletMain);
+    // make our denom addresses
+    CReserveKey reservekeyDenom(pwalletMain);
+
+    CScript scriptCollateral;
+    CPubKey vchPubKey;
+    assert(reservekeyCollateral.GetReservedKey(vchPubKey)); // should never fail, as we just unlocked
+    scriptCollateral = GetScriptForDestination(vchPubKey.GetID());
+
+    // ****** Add collateral outputs ************ /
+    if (!pwalletMain->HasCollateralInputs()) {
+        vecSend.push_back(make_pair(scriptCollateral, OBFUSCATION_COLLATERAL * 4));
+        nValueLeft -= OBFUSCATION_COLLATERAL * 4;
+    }
+
+    // ****** Add denoms ************ /
+    BOOST_REVERSE_FOREACH (CAmount v, obfuScationDenominations) {
+        int nOutputs = 0;
+
+        // add each output up to 10 times until it can't be added again
+        while (nValueLeft - v >= OBFUSCATION_COLLATERAL && nOutputs <= 10) {
+            CScript scriptDenom;
+            CPubKey vchPubKey;
+            //use a unique change address
+            assert(reservekeyDenom.GetReservedKey(vchPubKey)); // should never fail, as we just unlocked
+            scriptDenom = GetScriptForDestination(vchPubKey.GetID());
+            // TODO: do not keep reservekeyDenom here
+            reservekeyDenom.KeepKey();
+
+            vecSend.push_back(make_pair(scriptDenom, v));
+
+            //increment outputs and subtract denomination amount
+            nOutputs++;
+            nValueLeft -= v;
+            LogPrintf("CreateDenominated1 %d\n", nValueLeft);
+        }
+
+        if (nValueLeft == 0) break;
+    }
+    LogPrintf("CreateDenominated2 %d\n", nValueLeft);
+
+    // if we have anything left over, it will be automatically send back as change - there is no need to send it manually
+
+    CCoinControl* coinControl = NULL;
+    bool success = pwalletMain->CreateTransaction(vecSend, wtx, reservekeyChange,
+        nFeeRet, strFail, coinControl, ONLY_NONDENOMINATED_NOTCOLLATERALPRICEIFMN);
+    if (!success) {
+        LogPrintf("CreateDenominated: Error - %s\n", strFail);
+        // TODO: return reservekeyDenom here
+        reservekeyCollateral.ReturnKey();
+        return false;
+    }
+
+    // TODO: keep reservekeyDenom here
+    reservekeyCollateral.KeepKey();
+
+    // use the same cachedLastSuccess as for DS mixinx to prevent race
+    if (pwalletMain->CommitTransaction(wtx, reservekeyChange))
+        cachedLastSuccess = chainActive.Tip()->nHeight;
+    else
+        LogPrintf("CreateDenominated: CommitTransaction failed!\n");
+
+    LogPrintf("CreateDenominated: tx %s\n", wtx.GetHash().GetHex());
+
+    return true;
+}
+
+bool CObfuscationPool::IsCompatibleWithEntries(std::vector<CTxOut>& vout)
+{
+    if (GetDenominations(vout) == 0) return false;
+
+    for (const CObfuScationEntry &v : entries) {
+        LogPrintf(" IsCompatibleWithEntries %d %d\n", GetDenominations(vout), GetDenominations(v.vout));
+        /*
+        for (CTxOut o1 : vout)
+            LogPrintf(" vout 1 - %s\n", o1.ToString());
+
+        for (CTxOut o2 : v.vout)
+            LogPrintf(" vout 2 - %s\n", o2.ToString());
+*/
+        if (GetDenominations(vout) != GetDenominations(v.vout)) return false;
+    }
+
+    return true;
+}
+
+bool CObfuscationPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txCollateral, int& errorID)
+{
+    if (nDenom == 0) return false;
+
+    LogPrintf("CObfuscationPool::IsCompatibleWithSession - sessionDenom %d sessionUsers %d\n", sessionDenom, sessionUsers);
+
+    if (!unitTest && !IsCollateralValid(txCollateral)) {
+        LogPrint("obfuscation", "CObfuscationPool::IsCompatibleWithSession - collateral not valid!\n");
+        errorID = ERR_INVALID_COLLATERAL;
+        return false;
+    }
+
+    if (sessionUsers < 0) sessionUsers = 0;
+
+    if (sessionUsers == 0) {
+        sessionID = 1 + (rand() % 999999);
+        sessionDenom = nDenom;
+        sessionUsers++;
+        lastTimeChanged = GetTimeMillis();
+
+        if (!unitTest) {
+            //broadcast that I'm accepting entries, only if it's the first entry through
+            CObfuscationQueue dsq;
+            dsq.nDenom = nDenom;
+            dsq.vin = activeMasternode.vin;
+            dsq.time = GetTime();
+            dsq.Sign();
+            dsq.Relay();
+        }
+
+        UpdateState(POOL_STATUS_QUEUE);
+        vecSessionCollateral.push_back(txCollateral);
+        return true;
+    }
+
+    if ((state != POOL_STATUS_ACCEPTING_ENTRIES && state != POOL_STATUS_QUEUE) || sessionUsers >= GetMaxPoolTransactions()) {
+        if ((state != POOL_STATUS_ACCEPTING_ENTRIES && state != POOL_STATUS_QUEUE)) errorID = ERR_MODE;
+        if (sessionUsers >= GetMaxPoolTransactions()) errorID = ERR_QUEUE_FULL;
+        LogPrintf("CObfuscationPool::IsCompatibleWithSession - incompatible mode, return false %d %d\n", state != POOL_STATUS_ACCEPTING_ENTRIES, sessionUsers >= GetMaxPoolTransactions());
+        return false;
+    }
+
+    if (nDenom != sessionDenom) {
+        errorID = ERR_DENOM;
+        return false;
+    }
+
+    LogPrintf("CObfuScationPool::IsCompatibleWithSession - compatible\n");
+
+    sessionUsers++;
+    lastTimeChanged = GetTimeMillis();
+    vecSessionCollateral.push_back(txCollateral);
+
+    return true;
+}
+
+//create a nice string to show the denominations
+void CObfuscationPool::GetDenominationsToString(int nDenom, std::string& strDenom)
+{
+    // Function returns as follows:
+    //
+    // bit 0 - 100GIC+1 ( bit on if present )
+    // bit 1 - 10GIC+1
+    // bit 2 - 1GIC+1
+    // bit 3 - .1GIC+1
+    // bit 3 - non-denom
+
+
+    strDenom = "";
+
+    if (nDenom & (1 << 0)) {
+        if (strDenom.size() > 0) strDenom += "+";
+        strDenom += "100";
+    }
+
+    if (nDenom & (1 << 1)) {
+        if (strDenom.size() > 0) strDenom += "+";
+        strDenom += "10";
+    }
+
+    if (nDenom & (1 << 2)) {
+        if (strDenom.size() > 0) strDenom += "+";
+        strDenom += "1";
+    }
+
+    if (nDenom & (1 << 3)) {
+        if (strDenom.size() > 0) strDenom += "+";
+        strDenom += "0.1";
+    }
+}
+
+int CObfuscationPool::GetDenominations(const std::vector<CTxDSOut>& vout)
+{
+    std::vector<CTxOut> vout2;
+
+    for (CTxDSOut out : vout)
+        vout2.push_back(out);
+
+    return GetDenominations(vout2);
+}
+
+// return a bitshifted integer representing the denominations in this list
+int CObfuscationPool::GetDenominations(const std::vector<CTxOut>& vout, bool fSingleRandomDenom)
+{
+    std::vector<pair<int64_t, int> > denomUsed;
+
+    // make a list of denominations, with zero uses
+    for (int64_t d : obfuScationDenominations)
+        denomUsed.push_back(make_pair(d, 0));
+
+    // look for denominations and update uses to 1
+    for (CTxOut out : vout) {
+        bool found = false;
+        for (PAIRTYPE(int64_t, int) & s : denomUsed) {
+            if (out.nValue == s.first) {
+                s.second = 1;
+                found = true;
+            }
+        }
+        if (!found) return 0;
+    }
+
+    int denom = 0;
+    int c = 0;
+    // if the denomination is used, shift the bit on.
+    // then move to the next
+    for (PAIRTYPE(int64_t, int) & s : denomUsed) {
+        int bit = (fSingleRandomDenom ? rand() % 2 : 1) * s.second;
+        denom |= bit << c++;
+        if (fSingleRandomDenom && bit) break; // use just one random denomination
+    }
+
+    // Function returns as follows:
+    //
+    // bit 0 - 100GIC+1 ( bit on if present )
+    // bit 1 - 10GIC+1
+    // bit 2 - 1GIC+1
+    // bit 3 - .1GIC+1
+
+    return denom;
+}
+
+
+int CObfuscationPool::GetDenominationsByAmounts(std::vector<CAmount>& vecAmount)
+{
+    CScript e = CScript();
+    std::vector<CTxOut> vout1;
+
+    // Make outputs by looping through
