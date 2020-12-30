@@ -321,4 +321,138 @@ Qt::ItemFlags AddressTableModel::flags(const QModelIndex& index) const
         return 0;
     AddressTableEntry* rec = static_cast<AddressTableEntry*>(index.internalPointer());
 
-    Qt::ItemFl
+    Qt::ItemFlags retval = Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+    // Can edit address and label for sending addresses,
+    // and only label for receiving addresses.
+    if (rec->type == AddressTableEntry::Sending ||
+        (rec->type == AddressTableEntry::Receiving && index.column() == Label)) {
+        retval |= Qt::ItemIsEditable;
+    }
+    return retval;
+}
+
+QModelIndex AddressTableModel::index(int row, int column, const QModelIndex& parent) const
+{
+    Q_UNUSED(parent);
+    AddressTableEntry* data = priv->index(row);
+    if (data) {
+        return createIndex(row, column, priv->index(row));
+    } else {
+        return QModelIndex();
+    }
+}
+
+void AddressTableModel::updateEntry(const QString& address,
+    const QString& label,
+    bool isMine,
+    const QString& purpose,
+    int status)
+{
+    // Update address book model from Giant core
+    priv->updateEntry(address, label, isMine, purpose, status);
+}
+
+
+void AddressTableModel::updateEntry(const QString &pubCoin, const QString &isUsed, int status)
+{
+    // Update stealth address book model from Bitcoin core
+    priv->updateEntry(pubCoin, isUsed, status);
+}
+
+
+
+QString AddressTableModel::addRow(const QString& type, const QString& label, const QString& address)
+{
+    std::string strLabel = label.toStdString();
+    std::string strAddress = address.toStdString();
+
+    editStatus = OK;
+
+    if (type == Send) {
+        if (!walletModel->validateAddress(address)) {
+            editStatus = INVALID_ADDRESS;
+            return QString();
+        }
+        // Check for duplicate addresses
+        {
+            LOCK(wallet->cs_wallet);
+            if (wallet->mapAddressBook.count(CBitcoinAddress(strAddress).Get())) {
+                editStatus = DUPLICATE_ADDRESS;
+                return QString();
+            }
+        }
+    } else if (type == Receive) {
+        // Generate a new address to associate with given label
+        CPubKey newKey;
+        if (!wallet->GetKeyFromPool(newKey)) {
+            WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Unlock_Full, true));
+            if (!ctx.isValid()) {
+                // Unlock wallet failed or was cancelled
+                editStatus = WALLET_UNLOCK_FAILURE;
+                return QString();
+            }
+            if (!wallet->GetKeyFromPool(newKey)) {
+                editStatus = KEY_GENERATION_FAILURE;
+                return QString();
+            }
+        }
+        strAddress = CBitcoinAddress(newKey.GetID()).ToString();
+    } else {
+        return QString();
+    }
+
+    // Add entry
+    {
+        LOCK(wallet->cs_wallet);
+        wallet->SetAddressBook(CBitcoinAddress(strAddress).Get(), strLabel,
+            (type == Send ? "send" : "receive"));
+    }
+    return QString::fromStdString(strAddress);
+}
+
+bool AddressTableModel::removeRows(int row, int count, const QModelIndex& parent)
+{
+    Q_UNUSED(parent);
+    AddressTableEntry* rec = priv->index(row);
+    if (count != 1 || !rec || rec->type == AddressTableEntry::Receiving) {
+        // Can only remove one row at a time, and cannot remove rows not in model.
+        // Also refuse to remove receiving addresses.
+        return false;
+    }
+    {
+        LOCK(wallet->cs_wallet);
+        wallet->DelAddressBook(CBitcoinAddress(rec->address.toStdString()).Get());
+    }
+    return true;
+}
+
+/* Look up label for address in address book, if not found return empty string.
+ */
+QString AddressTableModel::labelForAddress(const QString& address) const
+{
+    {
+        LOCK(wallet->cs_wallet);
+        CBitcoinAddress address_parsed(address.toStdString());
+        std::map<CTxDestination, CAddressBookData>::iterator mi = wallet->mapAddressBook.find(address_parsed.Get());
+        if (mi != wallet->mapAddressBook.end()) {
+            return QString::fromStdString(mi->second.name);
+        }
+    }
+    return QString();
+}
+
+int AddressTableModel::lookupAddress(const QString& address) const
+{
+    QModelIndexList lst = match(index(0, Address, QModelIndex()),
+        Qt::EditRole, address, 1, Qt::MatchExactly);
+    if (lst.isEmpty()) {
+        return -1;
+    } else {
+        return lst.at(0).row();
+    }
+}
+
+void AddressTableModel::emitDataChanged(int idx)
+{
+    emit dataChanged(index(idx, 0, QModelIndex()), index(idx, columns.length() - 1, QModelIndex()));
+}
