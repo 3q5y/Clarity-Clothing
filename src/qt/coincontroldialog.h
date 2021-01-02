@@ -56,4 +56,62 @@ public:
 
     static QList<CAmount> payAmounts;
     static CCoinControl* coinControl;
- 
+    static int nSplitBlockDummy;
+
+private:
+    Ui::CoinControlDialog* ui;
+    WalletModel* model;
+    int sortColumn;
+    Qt::SortOrder sortOrder;
+    bool fMultisigEnabled;
+
+    QMenu* contextMenu;
+    QTreeWidgetItem* contextMenuItem;
+    QAction* copyTransactionHashAction;
+    QAction* lockAction;
+    QAction* unlockAction;
+
+    void sortView(int, Qt::SortOrder);
+    void updateView();
+
+    enum {
+        COLUMN_CHECKBOX,
+        COLUMN_AMOUNT,
+        COLUMN_LABEL,
+        COLUMN_ADDRESS,
+        COLUMN_TYPE,
+        COLUMN_DATE,
+        COLUMN_CONFIRMATIONS,
+        COLUMN_PRIORITY,
+        COLUMN_TXHASH,
+        COLUMN_VOUT_INDEX,
+    };
+    friend class CCoinControlWidgetItem;
+
+private slots:
+    void showMenu(const QPoint&);
+    void copyAmount();
+    void copyLabel();
+    void copyAddress();
+    void copyTransactionHash();
+    void lockCoin();
+    void unlockCoin();
+    void clipboardQuantity();
+    void clipboardAmount();
+    void clipboardFee();
+    void clipboardAfterFee();
+    void clipboardBytes();
+    void clipboardPriority();
+    void clipboardLowOutput();
+    void clipboardChange();
+    void radioTreeMode(bool);
+    void radioListMode(bool);
+    void viewItemChanged(QTreeWidgetItem*, int);
+    void headerSectionClicked(int);
+    void buttonBoxClicked(QAbstractButton*);
+    void buttonSelectAllClicked();
+    void buttonToggleLockClicked();
+    void updateLabelLocked();
+};
+
+#endif // BITCOIN_QT_COINCONTROLDIALOG_H
