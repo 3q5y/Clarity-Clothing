@@ -987,4 +987,219 @@ zGIC are mature when they have more than 20 confirmations AND more than 2 mints 
                          </layout>
                         </item>
                         <item row="3" column="0" colspan="2">
-                      
+                         <layout class="QHBoxLayout" name="horizontalLayout_10">
+                          <item>
+                           <spacer name="horizontalSpacer_5">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBoxMintChange">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LeftToRight</enum>
+                            </property>
+                            <property name="text">
+                             <string>Convert Change to Zerocoin (might cost additional fees)</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QCheckBox" name="checkBoxMinimizeChange">
+                            <property name="toolTip">
+                             <string>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</string>
+                            </property>
+                            <property name="text">
+                             <string>Minimize Change</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_6">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_right">
+                 <item>
+                  <widget class="QFrame" name="verticalFrameRight">
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_Right">
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_21">
+                        <item>
+                         <widget class="QLabel" name="labelzGICStats">
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="toolTip">
+                           <string>Information about the available Zerocoin funds.</string>
+                          </property>
+                          <property name="text">
+                           <string>Zerocoin Stats:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_16">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <widget class="Line" name="line_1_right">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>1</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>1</height>
+                         </size>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="verticalSpacer">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Maximum</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>10</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_12">
+                        <item>
+                         <widget class="QLabel" name="labelzAvailableText">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="toolTip">
+                           <string>Total Balance including unconfirmed and immature zGIC</string>
+                          </property>
+                          <property name="text">
+                           <string>Total Zerocoin  Balance:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_7">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="labelzAvailableAmount">
+                          <property name="minimumSize">
+                           <size>
+                            <width>40</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="toolTip">
+                           <string>Total Balance including unconfirmed and immature zGIC</string>
+                          </property>
+                          <property name="text">
+                           <string>0 zGIC</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="horizontalLayout_13">
+                        <item>
+                         <widget class="QLabel" name="labelzDenom1Text">
+                          <property name="toolTip">
+                           <string>Denominations with value 1:</string>
+                          </property>
+                          <property name="text">
+                           <string>Denom. with value 1:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignLeading|Qt::AlignL
