@@ -783,4 +783,208 @@
                           <property name="text">
                            <string>Spend Zerocoin</string>
                           </property>
-            
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="labelzGICBalanceText">
+                          <property name="toolTip">
+                           <string>Available (mature and spendable) zGIC for spending</string>
+                          </property>
+                          <property name="text">
+                           <string>Available Balance:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="labelzAvailableAmount_2">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="toolTip">
+                           <string>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</string>
+                          </property>
+                          <property name="text">
+                           <string>0 zGIC</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_4">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QGridLayout" name="gridLayout_7">
+                        <property name="spacing">
+                         <number>12</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="payToLabel">
+                          <property name="minimumSize">
+                           <size>
+                            <width>80</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Pay &amp;To:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                          <property name="buddy">
+                           <cstring>payTo</cstring>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <layout class="QHBoxLayout" name="payToLayout">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QValidatedLineEdit" name="payTo">
+                            <property name="enabled">
+                             <bool>true</bool>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>31</height>
+                             </size>
+                            </property>
+                            <property name="toolTip">
+                             <string>The GIANT address to send the payment to. Creates local payment to yourself when empty.</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QToolButton" name="addressBookButton">
+                            <property name="toolTip">
+                             <string>Choose previously used address</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../giant.qrc">
+                              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+                            </property>
+                            <property name="shortcut">
+                             <string>Alt+A</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QToolButton" name="pasteButton">
+                            <property name="toolTip">
+                             <string>Paste address from clipboard</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../giant.qrc">
+                              <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
+                            </property>
+                            <property name="shortcut">
+                             <string>Alt+P</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="labelLabel">
+                          <property name="minimumSize">
+                           <size>
+                            <width>80</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>&amp;Label:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                          <property name="buddy">
+                           <cstring>addAsLabel</cstring>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="addAsLabel">
+                          <property name="toolTip">
+                           <string>Enter a label for this address to add it to the list of used addresses</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="amountLabel">
+                          <property name="minimumSize">
+                           <size>
+                            <width>80</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>A&amp;mount:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                          <property name="buddy">
+                           <cstring>zGICpayAmount</cstring>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <layout class="QHBoxLayout" name="horizontalLayout_9">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QLineEdit" name="zGICpayAmount"/>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="labelzGIC">
+                            <property name="minimumSize">
+                             <size>
+                              <width>55</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>zGIC</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item row="3" column="0" colspan="2">
+                      
