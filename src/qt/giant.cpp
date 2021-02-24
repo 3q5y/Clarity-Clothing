@@ -552,4 +552,97 @@ int main(int argc, char* argv[])
     /// - Do not call GetDataDir(true) before this step finishes
     if (!boost::filesystem::is_directory(GetDataDir(false))) {
         QMessageBox::critical(0, QObject::tr("GIANT Core"),
-            QObject::tr("
+            QObject::tr("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
+        return 1;
+    }
+    try {
+        ReadConfigFile(mapArgs, mapMultiArgs);
+    } catch (std::exception& e) {
+        QMessageBox::critical(0, QObject::tr("GIANT Core"),
+            QObject::tr("Error: Cannot parse configuration file: %1. Only use key=value syntax.").arg(e.what()));
+        return 0;
+    }
+
+    /// 7. Determine network (and switch to network specific options)
+    // - Do not call Params() before this step
+    // - Do this after parsing the configuration file, as the network can be switched there
+    // - QSettings() will use the new application name after this, resulting in network-specific settings
+    // - Needs to be done before createOptionsModel
+
+    // Check for -testnet or -regtest parameter (Params() calls are only valid after this clause)
+    if (!SelectParamsFromCommandLine()) {
+        QMessageBox::critical(0, QObject::tr("GIANT Core"), QObject::tr("Error: Invalid combination of -regtest and -testnet."));
+        return 1;
+    }
+#ifdef ENABLE_WALLET
+    // Parse URIs on command line -- this can affect Params()
+    PaymentServer::ipcParseCommandLine(argc, argv);
+#endif
+
+    QScopedPointer<const NetworkStyle> networkStyle(NetworkStyle::instantiate(QString::fromStdString(Params().NetworkIDString())));
+    assert(!networkStyle.isNull());
+    // Allow for separate UI settings for testnets
+    QApplication::setApplicationName(networkStyle->getAppName());
+    // Re-initialize translations after changing application name (language in network-specific settings can be different)
+    initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
+
+#ifdef ENABLE_WALLET
+    /// 7a. parse masternode.conf
+    string strErr;
+    if (!masternodeConfig.read(strErr)) {
+        QMessageBox::critical(0, QObject::tr("GIANT Core"),
+            QObject::tr("Error reading masternode configuration file: %1").arg(strErr.c_str()));
+        return 0;
+    }
+
+    /// 8. URI IPC sending
+    // - Do this early as we don't want to bother initializing if we are just calling IPC
+    // - Do this *after* setting up the data directory, as the data directory hash is used in the name
+    // of the server.
+    // - Do this after creating app and setting up translations, so errors are
+    // translated properly.
+    if (PaymentServer::ipcSendCommandLine())
+        exit(0);
+
+    // Start up the payment server early, too, so impatient users that click on
+    // giant: links repeatedly have their payment requests routed to this process:
+    app.createPaymentServer();
+#endif
+
+    /// 9. Main GUI initialization
+    // Install global event filter that makes sure that long tooltips can be word-wrapped
+    app.installEventFilter(new GUIUtil::ToolTipToRichTextFilter(TOOLTIP_WRAP_THRESHOLD, &app));
+#if defined(Q_OS_WIN)
+    // Install global event filter for processing Windows session related Windows messages (WM_QUERYENDSESSION and WM_ENDSESSION)
+    qApp->installNativeEventFilter(new WinShutdownMonitor());
+#endif
+    // Install qDebug() message handler to route to debug.log
+    qInstallMessageHandler(DebugMessageHandler);
+    // Load GUI settings from QSettings
+    app.createOptionsModel();
+
+    // Subscribe to global signals from core
+    uiInterface.InitMessage.connect(InitMessage);
+
+    if (GetBoolArg("-splash", true) && !GetBoolArg("-min", false))
+        app.createSplashScreen(networkStyle.data());
+
+    try {
+        app.createWindow(networkStyle.data());
+        app.requestInitialize();
+#if defined(Q_OS_WIN)
+        WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("GIANT Core didn't yet exit safely..."), (HWND)app.getMainWinId());
+#endif
+        app.exec();
+        app.requestShutdown();
+        app.exec();
+    } catch (std::exception& e) {
+        PrintExceptionContinue(&e, "Runaway exception");
+        app.handleRunawayException(QString::fromStdString(strMiscWarning));
+    } catch (...) {
+        PrintExceptionContinue(NULL, "Runaway exception");
+        app.handleRunawayException(QString::fromStdString(strMiscWarning));
+    }
+    return app.getReturnValue();
+}
+#endif // BITCOIN_QT_TEST
