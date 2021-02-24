@@ -114,4 +114,179 @@ QT_TRANSLATE_NOOP("giant-core", ""
 "Found unconfirmed denominated outputs, will wait till they confirm to "
 "continue."),
 QT_TRANSLATE_NOOP("giant-core", ""
-"If paytxfee is not set, include enough 
+"If paytxfee is not set, include enough fee so transactions begin "
+"confirmation on average within n blocks (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"In rare cases, a spend with 7 coins exceeds our maximum allowable "
+"transaction size, please retry spend using 6 or less coins"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"In this mode -genproclimit controls how many blocks are generated "
+"immediately."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Insufficient or insufficient confirmed funds, you might need to wait a few "
+"minutes and try again."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Invalid amount for -maxtxfee=<amount>: '%s' (must be at least the minrelay "
+"fee of %s to prevent stuck transactions)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Keep the specified amount available for spending at all times (default: 0)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Log transaction priority and fee per kB when mining blocks (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Maintain a full transaction index, used by the getrawtransaction rpc call "
+"(default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Maximum average size of an index occurrence in the block spam filter "
+"(default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Maximum size of data in data carrier transactions we relay and mine "
+"(default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Maximum size of the list of indexes in the block spam filter (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Maximum total fees to use in a single wallet transaction, setting too low "
+"may abort large transactions (default: %s)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Number of seconds to keep misbehaving peers from reconnecting (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Obfuscation uses exact denominated amounts to send funds, you might simply "
+"need to anonymize some more coins."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Output debugging information (default: %u, supplying <category> is optional)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Preferred Denomination for automatically minted Zerocoin  "
+"(1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Query for peer addresses via DNS lookup, if low on addresses (default: 1 "
+"unless -connect)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Randomize credentials for every proxy connection. This enables Tor stream "
+"isolation (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Require high priority for relaying free or low-fee transactions (default:%u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Send trace/debug info to console instead of debug.log file (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Set maximum size of high-priority/low-fee transactions in bytes (default: %d)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Set the number of included blocks to precompute per cycle. (minimum: %d) "
+"(maximum: %d) (default: %d)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Set the number of script verification threads (%u to %d, 0 = auto, <0 = "
+"leave that many cores free, default: %d)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Set the number of threads for coin generation if enabled (-1 = all cores, "
+"default: %d)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Show N confirmations for a successfully locked transaction (0-9999, default: "
+"%u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Specify custom backup path to add a copy of any automatic zGIC backup. If "
+"set as dir, every backup generates a timestamped file. If set as file, will "
+"rewrite to that file every backup. If backuppath is set as well, 4 backups "
+"will happen"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Specify custom backup path to add a copy of any wallet backup. If set as "
+"dir, every backup generates a timestamped file. If set as file, will rewrite "
+"to that file every backup."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Support filtering of blocks and transaction with bloom filters (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"SwiftX requires inputs with at least 6 confirmations, you might need to wait "
+"a few minutes and try again."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"The block database contains a block which appears to be from the future. "
+"This may be due to your computer's date and time being set incorrectly. Only "
+"rebuild the block database if you are sure that your computer's date and "
+"time are correct"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"This is a pre-release test build - use at your own risk - do not use for "
+"staking or merchant applications!"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"This product includes software developed by the OpenSSL Project for use in "
+"the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software "
+"written by Eric Young and UPnP software written by Thomas Bernard."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Total length of network version string (%i) exceeds maximum length (%i). "
+"Reduce the number or size of uacomments."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Unable to bind to %s on this computer. GIANT Core is probably already running."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Unable to locate enough Obfuscation denominated funds for this transaction."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Unable to locate enough Obfuscation non-denominated funds for this "
+"transaction that are not equal 10000 GIC."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Unable to locate enough funds for this transaction that are not equal 10000 "
+"GIC."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
+"%s)"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: -maxtxfee is set very high! Fees this large could be paid on a "
+"single transaction."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: -paytxfee is set very high! This is the transaction fee you will "
+"pay if you send a transaction."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: Please check that your computer's date and time are correct! If "
+"your clock is wrong GIANT Core will not work properly."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: The network does not appear to fully agree! Some miners appear to "
+"be experiencing issues."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: We do not appear to fully agree with our peers! You may need to "
+"upgrade, or other nodes may need to upgrade."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: error reading wallet.dat! All keys read correctly, but transaction "
+"data or address book entries might be missing or incorrect."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as "
+"wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect "
+"you should restore from a backup."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Whitelist peers connecting from the given netmask or IP address. Can be "
+"specified multiple times."),
+QT_TRANSLATE_NOOP("giant-core", ""
+"Whitelisted peers cannot be DoS banned and their transactions are always "
+"relayed, even if they are already in the mempool, useful e.g. for a gateway"),
+QT_TRANSLATE_NOOP("giant-core", ""
+"You must specify a masternodeprivkey in the configuration. Please see "
+"documentation for help."),
+QT_TRANSLATE_NOOP("giant-core", "(40444 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("giant-core", "(default: %s)"),
+QT_TRANSLATE_NOOP("giant-core", "(default: 1)"),
+QT_TRANSLATE_NOOP("giant-core", "(must be 40444 for mainnet)"),
+QT_TRANSLATE_NOOP("giant-core", "<category> can be:"),
+QT_TRANSLATE_NOOP("giant-core", "Accept command line and JSON-RPC commands"),
+QT_TRANSLATE_NOOP("giant-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
+QT_TRANSLATE_NOOP("giant-core", "Accept public REST requests (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", "Add a node to connect to and attempt to keep the connection open"),
+QT_TRANSLATE_NOOP("giant-core", "Adding Wrapped Serials supply..."),
+QT_TRANSLATE_NOOP("giant-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
+QT_TRANSLATE_NOOP("giant-core", "Already have that input."),
+QT_TRANSLATE_NOOP("giant-core", "Always query for peer addresses via DNS lookup (default: %u)"),
+QT_TRANSLATE_NOOP("giant-core", "Append comment to the user agent string"),
+QT_TRANSLATE_NOOP("giant-core", "Attempt to force blockchain corruption recovery"),
+QT_TRANSLATE_NOOP("giant-core", "Attempt to recover private keys from a corrupt wallet.dat"),
+QT_TRANSLATE_NOOP("giant-core", "Automatically create Tor hidden service (default: %d)"),
+QT_TRANSLATE_NOOP("giant-core", "Block creation options:"),
+QT_TRANSLATE_NOOP("giant-core", "Calculating missing accumulators..."),
+QT_TRANSLATE_NOOP("giant-core", "Can't denominate: no compatible inputs left."),
+QT_TRANSLATE_NOOP("giant-core", "Can't find random Masternode."),
+QT_TRANSLATE_NOOP("giant-core", "Can't mix while sync in progress."),
+QT_TRANSLATE_NOOP("giant-core", "Cannot downgrade wallet"),
+QT_TRANSLATE_NOOP("giant-core", "Cannot resolve -bind address: '%s'"),
+QT_TRANSLATE_NOOP("giant-core", "Cannot resolve -externalip address: '%s'"),
+QT_TRANSLATE_NOOP("giant-core", "Cannot resolve -whitebind address: '%s'"),
+QT_TRANSLATE_NOOP("giant-core", "Cannot write default address"),
+QT_TRANSLATE_NOOP("giant-core", "CoinSpend: Accumulator witness does not verify"),
+QT_TRANSLATE_NOOP("giant-core", "CoinSpend: failed check"),
+QT_TRANSLATE_NOOP("giant-core", "Collateral not valid."),
+QT_TRANSLATE_NOOP("giant-core", "Connect only to the specified node(s)"),
+QT_TRANSLATE_NOOP("giant-core", "Connect through SOCKS5 proxy"),
+QT_TRANSLATE_NOOP("giant-core", "Connect to a node to retrieve peer addresses, and disconnect"),
+QT_TRANSLATE_NOOP("giant-core", "Connection options:"),
+QT_TRANSLATE_NOOP("giant-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
+QT_TRANSLATE_NOOP("giant-core", "Copyright (C) 2014-%i The Dash Core Developers"),
+QT_TRANSLATE_NO
