@@ -264,4 +264,292 @@ void BitcoinCore::restart(QStringList args)
         execute_restart = false;
         try {
             qDebug() << __func__ << ": Running Restart in thread";
-            Int
+            Interrupt();
+            PrepareShutdown();
+            qDebug() << __func__ << ": Shutdown finished";
+            emit shutdownResult(1);
+            CExplicitNetCleanup::callCleanup();
+            QProcess::startDetached(QApplication::applicationFilePath(), args);
+            qDebug() << __func__ << ": Restart initiated...";
+            QApplication::quit();
+        } catch (std::exception& e) {
+            handleRunawayException(&e);
+        } catch (...) {
+            handleRunawayException(NULL);
+        }
+    }
+}
+
+void BitcoinCore::shutdown()
+{
+    try {
+        qDebug() << __func__ << ": Running Shutdown in thread";
+        Interrupt();
+        Shutdown();
+        qDebug() << __func__ << ": Shutdown finished";
+        emit shutdownResult(1);
+    } catch (std::exception& e) {
+        handleRunawayException(&e);
+    } catch (...) {
+        handleRunawayException(NULL);
+    }
+}
+
+BitcoinApplication::BitcoinApplication(int& argc, char** argv) : QApplication(argc, argv),
+                                                                 coreThread(0),
+                                                                 optionsModel(0),
+                                                                 clientModel(0),
+                                                                 window(0),
+                                                                 pollShutdownTimer(0),
+#ifdef ENABLE_WALLET
+                                                                 paymentServer(0),
+                                                                 walletModel(0),
+#endif
+                                                                 returnValue(0)
+{
+    setQuitOnLastWindowClosed(false);
+}
+
+BitcoinApplication::~BitcoinApplication()
+{
+    if (coreThread) {
+        qDebug() << __func__ << ": Stopping thread";
+        emit stopThread();
+        coreThread->wait();
+        qDebug() << __func__ << ": Stopped thread";
+    }
+
+    delete window;
+    window = 0;
+#ifdef ENABLE_WALLET
+    delete paymentServer;
+    paymentServer = 0;
+#endif
+    // Delete Qt-settings if user clicked on "Reset Options"
+    QSettings settings;
+    if (optionsModel && optionsModel->resetSettings) {
+        settings.clear();
+        settings.sync();
+    }
+    delete optionsModel;
+    optionsModel = 0;
+}
+
+#ifdef ENABLE_WALLET
+void BitcoinApplication::createPaymentServer()
+{
+    paymentServer = new PaymentServer(this);
+}
+#endif
+
+void BitcoinApplication::createOptionsModel()
+{
+    optionsModel = new OptionsModel();
+}
+
+void BitcoinApplication::createWindow(const NetworkStyle* networkStyle)
+{
+    window = new BitcoinGUI(networkStyle, 0);
+
+    pollShutdownTimer = new QTimer(window);
+    connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
+    pollShutdownTimer->start(200);
+}
+
+void BitcoinApplication::createSplashScreen(const NetworkStyle* networkStyle)
+{
+    SplashScreen* splash = new SplashScreen(0, networkStyle);
+    // We don't hold a direct pointer to the splash screen after creation, so use
+    // Qt::WA_DeleteOnClose to make sure that the window will be deleted eventually.
+    splash->setAttribute(Qt::WA_DeleteOnClose);
+    splash->show();
+    connect(this, SIGNAL(splashFinished(QWidget*)), splash, SLOT(slotFinish(QWidget*)));
+}
+
+void BitcoinApplication::startThread()
+{
+    if (coreThread)
+        return;
+    coreThread = new QThread(this);
+    BitcoinCore* executor = new BitcoinCore();
+    executor->moveToThread(coreThread);
+
+    /*  communication to and from thread */
+    connect(executor, SIGNAL(initializeResult(int)), this, SLOT(initializeResult(int)));
+    connect(executor, SIGNAL(shutdownResult(int)), this, SLOT(shutdownResult(int)));
+    connect(executor, SIGNAL(runawayException(QString)), this, SLOT(handleRunawayException(QString)));
+    connect(this, SIGNAL(requestedInitialize()), executor, SLOT(initialize()));
+    connect(this, SIGNAL(requestedShutdown()), executor, SLOT(shutdown()));
+    connect(window, SIGNAL(requestedRestart(QStringList)), executor, SLOT(restart(QStringList)));
+    /*  make sure executor object is deleted in its own thread */
+    connect(this, SIGNAL(stopThread()), executor, SLOT(deleteLater()));
+    connect(this, SIGNAL(stopThread()), coreThread, SLOT(quit()));
+
+    coreThread->start();
+}
+
+void BitcoinApplication::requestInitialize()
+{
+    qDebug() << __func__ << ": Requesting initialize";
+    startThread();
+    emit requestedInitialize();
+}
+
+void BitcoinApplication::requestShutdown()
+{
+    qDebug() << __func__ << ": Requesting shutdown";
+    startThread();
+    window->hide();
+    window->setClientModel(0);
+    pollShutdownTimer->stop();
+
+#ifdef ENABLE_WALLET
+    window->removeAllWallets();
+    delete walletModel;
+    walletModel = 0;
+#endif
+    delete clientModel;
+    clientModel = 0;
+
+    // Show a simple window indicating shutdown status
+    ShutdownWindow::showShutdownWindow(window);
+
+    // Request shutdown from core thread
+    emit requestedShutdown();
+}
+
+void BitcoinApplication::initializeResult(int retval)
+{
+    qDebug() << __func__ << ": Initialization result: " << retval;
+    // Set exit result: 0 if successful, 1 if failure
+    returnValue = retval ? 0 : 1;
+    if (retval) {
+#ifdef ENABLE_WALLET
+        PaymentServer::LoadRootCAs();
+        paymentServer->setOptionsModel(optionsModel);
+#endif
+
+        clientModel = new ClientModel(optionsModel);
+        window->setClientModel(clientModel);
+
+#ifdef ENABLE_WALLET
+        if (pwalletMain) {
+            walletModel = new WalletModel(pwalletMain, optionsModel);
+
+            window->addWallet(BitcoinGUI::DEFAULT_WALLET, walletModel);
+            window->setCurrentWallet(BitcoinGUI::DEFAULT_WALLET);
+
+            connect(walletModel, SIGNAL(coinsSent(CWallet*, SendCoinsRecipient, QByteArray)),
+                paymentServer, SLOT(fetchPaymentACK(CWallet*, const SendCoinsRecipient&, QByteArray)));
+        }
+#endif
+
+        // If -min option passed, start window minimized.
+        if (GetBoolArg("-min", false)) {
+            window->showMinimized();
+        } else {
+            window->show();
+        }
+        emit splashFinished(window);
+
+#ifdef ENABLE_WALLET
+        // Now that initialization/startup is done, process any command-line
+        // GIANT: URIs or payment requests:
+        connect(paymentServer, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
+            window, SLOT(handlePaymentRequest(SendCoinsRecipient)));
+        connect(window, SIGNAL(receivedURI(QString)),
+            paymentServer, SLOT(handleURIOrFile(QString)));
+        connect(paymentServer, SIGNAL(message(QString, QString, unsigned int)),
+            window, SLOT(message(QString, QString, unsigned int)));
+        QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
+#endif
+    } else {
+        quit(); // Exit main loop
+    }
+}
+
+void BitcoinApplication::shutdownResult(int retval)
+{
+    qDebug() << __func__ << ": Shutdown result: " << retval;
+    quit(); // Exit main loop after shutdown finished
+}
+
+void BitcoinApplication::handleRunawayException(const QString& message)
+{
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. GIANT can no longer continue safely and will quit.") + QString("\n\n") + message);
+    ::exit(1);
+}
+
+WId BitcoinApplication::getMainWinId() const
+{
+    if (!window)
+        return 0;
+
+    return window->winId();
+}
+
+#ifndef BITCOIN_QT_TEST
+int main(int argc, char* argv[])
+{
+    SetupEnvironment();
+
+    /// 1. Parse command-line options. These take precedence over anything else.
+    // Command-line options take precedence:
+    ParseParameters(argc, argv);
+
+// Do not refer to data directory yet, this can be overridden by Intro::pickDataDirectory
+
+/// 2. Basic Qt initialization (not dependent on parameters or configuration)
+    Q_INIT_RESOURCE(giant_locale);
+    Q_INIT_RESOURCE(giant);
+
+    BitcoinApplication app(argc, argv);
+#if QT_VERSION > 0x050100
+    // Generate high-dpi pixmaps
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+#if QT_VERSION >= 0x050600
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+#ifdef Q_OS_MAC
+    QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
+#endif
+
+    // Register meta types used for QMetaObject::invokeMethod
+    qRegisterMetaType<bool*>();
+    //   Need to pass name here as CAmount is a typedef (see http://qt-project.org/doc/qt-5/qmetatype.html#qRegisterMetaType)
+    //   IMPORTANT if it is no longer a typedef use the normal variant above
+    qRegisterMetaType<CAmount>("CAmount");
+
+    /// 3. Application identification
+    // must be set before OptionsModel is initialized or translations are loaded,
+    // as it is used to locate QSettings
+    QApplication::setOrganizationName(QAPP_ORG_NAME);
+    QApplication::setOrganizationDomain(QAPP_ORG_DOMAIN);
+    QApplication::setApplicationName(QAPP_APP_NAME_DEFAULT);
+    GUIUtil::SubstituteFonts(GetLangTerritory());
+
+    /// 4. Initialization of translations, so that intro dialog is in user's language
+    // Now that QSettings are accessible, initialize translations
+    QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
+    initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
+    uiInterface.Translate.connect(Translate);
+
+    // Show help message immediately after parsing command-line options (for "-lang") and setting locale,
+    // but before showing splash screen.
+    if (mapArgs.count("-?") || mapArgs.count("-help") || mapArgs.count("-version")) {
+        HelpMessageDialog help(NULL, mapArgs.count("-version"));
+        help.showOrPrint();
+        return 1;
+    }
+
+    /// 5. Now that settings and translations are available, ask user for data directory
+    // User language is set up: pick a data directory
+    if (!Intro::pickDataDirectory())
+        return 0;
+
+    /// 6. Determine availability of data directory and parse giant.conf
+    /// - Do not call GetDataDir(true) before this step finishes
+    if (!boost::filesystem::is_directory(GetDataDir(false))) {
+        QMessageBox::critical(0, QObject::tr("GIANT Core"),
+            QObject::tr("
