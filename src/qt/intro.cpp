@@ -279,4 +279,5 @@ QString Intro::getPathToCheck()
     retval = pathToCheck;
     signalled = false; /* new request can be queued now */
     mutex.unlock();
-    retur
+    return retval;
+}
