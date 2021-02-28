@@ -445,4 +445,273 @@
         <translation>Затоври приложението</translation>
     </message>
     <message>
-        <source>About &a
+        <source>About &amp;Qt</source>
+        <translation>Относно &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Покази информация за Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Опции...</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Покажи / Скрий</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Покажи или скрий главния прозорец</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Шифрирай Портфейла...</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Шифрирай личните ключове на портфейла</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Резерва на портфейла...</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Направи резерва на друго място</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Промени фразата...</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Промени фразата използвана за шифриране</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Отключи Портфейла...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Отключване на портфейла</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Заключи портфейла</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Подпиши &amp;съобщение...</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Провери съобщение...</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Информация</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>Покажи диагностична информация</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>Конзолен &amp;Дебъг</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Отвори дебъг конзола</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Мрежови мониторинг</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Покажи мрежовия монитор</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;Списък с участници</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Покажи информация за участниците</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>&amp;Поправка на Портфейла</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Покажи опции за ремонт на портфейла</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Отвори конфигурационния файл</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Покажи автоматичните &amp;Резерви</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Покажи автоматично създадените резерви</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Изпращане на адреси...</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Покази списък с използваните адреси и етикети</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Получаващи адреси...</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Покажи списък с използваните получаващи адреси</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>Създаване на &amp;Мултиподпис</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Създаване на нов мултиподписен адрес и добавянето му към този портфейл</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>Разход с &amp;Мултиподпис...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Направи разход от адрес с мултиподпис</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>Подписване с &amp;Мултиподпис...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Подпиши с мултиподписен адрес</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Отвори &amp;URI...</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>Опции за &amp;Командното-поле</translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Синхронизиране на допълнитенни данни: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>Изостава с %1. Сканира блок %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Портфейла е &lt;b&gt;криптиран&lt;/b&gt; и в момента &lt;b&gt;отключен&lt;/b&gt; за анонимизация и съхранение.</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Файл</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Настройки</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;Инструменти</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Помощ</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Колан с инструменти</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Ядро</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Изпратете монети до GIANT адрес</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Поискай плащане (генерира QR кодове и  giant:URI)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Поверителност</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Мастърноуд</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Разгледай мастърноудове</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>&amp;Относно GIANT Ядрото</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Информациза за GIANT Ядрото</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Промени GIANT конфигурацията</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Подпишете съобщения със своте GIANT адреси, за да докажете че са Ваши</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Проеврете съобщения, за да се убедите, че са подписани с указаните GIANT адреси</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP38 инструмент</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Шифрирай и дешифрирай личните ключове с фраза</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>Настройки за МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Отвори &amp;Конфигурационния Файл на Портфейла</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Отвори &amp;Мастърноуд Конфигурационния Файл</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Отвори Мастърноуд конфигурационния файл</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Отвори GIANT:URI пл
