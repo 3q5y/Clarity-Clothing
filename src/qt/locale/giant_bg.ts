@@ -1311,3 +1311,263 @@ Address: %4
     <message>
         <source>(of %1 GB needed)</source>
         <translation>(oт общо %1 необходими)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>От</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>ГЛАВНИ ВЪЗЛИ</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Внимание: Състоянието на Вашите мастърноудове в локалния портфейла може би да се показва леко некоректно. &lt;br /&gt;Винаги изчакайте за портфейла да се синхронизира напълно и после проверете с друг ноуд &lt;br /&gt;ако Вашия ноуд работи, но получавате "ЛИПСВАЩ" в полето за "Състояние".</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Псевдоним</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Протокол</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Състояние</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Активен</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Последно видян (GMT)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Публичен адрес</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>&amp;Започни псевдоним</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Започни &amp;всички</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Започни &amp;ЛИПСВАЩ</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Обнови състояние</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Състоянието ще се обнови автоматично след (сек): </translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Започни псевдоним</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Потвърди стартиране на мастърноуда</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Сигурни ли сте, че искате да стартирате мастърноуд %1?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Потвърдете започването на всички мастърноудове</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Сигурни ли сте, че желате да стартирате ВСИЧКИ мастърноудове?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Тази команда не е разрешена в момента</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Тази команда не е разрешена преди списъка с мастърноудове да е напълно синхронизиран.</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Потвърдете стартиране на липсващите мастърноудове</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Сигурни ли сте, че искате да стартирате ЛИПСВАЩИТЕ мастърноудове?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Въведете цели числа 1 - 100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Въведете % за да Дадете (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Въведете адреса на Получателя</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>МултиИзпращане Ви позволява автоматично да изпращате до 100% от вашите стейк или мастърноуд възнаграждения към списък от други GIANT адреси.
+Да Добавите: въведете процент и задайте GIANT адрес към вектора за МултиИзпращане
+Да Прамахнете: Въведете адрес за изстриване и натиснете истрий (del).
+МултиИзпращането няма да бъде активирано докато не кликнете "Активирай"</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Добави към вектора по МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Добави</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Изключи МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Изключи</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Изберете адрес от адресната книга</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Алт+А</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Процент от стейка, който да се изпраща</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Процент:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Адреса на който да се изпраща процент от стейка</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Адрес:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Етикет:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Задайте етикет на този адрес, с който да бъде добавен във Вашата Адресна Книга</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Изтрий адреса от вектора по МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Изтрий</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Активирай МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Активирай</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Виж вектора по МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Виж МултиИзпращане</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Изпрати за Стейк</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Изпрати за Мастърноуд награди</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(без етикет)</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Използвайте числата 1 - 100 за процент.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Взаимодействия с Мултиподписния Адрес</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Създай МултиПодпис &amp;Адрес</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Колко души трябва да подпишат за да потвърдят превода</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Въведете минимален брой подписа, нужни за оторизиране на преводите</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Етикет за Адреса:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Добави друг адрес, който може да подпише за оторизация на превод от мултиподписния адрес.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Добави Адрес / Ключ</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Локални адреси или публични ключове, които могат да подпишат:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Създай нов мултиподписен адрес</translation>
+    </message>
