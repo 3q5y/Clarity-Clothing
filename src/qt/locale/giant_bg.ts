@@ -714,4 +714,333 @@
     </message>
     <message>
         <source>Open a GIANT: URI or payment request</source>
-        <translation>Отвори GIANT:URI пл
+        <translation>Отвори GIANT:URI платежно нареждане</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;Блокчейн сонда</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Прозорец на блок сондата</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Разкрийте Помощ за GIANT Ядрото, за да видите списък с възможни писмени команди.</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>Клиент GIANT Ядро</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Синхронизиране с мрежата...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Импортиране на блокове от диска...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Повторно индексиране на блокове от диска...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>Не е намерен източник на блокове...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Актуален</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 и %2</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Наваксване...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Последният получен блок е бил генериран преди %1 години.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Преводите след този няма да бъдат видими все още.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Грешка</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Изпратен превод</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Входящ превод</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Изпратени Мулти транзакции</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Дата: %1
+Сума: %2
+Вид: %3
+Адрес: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>Стейкинга е активиран
+МултиИзпращане: %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Активен</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>Неактивен</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>Не стейква
+МултиИзпращане: %1</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>АвтоЕмисията е включена и настроена на</translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>АвтоЕмитирането е изключено</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Портфейла е &lt;b&gt;шифриран&lt;/b&gt;и в момента е&lt;b&gt;отключен&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Портфейла е &lt;b&gt;шифриран&lt;/b&gt; и в момента е &lt;b&gt;отключен&lt;/b&gt;</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>Блокчейн Сонда</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Напред</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>Адрес / Блок / Превод</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Търсене</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>ТекстовЕтикет</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>Не всички преводи ще бъдат показани. За да разгледате всички преводи, трябва да зададете txindex=1 в конфигурационния файл (giant.conf).</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Общо: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Непознати: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>Мрежово Известие</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Количество:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Байтове:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Приоритет:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Такса:</translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>Избор на Монети</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Остатък:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>След Такси:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ресто:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>избери всички</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>превкл. заключ.</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>Дървесен изглед</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Списъчен изглед</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 заключен)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Получени с етикет</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Получени с адрес</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Потвърждения</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Потвърдени</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Приоритет</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Копирай адрес</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Копирай етикет</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Копирай сумата</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Копирай номер на превода</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Заключни непохарчените</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Отключи непохарчените</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Копирай количеството</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Копирай таксата</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Копирай чисто</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Копирай байтовете</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Копирай приоритета</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Копирай остатъка</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Копирай рестото</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>Преключете в "Списъчен Излгед" за да използвате тази функция</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>най-висок</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>по-висок</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>висок</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>средно-висок</translation
