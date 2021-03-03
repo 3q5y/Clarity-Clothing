@@ -1043,4 +1043,271 @@ Address: %4
     </message>
     <message>
         <source>medium-high</source>
-        <translation>средно-висок</translation
+        <translation>средно-висок</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>среден</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>ниско-среден</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>нисък</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>по-нисък</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>най-нисък</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 заключен)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>без</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>да</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>не</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>Етикета е червен когато размера на превода надхвърля 1000 байта.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Това означава, че минималната такса е %1 за килобайт.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Възможна фирма от +/- 1 байт за вход.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Преводи с по-висок приоритет е по-вероятно да бъдат включени в предстоящ блок.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Етикета става червен, ако приоритета е по-малък от "среден".</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Етикета става червен, когато получателя ще получи сума по-малка от %1.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Може да има разлика от +/- %1 ugic на вх.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(без етикет)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>ресто от %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(ресто)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Промени Адреса</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Етикет</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Етикета асоцииран с този адрес</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Адрес</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Адреса асоцииран с този адрес. Полето може да се променя само при адресите за изпращане.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>Нов адрес за получаване</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Нов адрес за изпращане</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Редактирай адрес за получаване</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Редактирай адрес за изпращане</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>Зададения адрес "%1"не е валиден GIANT адрес.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Зададения адрес "%1" вече съществува в адресната книга.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Неуспешно отключване на портфейла.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Неуспешно генериране на нов ключ.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>Нова папка за данни ще бъде създадена.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>име</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Папката вече съществува. Добавeте %1 ако възнамерявате да създадете нова папка тук.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Пътя към папката вече съществува и не е папка сама по себе си.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Не може да създадете нова папка за данни точно тук.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>От</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>версия</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Ядро</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>Относно GIANT Ядрото</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Опции за командно-поле</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Употреба:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>опции за командно-поле</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>Интерфейсни Опции:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Изберете папка за данни по подразбиране (default: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Изберете начален екран по подразбиране (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Задайте езика, например "de_DE" (default: system locale)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Стартирай минимизаран</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Задай SSL root сертификати за платежни нареждания (default: -system)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Привет</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Добре Дошли в GIANT Ядрото</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>Тъй като това е първия път, в който стартирате програмата, имате възможността да изберете къде GIANT Ядрото ще съхранява своите данни.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Ядрото ще изтегли и запише копие на целия GIANT блокчейн. Поне %1 гигабайта ще бъдат съхранявани в тази папка, като тенденцията е файла да расте. Портфейла също ще бъде запазен в тази папка.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Използвай папката за данни, по подразбиране</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Задай своя папка за данни:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Ядро</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Грешка: Зададената папка *%1* не може да бъде създадена.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Грешка</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>Има налични %1 гигабайта свободно пространство</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(oт общо %1 необходими)</translation>
