@@ -1571,3 +1571,253 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <source>Create a new multisig address</source>
         <translation>Създай нов мултиподписен адрес</translation>
     </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>Съ&amp;здай</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Състояние</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>Използвайте долното за да импортираш адрес по погасяване. Не забравяйте да сложите и етикет преди да кликнете Импортирай!
+Помнете, че портфейла ще сканира целия блокчейн за да намери преводи съдържащи новият адрес.
+Бъдете търпеливи след старта на Импортирането.</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;Импортирай Погасяване</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Създай МултиПодписна Т-я</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Входящи</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Монетен контрол...</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Избратно Количество:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Добави вход. да захрани изходящите</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Добави Груб Вход.</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Адрес / Сума:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Добави получател на GIC</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Добави &amp;Получател</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Създай преводен обект със зададените вход. към зададените изходи</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Съ&amp;здай</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Подпиши МултиПодписна т-я</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Хекс на транзакцията:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Подпиши транзакцията от този портфейл или от зададения таен ключ</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>П&amp;одпиши</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ИЗКЛЮЧЕН докато превода се подпише нужния брой пъти.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Анга&amp;жирай</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Добави тайни ключове, с които ще се подписва превода</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Добави Таен &amp;Ключ</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Подпиши със собствените тайни ключове (Не Се Препоръчва)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Грешен хаш на т-я.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>VOUT позицията трябва да е положително число.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Достигнат е максималния брой адреси. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>VOUT Позиция:</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Максимум (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Конфигурирай Обфускацията</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Елементарна Поверителност</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Високо ниво на Поверителност</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Максимална Поверителност</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Изберете ниво на поверителност.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Използвай 2 различни мастърноуда за смесване на средства над 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Използвай 8 различни мастърноуда за да смесите средства до 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Използвай 16 различни мастърноуда</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>Това е най-бързия метод и ще струва около 0.025 GIC за да скриете 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>Тази опция е сравнително бърза и ще струва около 0.05 GIC за да скриете 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Това е най-бавния и най-сигурен вариант за скриване на GIC. Използването й ще струва</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>0.1 GIC за 10000 скрити GIC</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Конфигурация на Обфускацията</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Обфускацията е успешно конфигурирана на елементарно ниво (%1 и 2 кръга). Moжете да промените тази настройка по всяко време от същото място.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Обфускацията е успешно конфигурирана на високо ниво (%1 и 8 кръга). Moжете да промените тази настройка по всяко време от същото място.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Обфускацията е успешно конфигурирана на максимално ниво (%1 и 16 кръга). Moжете да промените тази настройка по всяко време от същото място.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Отвори URI</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Отвори платежно нареждане от URI или файл</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Изберете файл за платежно нареждане.</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Изберете файл с платежно нареждане, който да бъде отворен</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Опции</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Главен</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Размер на кеша в &amp;базата данни</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>Мегабайта</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Брой проверяващи нишки</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = автоматичен, &lt;0 = остави толкова ядра неангажирани)</translation>
+    </message>
+    <
