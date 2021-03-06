@@ -1820,4 +1820,218 @@ Please be patient after clicking import.</source>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
         <translation>(0 = автоматичен, &lt;0 = остави толкова ядра неангажирани)</translation>
     </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>Порт&amp;фейл</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>Aко изключите харча на непотвърдено ресто, рестото от превод&lt;br/&gt;не може да се използва, докато превода не получи поне 1 потвърждение. &lt;br/&gt;Това влияе и на начина по който общите Ви средства се преизчисляват.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматично отвори GIANT порта в рутера. Това става само ако рутера Ви подържа UPnP и последния е включен.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Приемай външни свръзки</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Приемай входящи свръзки</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Свуржи се чрез SOCKS5 прокси (по подразбиране):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Експерт</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>Стартирай GIANT автоматично след влизане в системата.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;Стартирай GIANT заедно с операционната система</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Дали да показва възможностите за контрол на монетите или не.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Включи възможностите за &amp;контрол на монетите.</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Добави още един таб да показва всичките мастърноудове под пръвия таб&lt;br/&gt;и всички мастърноудове по мрежата във втория таб.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Покажи Мастърноуд Таба</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Похарви непотвърденото ресто</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Мрежа</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>Промяна на езика. Настройката е активна след рестарт на портфейла.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Липсващ език или непълен превод? Помогнете с преводите тук:
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Картографирай портовете използвайки &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>Включи автоматичното емитиране на GIC единици в zGIC</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>Включи Автоматично емитиране на zGIC</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Процент от входящите GIC, който автоматично да се конвертира в zGIC посредтвом Zerocoin Протокола (мин: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>Процент автоматично сечени zGIC</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</source>
+        <translation>Не бързай с автоматичното конвертиране в zGIC докато не се съберат достатъчно GIC за тази деноминация</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>Предпочитани деноминации, в които да се сече автоматичен zGIC</translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Праг на споделеното съхранение:</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Свържи се с GIANT мрежата със SOCKS5 прокси.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Прокси &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP адрес на проксито (например: IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Порт:</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Порт за проксито (например 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Прозорец</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Показвай само системна иконка след минимизране на портфейла.</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp;Минимизирай в системния трей вместо в работната лента.</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Минимизирай вместо да затваряш програмата, когато прозореца се затвори. Когато тази опция е включена, програмата може да бъде напълно затворена само от "Излез" в менюто.</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>М&amp;инимизирай при затваряне</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Екранизация</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>Език на интерфейса:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Тема на интерфейса:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>Мерни единици:</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>Изберете вида десетична запетая.</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Десетични единици</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Скрий нулевите наличности</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Универсални web адреси (например блокчейн сонда), които се появяват в прозореца за преводи като контекстно меню. %s в URL координатите е заместено от преводния хаш. Множество URL координати биват отделени с вертикална линия |.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Преводни URL-и на трети лица.</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Активирани опции на командното-поле, които вземат превес над горните опции:</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Възстанови всички опции до техните критерии по подразбиране.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Възстанови Опциите</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Отказ</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>Всеки</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>по подразбиране</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>без</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Потвърди нулиране</translation>
+    </message>
     <
