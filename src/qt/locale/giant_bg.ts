@@ -2034,4 +2034,236 @@ https://giantpay.network/translations</translation>
         <source>Confirm options reset</source>
         <translation>Потвърди нулиране</translation>
     </message>
-    <
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Трябва да рестартирате програмата.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Програмата ще се изключи. Продължаване?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>Тази промяна ще изисква рестартиране на програмата.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>Невалиден прокси адрес.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>Зададения прокси порт е невалиден.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>Зададените прокси настройки не работят.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>От</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Налични:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Налични за харечене:</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Обща Наличност, включително и неналичните монети.</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC Наличности</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>В изчакване:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Всички преводи, които предстои да бъдат потвърдени и все още не се зачитат към наличния баланс за харчене.</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Неузрели:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Възнаграждение от стейкване или мастърноуд, които все още не са узрели.</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Сегашния баланс по портфейли в режим на наблюдение само</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Вашите GIANT наличности, включително непотвърдените и неузрели преводи</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC Наличности</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>Узрели: повече от 20 потвърждения и повече от 1 емисии от същата деноминация след като е била емитирана.
+Тези zGIC могат да се похарчат.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Непотвърдени: по-малко от 20 потвърждения
+Неузрели: потвърдени, но с по-малко от 1 емисии от същата деноминация след като са биле емитирани</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Информацията на вашия екран може би е стара. Вашия портфейла синхронизира автоматично с GIANT мрежата след като има успешна свръзка, но процеса отнема време и не е завършил все още.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>ПРЕГЛЕД</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Комбинирани Наличности (включително непотвърдени и неузрели монети)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Комбинирани Наличности</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Непотвърдени преводи от портфейли, които само се набюдават</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Възнаграждения от стейкване или мастърноуд портфейли, кото само се наблюдават и все още не са узрели за употреба</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Общо:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Сегашния баланс по портфейли в режим на наблюдение само</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Наблюдение само:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Вашата налична сума по портфейлите за наблюдение само</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Налични за харчене:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>Заключен GIC или допълнителни гаранции в Главни Възли. Тези не са включени в zGIC емитирането.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Заключени:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Непотвърден</translation>
+    </message>
+    <message>
+        <source>Your current zGIC balance, unconfirmed and immature zGIC included.</source>
+        <translation>Вашите zGIC наличности, включеително непотвърдените и неузрелите zGIC.</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Наскорошни преводи</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>не е синхронизиран</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>АвтоЕмисията е включена и настроена на</translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>Да изключите АвтоЕмисия добавете  'enablezeromint=0' в giant.conf файла.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</source>
+        <translation>АвтоЕмисия е изключено.
+За да включите АвтоЕмисия сменете 'enablezeromint=0' на 'enablezeromint=1' в giant.conf файла.</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Грешка в платежно нареждане</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>Обработка на URI</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Невалидна заявки за прихващане на URI: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Обработка на платежно нареждане от файл</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Грешен адрес за плащане %1</translation>
+    </message>
+    <message>
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>Провал при стартирането на GIANT: click-to-pay обработвател</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URI не може да се парсне. Вероятна причина е невалиден GIANT адрес или зле-форматирани URI Параметри.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Файла не може да бъде прочетен.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Отхвърлено платежно нареждане.</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Мрежата за платежно нареждане не съвпада с клиентската мрежа.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Изтекъл срок на платежното нареждане.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Платежното нареждане не е инициализирано.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Неподържан формат.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Платежното нареждане за %1 е за твърде малка сума.</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Обещетение от %1</translation>
+    </message>
+    
