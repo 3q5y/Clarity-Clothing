@@ -2266,4 +2266,263 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf
         <source>Refund from %1</source>
         <translation>Обещетение от %1</translation>
     </message>
-    
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Платежно нреждане %1 е твърде голямо (%2 байта, разрешени %3 байта).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>DoS защита</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Грешка при комуникацията с %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Платежното нареждане не може да бъде прочетено.</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Сървъра отговаря неочаквано %1</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Грешка по мрежата</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Плащането регистрирано</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Адрес/Хостнейм</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Версия</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping отговор</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Zerocoin Действия:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Информацията на вашия екран може би е стара. Вашия портфейла синхронизира автоматично с GIANT мрежата след като има успешна свръзка, но процеса отнема време и не е завършил все още.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Сечене на Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>Наличните за емитиране са онези монети, които са биле потвърдени и не са заключени като гаранция в Главни Възли.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Налични за сечене:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>Ресетна базата данни на Zerocoin Портфейла. Изтрива преводите, които не са успели да се качат на блокчена.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Ресет</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>Монетен контрол...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Количество:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>Сканирай повторно блокчена за Zerocoin монети и техните мета-данни.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>Сканирай</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>Състояния и/или Съобщения от последните действия по сечене на монети.</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>КОНФИДЕНЦИАЛНОСТ</translation>
+    </message>
+    <message>
+        <source>Enter an amount of GIC to convert to zGIC</source>
+        <translation>Въведете колко GIC  да се конвертират в zGIC</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC Контрол</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>Избрани zGIC:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Избратно Количество:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>Похарчи Zerocoin. Без "Плати до: адрес - плащането е към себе си.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Похарчи Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending</source>
+        <translation>Налични (узрели и готови за харчене) zGIC за употреба</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Налични:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Налични (узрели и готови за харчене) zGIC за употреба
+
+zGIC са узрели, тогава когато имат повече от 20 потвърждения И повече от 2 емисии от същата деноминация след като са биле емитирани</translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Плати На:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>Адреса на който да изпратим плащането. Ако е празно - плащането е до себе си.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Изберете предишноизползван адрес</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Алт+А</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Постави адреса от буфера</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Алт+П</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>Етикет:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Въведете етикет за този адрес.</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>Изсечи zGIC от рестото (ще струва допълнително заради таксите)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>Ако е избрана опцията, портфейла се опитва да намали върнатото ресто вместо да намали броя на похарчените деноминации.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Намали Рестото</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>Информация за наличните Zerocoin средства.</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Zerocoin статистика:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zGIC</source>
+        <translation>Обща Наличност включеително непотвърдените и неузрели zGIC</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Обща Zeroicoin наличност:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>Деноминации от 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Деном. със стойност 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Непотвърдени: по-малко от 20 потвърждения
+Неузрели: потвърдени, но с по-малко от 1 емисии от същата деноминация след като са биле емитирани</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zGIC minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to giant.conf
+- disable: add 'enablezeromint=0' to giant.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zGIC
+
+</source>
+        <translation>Покажи състоянието на автоматичното zGIC емитиране.
+
+За да пормените състоянието (изисква рестарт):
+- вклчване: добавете 'enablezeromint=1' в giant.conf
+- изключване: добавете 'enablezeromint=0' в giant.conf
+
+За промяна в процентите (не изисква рестарт):
+- меню Настройки -&gt; Опции -&gt; Процент на автоемитиран zGIC
+</translation>
+    </message>
+    <message>
+        <source>AutoMint Status</source>
+        <translation>Състояние Ав
