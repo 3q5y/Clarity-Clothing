@@ -2804,4 +2804,324 @@ Maximum allowed: </source>
         <translation>Деноминация. &lt;b&gt;5000&lt;/b&gt;:</translation>
     </message>
     <message>
-        <source>Error: Your w
+        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
+        <translation>Грешка: Портфейла е заключен. Моля първо въведете Вашата парола.</translation>
+    </message>
+    <message>
+        <source>Message: Enter an amount &gt; 0.</source>
+        <translation>Съобщение: Въведете стойност &gt; 0.</translation>
+    </message>
+    <message>
+        <source>Minting </source>
+        <translation>Сечене</translation>
+    </message>
+    <message>
+        <source>Successfully minted </source>
+        <translation>Успешно изсечени</translation>
+    </message>
+    <message>
+        <source> zGIC in </source>
+        <translation>zGIC в</translation>
+    </message>
+    <message>
+        <source> sec. Used denominations:
+</source>
+        <translation>сек. Използвани деноминации:
+</translation>
+    </message>
+    <message>
+        <source>Duration: </source>
+        <translation>Времетраене:</translation>
+    </message>
+    <message>
+        <source> sec.
+</source>
+        <translation>сек.
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetSpentZerocoin: </source>
+        <translation>Стартиране на ResetMintZerocoin:</translation>
+    </message>
+    <message>
+        <source>No 'Pay To' address provided, creating local payment</source>
+        <translation>Без 'Плати На' адрес, плащането е локално</translation>
+    </message>
+    <message>
+        <source>Invalid GIANT Address</source>
+        <translation>Невалиден GIANT адрес</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>Невалидна сума за изпращане</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Потвърдете допълнителни такси</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Сигурни ли сте, че желаете да изпратите? &lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>на адрес</translation>
+    </message>
+    <message>
+        <source> to a newly generated (unused and therefore anonymous) local address &lt;br /&gt;</source>
+        <translation>на ново-генериран (неизползван до сега и поради това - анонимен) локален адрес &lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Потвърждаване на изпращането</translation>
+    </message>
+    <message>
+        <source>Failed to fetch mint associated with serial hash</source>
+        <translation>Неуспешно извличане на мента, свързана със сериен хеш</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>Твърде много входящи (</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>
+Или емитирайте по-големи деноминации (за да се ползват по малко входящи) или намалете сумата за плащане.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin failed with status = </source>
+        <translation>Харченето на Zerocoin се провали със статус =</translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>деноминация:</translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>сериен номер:</translation>
+    </message>
+    <message>
+        <source>Spend is 1 of : </source>
+        <translation>Харча е 1 от:</translation>
+    </message>
+    <message>
+        <source>value out: </source>
+        <translation>изходна стойност:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>адрес:</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>Изпращането успешно, програмен код: </translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>номер на транзакцията:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>такса:</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT address (e.g. %1)</source>
+        <translation>Задайте GIANT адрес (например %1)</translation>
+    </message>
+    <message>
+        <source>%1 d</source>
+        <translation>%1 д</translation>
+    </message>
+    <message>
+        <source>%1 h</source>
+        <translation>%1 ч</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 м</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 с</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>МРЕЖА</translation>
+    </message>
+    <message>
+        <source>BLOOM</source>
+        <translation>ЦЪФТЕЖ</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>НЕПОЗНАТ</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Без</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 милисек.</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Ядро</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Запази Картинката...</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Копирай Картинката</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Запази QR кода</translation>
+    </message>
+    <message>
+        <source>PNG Image (*.png)</source>
+        <translation>PNG изображение (*.png)</translation>
+    </message>
+</context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>Tools window</source>
+        <translation>Колан с инструменти</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Информация</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Главни</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Име</translation>
+    </message>
+    <message>
+        <source>Client name</source>
+        <translation>Име на клиент</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
+    </message>
+    <message>
+        <source>Number of connections</source>
+        <translation>Брой свръзки</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Отвори</translation>
+    </message>
+    <message>
+        <source>Startup time</source>
+        <translation>Време на стартиране</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Мрежа</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Възраст на последния блок</translation>
+    </message>
+    <message>
+        <source>Debug log file</source>
+        <translation>Дебъг лог файл</translation>
+    </message>
+    <message>
+        <source>Using OpenSSL version</source>
+        <translation>Open SSL версия в употреба</translation>
+    </message>
+    <message>
+        <source>Build date</source>
+        <translation>Дата на компилиране</translation>
+    </message>
+    <message>
+        <source>Current number of blocks</source>
+        <translation>Блокове в момента</translation>
+    </message>
+    <message>
+        <source>Client version</source>
+        <translation>Версия на клиента</translation>
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Използва BarkleyDB версия</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>Блокчейн</translation>
+    </message>
+    <message>
+        <source>Open the GIANT debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Отвори GIANT дебъг лог файла от сегашната папка. Това може да отнеме известно време за по-дълги файлове.</translation>
+    </message>
+    <message>
+        <source>Number of Masternodes</source>
+        <translation>Брой мастърноудове</translation>
+    </message>
+    <message>
+        <source>&amp;Console</source>
+        <translation>&amp;Конзола</translation>
+    </message>
+    <message>
+        <source>Clear console</source>
+        <translation>Изчисти конзолата</translation>
+    </message>
+    <message>
+        <source>&amp;Network Traffic</source>
+        <translation>&amp;Мрежови Трафик</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;Изчисти</translation>
+    </message>
+    <message>
+        <source>Totals</source>
+        <translation>Всички</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Получени</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Изпратени</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Пиъри</translation>
+    </message>
+    <message>
+        <source>Banned peers</source>
+        <translation>Забранени пиъри</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Изберете пиър за повече детайли</translation>
+    </
