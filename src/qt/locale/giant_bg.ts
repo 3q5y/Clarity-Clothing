@@ -2525,4 +2525,283 @@ To change the percentage (no restart required):
     </message>
     <message>
         <source>AutoMint Status</source>
-        <translation>Състояние Ав
+        <translation>Състояние АвтоЕмисия</translation>
+    </message>
+    <message>
+        <source>Global Supply:</source>
+        <translation>Глобални наличности:</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Деном. със стойност 1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Деном. със стойност 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Деном. със стойност от 10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Деном. със стойност от 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Деном. със стойност от 100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Деном. със стойност от 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Деном. със стойност от 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Деном. със стойност от 5000:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 х</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>Деноминации от 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Деном. със стойност 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>Деноминации от 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Деном. със стойност от 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>Деноминации от 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Деном. със стойност от 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>Деноминации от 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Деном. със стойност от 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>Деноминации от 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Деном. със стойност от 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>Деноминации от 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Деном. със стойност от 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>Деноминации от 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Деном. със стойност от 5000:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Приоритет:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>ТекстовЕтикет</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Такса:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Остатък:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>не</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Байтове:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Средсвтата Ви не достигат!</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Автоматично избрани монети</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>среден</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Насйтройки Монетен Контрол</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Ако това е включено, но адреса за ресто е невалиден, рестото ще се изпраща в новогенериран адрес.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Друг адрес за ресто</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>Сума след Такси:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ресто:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>не е синхронизиран</translation>
+    </message>
+    <message>
+        <source>Mint Status: Okay</source>
+        <translation>Състояние на монето-сечене: OK</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Копирай количеството</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Копирай сумата</translation>
+    </message>
+    <message>
+        <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
+Please be patient...</source>
+        <translation>Стартиране на ResetMintZerocoin: сканираме цялия блокчейн, това ще изисква около 30 минути, в зависимост от вашия компютър.
+Моля изчакате...</translation>
+    </message>
+    <message>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation>) нужни.
+Максимум позволени:</translation>
+    </message>
+    <message>
+        <source>zGIC Spend #: </source>
+        <translation>zGIC Похарчени #:</translation>
+    </message>
+    <message>
+        <source>zGIC Mint</source>
+        <translation>Сечене на zGIC</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;включено&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;изключено&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> Configured target percentage: &lt;b&gt;</source>
+        <translation>Конфигуриран целеви процент: &lt;b&gt;</translation>
+    </message>
+    <message>
+        <source>zGIC is currently disabled due to maintenance.</source>
+        <translation>В момента zGIC не работи поради ремонт.</translation>
+    </message>
+    <message>
+        <source>zGIC is currently undergoing maintenance.</source>
+        <translation>В момента zGIC е в ремонт.</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Деном. със стойност &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Деном. със стойност &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Деном. със стойност от &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>Състояние АвтоЕмисия:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Деноминация.  &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Деноминация. &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Error: Your w
