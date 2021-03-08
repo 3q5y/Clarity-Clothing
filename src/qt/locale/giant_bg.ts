@@ -3124,4 +3124,281 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>Select a peer to view detailed information.</source>
         <translation>Изберете пиър за повече детайли</translation>
-    </
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>Бял лист</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Насока</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Протокол</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Версия</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Услуги</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Резултат</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Време на връзка</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Последно изпратени</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Последно получени</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Изпратейни байта</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Получени байта</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping отговор</translation>
+    </message>
+    <message>
+        <source>&amp;Wallet Repair</source>
+        <translation>&amp;Поправка на портфейла</translation>
+    </message>
+    <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Изтрий локалните папки на Блокчейна</translation>
+    </message>
+    <message>
+        <source>Wallet In Use:</source>
+        <translation>Портфейл в употреба:</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>Начален Блок</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>Синхронизирани Заглавия</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>Синхронизирани Блокове</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>Времетраенето на незавършен пинг.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>Пинг Изчакване</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>Времево отлагане</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>Персонален резервен път:</translation>
+    </message>
+    <message>
+        <source>Custom zGIC Backup Path:</source>
+        <translation>Персонализиран zGIC резервен път:</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>Праг на персонализирани резервни копия:</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Спаси портфейл</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Опит за възтановяване на лични ключове от повреден wallet.dat файл.</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files</source>
+        <translation>Сканирай повторно блокчейн файловете</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions.</source>
+        <translation>Сканирай блокчейна отново за липсващи преводи</translation>
+    </message>
+    <message>
+        <source>Recover transactions 1</source>
+        <translation>Възстанови преводи 1</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
+        <translation>Възстанови преводи от блокчейна (с мета данни).</translation>
+    </message>
+    <message>
+        <source>Recover transactions 2</source>
+        <translation>Възстанови преводи 2</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>Възстанови преводи от блокчена (без мета данни).</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet format</source>
+        <translation>Надграждане формата на портфейла.</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files.</source>
+        <translation>Изградни повторно индекса на блокчена от сегашните blk000??.dat файлове.</translation>
+    </message>
+    <message>
+        <source>-resync:</source>
+        <translation>-ресинх:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Изтрий всички локални папки на блокчейна, така че портфейла да се синхронизира от самото начало.</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
+        <translation>Копчетета долу ще рестартират портфейла с възможност за ремонт на портфейла посредствим командната линия. Случи за поправка на проблеми с увредени блокчейн файлове или липсващи/остарели транзакции.</translation>
+    </message>
+    <message>
+        <source>Wallet repair options.</source>
+        <translation>Ремонт на портфейла с опции.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
+        <translation>Надгради портфейла до най-новия формат при стартирането на програмата. (Внимание: Това само по себе си обновява портфейла, само неговия формат.)</translation>
+    </message>
+    <message>
+        <source>Rebuild index</source>
+        <translation>Потворно изграждане на индекса</translation>
+    </message>
+    <message>
+        <source>In:</source>
+        <translation>Входящи:</translation>
+    </message>
+    <message>
+        <source>Out:</source>
+        <translation>Изходящи:</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>Добре Дошли в RPC конзолата на GIANT.</translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp;Изключи Възела</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>Забрани Възела за</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1&amp;час</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1&amp;ден</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1&amp;седмица</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1&amp;година</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp;Разреши възела</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Това ще истрие Вашите локални блокчейн папки и портфейла ще се синхронизира с целия блокчейн от самото начало.</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Това изисква доста време и тегленето на много данни. &lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Вашите преводи и средства ще бъдат видими отново след като тегленето приключи. &lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>Сигурни ли сте, че желаете да изпратите? &lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>Потвърдете ресинх на Блокчейна</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Напишете &lt;b&gt;help&lt;/b&gt; за списък с възможните команди.</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation>%1 Б</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 КБ</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 МБ</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 ГБ</translation>
+    </message>
+    <message>
+        <source>(node id: %1)</source>
+        <translation>(възлова идентификация: %1)</translation>
+    </message>
+    <message>
+        <source>via %1</source>
+        <translation>през %1</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>никога</translation>
+    </message>
+    <message>
+        <source>Inbound</source>
+        <translation>Входящи</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Изходящи</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Да</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Не</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Непознат</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>Reuse one of the previously used receiving addresses.&l
