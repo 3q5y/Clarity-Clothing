@@ -3401,4 +3401,282 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
-        <source>Reuse one of the previously used receiving addresses.&l
+        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
+        <translation>Използвайте отновно един от предходно използваните адреси за получаване. &lt;br&gt;Повторното използване на адреси може да застраши сигурността и поверителността на преводите. &lt;br&gt;Не използвайте тази функция, освен ако не генерирате повторно, платежно нареждане правено преди.</translation>
+    </message>
+    <message>
+        <source>R&amp;euse an existing receiving address (not recommended)</source>
+        <translation>Повторно използване на съществуващ адрес за получаване (не се препоръчва)</translation>
+    </message>
+    <message>
+        <source>&amp;Message:</source>
+        <translation>&amp;Съобщение:</translation>
+    </message>
+    <message>
+        <source>An optional label to associate with the new receiving address.</source>
+        <translation>Незадължителен етикет, който да асоциираме с адреса за получаване.</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GIANT network.</source>
+        <translation>Съобщение свободен текст, което да се прикачи към платежното нареждане, за да бъде показано когато нареждането се отвори от клиента на когото е изпратено. Обърнете внимание, че съобщението няма да бъде изпратено заедно с плащането по GIANT мрежата.</translation>
+    </message>
+    <message>
+        <source>RECEIVE</source>
+        <translation>ПОЛУЧИ</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the GIANT network.</source>
+        <translation>Съобщение свободен текст, което да се прикачи към платежното нареждане, за да бъде показано когато нареждането се отвори от клиента на когото е изпратено. &lt;br&gt;Обърнете внимание, че съобщението няма да бъде изпратено заедно с плащането по GIANT мрежата.</translation>
+    </message>
+    <message>
+        <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
+        <translation>Използвайте този формуляр за да изисквате плащания. Всички полета са &lt;b&gt;по желание&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>Етикет:</translation>
+    </message>
+    <message>
+        <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
+        <translation>Незадължителна сума за поискване. Оставете полето празно или напишете нула, за да не изисквате определена сума.</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;Поискай плащане</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Изчисти всичко полета.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Изчисти</translation>
+    </message>
+    <message>
+        <source>Requested payments history</source>
+        <translation>История с поисканите плащания</translation>
+    </message>
+    <message>
+        <source>Show the selected request (does the same as double clicking an entry)</source>
+        <translation>Покажи избраното нареждане (същото като двоен клик)</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Покажи</translation>
+    </message>
+    <message>
+        <source>Remove the selected entries from the list</source>
+        <translation>Премахни избраните от списъка</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Премахни</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Копирай етикет</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>Копира съобщение</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Копирай сумата</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Копирай адрес</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR код</translation>
+    </message>
+    <message>
+        <source>Copy &amp;URI</source>
+        <translation>Копирай &amp;URI</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>Копирай &amp;Адрес</translation>
+    </message>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Запази Картинката...</translation>
+    </message>
+    <message>
+        <source>Request payment to %1</source>
+        <translation>Поискай плащане към %1</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>Информация за плащането</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Етикет</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Съобщение</translation>
+    </message>
+    <message>
+        <source>Resulting URI too long, try to reduce the text for label / message.</source>
+        <translation>Получилото се URI е твърде дълго, опитайте с къс етикет или по-кратко съобщение.</translation>
+    </message>
+    <message>
+        <source>Error encoding URI into QR Code.</source>
+        <translation>Грешка при превръщането на URI в QR код.</translation>
+    </message>
+</context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Етикет</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Съобщение</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(без етикет)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(няма съобщение)</translation>
+    </message>
+    <message>
+        <source>(no amount)</source>
+        <translation>(няма стойност)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Изпрати Монети</translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>ИЗПРАТИ</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Насйтройки Монетен Контрол</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Средсвтата Ви не достигат!</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Количество:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Байтове:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Приоритет:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>среден</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Такса:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Остатък:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>не</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>След Такси:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ресто:</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Ако това е включено, но адреса за ресто е невалиден, рестото ще се изпраща в новогенериран адрес.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Друг адрес за ресто</translation>
+    </message>
+    <message>
+        <source>Split UTXO</source>
+        <translation>Раздели UTXO</translation>
+    </message>
+    <message>
+        <source># of outputs</source>
+        <translation># изходящи</translation>
+    </message>
+    <message>
+        <source>UTXO Size:</source>
+        <translation>Размер на UTXO:</translation>
+    </message>
+    <message>
+        <source>0 GIC</source>
+        <translation>0 GIC</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>Такса Превод:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Избери...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>закрий свободни-настройки</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Минимизирай</translation
