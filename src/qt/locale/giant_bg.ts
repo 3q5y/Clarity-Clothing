@@ -3898,4 +3898,248 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Грешка: Портфейла е отключен само за анонимизиране на монети. Отключването спряно.</translation>
     </message>
     <message>
-      
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Плати само минималната такса от %1</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>Предупреждение: Непознат адрес за ресто</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(без етикет)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>Това е нормално плащане.</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Плати На:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>GIANT адреса - получател на плащането</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Изберете предишноизползван адрес</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Алт+А</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Постави адреса от буфера</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Алт+П</translation>
+    </message>
+    <message>
+        <source>Remove this entry</source>
+        <translation>Изтрий</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>Етикет:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Въведете етикет за този адрес.</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Съобщение:</translation>
+    </message>
+    <message>
+        <source>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</source>
+        <translation>Съобщение, което е било прикачено към GIANT:URI и което ще бъде запазено заедно с превода за ваша информация. Внимание: Това съобщение е само за Вас, то няма да бъде изпратено по GIANT мрежата.</translation>
+    </message>
+    <message>
+        <source>This is an unverified payment request.</source>
+        <translation>Това е непреворено платежно нареждане.</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>Плати На:</translation>
+    </message>
+    <message>
+        <source>Memo:</source>
+        <translation>Бележка:</translation>
+    </message>
+    <message>
+        <source>This is a verified payment request.</source>
+        <translation>Това проверено платежно нареждане.</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Задайте етикет на този адрес, с който да бъде добавен във Вашата Адресна Книга</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>GIANT Core is shutting down...</source>
+        <translation>Изключване на GIANT Ядрото...</translation>
+    </message>
+    <message>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>Не изключвайте компютъра, докато този прозорец не изчезне.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>Подписи - Подпиши / Провери Съобщение</translation>
+    </message>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;Подпиши Съобщение</translation>
+    </message>
+    <message>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Може да подписвате съобщения с Вашите адреси, за да докажете че сте техен притежател. Внимавайте да не подписвате нищо съмнително, тъй като има хакерски атаки, които целят да придобият вашата самоличност. Само подписвайте пълен и ясен текст, с който сте напълно съгласни.</translation>
+    </message>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>GIANT адреса, с който да подпишете съобщението</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Изберете предишноизползван адрес</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Алт+А</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Постави адреса от буфера</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Алт+П</translation>
+    </message>
+    <message>
+        <source>Enter the message you want to sign here</source>
+        <translation>Напишете съобщението, което желаете да подпишете.</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Подпис</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Копирай сегашния подпис в системния буфер</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>Подпишете съобщението, за да докажете, че притежавате този GIANT адрес</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>GIANT адреса, който е подписано съобщението</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>Поверете съобщението, за да се уверите, че е подписано със зададения GIANT адрес</translation>
+    </message>
+    <message>
+        <source>Sign &amp;Message</source>
+        <translation>Подпиши &amp;Съобщение</translation>
+    </message>
+    <message>
+        <source>Reset all sign message fields</source>
+        <translation>Ресет на всички полета</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Изчисти &amp;Всички</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>Провери Съобщение</translation>
+    </message>
+    <message>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Въведете одписващия адрес, съобщението и подписа по-долу за да проверите съобщението. Внимавайте да не четете повече от подписа от колкото има в самото съобщение, за да избегнете "man in the middle" атака.</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>Провери Съобщение</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fields</source>
+        <translation>Ресет на всички полета за проверка</translation>
+    </message>
+    <message>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Кликнете "Подпиши Съобщение" зада генерирате подпис</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Въведения адрес е невалиден.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Моля проверете адреса и опитайте отново.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Въведеният адрес не е свързан с ключ.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Отключването на портфейла бе прекратено.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Личният ключ за въведеният адрес е неналичен.</translation>
+    </message>
+    <message>
+        <source>Message signing failed.</source>
+        <translation>Неуспешено подписване.</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>Успешно подписване.</translation>
+    </message>
+    <message>
+        <source>The signature could not be decoded.</source>
+        <translation>Подписа не се дешифрира.</translation>
+    </message>
+    <message>
+        <source>Please check the signature and try again.</source>
+        <translation>Моля проверете подписа и опитайте пак.</translation>
+    </message>
+    <message>
+        <source>The signature did not match the message digest.</source>
+        <translation>Подписа не съвпада със съобщението.</translation>
+    </message>
+    <message>
+        <source>Message verification failed.</source>
+        <translation>Съобщението не бе проверено.</translation>
+    </message>
+    <message>
+        <source>Message verified.</source>
+        <translation>Съобщението е проверено.</translation>
+    </message>
+</context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Ядро</translation>
+    </message>
+    <message>
+        
