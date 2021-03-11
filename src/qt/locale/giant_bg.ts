@@ -3679,4 +3679,223 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Minimize</source>
-        <translation>Минимизирай</translation
+        <translation>Минимизирай</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>за килобайт</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>минимална сума</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(прочети балончето)</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Собствен:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Умната такса не е инициализирана все още. Това изисква по няколко блока...)</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Време на потвърждение:</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Отвори Монетен Контрол...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Автоматично избрани монети</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ако собствената такса е настроена на 1000 uGIC и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uGIC входяща такса, &lt;br /&gt;докато "минимална сума" плаща 1000 uGIC. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "total at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ако собствената такса е настроена на 1000 uGIC и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uGIC входяща такса,&lt;br /&gt; докато "минимална сума" плаща 1000 uGIC. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
+        <translation>Няма проблем да платите минималната такса, стига обема преводи да е по-малък от наличното място в блоковете. &lt;br /&gt;Но имайте впредвид, че това може да се окаже в превод, който никога не получава потвърждение ако заявките за преводи са повече от колкото мрежата може да понесе.</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>нормален</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>бърз</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Препоръчителен</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>При възможнст изпратете без такса</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(потвърждението може да отнеме повече време)</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>Потвърди изпращането</translation>
+    </message>
+    <message>
+        <source>S&amp;end</source>
+        <translation>Изпрати</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Изчисти всичко полета.</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Изчисти &amp;Всички</translation>
+    </message>
+    <message>
+        <source>Send to multiple recipients at once</source>
+        <translation>Изпрати до няколко получателя едновременно</translation>
+    </message>
+    <message>
+        <source>Add &amp;Recipient</source>
+        <translation>Добави Получател</translation>
+    </message>
+    <message>
+        <source>Anonymized GIC</source>
+        <translation>Анонимизиран GIC</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Наличност:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Копирай количеството</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Копирай сумата</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Копирай таксата</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Копирай чисто</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Копирай байтовете</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Копирай приоритета</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Копирай остатъка</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Копирай рестото</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work when sending to outside addresses. Try again.</source>
+        <translation>Инструмента за разделяна на блока не работи, когато се изпраща към вуншен адрес. Опитайте пак.</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work with multiple addresses. Try again.</source>
+        <translation>Инструмента за разделяне на блока не работи, когато се изпраща до няколко адреса едновременно. Опитайте пак.</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid GIANT address</source>
+        <translation>Предупреждение: Невалиден GIC адрес</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 към %2</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Потвърдете изпращане</translation>
+    </message>
+    <message>
+        <source>are added as transaction fee</source>
+        <translation>са добавени като преводна такса</translation>
+    </message>
+    <message>
+        <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
+        <translation>Обща сума = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;=%2</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Потвърждаване на изпращането</translation>
+    </message>
+    <message>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>Такса %1 пъти по-голяма от %2 за кБ се счита неразумно голяма такса.</translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation>Адреса на получателя е недвалиден. Моля преверете.</translation>
+    </message>
+    <message>
+        <source>using SwiftX</source>
+        <translation>използвайки SwiftX</translation>
+    </message>
+    <message>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation>разделено в %1 изходящи използвайки UTXO разделите.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(%1 от %2 полета)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>Сумата на превода трябва да е по-голяма от 0.</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>Сумата надхвърля наличността.</translation>
+    </message>
+    <message>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>Сумата надхвърля наличността, когато преводната такса %1 е включена.</translation>
+    </message>
+    <message>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Наличие на един и същи адрес два пъти. Можем да изпращане до всеки адрес само по веднъж по време на всяка отделна операция по изпращане.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>Неуспешен превод.</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Превода бе отказам! Това може да се случи ако част от монетите в портфейла вече са биле изпратени, като например ако сте използвали копие на wallet.dat файла и монетите са биле похарчени там, но не са  биле маркирани като изпратени тук.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Грешка: Портфейла е отключен само за анонимизиране на монети.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>Грешка: Портфейла е отключен само за анонимизиране на монети. Отключването спряно.</translation>
+    </message>
+    <message>
+      
