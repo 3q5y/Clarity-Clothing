@@ -4142,4 +4142,297 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>GIANT Ядро</translation>
     </message>
     <message>
-        
+        <source>Version %1</source>
+        <translation>Версия %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>Bitcoin Core разработчици</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>Dash Core разработчици</translation>
+    </message>
+    <message>
+        <source>The GIANT Core developers</source>
+        <translation>GIANT Core разработчици</translation>
+    </message>
+    <message>
+        <source>[testnet]</source>
+        <translation>[тестнет]</translation>
+    </message>
+</context>
+<context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <source>KB/s</source>
+        <translation>КБ/с</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>Open until %1</source>
+        <translation>Отворен до %1</translation>
+    </message>
+    <message>
+        <source>conflicted</source>
+        <translation>конфликтен</translation>
+    </message>
+    <message>
+        <source>%1/offline</source>
+        <translation>%1/офлайн</translation>
+    </message>
+    <message>
+        <source>%1/unconfirmed</source>
+        <translation>%1/непотвърдени</translation>
+    </message>
+    <message>
+        <source>%1 confirmations</source>
+        <translation>%1 потвърждения</translation>
+    </message>
+    <message>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1 офлайн (потвърдени чрез swiftTx)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1 потвърдени (потвърдени чрез swiftTx)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1 потвърждения (потвърдени чрез swiftTx)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/офлайн (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation>%1/потвърдени (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1 потвърждения  (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation>%1/офлайн (Неуспешно SwiftTX потвърждние)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation>%1/потвърдени (Неуспешно SwiftTX потвърждние)</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Състояние</translation>
+    </message>
+    <message>
+        <source>, has not been successfully broadcast yet</source>
+        <translation>, все още неуспешно обявени</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation>Източник</translation>
+    </message>
+    <message>
+        <source>Generated</source>
+        <translation>Генериран</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>От</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>неизвестен</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>До</translation>
+    </message>
+    <message>
+        <source>own address</source>
+        <translation>собствен адрес</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>наблюдение само</translation>
+    </message>
+    <message>
+        <source>label</source>
+        <translation>етикет</translation>
+    </message>
+    <message>
+        <source>Credit</source>
+        <translation>Кредит</translation>
+    </message>
+    <message>
+        <source>not accepted</source>
+        <translation>не е приет</translation>
+    </message>
+    <message>
+        <source>Debit</source>
+        <translation>Дебит</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Общ дебит</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Обще кредит</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Преводна такса</translation>
+    </message>
+    <message>
+        <source>Net amount</source>
+        <translation>Сума Нето</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Съобщение</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>Коментар</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Преводен идентификатор</translation>
+    </message>
+    <message>
+        <source>Output index</source>
+        <translation>Изходящ индекс</translation>
+    </message>
+    <message>
+        <source>Merchant</source>
+        <translation>Търговец</translation>
+    </message>
+    <message>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Генерираните монети трябва да узреят поне %1 блока преди да бъдат налични за харчене. Когато генерирахте този блок, той бе обявен към мрежата за добавяне в блокчейна. Ако не успее да се закачи към блокчейна, статуса му ще се промени в "неприет" и средствата няма да бъдат налични за харчене. Това може да се случи от време на време ако друг ноуд генерира блок в същото време като Вашия.</translation>
+    </message>
+    <message>
+        <source>Debug information</source>
+        <translation>Дебъг информация</translation>
+    </message>
+    <message>
+        <source>Transaction</source>
+        <translation>Превод</translation>
+    </message>
+    <message>
+        <source>Inputs</source>
+        <translation>Входящи</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>true</source>
+        <translation>вярно</translation>
+    </message>
+    <message>
+        <source>false</source>
+        <translation>грешно</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDescDialog</name>
+    <message>
+        <source>Transaction details</source>
+        <translation>Подробности около превода</translation>
+    </message>
+    <message>
+        <source>This pane shows a detailed description of the transaction</source>
+        <translation>Това поле показва подробно описание на превода</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>Open until %1</source>
+        <translation>Отворен до %1</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Офлайн</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Непотвърден</translation>
+    </message>
+    <message>
+        <source>Confirming (%1 of %2 recommended confirmations)</source>
+        <translation>Потвърждава (%1 о5 %2 препоръчителни потвърждения)</translation>
+    </message>
+    <message>
+        <source>Confirmed (%1 confirmations)</source>
+        <translation>Потвърден (%1 потвърждения)</translation>
+    </message>
+    <message>
+        <source>Conflicted</source>
+        <translation>Конфликтен</translation>
+    </message>
+    <message>
+        <source>Immature (%1 confirmations, will be available after %2)</source>
+        <translation>Неузрял (%1 потвърждения, ще е наличен след още %2)</translation>
+    </message>
+    <message>
+        <source>This block was not received by any other nodes and will probably not be accepted!</source>
+        <translation>Този блок не бе получен от нито един друг ноуд и вероятно няма да бъде приет.</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Получен с</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>Мастърноуд възнаграждение</translation>
+    </message>
+    <message>
+        <source>Received from</source>
+        <translation>Получен от</translation>
+    </message>
+    <message>
+        <source>Received via Obfuscation</source>
+        <translation>Получен посредством обфускация</translation>
+    </message>
+    <message>
+        <source>GIC Stake</source>
+        <translation>GIC Stake</translation>
+    </message>
+    <message>
+        <source>zGIC Stake</source>
+        <translation>zGIC Stake</translation>
+    </message>
+    <message>
+        <source>Obfuscation Denominate</source>
+        <translation>Деноминация на обфускация</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>Обфускация на на Платежен Залог</translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>Обфускация на Направени входящи Залози</translation>
