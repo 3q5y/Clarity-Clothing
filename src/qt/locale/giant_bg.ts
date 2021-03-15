@@ -4436,3 +4436,306 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>Obfuscation Make Collateral Inputs</source>
         <translation>Обфускация на Направени входящи Залози</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>Обфускация и направа на Деноминации</translation>
+    </message>
+    <message>
+        <source>Converted GIC to zGIC</source>
+        <translation>Конвертиран GIC във zGIC</translation>
+    </message>
+    <message>
+        <source>Spent zGIC</source>
+        <translation>Похарчени zGIC</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Получен GIC от zGIC</translation>
+    </message>
+    <message>
+        <source>Minted Change as zGIC from zGIC Spend</source>
+        <translation>Исечено ресто като zGIC от похарчените zGIC</translation>
+    </message>
+    <message>
+        <source>Converted zGIC to GIC</source>
+        <translation>Конвертиран zGIC във GIC</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Transaction)</source>
+        <translation>Анонимен (транзакция zGIC)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Stake)</source>
+        <translation>Анонимен (zGIC Stake)</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Изпратени до</translation>
+    </message>
+    <message>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>Осиротял блок - Генериран но не приет. Това не влияе на вашите средства.</translation>
+    </message>
+    <message>
+        <source>Payment to yourself</source>
+        <translation>Плащане до себе си</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Изсечени</translation>
+    </message>
+    <message>
+        <source>Obfuscated</source>
+        <translation>Обфускирани</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>наблюдение само</translation>
+    </message>
+    <message>
+        <source>(n/a)</source>
+        <translation>(без)</translation>
+    </message>
+    <message>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>Състояние на превода. Преместете курсора над това поле за да видите броят потвърждения.</translation>
+    </message>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Дата и час на пристигане на превода.</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Вид на превода.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Дали адрес, който е само за наблюдение ще бъде въвлечен в превода или не.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>Адрес на получателя по превод.</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Сума извадена или добавена към сметката.</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Всички</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Днес</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Тази седмица</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Този месец</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Миналия месец</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Тази година</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Порядък...</translation>
+    </message>
+    <message>
+        <source>Most Common</source>
+        <translation>Най Общи</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Получен с</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Изпратени до</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>Към себе си</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Изсечени</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>Изсечени</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>Мастърноуд възнаграждение</translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>Сечене на Zerocoin</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>Харчене на Zerocoin</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>Харчене на Zerocoin за себе си</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Други</translation>
+    </message>
+    <message>
+        <source>Enter address or label to search</source>
+        <translation>Въведете адрес или етикет за търсене</translation>
+    </message>
+    <message>
+        <source>Min amount</source>
+        <translation>Минимална сума</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Копирай адрес</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Копирай етикет</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Копирай сумата</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Копирай номер на превода</translation>
+    </message>
+    <message>
+        <source>Edit label</source>
+        <translation>Редактирай етикета</translation>
+    </message>
+    <message>
+        <source>Show transaction details</source>
+        <translation>Покази подробности по превода</translation>
+    </message>
+    <message>
+        <source>Export Transaction History</source>
+        <translation>Експортирай История на Преводите</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Файлове разделени чрез запетая (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Потвърдени</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>Наблюдение-само</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Етикет</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>Идентификатор</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Експортирането провалено</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the transaction history to %1.</source>
+        <translation>Получи се грешка при опита да се запази преводната история в %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Successful</source>
+        <translation>Експортирането Успешно</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Получен GIC от zGIC</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zGIC</source>
+        <translation>Харчене на Zerocoin, Ресто в zGIC</translation>
+    </message>
+    <message>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>Преводната история бе успешно запазена в %1.</translation>
+    </message>
+    <message>
+        <source>Range:</source>
+        <translation>Диапазон:</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>до</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Единици в които да показва сумата. Кликнете за да промените.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <source>No wallet has been loaded.</source>
+        <translation>Няма зареден портфейл.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Изпрати Монети</translation>
+    </message>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 GIC.</source>
+        <translation>SwiftTX не подържа изпращането на толкова големи суми. Превода е ограничен до %1 GIC.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>ИСТОРИЯ</translation>
+    </message>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Експортиране</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Експортиране информацията от сегашния таб във файл</translation>
+    </message>
+    <message>
+        <source>Selected amount:</source>
+        <translation>Избрано количество:</translatio
