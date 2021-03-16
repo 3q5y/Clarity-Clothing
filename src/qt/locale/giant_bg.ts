@@ -5028,4 +5028,227 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation>Трябва да зададете masternode
+        <translation>Трябва да зададете masternodeprivkey в конфигурационния файл. Консултирайте се с документацията за повече помощ.</translation>
+    </message>
+    <message>
+        <source>(40444 could be used only on mainnet)</source>
+        <translation>(40444 може да се ползва само в mainnet)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(по подразбиране: %s)</translation>
+    </message>
+    <message>
+        <source>(default: 1)</source>
+        <translation>(по подразбиране: 1)</translation>
+    </message>
+    <message>
+        <source>(must be 40444 for mainnet)</source>
+        <translation>(трябва да е 40444 за mainnet)</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation>Приемане на JSON-RPC команди и командно поле</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Приемай външни връзки (по подразбиране: 1 ако няма -proxy или -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Приемай външни REST запитвания (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation>Добави възел за свръзка и опитай да държиш връзката отворена</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation>Позволявай DNS запитвания за -addnote, -seednode и -connect</translation>
+    </message>
+    <message>
+        <source>Already have that input.</source>
+        <translation>Този въвод вече съществува.</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Винаги извършвай запитване за пиъри посредствим DNS търсене (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>Опит за възтановяване на лични ключове от повреден wallet.dat файл.</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>Автоматично създавай скрит Tor доставчик (по подразбиране: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation>Блокирай съзидателни опции:</translation>
+    </message>
+    <message>
+        <source>Calculating missing accumulators...</source>
+        <translation>Изчислява липсващите акумулатори...</translation>
+    </message>
+    <message>
+        <source>Can't denominate: no compatible inputs left.</source>
+        <translation>Не може да деноминира: не са останали съвместими входящи.</translation>
+    </message>
+    <message>
+        <source>Can't find random Masternode.</source>
+        <translation>Не откривам случан Главен възел.</translation>
+    </message>
+    <message>
+        <source>Can't mix while sync in progress.</source>
+        <translation>Не може да се миксира по време на синхронизация.</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation>Променяне софтуерната версия на портфейла към по-ниска е невъзможно.</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>Не можем да разрешим -blind адрес: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>Не можем да разрешим -externalip адрес: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>Не можем да разрешим -whitebind адрес: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation>Не можем да запишем адреса по подразбиране</translation>
+    </message>
+    <message>
+        <source>Collateral not valid.</source>
+        <translation>Гаранцията е невалидна.</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Свързвай се само към зададените възли(възел).</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Свързвай се чрез SOCKS5 прокси</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation>Свържи се към възел за получаване на пиър адреси и се изключи</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation>Опции за свръзка:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Всички права запазени (c) 2009-%i Bitcoin Core разработчици</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2014-%i The Dash Core Developers</source>
+        <translation>Всички права запазени (c) 2014-%i Dash Core разработчици</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
+        <translation>Всички права запазени (c) 2015-%i PIVX Core разработчици</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The GIANT Core Developers</source>
+        <translation>Всички права запазени (c) 2018-%i GIANT Core разработчици</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation>Засечена е повредена блок база данни</translation>
+    </message>
+    <message>
+        <source>Could not parse masternode.conf</source>
+        <translation>Не можахме да прочетем masternode.conf файла</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation>Дебъг/Тест опции:</translation>
+    </message>
+    <message>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation>Изтрий блокчейн папките и ресинхронизирай от начало.</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>Спри съобщенията от ОС за входящи преводи (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>Изключи безопасен режим, отмени истинските събития от безопасния режим (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
+        <translation>Открий собствения IP адрес (по подразбиране: 1 когато слуша и няма -externalip)</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation>Не зареждай портфейла и изключи RPC обажданията му</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation>Желаете ли да пресъздадете базата данни на блоковете сега?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>Край на зареждането</translation>
+    </message>
+    <message>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation>Активирай автоматично сечене на Zerocoin (0-1, По подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на хаш транзакцията (закл. чрез SwiftX) в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на сурова транзакция (закл. чрез SwiftX) в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation>Вкл. клиента да действа като влаген възел (0-1, по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Entries are full.</source>
+        <translation>Запълнени полета.</translation>
+    </message>
+    <message>
+        <source>Error connecting to Masternode.</source>
+        <translation>Грешка при свързването с Главен възел.</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation>Грешка при стартирането на блок базата данни</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation>Грешка при стартиране на средата за бази данни %s!</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>Грешка при зареждането на блок базата данни</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat</source>
+        <translation>Грешка в зареждането на wallet.dat</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation>Грешка в зареждането на wallet.dat: Портфейла е повреден</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation>Грешка в зареждането на wallet.dat: Портфейла изисква по-нова версия</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>Грешка в отварянето на блок базата данни</translation>
+    </message>
+    <message>
+        <source>Error reading from da
