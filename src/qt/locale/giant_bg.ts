@@ -4894,4 +4894,138 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
         <translation>Недостатъчни или недостатъчно-потвърдени средства. Може да се наложи да изчакате няколко минути преди да опитате отново.</translation>
     </message>
-  
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>Невалидна сума за -maxtxfee=&lt;amount&gt;:'%s' (трябва да е поне таксата от %s за да предотвратим заклещени преводи).</translation>
+    </message>
+    <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>Пази зададената сума като налична за харчене по всяко време (defajlt: 0)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>Прихващай приоритета на преводите и таксата за килобайт когато копаете блокове (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>Пази пълен индекс на всички преводи използвани от getrawtransaction rpc call (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Максимум големина на данните в транзакциите, които препращаме и минираме (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>Максимални общи такси да се използват при единичен портфейл превод. Твърде малко може да прекрати големите преводи (default: %s)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>Времетраене в секунди, за което да предотвратява пиъри със съмнително поведение от повторно свръзване (default: %u)</translation>
+    </message>
+    <message>
+        <source>Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
+        <translation>Обфускацията използва точни деноминации за да изпраща средства. Може да трябва просто да анонимизирате още монети.</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>Изходирай дебъг информация (default: %u, задавайки &lt;category&gt; е по желание)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Ако адресите са малко - запитване за адрес на пиър, чрез DNS търсене (default: 1 освен -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation>Използвай случайни имена и пароли за всяка прокси свръзка. Това позволява намирането на Tor потоци (default: %u)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>Позволява висок приоритет за препращане на безплатни или ниско-тарифни преводи (default: %u)</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file (default: %u)</source>
+        <translation>Покажи дебъг информацията в конзолата вместо debug.log файл (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation>Задай максимален размер на високо-приоритетни/ниско-б'джетни преводи в байтове (default: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation>Задай броя на нишки за проверка на скриптове (%u до %d, 0 = автоматичен &lt;0 = освати толкова ядра свободни, default: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Задай броя нишки за генериране на монети ако е включено (-1 = всички ядра, default: %d)</translation>
+    </message>
+    <message>
+        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
+        <translation>Покажи N потвърждения за успешно заключени преводи (0-9999, default: %u)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>Поддържай филтрирането на блокове и преводи с bloom филтри (default: %u)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Този продукт включва софтуер разработен от OpenSSL Project &lt;https://www.openssl.org/&gt; и крипто софтуер написан от Ерик Юнг и UPnP софтуер от Томас Бернард.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. GIANT Core is probably already running.</source>
+        <translation>Не може да се прикачи към %s на този компютър. GIANT Портфейла вероятно вече е стартиран.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
+        <translation>Не намираме достатъчно Обфускационно деноминирани средства за този превод.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 GIC.</source>
+        <translation>Не можем да намерим достатъчно Обфускационно не-деноминирани средства за този превод, които да не са равни на 10000 GIC.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 GIC.</source>
+        <translation>Не намираме достатъчно средства за този превод, които да не са равни на 10000 GIC.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Използвайте отделен SOCKS5 прокси за да достигнете пиърите през Tor скрити услуги (по подразбиране: %s)</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Внимание: -maxtxfee е зададена твърде висока! Толкова големи такси може да се платят на единичен превод.</translation>
+    </message>
+    <message>
+        <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation>Внимание: -paytxfee е зададена твърде голяма! Това е преводната такса, която ще платите ако изпратите този превод.</translation>
+    </message>
+    <message>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong GIANT Core will not work properly.</source>
+        <translation>Внимание: Проверете дали датата и часа на компютъра са верни! Ако Вашият часовник греши, GIANT Портфейла няма да работи правилно.</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation>Внимание: Изглежда че мрежата не е единна! Някои миньори изпитват затруднения.</translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation>Внимание: Изглежда че имаме неразбирателство с някои пиъри! Може да се налага да обновите софтуера си или другите възли трябва да се ъпгрейднат.</translation>
+    </message>
+    <message>
+        <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation>Внимание: грешка при четене на wallet.dat! Всички ключове изглеждат добре, но преводните данни или адресната книга липсват или са некоректни.</translation>
+    </message>
+    <message>
+        <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation>Внимание: увреден wallet.dat файл, данните са спасени! Оригиналния wallet.dat е запазен като wallet.[timestamp].bak в %s; ако наличността или преводите Ви изглеждат погрешни, трябва да възтановите портфейла от бекъп.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Пиърите от белия списък свързващи се от зададената netmask-а или IP адрес. Може да се зададе множество пъти.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Пиърите от Белия списък не може да са DoS забранени и техните преводи винаги ще бъдат предавани, дори и да са вече в мемпул басейна. Полезно за портал.</translation>
+    </message>
+    <message>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation>Трябва да зададете masternode
