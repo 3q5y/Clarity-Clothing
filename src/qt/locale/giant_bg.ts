@@ -5251,4 +5251,232 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Грешка в отварянето на блок базата данни</translation>
     </message>
     <message>
-        <source>Error reading from da
+        <source>Error reading from database, shutting down.</source>
+        <translation>Грешка в четенето от базата данни. Изключвам се!</translation>
+    </message>
+    <message>
+        <source>Error recovering public key.</source>
+        <translation>Грешка във възтановяването на публичния ключ.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Грешка</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation>Грешка: Фатална вътрешна грешка, вижте debug.log за повече подробности.</translation>
+    </message>
+    <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>Грешка: Така зададените деноминации не могат да бъдат избрани</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>Грешка: Намаляващо Дисково пространство!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Грешка: Намерихме неподдържан аргумент -tor, използвайте -onion.</translation>
+    </message>
+    <message>
+        <source>Error: Wallet locked, unable to create transaction!</source>
+        <translation>Грешка: Портфейла е заключен, неуспешен превод!</translation>
+    </message>
+    <message>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation>Грешка: Вече имате изчакващи входящи в басейна за Обфускация</translation>
+    </message>
+    <message>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>Неуспешно изчисление на акумулаторния чекпоинт</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>Неуспешно очакване на който и да е порт. За тази цел, зползвайте -listen=0.</translation>
+    </message>
+    <message>
+        <source>Failed to read block</source>
+        <translation>Неуспешно четене на блок</translation>
+    </message>
+    <message>
+        <source>Fee (in GIC/kB) to add to transactions you send (default: %s)</source>
+        <translation>Такса (в GIC/kB), която да се добави към изходящи преводи (по подразбиране: %s)</translation>
+    </message>
+    <message>
+        <source>Finalizing transaction.</source>
+        <translation>Приключване на превода.</translation>
+    </message>
+    <message>
+        <source>Force safe mode (default: %u)</source>
+        <translation>Предизвикай безопасен режим (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation>Имаме достатъчно потребители, подписване ( изчаква %s )</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ...</source>
+        <translation>Имаме достатучно потребители, подписване ...</translation>
+    </message>
+    <message>
+        <source>Generate coins (default: %u)</source>
+        <translation>Генерирай монети (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Колко блока да провери при стартиране (по подразбиране: %u, 0 = all)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation>Ако &lt;category&gt; не е зададен, изкарай цялата дебъг информация.</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Импортиране...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file</source>
+        <translation>Импортира блокове от външен blk000??.dat файл.</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Включи и IP адресите при дебъг (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Incompatible mode.</source>
+        <translation>Несъвместим режим.</translation>
+    </message>
+    <message>
+        <source>Incompatible version.</source>
+        <translation>Несъвместима версия.</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation>Няма намерен генезис блок или намерения е несъвместим. Грешен datadlr за мрежата?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. GIANT Core is shutting down.</source>
+        <translation>Стартирането на проверка на здравословното състояние на портфейла се провали. Изключваме Портфейла.</translation>
+    </message>
+    <message>
+        <source>Input is not valid.</source>
+        <translation>Зададените стойности са невалидни.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Недостатъчни средства</translation>
+    </message>
+    <message>
+        <source>Insufficient funds.</source>
+        <translation>Недостатъчни средства.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Невалиден -onion адрес или име: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна стойност за -maxtxfee=&lt;amount&gt;:'%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна стойност за -minrelaytxfee=&lt;amount&gt;:'%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна стойност за -mintxfee=&lt;amount&gt;:'%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Невалидна стойност за -paytxfe=&lt;amount&gt;:'%s' (трябва да бъде поне %s)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна стойност за -paytxfee=&lt;amount&gt;:'%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
+        <translation>Невалидна стойност за -reservebalance=&lt;amount&gt;</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Невалидна стойност</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>Невалиден masternodeprivkey. Моля консултирайте се с документацията.</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Невалидна netmask зададена в -whitelist: :'%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Невалиден порт, засечен в masternode.conf</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Грешен личен ключ.</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>Невалиден скрипт, засечен.</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>Процент автоматично емитирани Zerocoin (1-100, по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the GIC and zGIC money supply statistics</source>
+        <translation>Индексирай наново GIC и zGIC данните по наличности</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Редексиране на база данни за нуроиди ...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Повторното индексиране на зероцена се провали</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>Избраната стойност на монетите е по-малка от целта за плащане</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX опции:</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>Това е тестов софтуер - използвай на своя глава - да не се използва за стейкване или търговско приложение.</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation>изтрити емисии
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation>обновени емисии,</translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>премахнати непотвърдени транзакции
+</translation>
+    </message>
+    <message>
+        <source>Disable all GIANT specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Изключи GIANT специфичната функционалност (Главни възли, Zerocoin, SwiftX, Бюджетиране) (0-1, po podrazbirane: %u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>Включи SwiftTX, показвай потвърждения за заключени преводи (bool, default: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happ
