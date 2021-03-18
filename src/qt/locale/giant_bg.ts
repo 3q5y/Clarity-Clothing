@@ -5479,4 +5479,180 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Включи SwiftTX, показвай потвърждения за заключени преводи (bool, default: %s)</translation>
     </message>
     <message>
-        <source>Error: The transaction was rejected! This might happ
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Превода бе отказан! Това може да се случи ако част от монетите в портфейла вече са биле изпратени, като например ако сте използвали копие на wallet.dat файла и монетите са биле похарчени там, но не са  биле маркирани като изпратени тук.</translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>Грешка: Този превод изисква преводна такса от поне %s поради неговите размер, сложност или употребата на наскоро получени средства.</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>Грешка: Неподдържан аргумент -checklevel. Checklevel трябва да е поне 4.</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
+        <translation>Командата влиза в сила, когато най-добрия блок се промени и неговия размер е над (%s в cmd се промени с хаш на блока, %d с размер на блока)</translation>
+    </message>
+    <message>
+        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
+        <translation>Не успяхме да намерим монетата сред държаните монети с по-малък номер от maxNumber на Плащанията.</translation>
+    </message>
+    <message>
+        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
+        <translation>В редки случаи, плащане от 7 монети надхвърля максимално разрешения размер на транзакция. Моля опитайте да похарчете 6 или по-малко монети за това плащане.</translation>
+    </message>
+    <message>
+        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
+        <translation>Предпочитани деноминации за автоматично изсечените Zerocoin (1/5/10/50/100/500/1000/5000), 0 за каквито и да е. (По подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any automatic zGIC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Посочете персонализиран път за архивиране, за да добавите копие на всяко автоматично архивиране zGIC. Ако е зададено като реж., Всеки архив генерира файл с времева маркировка. Ако е зададен като файл, ще пренапише към този файл всеки архив. Ако е зададено и резервно копие, ще се случат 4 архиви</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
+        <translation>Посочете персонализиран път за архивиране, за да добавите копие на всяко резервно копие на портфейла. Ако е зададено като реж., Всеки архив генерира файл с времева маркировка. Ако е зададен като файл, ще пренапише към този файл всеки архив.</translation>
+    </message>
+    <message>
+        <source>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation>SwiftTX изисква входящи преводи с поне 6 потвърждения. Може да се наложи да изчакате още преди да опитате отново.</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; може да е:</translation>
+    </message>
+    <message>
+        <source>Attempt to force blockchain corruption recovery</source>
+        <translation>Опитай да наложиш възтановяване на увереден блокчейн</translation>
+    </message>
+    <message>
+        <source>CoinSpend: Accumulator witness does not verify</source>
+        <translation>МонетноПлащане: Акумулаторния свидетел не потвърждава</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>Покажи изчисленията на променливия съхранител в debug.log файла.</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>Покажи многословните съобщения от съхранение на монети в debug.log файла.</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на хаш блока в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на хаш транзакцията в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на сурови блокове в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Вкл. публикуването на сурови транзакции в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable staking functionality (0-1, default: %u)</source>
+        <translation>Включи функционалността по сърханение (0-1, по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Грешка: Фатална вътрешна грешка, вижте debug.log за повече подробности.</translation>
+    </message>
+    <message>
+        <source>Error: No valid utxo!</source>
+        <translation>Грешка: Няма валиден utxo!</translation>
+    </message>
+    <message>
+        <source>Failed to create mint</source>
+        <translation>Неуспешно емитиране</translation>
+    </message>
+    <message>
+        <source>Failed to find Zerocoins in wallet.dat</source>
+        <translation>Няма намерени Zerocoin монети в wallet.dat файла</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Неуспешен избор на Zerocoin</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Изтриването на zerocoinDB не бе успешно</translation>
+    </message>
+    <message>
+        <source>Failed to write coin serial number into wallet</source>
+        <translation>Неуспешно записване на серийния номер на монетата в портфейла</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Пази най-много &lt;n&gt; несвързани превода в паметта (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Last Obfuscation was too recent.</source>
+        <translation>Последната обфускация бе твърде скоро.</translation>
+    </message>
+    <message>
+        <source>Last successful Obfuscation action was too recent.</source>
+        <translation>Последното действие по Обфускация е било твърде скоро.</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Ограничи размера на подписния кеш до &lt;n&gt; задания (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Line: %d</source>
+        <translation>Ред: %d</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Следи за JSON-RPC връзки на &lt;port&gt; (по подразбиране: %u или testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Следи за свръзки на &lt;port&gt; (по подразбиране: %u или testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Зареждане на адреси...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Зареждане блок индекса...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Зареждане на бюджетния кеш...</translation>
+    </message>
+    <message>
+        <source>Loading masternode cache...</source>
+        <translation>Зареждане на кеша от главни възли...</translation>
+    </message>
+    <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Зареждане кеша на плащания от главни възли...</translation>
+    </message>
+    <message>
+        <source>Loading sporks...</source>
+        <translation>Зареждане на вилицо-лъжици...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Зареждане на портфейла... (%3.2f %%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Зареждане на портфейла...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Местоположение на оторизационната бисквитка (по подразбиране: data dir)</translation>
+    </message>
+    <message>
+        <source>Lock is already in place.</source>
+        <translation>Вече е заключен.</translation>
+    </message>
+    <message>
+        <source>Lock masternodes f
