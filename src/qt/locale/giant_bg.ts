@@ -5655,4 +5655,232 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Вече е заключен.</translation>
     </message>
     <message>
-        <source>Lock masternodes f
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Заключи главен възел от конфигурационния файл (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Lookup(): Невалиден -proxy адрес или име: '%s'</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Пази най-много &lt;n&gt; връзки към пиъри (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Опции за Главни възли</translation>
+    </message>
+    <message>
+        <source>Masternode queue is full.</source>
+        <translation>Опашката за Главни възли е пълна.</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Главен Възел:</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Максимум буфер за Получаване, за връзка, &lt;n&gt;*1000 байта (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Максимум буфер за Изпращане, за връзка, &lt;n&gt;*1000 байта (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Mint did not make it into blockchain</source>
+        <translation>Емисията не успя да се включи в блокчейна</translation>
+    </message>
+    <message>
+        <source>Missing input transaction information.</source>
+        <translation>Липсваща вх. информация за превода.</translation>
+    </message>
+    <message>
+        <source>Mixing in progress...</source>
+        <translation>В момента тече смесване...</translation>
+    </message>
+    <message>
+        <source>Need address because change is not exact</source>
+        <translation>Необходим е адрес, понеже рестото не е кръгла сума</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Нужно е да се зададе порт с -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>No Masternodes detected.</source>
+        <translation>Не се засичат Мастърноудове.</translation>
+    </message>
+    <message>
+        <source>No compatible Masternode found.</source>
+        <translation>Не е намерен съвместим Мастърноуд.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>Не засякохме средства, които да имат нужда от деноминация.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>Не намерихме съвпадащи деноминации за смесване.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Опции на възел релето:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>Засякохме нестандартен публичен ключ.</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>Несъвместимост със съществуващите преводи.</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Недостатъчно налични файл описания.</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Не е в списъка с Главни възли.</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>Брой автоматични портфейлни копия (по подразбиране: 10)</translation>
+    </message>
+    <message>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Брой запазени резервни копия за местоположението (по подразбиране: %d)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>Обфускацията е в режим на изчакване.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Обфускацията приключи.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Обфускацията не успя да приключи.</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Приемай само блокчейн със съвпадащи чекпоинтове (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Свързвай се само с възли от мрежа &lt;net&gt;(ipv4, ipv6 или onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Опции:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Парола за JSON-RPC връзките</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Невалиден -proxy адрес или име: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>Подготвя се за ре-синх...</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Добави дата и час в дебъг логовете (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Принтирай и излез</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>Опции за RPC сървъра:</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>На случаен принцип изпускай 1 от всяко &lt;n&gt; мрежови съобщения</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>На случаен принцип отбележи 1 от всяко &lt;n&gt; мрежови съобщения</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>Изгради на ново блокчейн индекса от сегашните blk000??.dat файлове</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>Получавай и показвай P2P мрежови съобщения (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>Индексирай на ново акмулаторната база данни</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Препращай и копай преводите по пренос на данни  (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Препращай не-P2SH мултиподпис (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation>Сканирай блокчейна за липсващи портфейлни транзакции</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Сканиране наново...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>ResetMintZeroinc завърши:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>ResetSpentZerocoin завърши:</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Периодично изчиствай портфейла (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>Върши го на заден план като невидим процес и приемай командите</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Ако е възможно, изпращай транзакциите като нулево-таксуван превод (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Session not complete!</source>
+        <translation>Недовърешна сесия!</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>Времето на сесията изтече.</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>Задай размера на кеша за базите данни в мегабайти (%d до %d, по подразбиране: %d)</translation>
+    </message>
+    <message>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation>Задай външен адрес:порт за да достигнете този главен възел (например: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Задай размер на басейна за ключове да бъде &lt;n&gt;(по подразбиране: %u) </translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>Максимален разбимер на блока в байтове (default: %d)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Минимален размер на блока в байтове (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set 
