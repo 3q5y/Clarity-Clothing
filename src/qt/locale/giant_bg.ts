@@ -6119,4 +6119,120 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Непознато състояние: id = %u</translation>
     </message>
     <message>
-        <source>Upgrade wallet to latest form
+        <source>Upgrade wallet to latest format</source>
+        <translation>Обновете портфейла до най-новия формат</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Използвай UPnP за да картографираш портовете за слушане (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>Използвай UPnP за да картографираш портовете за слушане (по подразбиране: 1 когато слуша)</translation>
+    </message>
+    <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>Използвай свободно зададена максимална дълбочина за реорганизация на веригата (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Използвайте тестова мрежа</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Потребителско име за JSON-RPC свръзките</translation>
+    </message>
+    <message>
+        <source>Value is below the smallest available denomination (= 1) of zGIC</source>
+        <translation>Стойността е под най-малката налична деноминация (= 1) в zGIC</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Стойността е по-голяма от позволената от басейна Обфускация.</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Проверява блоковете...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Проверява портфейла...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Портфейла %s е извън папката с данни %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Портфейла е заключен.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Портфейла трябва да се пренапише: рестартирайте програмата за завършване на процеса</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Опции на Портфейла:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Име на прозореца на портфейла</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Внимание: Тази версия е стара, нужен е ъпгрейд!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Внимание: Неподдържанния аргумент -benchmark бе игнориран, използвайте -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Внимание: Неподдържанния аргумент -debugnet бе игнориран, използвайте -debug=net.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Ще опита...</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Нямате достатъчно Zerocoin в портфейла си</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Трябва да построите базата данни наново, използвайки -reindex вместо -txindex</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Въведени успешно.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Превода е приет в басейна!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Затриване на всички преводи от портфейла...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>Опции за ZeroMQ известяване:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin опции</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>при стартиране</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat е повреден, неуспешно спасяване</translation>
+    </message>
+</context>
+</TS>
