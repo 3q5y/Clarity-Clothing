@@ -5883,4 +5883,240 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Минимален размер на блока в байтове (default: %u)</translation>
     </message>
     <message>
-        <source>Set 
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>Максимална дълбочина на reorg (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set the masternode private key</source>
+        <translation>Задай тайния ключ на Главния възел</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Задай броя нишки да обслужват RPC запитвания (по подразбиране: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Задай DB_PRIVATE флаг в средата на портфейловата база данни (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>Покажи всички дебъг възможности (иползвай: -help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>Намали debug.log файла при стартиране на портфейла (по подразбиране: 1 когато няма -debug)</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>Неуспешено подписване.</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>Времето за посписване изтече.</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Неуспешено подписване на превода.</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Задай конфигурационен файл (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Задай максимално време на чакане в милисекунди (минимум: 1, по подразбиране: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>Задай възтановяване на данни</translation>
+    </message>
+    <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>Задай конфигурационен файл за Главен възел (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Задай pid файл (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>Задай файл на портфейла (в папката с данни)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>Задай свой собствен публичен адрес</translation>
+    </message>
+    <message>
+        <source>Spend Valid</source>
+        <translation>Валидно Плащане</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Похарчи непотвърдено ресто когато пращаш преводи (default: %u)</translation>
+    </message>
+    <message>
+        <source>Staking options:</source>
+        <translation>Опции за съхранение:</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Изключи се след импортирането на блоквоете от диска (default: %u)</translation>
+    </message>
+    <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>Следните са изпратени до главния възел: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>Изпратени до главния възел, чакаме още ( %u %d ) %s</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation>Изпратено до главния възел, чака си реда %s</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Неуспешна синхронизация</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>Успешно синхронизиране</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>Синхронизацията изчаква...</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Синхронизиране на бюджетите...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>Синхронизиране печелившите Главни възли...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Синхронизиране с Главните възли...</translation>
+    </message>
+    <message>
+        <source>Synchronizing sporks...</source>
+        <translation>Синхронизиране на вилицо-лъжиците...</translation>
+    </message>
+    <message>
+        <source>Syncing zGIC wallet...</source>
+        <translation>Синхронизиране на zGIC портфейла ...</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>Монетното плащане е използвано</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>Превода не бе потвърден</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Това съобщение</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Това е експериментален софтуер</translation>
+    </message>
+    <message>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation>Това е за регресионен тест и софтуерна разработка.</translation>
+    </message>
+    <message>
+        <source>This is not a Masternode.</source>
+        <translation>Това не е Главен Възел.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Праг за разкачване на пиъри с лошо поведение (по подразбиране: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>Нужни са твърде много плащания</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Парола за контрол на Tor порт: (по подразбиране: празно)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Порт за контрол на Tor ако onion е включен (по подразбиране: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>Превода е създаден</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>Емитиране по Превода Стартира</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Преводната сума е твърде малка</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Преводните суми трябва да са положително число</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>Превода е създаден успешно</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Преводните таски са твърде високи.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Превода е невалиден.</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Твърде голям превод за таксионната политика</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Твърде голям превод</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>Изпращане на последния превод.</translation>
+    </message>
+    <message>
+        <source>Try to spend with a higher security level to include more coins</source>
+        <translation>Опитайте да платите с по-високо ниво на сигурност, за да включите повече монети.</translation>
+    </message>
+    <message>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>Опитвате се да похарчите, вече похарчен сериен номер. Опитайте отново.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Не можем да прикачим %s към този компютър (прикачването даде грешка %s)</translation>
+    </message>
+    <message>
+        <source>Unable to find transaction containing mint</source>
+        <translation>Не можем да намерим превод, който съдържа емисията</translation>
+    </message>
+    <message>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation>Не можем да подпишем съобщението по тази вилицо-лъжица, грешен ключ?</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Не можем да стартираме HTTP сървъра. Вижте дебъг логовете за повече подробности.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Непозната мрежа е зададена в -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>Непознато състояние: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest form
