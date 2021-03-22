@@ -242,4 +242,276 @@
 <context>
     <name>Bip38ToolDialog</name>
     <message>
-        <source>B
+        <source>BIP 38 Tool</source>
+        <translation>BIP 38 værktøj</translation>
+    </message>
+    <message>
+        <source>&amp;BIP 38 Encrypt</source>
+        <translation>BIP 38 kryptografering</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adresse</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Indtast en GIANT-adresse, som du gerne vil kryptere ved hjælp af BIP 38. Indtast en adgangskode i mellemkassen. Tryk på krypteringen for at beregne den krypterede private nøgle.</translation>
+    </message>
+    <message>
+        <source>The GIANT address to encrypt</source>
+        <translation>GIANT-adressen for at kryptere</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Benyt en tidligere anvendt adresse.</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Indsæt adresse fra udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Passphrase: </source>
+        <translation>Kodeord</translation>
+    </message>
+    <message>
+        <source>Encrypted Key:</source>
+        <translation>Kryptograferet nøgle</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Kopier den aktuelle underskrift til udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Encrypt the private key for this GIANT address</source>
+        <translation>Krypter den private nøgle for denne GIANT-adresse</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>Nulstil alle felter</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>Den krypterede private nøgle</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>Dekrypter den indtastede nøgle ved hjælp af adgangskoden</translation>
+    </message>
+    <message>
+        <source>Encrypt &amp;Key</source>
+        <translation>Krypter og underskriv</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Nulstil alt</translation>
+    </message>
+    <message>
+        <source>&amp;BIP 38 Decrypt</source>
+        <translation>BIP 38 dekryptér.</translation>
+    </message>
+    <message>
+        <source>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</source>
+        <translation>Indtast den krypterede BIP 38 nøgle. Indtast kodeordet i den midterste boks. Klik på dekryptér for at generere den private nøgle. Når nøglen er dekrypteret vil klip på "importér adresse" overføre den private nøgle til tegnebogen.</translation>
+    </message>
+    <message>
+        <source>Decrypt &amp;Key</source>
+        <translation>Dekrypteringsnøgle</translation>
+    </message>
+    <message>
+        <source>Decrypted Key:</source>
+        <translation>Dekrypteret nøgle.</translation>
+    </message>
+    <message>
+        <source>Import Address</source>
+        <translation>Importér adresse</translation>
+    </message>
+    <message>
+        <source>Click "Decrypt Key" to compute key</source>
+        <translation>Klik på "Dekrypter" for at generere nøgle</translation>
+    </message>
+    <message>
+        <source>The entered passphrase is invalid. </source>
+        <translation>Det indtastede kodeord er ugyldigt</translation>
+    </message>
+    <message>
+        <source>Allowed: 0-9,a-z,A-Z,</source>
+        <translation>Tilladte tegn: 0-9, a-z, A-Z</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Den indtastede adresse er ugyldig</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Kontroller adressen og prøv igen.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Den indtastede adresse har ikke nogen tilknyttet nøgle.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Oplåsning af tegnebogen mislykkedes</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Den private nøgler der hører til den indtastede adresse er ikke tilgængelig.</translation>
+    </message>
+    <message>
+        <source>Failed to decrypt.</source>
+        <translation>Dekryptering mislykkedes</translation>
+    </message>
+    <message>
+        <source>Please check the key and passphrase and try again.</source>
+        <translation>Kontroller nøgle og kodeord - og prøv igen.</translation>
+    </message>
+    <message>
+        <source>Data Not Valid.</source>
+        <translation>Ugyldig data</translation>
+    </message>
+    <message>
+        <source>Please try again.</source>
+        <translation>Prøv igen</translation>
+    </message>
+    <message>
+        <source>Please wait while key is imported</source>
+        <translation>Vent mens nøglen bliver importeret.</translation>
+    </message>
+    <message>
+        <source>Key Already Held By Wallet</source>
+        <translation>Nøglen findes allerede i tegnebogen.</translation>
+    </message>
+    <message>
+        <source>Error Adding Key To Wallet</source>
+        <translation>Fejl ved tilføjelse af nøgle</translation>
+    </message>
+    <message>
+        <source>Successfully Added Private Key To Wallet</source>
+        <translation>Den private nøgle blev tilføjet tegnebogen.</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Wallet</source>
+        <translation>Tegnebog</translation>
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>Node</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>Overblik</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Vis et generelt overblik over tegnebogen</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Send</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Modtag</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Transaktioner</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Vis transaktionshistorik</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zGIC</source>
+        <translation>Beskyttelse af personlige oplysninger for zGIC</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>E&amp;xit</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Afslut applikationen</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Om&amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Information om Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Indstillinger</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Vis / skjul</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Vis eller skjul hovedvinduet.</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Kryptografer tegnebog</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Krypter den private nøgle som hører til tegnebogen.</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Sikkerhedskopier tegnebog</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Sikkerhedskopier og gem et andet sted</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Skift kodeord</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Skift kodeordet til kryptografering af tegnebog</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Lås tegnebogen op</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Lås tegnebogen op</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Lås tegnebogen</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Underskriv &amp; besked</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;verificer besked</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;information</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <trans
