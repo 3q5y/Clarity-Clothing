@@ -514,4 +514,259 @@
     </message>
     <message>
         <source>Show diagnostic information</source>
-        <trans
+        <translation>Vis diagnosticeringsinformation</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debugpanel</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Åben debugpanel</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Netværksmonitering</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Vis netværksmonitor</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;Peersliste</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Vis information om PEERS</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>Tegnebog &amp;Reparer</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Vis indstillinger for reparation af tegnebog</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Åbn konfigurationsfil</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Vis &amp;sikkerhedskopier, der er taget automatisk</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Vis sikkerhedskopier, der er taget automatisk</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Afsenderadresser</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Vis listen over brugte afsenderadresse med tilhørende tekst.</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Modtageradresse</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Vis listen over brugte modtageradresser og tekst</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp; Oprettelse af multisignatur ...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Opret en ny multisignaturadresse og tilføj den til denne tegnebog</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp; Multisignatur udgifter ...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Tilbring fra en multisignaturadresse</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp; Signaturer til multisignatur ...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Log med en multisignaturadresse</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Åbn &amp;URL</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Kommandolinieparametre</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>Der er gennemløbet %n blokke af transaktionshistorikken.</numerusform><numerusform>Der er gennemløbet %n blokke af transaktionshistorikken.</numerusform></translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Synkroniserer yderligere data %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 bag. Scanning blok %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Tegnebogen er&lt;b&gt;krypteret&lt;/b&gt; og aktuelt &lt;b&gt;unlocked&lt;/b&gt; for anonymisering og staking alene</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Fil</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;indstillinger</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;værktøj</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;hjælp</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Værktøjslinier</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Send mønter til en GIANT adresse</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Anmod om betaling (genrerer QR kode og GIANT URL)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privatliv</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Masternoder</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Vis masternoder</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>&amp;Om GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Vis information om GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Ret konfigurationsindstillinger for GIANT</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Underskriv beskeder med Deres GIANT adresser for at bekræfte at De ejer dem.</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Verificer besked for at sikre, at den er underskrevet med den opgivne GIANT adresse</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP 38 værktøj</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Krypter og dekrypter private nøgler ved hjælp af et kodeord</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;Massesending</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>Massesending, indstillinger</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Åbn tegnebog &amp;konfigurationsfil</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Åbn &amp;Masternode konfigurationsfil</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>ÅbnMasternode konfigurationsfil</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Åbn en GIANT URl eller betalingsanmodning</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;blockchain explorer</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Blockexplorer vindue</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Vis hjelpetekster fra GIANT kernen for at få en liste med mulige GIANT kommandolinie-startparametre</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT kerneklient</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s) to GIANT network</source>
+        <translation><numerusform>%n aktiv forbindelse(s) til GIANT netværk</numerusform><numerusform>%n aktiv forbindelse(s) til GIANT netværk</numerusform></translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Synkroniserer med netværket</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Importerer blokke fra disken</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Indekserer blokke på disken</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>Der er ingen blokkilde tilgængelig</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Opdateret!</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n timer</numerusform><numerusform>%n timer</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n dage</numerusform><numerusform>%n dage</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <so
