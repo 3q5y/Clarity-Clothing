@@ -769,4 +769,338 @@
         <translation><numerusform>%n dage</numerusform><numerusform>%n dage</numerusform></translation>
     </message>
     <message numerus="yes">
-        <so
+        <source>%n week(s)</source>
+        <translation><numerusform>%n uger</numerusform><numerusform>%n uger</numerusform></translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 og %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n år</numerusform><numerusform>%n år</numerusform></translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Samler op</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Den sidst modtagne blok  blev genereret %1 ago</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Transaktioner efter dette tidspunkt er endnu ikke synlige</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fejl!</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Advarsel!</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Info:</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Afsendt transaktion</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Indkommende transaktion</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Transaktion til flere adresser afsendt via "multisend" funktionen</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Dato: %1
+Beløb: %2
+Type: %3
+Adresse: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>"Indskydning af saldo" aktiveret
+"Multisend": %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktiv!</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>Ikke aktiv!</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>"Indskydning af saldo" ikke aktiveret
+"Multisend": %1</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint er i øjeblikket aktiveret og indstillet til</translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>AutoMint er deaktiveret</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Tegnebogen &lt;b&gt;er krypteret&lt;/b&gt;men i øjeblikket&lt;b&gt;låst op&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Tegnebogen er &lt;b&gt;krypteret og låst&lt;/b&gt;</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>Blockcain eksplorer</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Tilbage</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Frem</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>Adresse / Blok / Transaktion</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Søg</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Tekstmærke</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>Ikke alle transaktioner vil blive vist. For at vise alle transaktioner må De sætte "txindex=1" i konfigurationsfilen (giant.conf).</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>I alt: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Ukendt: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>Netværksalarm!</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Antal:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytes:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritet:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Gebyr:</translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>Møntvalg</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Affald:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Efterbetaling</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Penge tilbage:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>Vælg/fravælg alt</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>Skift låsestatus</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>Visning i træstruktur</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Visning som liste</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 låst)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Modtaget med tekstmærke</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Modtaget med adresse</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Bekræftelser</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bekræftet</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioritet</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopiér adresse</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopiér tekstmærke</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopiér beløb</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopiér transaktionsID</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Lås ubrugte</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Lås ubrugte op</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopiér antal</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopiér gebyr</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopiér efterbetaling</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopiér bytes</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopiér prioritet</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopiér affald</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopiér "penge tilbage"</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>Skift til "listeformat" for at benytte denne funktion</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>højeste</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>Højere</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>høj</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>middelhøj</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>Middel</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>middellav</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>lav</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>lavere</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>lavest</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 låst)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>ingen</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>ja</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translati
