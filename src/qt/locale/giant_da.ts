@@ -1353,4 +1353,270 @@ Adresse: %4
     </message>
     <message>
         <source>Alias</source>
-        <translation
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresse</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokol</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktiv!</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Sidst set (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Offentlig nøgle</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>S&amp;tart alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Start &amp;all</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Start &amp;MANGLER</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;opdateringsstatus</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Status opdateres automatisk om (sek):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Startalias</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Bekræft at masternoden skal startes</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Er De sikker på at De vil starte masternoden %1?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Bekræft at alle masternoder skal startes</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Er De sikker på at de vil starte ALLE masternoderne?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Denne kommando er ikke tilgængelig lige nu</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>De kan ikke bruge denne kommando før masternodelisten er synkroniseret</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Bekræft at manglende masternoder skal startes</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Er De sikker på at De vil starte alle de manglende masternoder?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>Multisend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Indtast hele tal 1-100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Forær % væk 1-100</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Indtast modtageradresse</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>Multisend tillader at De automatisk kan sende op til 100% af Deres belønninger fra såvel indskud som masternodebelønninger til en liste over andre GIANT adressater når den er tilstrækkelig stor. 
+For at tilføje: Indtast procentsatsen De ønsker at overføre samt den GIANT adresse som skal modtage via Multisendsystemet. 
+For at fjerne: Indtast adressen som skal slettes og klik på slet. 
+Multisend vil ikke fungere med mindre systemet er aktiveret.</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Tilføj multisendgrupp</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Tilføj</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Déaktiver Multisend</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Deaktiver</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Vælg en adresse fra adressebogen</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Send følgendepProcentsats af indskuddet</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Procentsats:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Den modtager adresse som skal modtage en del af indskuddet</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adresse</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>etiket</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Indtast et mærke til denne adresse for at tilføje den til adressebogen.</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Slet adresse fra Multisendgruppen</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Slet</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Aktiver Multisend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Aktiver</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Vis Multisendgruppe</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Vis Multisend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Send til indskud</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Send til Masternodebelønning</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(ingen opmærknig)</translation>
+    </message>
+    <message>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
+        <translation>Den totale sum af Deres Multisendgruppe er over 100% af Deres indskudsbelønning
+</translation>
+    </message>
+    <message>
+        <source>Saved the MultiSend to memory, but failed saving properties to the database.</source>
+        <translation>Gemt MultiSend til hukommelse, men fejlede gemme egenskaber til databasen.
+</translation>
+    </message>
+    <message>
+        <source>Removed %1</source>
+        <translation>Fjernet %1</translation>
+    </message>
+    <message>
+        <source>Could not locate address</source>
+        <translation>Kunne ikke finde adresse</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Indtast en procentsats 1-100 </translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Multisignatur adresseinteraktioner</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Create MultiSignature &amp;Address</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Hvor mange mennesker skal underskrive for at bekræfte en transaktion</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Indtast det mindste antal signaturer, der kræves for at underskrive transaktioner</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Adresselabel:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Tilføj en anden adresse, der kunne underskrive for at bekræfte en transaktion fra multisig-adressen.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp; Tilføj adresse / nøgle</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Lokale adresser eller offentlige nøgler, der kan underskrive:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Opret en ny multisig-adresse</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>C&amp;reate</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Status</translation>
