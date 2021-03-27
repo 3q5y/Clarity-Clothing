@@ -1103,4 +1103,254 @@ Adresse: %4
     </message>
     <message>
         <source>no</source>
-        <translati
+        <translation>nej</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>Denne tekstmarkør bliver rød, hvis transaktionens størrelse overstiger 1000 bytes.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Dette resulterer i et nødvendigt gebyr på mindst %1 pr. kB </translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Kan variere +/- 1 byte pr. input</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Transaktionerne med højere prioritet vil sandsynligvis blive inkluderet i en blok</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Denne tekstmrkør bliver rød, hvis prioriteten er mindre end middel.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Denne tekstmarkør bliver rød, hvis en modtageradresse modtager et beløb mindre end %1.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Kan variere +/- %1 ogic pr input.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(ingen opmærknig)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>tilbage fra %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(Retur)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Ret adresse</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;tekstmarkør</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Denne tekstmarkør e forbundet med denne adresse i listen.</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;adresse</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Adressen forbundet med denne adresse i listen kan kun rettes for afsenderadresser.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>Ny modtageradresse</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Ny afsenderadresse</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Ret modtageradresse</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Ret afsenderadresse</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>Den indtastede adresse %1 er ikke en gyldig GIANT adresse</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Den indtastede adresse %1 findes allerede i adressebogen.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Kunne ikke låse tegnebogen op.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Ny generering af nøgle fejlede.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>En ny mappe vil blive oprettet.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>navn</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Mappen eksisterer allerede. Tilføj%1 hvis De ønsker at oprette en ny mappe her.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Stien eksisterer allerede men er ikke en mappe</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Kan ikke oprette en mappe hr</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>version</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerne</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>om GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Kommandolinieparametre</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Anvendelse:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>kommandolinieparametre</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI valgmuligheder</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Vælg datamappe ved start (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Vis splashskærm ved opstart (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Vælg sprog. For eksempel "de_DE" (standard: Systemsprog)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Start minimeret.</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Indstil SSL rodcertifikater til betalingsanmodninger (standard -system-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Velkommen</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Velkommen til GIANT kerne</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>Da det er første gang programmet startes, kan De vælge hvor GIANT kernen skal lagre sine data</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT kernen vil nu hente og gemme en kopi af GIANT blockchain. Der skal være mindst %1GB ledigt på lagermediet, og behovet vil stige efterhånden som tiden går. Selve tegnebogen vil også blive gemt her.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Anvend standardmappen til data.</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Anvend en mappe valgt af brugeren</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Fejl! Mappen %1% kan ikke oprettes</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fejl!</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1GB fri dataplads tilgængelig</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(af %1 GB brugt)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTERNODES</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Note: Status over Deres masternoder i den lokale tegnebog kan være let afvigende. &lt;br/&gt;De bør altid vente på at tegnebogen for synkroniseret nye data, hvorefter De bør dobbeltkontrollere fra en anden node&lt;br/ hvis Deres node burde køre men stadig viser "mangler" i statusfeltet.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation
