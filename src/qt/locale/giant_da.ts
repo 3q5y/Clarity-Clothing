@@ -2085,4 +2085,231 @@ https://giantpay.network/translations</translation>
         <translation>Klienten lukkes ned. Vil De fortsætte</translation>
     </message>
     <message>
-        <sour
+        <source>This change would require a client restart.</source>
+        <translation>Denne ændring vil kræve en genstart af klienten</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>Den oplyste proxyadresse er ugyldig.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>Den medfølgende proxyport er ugyldig.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>De medfølgende proxyindstillinger er ugyldige.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Tilgængelig</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Deres nuværende og brugbare indestående.</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Samlet saldo, inklusive alle utilgængelige mønter.</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC Balance</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Afventer:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Alle transaktioner der mangler bekræftelse, og som fortsat ikke tæller med i den brugbare saldo.</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>ikke færdigbehandlet</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Indskyder- eller masternodebelønning er stadig under behandling</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Nuværende låst balance i kun-adresser</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Din nuværende GIANT-saldo, ubekræftede og umodne transaktioner inkluderet</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC-saldo</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>Ældre: mere end 20 bekræftelser og mere end 1 minutter med samme betegnelse, efter at den blev minted
+Disse zGIC kan bruges.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Ubekræftet: mindre end 20 bekræftelser
+Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at den blev mønnet</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>De viste informationer kan være uddaterede. Deres tegnebog synkronisere automatism med GIANT netværket så snart en forbindelse er etalbleret, men denne proces er ikke færdiggjort endnu. </translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>OVERSIGT</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Kombinerede saldi (inklusiv ubekræftede og umodne mønter)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Kombineret saldo</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Ubekræftede transaktioner til "vis kun" adresser</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Indskyder- eller masternodebelønning for "vis kun" adresser er stadig under behandling</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>I alt:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Aktuelle saldi for "vis kun" adresser</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Vis kun</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Deres aktuelle saldi for "vis kun" adresser</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Brugbare:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>Låste GIC eller Masternode collaterals. Disse er udelukket fra zGIC-mintning.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Låst:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Ubekræftet:</translation>
+    </message>
+    <message>
+        <source>Your current zGIC balance, unconfirmed and immature zGIC included.</source>
+        <translation>Din nuværende zGIC-saldo, ubekræftede og umodne zGIC inkluderet.</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Nylige transaktioner</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>Ude af synk</translation>
+    </message>
+    <message>
+        <source>Current percentage of zGIC.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>Nuværende procentdel af zGIC
+Hvis AutoMint er aktiveret, vil denne procentdel sætte sig omkring den konfigurerede AutoMint-procent (default = 10%)</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint er i øjeblikket aktiveret og indstillet til</translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>To disable AutoMint add 'enablezeromint=0' in giant.conf.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</source>
+        <translation>AutoMint er for øjeblikket deaktiveret
+For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' i giant.conf</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Fejl i betalingsanmodning</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URL handling</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>BetalingsanmodningsURL er ugyldig: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Filen med betalingsanmodningen behandles</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Ugyldig betalingsadresse: %1</translation>
+    </message>
+    <message>
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>Kan ikke starte GIANT "klik for at betale" systemet</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URl kan ikke fortolkes! Det kan skyldes en ugyldig adresse, eller forkerte URl parametre.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Betalingsanmodningsfil kan ikke læses! Det kan forårsages af en ugyldig fil. </translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Betalingsanmodning afvist</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Betalingsanmodningsnetværket passer ikke sammen med klientens netværk</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Betalingsanmodning er udløbet</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Betalingsanmodning blev ikke initialiseret</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Ikke verificerede betalingsanmodninger til brugerdefinerede betalingsscripts understøttes ikke.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Anmodningen om betaling af %1 er for lille. (Systemet vil behandle anmodningen som støj). </translation>
+    </message>
+    <message>
+        <source>Ref
