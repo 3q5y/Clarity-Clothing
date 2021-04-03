@@ -1620,3 +1620,244 @@ Multisend vil ikke fungere med mindre systemet er aktiveret.</translation>
     <message>
         <source>Status:</source>
         <translation>Status</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>Brug nedenfor for hurtigt at importere en adresse ved hjælp af indløsningen. Glem ikke at tilføje en etiket før du klikker på import!
+Husk, at tegnebogen omskriver blockchain for at finde transaktioner, der indeholder den nye adresse
+Vær tålmodig efter at du har klikket på import.</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp; Importindløsning</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp; Opret MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Inputs:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Møntkontrol</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Mængde valgt:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Tilføj et input for at finansiere udgangene</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Tilføj en rå indgang</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Adresse / Beløb:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Tilføj destinationer for at sende GIC til</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Tilføj og destination</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Opret en transaktionsobjekt ved hjælp af de givne indgange til de givne udgange</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Cr&amp;eate</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Tegn MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaktion Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Signer transaktionen fra denne tegnebog eller fra private knapper</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>S&amp;ign</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED indtil transaktionen er blevet undertegnet nok gange.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Co&amp;mmit</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Tilføj private nøgler for at underskrive transaktionen med</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Tilføj privat nøgle</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Log med kun private nøgler (ikke anbefalet)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Ugyldig Tx Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout position skal være positiv.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Maksimale mulige adresser nået. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout Position:</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Beløb:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maksimum (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Konfigurer tilslørin</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Grundlæggende tilsløret </translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Grundigt tilsløret</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Meget grundigt tilsløret</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Vælg tilsløringsniveau</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Brug 2 separate masternoder for at tilsløre beløb op til 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Brug 8 separate masternoder for at tilsløre op til 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Brug 16 separate masternoder</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>Dette valg er det hurtigste og vil koste i omegnen af 0.025 GIC for at anonymiser 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>Dette valg er relativt hurtigt og vil koste i omegnen af 0.05 GIC for at anonymiser 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Denne mulighed er den langsomste og det mest sikre valg. Valg af maksimal tilsløring vil koste</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>0.1 pr 10000 GIC for at tilsløre.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Tilsløringskonfiguration</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Tilsløring blev sat til grundlæggende (%1 og 2 gennemløb) De kan ændre dette hvornår De vil ved at åbne GIANT konfigurationsbillede.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Tilsløring blev sat til høj (%1 og 8 gennemløb) De kan ændre dette hvornår De vil ved at åbne GIANT konfigurationsbillede.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Tilsløring blev sat til maksimum (%1 og 16 gennemløb) De kan ændre dette hvornår De vil ved at åbne GIANT konfigurationsbillede.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Åbn URl</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Åbn betalingsforespørgsel fra URl eller fil</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URl:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Vælg fil med betalingsforespørgsel</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Vælg hvilken betalingsforespørgsel der skal åbnes</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Muligheder</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;hoved</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Størrelse på &amp;databasecache</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>antal af script &amp;verifikationstråde</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0=auto, &gt;0 efterlad så mange tråde fri)</t
