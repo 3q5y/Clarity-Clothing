@@ -1860,4 +1860,229 @@ Vær tålmodig efter at du har klikket på import.</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0=auto, &gt;0 efterlad så mange tråde fri)</t
+        <translation>(0=auto, &gt;0 efterlad så mange tråde fri)</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>T&amp;egnebog</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>Hvis De slår "brug af ubekræftede penge tilbage" vil penge tilbage &lt;br/&gt; ikke kunne benyttes før transaktionen er bekræftet mindst en gang. &lt;br/&gt;Dette har også indflydelse på opgørelsen af saldoen.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åbn GIANT klientporten på ruteren automatisk. Virker kun hvis UPnP er slået til i ruteren. </translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Accepter forbindelser udefra</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Tillad indkomne forbindelser</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;forbind gennem SOCJS5 proxy (standardproxy):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Ekspert</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>Start GIANT automatisk, når der logges på systemet</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;start GIANT når der logges på systemet</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Vis eller skjul møntkontrolfeatures</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Aktiver mønt &amp;kontrolfeatures</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Vis en liste over alle Deres masternoder i første underfane &lt;br/&gt; og vis en liste over  alle masternoder på netværket i anden underfane</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Vis fane med masternoder</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;brug ikke bekræftede "penge tilbage"</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;netværk</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>Vælg sprog her. Ændringerne træder i kraft næste gang GIANT klienten startes</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Det valgte sprog mangler, eller oversættelsen er mangelfuld. Hjælp ved at bidrage med oversættelser her:
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>MAP port ved hjælp af UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>Aktivér automatisk mintning af GIC-enheder til zGIC</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>Aktivér zGIC Automint</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procentdelen af indkommende GIC, som automatisk konverteres til zGIC via Zerocoin Protocol (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>Procentdel af automatiseret zGIC</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</source>
+        <translation>Vent med automatisk konvertering til Zerocoin, indtil nok GIC til denne betegnelse er tilgængelig</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>Foretrukket Automint zGIC Denomination</translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Indtastningsgrænse for indsats:</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Tilslut GIANT netværket gennem en SOCKS5 PROXY</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP adresse til proxyserveren (For eksempel IPV4: 127.0.0.1/IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;port</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Proxyport (f.eks 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;vindue</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Vis kun ikonet efter minimering af vinduet</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp;Minimer til bakken i stedet for til proceslinien</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Minimer i stedet for at afslutte applikationen når vinduet lukkes. Når dette er valgt er det kun muligt at lukke ned via filmenuen og afslut</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>M&amp;inimer og luk</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Vis</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>Brugerinterface &amp;sprog:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Brugers tema:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Enhed som beløb vises i</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>Vælg standard inddelingsenhed der vises når der afsendes mønter</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Decimaler</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Skjul tomme saldi</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Tredjeparts URLs (F.eks. en block eksplorer) som fremkommer i transaktionsvisningen som kontekstmenuer. %s i URL bliver erstattet af transaktionens hashværdi. Flere URL separeres med vertikabar I.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Tredjepartis transaktions URLs</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Aktive kommandolinieparametre der trumfer ovenstående muligheder.</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Nulstil alle klientoptioner til standard</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;nulstil optioner</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;Ok</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Annuller</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>Nogen</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>standard</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>ingen</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Bekræft nulstilling af optioner</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Klienten skal genstartes for at aktivere ændringerne.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Klienten lukkes ned. Vil De fortsætte</translation>
+    </message>
+    <message>
+        <sour
