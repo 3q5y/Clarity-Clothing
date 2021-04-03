@@ -2312,4 +2312,261 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>Anmodningen om betaling af %1 er for lille. (Systemet vil behandle anmodningen som støj). </translation>
     </message>
     <message>
-        <source>Ref
+        <source>Refund from %1</source>
+        <translation>Tilbagebetaling fra %1</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Betalingsanmodning %1 er for stor (%2 bytes, højeste tilladte er %3 bytes)</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Beskyttelse af Betalingsanmodning mod DoS</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Fejl i kommunikationen med %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Betalingsanmodning kan ikke fortolkes</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Svaret fra server %1 kan ikke bruges</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Netværksfejl!</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Betaling modtaget og accepteret</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Adresse/Hostnavn</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>PingtidPingtid</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Zerocoin Aktioner:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>De viste informationer kan være uddaterede. Deres tegnebog synkronisere automatism med GIANT netværket så snart en forbindelse er etalbleret, men denne proces er ikke færdiggjort endnu. </translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Mint Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>Til rådighed for mintning er mønter, som er bekræftet og ikke låst eller Masternode collaterals.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Til rådighed til Minting:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>Nulstil Zerocoin Wallet DB. Sletter transaktioner, der ikke gjorde det i blokkæden.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Nulstil</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>Møntkontrol...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Antal:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>Omskrive den komplette blokchain for Zerocoin-minter og deres metadata.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>ReScan</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>Status og / eller Beskeder fra sidste minuts handling.</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>PRIVATLIV</translation>
+    </message>
+    <message>
+        <source>Enter an amount of GIC to convert to zGIC</source>
+        <translation>Indtast en mængde GIC for at konvertere til zGIC</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC Control</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>zGIC Selected:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Mængde valgt:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>Tilbring Zerocoin. Uden 'Betal til:' adresse skaber betalinger til dig selv.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Tilbring Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending</source>
+        <translation>Tilgængelig (moden og brugt) zGIC for udgifter</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Disponibel saldo:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Tilgængelig (moden og brugt) zGIC for spending
+
+zGIC er modne, når de har mere end 20 bekræftelser OG mere end 2 minutter med samme betegnelse, efter at de blev præsenteret</translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Betal &amp;Til</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>GIANT-adressen for at sende betalingen til. Opretter lokal betaling til dig selv, når du er tom.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Benyt en tidligere anvendt adresse.</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Indsæt adresse fra udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Mærkning</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Indtast et mærke til denne adresse for at tilføje den til listen over brugte adresser</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>A&amp;mount</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>Konverter Skift til Zerocoin (kan koste ekstra gebyrer)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>Hvis det er markeret, forsøger tegnebogen at minimere den tilbagevendende ændring i stedet for at minimere antallet af brugte betegnelser.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Minimer ændring</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>Oplysninger om de tilgængelige Zerocoin-midler.</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Zerocoin Stats:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zGIC</source>
+        <translation>Samlet saldo inklusive ubekræftede og umodne zGIC</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Samlet Zerocoin Balance:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>Betegnelser med værdi 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>DENOM. med værdi 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Ubekræftet: mindre end 20 bekræftelser
+Uplettet: bekræftet, men mindre end 1 minutter med samme betegnelse, efter at den blev mønnet</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zGIC minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to giant.conf
+- disable: add 'enablezeromint=0' to giant.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zGIC
+
+</source>
+        <translation>Vis den aktuelle status for automatisk zGIC minting.øj
+
+For at ændre status (genstart kræves):.
+- aktiver: tilføj 'enablezeromint = 1' til giant.conf
+- deaktiver: tilføj 'enablezeromint = 0' til giant.conf
+
+For at ændre procentdelen (ingen genstart kræves):.
+- me
