@@ -3176,4 +3176,273 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Forbudte jævnaldrende</translation>
     </message>
     <message>
-        <source>Select a peer to view detailed information.</so
+        <source>Select a peer to view detailed information.</source>
+        <translation>Vælg en peer for at få vist deltaljerede informationer</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>whitelisten</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Retning </translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokol</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Tjenester</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Forbyd Score</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Forbindelsesti</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Seneste sendte </translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Senest modtagne</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Bytes sendt</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Bytes modtaget</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>PingtidPingtid</translation>
+    </message>
+    <message>
+        <source>&amp;Wallet Repair</source>
+        <translation>&amp;Tegnebog Reparer</translation>
+    </message>
+    <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Slet lokale blokchainmapper</translation>
+    </message>
+    <message>
+        <source>Wallet In Use:</source>
+        <translation>Tegnebog i brug</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>Startblok</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>Synkroniserede overskrifter</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>Synced Blocks</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>Varigheden af en aktuelt fremragende ping.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>Ping Vent</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>Tidsforskydning</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>Brugerdefineret Backup-sti:</translation>
+    </message>
+    <message>
+        <source>Custom zGIC Backup Path:</source>
+        <translation>Brugerdefineret zGIC Backup-sti:</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>Brugerdefineret sikkerhedskopieringstærskel:</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Opsumer tegnebog</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Forsøg at genskabe de private nøgler fra en beskadiget wallet.dat fil</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files</source>
+        <translation>Gennemsøg blokkædens filer</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions.</source>
+        <translation>Genskan blokkæden for manglende transaktioner i tegnebogen</translation>
+    </message>
+    <message>
+        <source>Recover transactions 1</source>
+        <translation>Genskab transaktioner 1</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
+        <translation>Genskab transaktioner fra blokkæden (behold meta-data såsom kontohaver).</translation>
+    </message>
+    <message>
+        <source>Recover transactions 2</source>
+        <translation>Genskab transaktioner 2</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>Genskab transaktioner fra blokkæden (skip metadata).</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet format</source>
+        <translation>Opdater formatet for tegnebogen</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files.</source>
+        <translation>Genopbyg blokkædens indeks fra de aktuelle blk000??.dat filer</translation>
+    </message>
+    <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Sletter alle lokale blockchain-mapper, så tegnebogen synkroniseres fra bunden.</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
+        <translation>Nedenstående knapper vil genstarte tegnebogen med kommandolinieparametre fr at reparere den, korrigere fejl og mangler i block-chain filerne, herunder også undersøge for manglende eller fejlagtige transaktioner</translation>
+    </message>
+    <message>
+        <source>Wallet repair options.</source>
+        <translation>Reparation af tegnebog - valgmuligheder</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
+        <translation>Opdater tegnebogen til det seneste format ved opstart. (Note: Dette er IKKE en opdatering af tegnebogen i sig selv!)</translation>
+    </message>
+    <message>
+        <source>Rebuild index</source>
+        <translation>Genopbyg index</translation>
+    </message>
+    <message>
+        <source>In:</source>
+        <translation>Ind:</translation>
+    </message>
+    <message>
+        <source>Out:</source>
+        <translation>Ud:</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>Velkommen til GIANT RPC konsollet</translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp; Afbryd knudepunkt</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>Ban Node for</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;hour</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;day</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 &amp;week</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 &amp;year</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp; Unban Node</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Dette vil slette dine lokale blockchain-mapper, og tegnebogen vil synkronisere den komplette blokke fra bunden.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Dette har brug for en del tid og overfører mange data.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Dine transaktioner og penge vil blive synlige igen, når downloadet er gennemført.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>Vil du fortsætte?.&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>Bekræft resync Blockchain</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Tast &lt;b&gt;help&gt; for at få en oversigt over tilgængelige kommandoer</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation>%1 B</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 KB</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 MB</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
+    </message>
+    <message>
+        <source>(node id: %1)</source>
+        <translation>(node id: %1)</translation>
+    </message>
+    <message>
+        <source>via %1</source>
+        <translation>Via %1</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>Aldrig</translation>
+    </message>
+    <message>
+        <source>Inbound</source>
+        <translation>Indgående</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Udgående</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Ja</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Ingen</translat
