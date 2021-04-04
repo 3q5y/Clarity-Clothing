@@ -2854,4 +2854,326 @@ Maksimum tilladt:</translation>
     </message>
     <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
-        <translation>Fejl: Din tegnebog er låst. Indtast venligst lomme
+        <translation>Fejl: Din tegnebog er låst. Indtast venligst lommebrevets kodeord først.</translation>
+    </message>
+    <message>
+        <source>Message: Enter an amount &gt; 0.</source>
+        <translation>Meddelelse: Indtast et beløb&gt; 0.</translation>
+    </message>
+    <message>
+        <source>Minting </source>
+        <translation>Minting</translation>
+    </message>
+    <message>
+        <source>Successfully minted </source>
+        <translation>Mynt succesfuldt</translation>
+    </message>
+    <message>
+        <source> zGIC in </source>
+        <translation> zGIC i</translation>
+    </message>
+    <message>
+        <source> sec. Used denominations:
+</source>
+        <translation>sek. Brugte betegnelser:.
+</translation>
+    </message>
+    <message>
+        <source>Duration: </source>
+        <translation>Varighed:</translation>
+    </message>
+    <message>
+        <source> sec.
+</source>
+        <translation> sec.
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetSpentZerocoin: </source>
+        <translation>Starter ResetSpentZerocoin:</translation>
+    </message>
+    <message>
+        <source>No 'Pay To' address provided, creating local payment</source>
+        <translation>Ingen 'Betal til' adresse, der er oprettet, skaber lokal betaling</translation>
+    </message>
+    <message>
+        <source>Invalid GIANT Address</source>
+        <translation> Ugyldig GIANT adresse</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>Ugyldig Send beløb</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Bekræft yderligere gebyrer</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Er De sikker på at De vil sende? &lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>at adressere</translation>
+    </message>
+    <message>
+        <source> to a newly generated (unused and therefore anonymous) local address &lt;br /&gt;</source>
+        <translation>til en nyligt genereret (ubrugt og derfor anonym) lokal adresse &lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Bekræft at De vil sende mønter</translation>
+    </message>
+    <message>
+        <source>Failed to fetch mint associated with serial hash</source>
+        <translation>Kunne ikke hente mynte i forbindelse med seriel hash</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>For mange input (</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>
+Enten mint højere nomineringer (så færre input er nødvendige) eller reducere det beløb, der skal bruges.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin failed with status = </source>
+        <translation>Brug Zerocoin mislykkedes med status =</translation>
+    </message>
+    <message numerus="yes">
+        <source>PrivacyDialog</source>
+        <comment>Enter an amount of GIC to convert to zGIC</comment>
+        <translation><numerusform>PrivacyDialog</numerusform><numerusform>PrivacyDialog</numerusform></translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>pålydende:</translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>seriel:</translation>
+    </message>
+    <message>
+        <source>Spend is 1 of : </source>
+        <translation>Tilbring er 1 af:</translation>
+    </message>
+    <message>
+        <source>value out: </source>
+        <translation>værdi ud:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>adresse:</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>Afsendelse af succes, returkode:</translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>txid: </translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>Gebyr:</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT address (e.g. %1)</source>
+        <translation>Indtast en GIANT adresse (F.eks. %1)</translation>
+    </message>
+    <message>
+        <source>%1 d</source>
+        <translation>%1 d</translation>
+    </message>
+    <message>
+        <source>%1 h</source>
+        <translation>%1 h</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>NETVÆRK</translation>
+    </message>
+    <message>
+        <source>BLOOM</source>
+        <translation>BLOOM</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>UENDT</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ingen</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerne</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Gem billede</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Kopier billede</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Gem QR kode</translation>
+    </message>
+    <message>
+        <source>PNG Image (*.png)</source>
+        <translation>PNG billede (*.png)</translation>
+    </message>
+</context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>Tools window</source>
+        <translation>Værktøjskasse</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;information</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Generelt</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Navn</translation>
+    </message>
+    <message>
+        <source>Client name</source>
+        <translation>Klientnavn</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
+    </message>
+    <message>
+        <source>Number of connections</source>
+        <translation>Antal forbindelser</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Åben</translation>
+    </message>
+    <message>
+        <source>Startup time</source>
+        <translation>Opstartstid</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Netværk</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Seneste bloktid</translation>
+    </message>
+    <message>
+        <source>Debug log file</source>
+        <translation>Debug logfil</translation>
+    </message>
+    <message>
+        <source>Using OpenSSL version</source>
+        <translation>Anvender OpenSSL version</translation>
+    </message>
+    <message>
+        <source>Build date</source>
+        <translation>Versionsdato</translation>
+    </message>
+    <message>
+        <source>Current number of blocks</source>
+        <translation>Aktuelt blokantal</translation>
+    </message>
+    <message>
+        <source>Client version</source>
+        <translation>Klientversion</translation>
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Anvender BerkeleyDB version</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>Block chain</translation>
+    </message>
+    <message>
+        <source>Open the GIANT debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Åbn GIANT debug logfilen fra den aktuelle datamappe. Det kan godt tage lidt tid hvis filen er meget stor.</translation>
+    </message>
+    <message>
+        <source>Number of Masternodes</source>
+        <translation>Antal masternoder</translation>
+    </message>
+    <message>
+        <source>&amp;Console</source>
+        <translation>&amp;konsol</translation>
+    </message>
+    <message>
+        <source>Clear console</source>
+        <translation>Clear konsollet</translation>
+    </message>
+    <message>
+        <source>&amp;Network Traffic</source>
+        <translation>&amp;Netværkstrafik</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;clear</translation>
+    </message>
+    <message>
+        <source>Totals</source>
+        <translation>Totaler</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Modtaget</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Sendt</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Peers</translation>
+    </message>
+    <message>
+        <source>Banned peers</source>
+        <translation>Forbudte jævnaldrende</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</so
