@@ -3728,4 +3728,225 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Transaktionsgebyr:</translation>
     </message>
     <message>
-        <source>Choose
+        <source>Choose...</source>
+        <translation>Vælg</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>luk gebyropsætning</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimer</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>pr. kilobyte</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>Mindste total</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(læs tippet for anvendelse af værktøj)</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Brugertilpasset</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Smartgebyr endnu ikke initialiseret. Det tager som regel nogle få blokke...)</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Bekræftelsestid</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Åben møntkontrol ...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Mønter vælges automatisk</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uGICs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uGIC i gebyr, &lt;br /&gt; mens "mindst" udbetaler 1000 uGICs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "total at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uGICs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uGIC i gebyr, &lt;br /&gt; mens "Total-mindst" udbetaler 1000 uGICs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
+        <translation>Betaling af mindste transaktionsgebyr vil være fint så længe der er færre transaktioner end der er plads til i blokkene. &lt;br /&gt; Men opmærksomheden henledes på, at det kan resultere i en transaktion der aldrig bliver bekræftet i det øjeblik der er større behov for transaktioner end netværket har plads til. </translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>Hurtig</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Anbefalet</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>send som nul-gebyrstransaktion hvis muligt</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(bekræftelse kan tage længere tid)</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>Bekræft  og send</translation>
+    </message>
+    <message>
+        <source>S&amp;end</source>
+        <translation>S&amp;end</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Tøm alle felter i formularen</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Nulstil alt</translation>
+    </message>
+    <message>
+        <source>Send to multiple recipients at once</source>
+        <translation>Send til flere modtagere på én gang</translation>
+    </message>
+    <message>
+        <source>Add &amp;Recipient</source>
+        <translation>Tilføj &amp;Modtager</translation>
+    </message>
+    <message>
+        <source>Anonymized GIC</source>
+        <translation>Tilsløret GIC</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Saldo</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopiér antal</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopiér beløb</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopiér gebyr</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopiér efterbetaling</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopiér bytes</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopiér prioritet</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopiér affald</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopiér "penge tilbage"</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work when sending to outside addresses. Try again.</source>
+        <translation>Split blok værktøjet virker ikke når der sendes til eksterne adresser. Prøv igen</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work with multiple addresses. Try again.</source>
+        <translation>Split blok værktøjet virker ikke med flere adresser. Prøv igen</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid GIANT address</source>
+        <translation>Advarsel! Ugyldig GIANT adresse</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 til %2</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Er De sikker på at De vil sende?</translation>
+    </message>
+    <message>
+        <source>are added as transaction fee</source>
+        <translation>er tilføjet som transaktionsgebyr</translation>
+    </message>
+    <message>
+        <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
+        <translation>Total saldo = &lt;b&gt; %1 &lt;/b&gt; &lt;br /&gt; = %2 </translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Bekræft at De vil sende mønter</translation>
+    </message>
+    <message>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>Et gebyr %1 gange højere end %2 pr. kilobyte er vanvittigt højt.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>Forventer bekræftelse indenfor %n blokke</numerusform><numerusform>Forventer bekræftelse indenfor %n blokke</numerusform></translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation>Modtageradressen er ikke gyldig. Kontroller igen</translation>
+    </message>
+    <message>
+        <source>using SwiftX</source>
+        <translation>ved hjælp af SwiftX</translation>
+    </message>
+    <message>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation>Split i %1 outputs ved hjælp af UTXO splitteren.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(%1 af %2 poster vist)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>Beløbet skal være større end 0</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>Beløbet overstiger saldoen</translation>
+    </message>
+    <message>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>Totalbeløbet overstiger saldoen når transaktionsgebyret %1 medregnes</translation>
+    </message>
+    <message>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Den samme adresse er anvendt flere gange. Der kan kun sendes til den samme adresse en gang pr. afsendelse</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>Oprettelse af transaktionen mislykkedes</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af mønterne i tegnebogen allerede er brugt. For eksempel hvis De har brugt en kopi af Wallet.dat filen, og mønterne har været brugt, men ik
