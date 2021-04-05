@@ -3949,4 +3949,233 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af mønterne i tegnebogen allerede er brugt. For eksempel hvis De har brugt en kopi af Wallet.dat filen, og mønterne har været brugt, men ik
+        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af mønterne i tegnebogen allerede er brugt. For eksempel hvis De har brugt en kopi af Wallet.dat filen, og mønterne har været brugt, men ikke markerede som brugte i den. </translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Fejl! Tegnebogen blev kun låst op for at anonymisere mønterne. </translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>Fejl: Tegnebogen blev låst op for at anonymisere mønter. Lås op afbrudt.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Betal kun minimums transaktionsgebyret på %1</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>Advarsel! Ukendt returadresse</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(ingen opmærknig)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>Dette er en almindelig betaling</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Betal &amp;Til</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>GIANT adressen, som betalingen skal sendes til</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Benyt en tidligere anvendt adresse.</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Indsæt adresse fra udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Remove this entry</source>
+        <translation>Fjern denne postering</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Mærkning</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Indtast et mærke til denne adresse for at tilføje den til listen over brugte adresser</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>A&amp;mount</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Besked</translation>
+    </message>
+    <message>
+        <source>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</source>
+        <translation>En besked, der var vedhæftet til GIANT: URl wil blive gemt sammen med transaktionen som reference. Note: Beskeden bliver medsendt transaktionen over netværket.</translation>
+    </message>
+    <message>
+        <source>This is an unverified payment request.</source>
+        <translation>Denne betalingsanmodning er ikke verificeret</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>Betal til:</translation>
+    </message>
+    <message>
+        <source>Memo:</source>
+        <translation>Memo:</translation>
+    </message>
+    <message>
+        <source>This is a verified payment request.</source>
+        <translation>Denne betalingsanmodning er verificeret</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Indtast et mærke til denne adresse for at tilføje den til adressebogen.</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>GIANT Core is shutting down...</source>
+        <translation>GIANT kernen lukker ned</translation>
+    </message>
+    <message>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>Undlad at logge af, eller slukke for computeren før dette vindue er forsvundet.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>Underskrifter - Underskriv / verificer en besked</translation>
+    </message>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;Underskriv besked</translation>
+    </message>
+    <message>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>De kan underskrive beskeder med Deres adresser or at bevise ejerskab. Vær forsigtig med at underskrive noget De er usikker på såsom forsøg op at narre Dem til at oplyse Deres identitet. Skriv kun under på noget De kan stå inde for, og som De er enig i. </translation>
+    </message>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>Den GIANT adresse, der skal bruges til at underskrive beskeden med.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Benyt en tidligere anvendt adresse.</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Indsæt adresse fra udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Enter the message you want to sign here</source>
+        <translation>Skriv den besked De ønsker at underskrive her.</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Underskrift</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Kopier den aktuelle underskrift til udklipsholderen.</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>Underskriv beskeden for at bevise, at De ejer denne GIANT adresse.</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>Beskeden er underskrevet med denne GIANT adresse</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>verificer beskeden for at sikre, at den blev underskrevet med den rigtige GIANT adresse.</translation>
+    </message>
+    <message>
+        <source>Sign &amp;Message</source>
+        <translation>Underskriv &amp;Besked</translation>
+    </message>
+    <message>
+        <source>Reset all sign message fields</source>
+        <translation>Nulstil alle underskriftsfelter</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Nulstil alt</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>&amp;verificer besked</translation>
+    </message>
+    <message>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Skriv den adresse der skal bruges til at underskrive med. (Vær sikker på at få det hele med, herunder alle linjerne, mellemrum, tabuleringer o.l. præcist) og signer nedenfor for at verificere beskeden. Vær forsigtig med ikke at læse mere ind i underskriften end den underskrevne besked for at undgå snyd fra et "man-in-the-middle" angreb.</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>Verificer &amp;Beske</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fields</source>
+        <translation>Nulstil alle verificeringsfelter for beskeder.</translation>
+    </message>
+    <message>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Klik "Underskriv besked" for at generere en underskrift</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Den indtastede adresse er ugyldig</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Kontroller adressen og prøv igen.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Den indtastede adresse har ikke nogen tilknyttet nøgle.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Oplåsning af tegnebogen mislykkedes</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Den private nøgler der hører til den indtastede adresse er ikke tilgængelig.</translation>
+    </message>
+    <message>
+        <source>Message signing failed.</source>
+        <translation>Beskeden kunne ikke underskrives</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>Beskeden er underskrevet</translation>
+    </message>
+    <message>
+        <source>The signature could not be decoded.</source>
+        <translation>
