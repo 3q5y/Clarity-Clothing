@@ -4178,4 +4178,291 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>The signature could not be decoded.</source>
-        <translation>
+        <translation>Signaturen kunne ikke afkodes</translation>
+    </message>
+    <message>
+        <source>Please check the signature and try again.</source>
+        <translation>Kontroller signaturen og prøv igen</translation>
+    </message>
+    <message>
+        <source>The signature did not match the message digest.</source>
+        <translation>Signaturen passer ikke sammen med beskeden</translation>
+    </message>
+    <message>
+        <source>Message verification failed.</source>
+        <translation>Verificering af beskeden mislykkedes.</translation>
+    </message>
+    <message>
+        <source>Message verified.</source>
+        <translation>Beskeden er verificeret.</translation>
+    </message>
+</context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerne</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>Bitcoin "core" udviklerne</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>DASH "core" udviklerne</translation>
+    </message>
+    <message>
+        <source>The GIANT Core developers</source>
+        <translation>GIANT "core" udviklerne</translation>
+    </message>
+    <message>
+        <source>[testnet]</source>
+        <translation>[Testnet]</translation>
+    </message>
+</context>
+<context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <source>KB/s</source>
+        <translation>KB/s</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDesc</name>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Åbn for %n blokke</numerusform><numerusform>Åbn for %n blokke</numerusform></translation>
+    </message>
+    <message>
+        <source>Open until %1</source>
+        <translation>Åbn frem til %1</translation>
+    </message>
+    <message>
+        <source>conflicted</source>
+        <translation>Konflikt!</translation>
+    </message>
+    <message>
+        <source>%1/offline</source>
+        <translation>%1/ofline</translation>
+    </message>
+    <message>
+        <source>%1/unconfirmed</source>
+        <translation>%1/ej bekræftet</translation>
+    </message>
+    <message>
+        <source>%1 confirmations</source>
+        <translation>%1/bekræftelser</translation>
+    </message>
+    <message>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1/offline (verified via svifttx)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1/bekræftet (verified via svifttx)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1/bekræftelser (verified via svifttx)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/offline (SwifTX verificering i gang - %2 af %3 signaturer)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation>%1/bekræftet(SwifTX verificering i gang - %2 af %3 signaturer)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/bekræftelser (SwifTX verificering i gang - %2 af %3 signaturer)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation>%1/offline (SwifTX verificering mislykkedes)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation>%1/bekræftet (SwifTX verificering mislykkedes)</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>, has not been successfully broadcast yet</source>
+        <translation>, er ikke udsendt endnu</translation>
+    </message>
+    <message numerus="yes">
+        <source>, broadcast through %n node(s)</source>
+        <translation><numerusform>, sendt gennem %n noder</numerusform><numerusform>, sendt gennem %n noder</numerusform></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation>Kilde</translation>
+    </message>
+    <message>
+        <source>Generated</source>
+        <translation>Genereret</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Fra</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>Ukendt</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Til</translation>
+    </message>
+    <message>
+        <source>own address</source>
+        <translation>Egen adresse</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>Vis-kun</translation>
+    </message>
+    <message>
+        <source>label</source>
+        <translation>Mærke</translation>
+    </message>
+    <message>
+        <source>Credit</source>
+        <translation>Kredit</translation>
+    </message>
+    <message numerus="yes">
+        <source>matures in %n more block(s)</source>
+        <translation><numerusform>Modnes efter %n blokke</numerusform><numerusform>Modnes efter %n blokke</numerusform></translation>
+    </message>
+    <message>
+        <source>not accepted</source>
+        <translation>Afvist!</translation>
+    </message>
+    <message>
+        <source>Debit</source>
+        <translation>Debet</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Total debet</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Total kredit</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Transaktionsgebyr</translation>
+    </message>
+    <message>
+        <source>Net amount</source>
+        <translation>Nettobeløb</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Besked</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>Kommentar</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>Transaktions ID</translation>
+    </message>
+    <message>
+        <source>Output index</source>
+        <translation>Output indeks</translation>
+    </message>
+    <message>
+        <source>Merchant</source>
+        <translation>Forhandler</translation>
+    </message>
+    <message>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Genererede mønter skal modnes i %1 blokke førend de kan anvendes. Da denne blok blev genereret, blev den udsendt til netværket for at blive tilføjet til blokkæden. Hvis det skulle mislykkes, vil status skifte til "afvist!" og den vil derefter ikke være brugbar. Dette sker ind i mellem, når en anden node genererer en blok nærligt samtidigt.</translation>
+    </message>
+    <message>
+        <source>Debug information</source>
+        <translation>Debug information</translation>
+    </message>
+    <message>
+        <source>Transaction</source>
+        <translation>transaktion</translation>
+    </message>
+    <message>
+        <source>Inputs</source>
+        <translation>inputs</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Beløb</translation>
+    </message>
+    <message>
+        <source>true</source>
+        <translation>Sand</translation>
+    </message>
+    <message>
+        <source>false</source>
+        <translation>Falsk</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDescDialog</name>
+    <message>
+        <source>Transaction details</source>
+        <translation>Detaljer om transaktionen</translation>
+    </message>
+    <message>
+        <source>This pane shows a detailed description of the transaction</source>
+        <translation>Denne tavle viser en detaljeret beskrivelse af transaktionen</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresse</translation>
+    </message>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Åbn for %n blokke</numerusform><numerusform>Åbn for %n blokke</numerusform></translation>
+    </message>
+    <message>
+        <source>Open until %1</source>
+        <translation>Åbn frem til %1</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Offline</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Ubekræftet</translation>
+    </message>
+    <message>
+        <source>Confirming (%1 of %2 recommended confirmations)</source>
+        <translation>Bekræfter (%1 af %2 bekræftelser anbefalet)</translation>
+    </message>
+    <message>
+        <source>Confirmed (%1 confirmations)</source>
+        <translation>Bekræftet (%1 bekræftelser)</t
