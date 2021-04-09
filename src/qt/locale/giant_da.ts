@@ -4465,4 +4465,303 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>Confirmed (%1 confirmations)</source>
-        <translation>Bekræftet (%1 bekræftelser)</t
+        <translation>Bekræftet (%1 bekræftelser)</translation>
+    </message>
+    <message>
+        <source>Conflicted</source>
+        <translation>I konflikt</translation>
+    </message>
+    <message>
+        <source>Immature (%1 confirmations, will be available after %2)</source>
+        <translation>Umoden (%1 bekræftelser. Vil være tilgængelig efter %2)</translation>
+    </message>
+    <message>
+        <source>This block was not received by any other nodes and will probably not be accepted!</source>
+        <translation>Denne blok var ikke modtaget af andre noder og vil sandsynligvis ikke blive godkendt.</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Modtaget med</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>Masternodebelønning</translation>
+    </message>
+    <message>
+        <source>Received from</source>
+        <translation>Modtaget fra</translation>
+    </message>
+    <message>
+        <source>Received via Obfuscation</source>
+        <translation>Modtaget via tilsløring</translation>
+    </message>
+    <message>
+        <source>GIC Stake</source>
+        <translation>GIC Stake</translation>
+    </message>
+    <message>
+        <source>zGIC Stake</source>
+        <translation>zGIC Stake</translation>
+    </message>
+    <message>
+        <source>Obfuscation Denominate</source>
+        <translation>Tilslør designerede</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>Samlet tilsløret betaling</translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>Tilslørede samlede tilføjelser</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>Opret tilsløret designering</translation>
+    </message>
+    <message>
+        <source>Converted GIC to zGIC</source>
+        <translation>Konverteret GIC til zGIC</translation>
+    </message>
+    <message>
+        <source>Spent zGIC</source>
+        <translation>Brugt zGIC</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Modtaget GIC fra zGIC</translation>
+    </message>
+    <message>
+        <source>Minted Change as zGIC from zGIC Spend</source>
+        <translation>Minted Change som zGIC fra zGIC Spend</translation>
+    </message>
+    <message>
+        <source>Converted zGIC to GIC</source>
+        <translation>Konverteret GIC til zGIC</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Transaction)</source>
+        <translation>Anonym (zGIC Transaction)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Stake)</source>
+        <translation>Anonym (zGIC Stake)</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendt til</translation>
+    </message>
+    <message>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>Orphan blok - genereret, men ikke godkent. Dette har ikke indflydelse på saldoen</translation>
+    </message>
+    <message>
+        <source>Payment to yourself</source>
+        <translation>Betaling til Dem selv</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Mineret</translation>
+    </message>
+    <message>
+        <source>Obfuscated</source>
+        <translation>skjult</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>Vis-kun</translation>
+    </message>
+    <message>
+        <source>(n/a)</source>
+        <translation>(n/a)</translation>
+    </message>
+    <message>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>Tansaktionsstatus. Før musen hen over dette felt for at få vist antallet af bekræftelser</translation>
+    </message>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Dato og tid da transaktionen blev modtaget</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Transaktionstype</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Om der er en vis-kun adresse indeholdt i dennne transaktion eller ej.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>Destinationsadresse for denne transaktion</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Beløb fjernet eller tilføjet til saldoen</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Alt</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>I dag</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Denne uge</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Denne måned</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Sidste måned</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Dette år </translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Område</translation>
+    </message>
+    <message>
+        <source>Most Common</source>
+        <translation>Mest almindelige</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Modtaget med</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendt til</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>Til Dem selv</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Mineret</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>Mintet</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>Masternodebelønning</translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>Zerocoin Mint</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>Zerocoin Tilbring</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>Zerocoin bruger sig selv</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Anden</translation>
+    </message>
+    <message>
+        <source>Enter address or label to search</source>
+        <translation>Indtast adresse eller mærk for at søge</translation>
+    </message>
+    <message>
+        <source>Min amount</source>
+        <translation>minimumsbeløb</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopiér adresse</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopiér tekstmærke</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopiér beløb</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopiér transaktionsID</translation>
+    </message>
+    <message>
+        <source>Edit label</source>
+        <translation>Ret mærke</translation>
+    </message>
+    <message>
+        <source>Show transaction details</source>
+        <translation>Vis transaktionsdetaljer</translation>
+    </message>
+    <message>
+        <source>Export Transaction History</source>
+        <translation>Eksporter transaktionshistorik</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Kommasepareret fil (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bekræftet</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>Vis-kun</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Mærke</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresse</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Eksporten fejlede</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the transaction history to %1.</source>
+        <translation>Der opstod en fejl under forsøget på at gemme transaktionshistorikken til %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Successful</source>
+        <translation>Eksporteret!</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Modtaget GIC fra zGIC</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zGIC</source>
+        <translation>Zerocoin Spend, Ændring i zGIC</translation>
+    </message>
+    <message>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>Transaktionshistorikken blev ge
