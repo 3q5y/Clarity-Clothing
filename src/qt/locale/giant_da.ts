@@ -4764,4 +4764,191 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
-        <translation>Transaktionshistorikken blev ge
+        <translation>Transaktionshistorikken blev gemt i %1</translation>
+    </message>
+    <message>
+        <source>Range:</source>
+        <translation>Område:</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>Til</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Enheden som beløb og saldi vises i. Klik for at vælge en anden enhed.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <source>No wallet has been loaded.</source>
+        <translation>Ingen tegnebog indlæst</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Send mønter</translation>
+    </message>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 GIC.</source>
+        <translation>SwiftTx understøtter ikke afsendelse af så store beløb endnu. Transaktioner er for tiden begrænsede til %1GIC.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>HISTORIE</translation>
+    </message>
+    <message>
+        <source>&amp;Export</source>
+        <translation>E&amp;ksporter</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Eksporter aktuelle tekst til en fil</translation>
+    </message>
+    <message>
+        <source>Selected amount:</source>
+        <translation>Valgte beløb</translation>
+    </message>
+    <message>
+        <source>Backup Wallet</source>
+        <translation>Tag sikkerhedskopi af tegnebogen.</translation>
+    </message>
+    <message>
+        <source>Wallet Data (*.dat)</source>
+        <translation>Datafil til tegnebog (*.dat)</translation>
+    </message>
+</context>
+<context>
+    <name>ZGICControlDialog</name>
+    <message>
+        <source>Select zGIC to Spend</source>
+        <translation>Vælg zGIC for at bruge</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation>Antal</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Vælg / Fravælg alle</translation>
+    </message>
+    </context>
+<context>
+    <name>giant-core</name>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = beholdtx metadata. For eksempel information om kontoejer og betalngsanmodninger, 2 = drop TX metadata)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>Tillad JSON-RPC forbindelser fra bestemte kilder. Gyldig &lt;ip&gt; er enkeltadresse (1.2.3.4), a Network/netmask (1.2.3.4/255.255.255.0) eller et netværk/CCIDR (1.2.3.4/24). Der kan indsættes flere linier.</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation>Forbind til den opgivne adresse og lyt på den kontinuerligt. Brug [host]:port notation for IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Forbind til den opgivne adresse og put peers på listen over godkendte adresser.  Brug [host]:port notation for IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Forbind til den opgivne adresse og lyt efter JSON-.RPC forbindelser. Brug [host]:port notation for IPv6. Der kan indsættes flere linier (standard: Forbind til alle interfaces)</translation>
+    </message>
+    <message>
+        <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
+        <translation>Beregnet akkumulator kontrolpunkt er ikke det, der er registreret af blok indeks</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. GIANT Core is probably already running.</source>
+        <translation>Kan ikke låse datamappen %s. GIANT core kører sandsynligvis allerede.</translation>
+    </message>
+    <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>Skift automatisk afstemningsmetode, mode=auto: Stem kun for fuldstændigt match mod det generered budget (Strng, Default: auto)</translation>
+    </message>
+    <message>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>Bedøm ubegrænsede transaktioner til &lt;n&gt;*1000 bytes pr. minut kontinuerligt (default:%u)</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>Opret nye filer med systemets default tilladelser i stedet for umask 077 (virker kun med tegnebogsfunktionen slået fra)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>Slet alle tegnebogens transaktioner og genskab kun fra blokkæden ved at tilføje -rescan i forbindes med opstart.</translation>
+    </message>
+    <message>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Slet alle zerocoin-udgifter og minter, der er blevet sendt til blockchain-databasen og geninddrive dem (0-1, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Distribueret under MIT software licensen. Se den vedlaget fil COPYING eller 
+&lt;http://www.opensource.org/licenses/mit-license.php&gt;. </translation>
+    </message>
+    <message>
+        <source>Enable automatic wallet backups triggered after each zGIC minting (0-1, default: %u)</source>
+        <translation>Aktivér automatiske wallet-sikkerhedskopier udløst efter hver zGIC-mintning (0-1, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for GIC inputs (0-1, default: %u)</source>
+        <translation>Aktiver eller deaktiver staking-funktionalitet for GIC-indgange (0-1, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zGIC inputs (0-1, default: %u)</source>
+        <translation>Aktiver eller deaktiver staking-funktionalitet for zGIC-indgange (0-1, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Enable spork administration functionality with the appropriate private key.</source>
+        <translation>Slå spork administrationsfunktionen til med den rette private nøgle</translation>
+    </message>
+    <message>
+        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
+        <translation>Opgiv regression test mode, der bruger en særlig kæde, hvor blokke kan løses med det samme</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Fejl! Der opstod en fejl i under lytning efter indkommende forbindelser (Listen returnerede fejl %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
+        <translation>Fejl: Transaktionen er større end den maksimalt tilladte transaktionsstørrelse!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>Fejl! Argumentet er ikke understøttet -socks found. Det er ikke muligt at bestemme hvilken SOCKS version længere. Kun SOCKS5 proxies understøttes.</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation>Udfør en kommando når der modtages en alarm, eller der opdages en meget lang fork (%s in cmd erstattet af en besked)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation>Udfør en kommando når en transaktion i tegnebogen ændres (%s in cmd erstattet af TxID)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation>Udfør en kommando når den bedste blok ændres (%s in cmd erstattes med blok hashen)</translation>
+    </message>
+    <message>
+        <source>Fees (in GIC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebyrer (in GI
