@@ -5286,4 +5286,227 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Aktivér automatisk Zerocoin-mintning (0-1, standard: %u)</translation>
     </message>
     <message>
-        <sour
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Aktivér publicering af hash-transaktion (låst via SwiftX) i &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Aktivér publicere rå transaktion (låst via SwiftX) i &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation>Slå tilstanden "masternode" til (0-1 default: %u)</translation>
+    </message>
+    <message>
+        <source>Entries are full.</source>
+        <translation>Der er ikke plads til flere poster</translation>
+    </message>
+    <message>
+        <source>Error connecting to Masternode.</source>
+        <translation>Fejl ved oprettelse af forbindelse til masternode.</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation>Fejl ved initialisering af blokdatabasen</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation>Fejl ved initialisering af tegnebogens databasemilljø %s!</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>Fejl ved indlæsning af blokdatabasen</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat</source>
+        <translation>Fejl ved indlæsning af wallet.dat</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen er beskadiget</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen kræver en nyere version af GIANT core</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>Fejl ved åbning af blokdatabasen</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Fejl ved læsning fra database, programmet lukker ned.</translation>
+    </message>
+    <message>
+        <source>Error recovering public key.</source>
+        <translation>Fejl ved genskabelse af den offentlige nøgle</translation>
+    </message>
+    <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>Fejl ved at skrive zerocoinDB til disk</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fejl!</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation>Fejl! En fatal intern fejl opstod. Se debug.log for nærmere detaljer</translation>
+    </message>
+    <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>Fejl! Kan ikke vælge de aktuelt designerede inputs</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>Fejl! Der er ikke nok plads på disken.</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Fejl! Argumentet er ikke understøttet - tor fundet, brug -onion</translation>
+    </message>
+    <message>
+        <source>Error: Wallet locked, unable to create transaction!</source>
+        <translation>Fejl! Tegnebogen er låst. Det er ikke muligt at oprette transaktionen.</translation>
+    </message>
+    <message>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation>Fejl! De har allerede ventende transaktioner i tilsløringsgruppen</translation>
+    </message>
+    <message>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>Kunne ikke beregne akkumulatorkontrolpunktet</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>Lytning på uspecificerede porte mislykkedes. Brug -listen=0 hvis De ønsker denne funktion.</translation>
+    </message>
+    <message>
+        <source>Failed to parse host:port string</source>
+        <translation>Failed to parse host:port string</translation>
+    </message>
+    <message>
+        <source>Failed to read block</source>
+        <translation>Læsning af blokken mislykkedes</translation>
+    </message>
+    <message>
+        <source>Fee (in GIC/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebyr (i GIC/kB) som skal tilføjes transaktionen der sendes (default: %s)</translation>
+    </message>
+    <message>
+        <source>Finalizing transaction.</source>
+        <translation>Færdiggør transaktionen.</translation>
+    </message>
+    <message>
+        <source>Force safe mode (default: %u)</source>
+        <translation>Gennemtving beskyttet tilstand (default: %u)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation>Der er fundet tilstrækkeligt med brugere der underskriver (venter %s)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ...</source>
+        <translation>Der er fundet tilstrækkeligt med brugere der underskriver...</translation>
+    </message>
+    <message>
+        <source>Generate coins (default: %u)</source>
+        <translation>Generer mønter (default: %u)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Antal blokke der kontrolleres ved opstart (default: %u, 0 = all)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation>Hvis &lt;category&gt; ikke findes, sendes al debug information som output.</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Importerer</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file</source>
+        <translation>Importer blokke fra ekstern kilde - blk000??.dat fil</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Inkluder IP adressen i debug output (default: %u)</translation>
+    </message>
+    <message>
+        <source>Incompatible mode.</source>
+        <translation>Ikke kompatibel i denne tilstand</translation>
+    </message>
+    <message>
+        <source>Incompatible version.</source>
+        <translation>Ikke kompatibel version</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation>Forkert, eller ikke genesis blok fundet. Er De sikker på, at det er den rigtige datadir der benyttes til netværket?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Info:</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. GIANT Core is shutting down.</source>
+        <translation>Initiering af sanitetskontrollen fejlede. GIANT core lukker ned. </translation>
+    </message>
+    <message>
+        <source>Input is not valid.</source>
+        <translation>Ugyldigt input</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Utilstrækkelige midler</translation>
+    </message>
+    <message>
+        <source>Insufficient funds.</source>
+        <translation>Utilstrækkelige midler</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Ugyldig -onionadresse eller værtsnavn: ' %s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ugyldigt beløb til -maxtxfee=&lt;beløb&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ugyldigt beløb til -minrelaytxfee=&lt;beløb&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ugyldigt beløb til -mintxfee=&lt;beløb&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Ugyldigt beløb til -paytxfee=&lt;beløb&gt;: '%s' (skal mindst være %s)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ugyldigt beløb til -paytxfee=&lt;beløb&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
+        <translation>Ugyldigt beløb til -reservebalance=&lt;beløb&gt;:</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Ugyldigt beløb</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation> Ugyldig masternodeprivkey. Se dokumentationen</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Ugyldig netmask specificeret i -whitelist: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Ugyldig port fundet i masternode.conf</translation>
+    </message>
+   
