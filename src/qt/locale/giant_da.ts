@@ -5687,4 +5687,236 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>Last successful Obfuscation action was too recent.</source>
-        
+        <translation>Seneste succesfulde tilsløring var for ny</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Begræns størrelsen på signatur cachen til &lt;n&gt; poster (default: %u)</translation>
+    </message>
+    <message>
+        <source>Line: %d</source>
+        <translation>Linje: %d</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Lyt efter JSON-RPC forbindelser på &lt;port&gt; (default: %u or testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Lyt efter forbindelser på port &lt;port&gt; (default: %u or tesntet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Indlæser adresser</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Indlæser blokindeks</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Indlæser budgetcache...</translation>
+    </message>
+    <message>
+        <source>Loading masternode cache...</source>
+        <translation>Indlæser masternodecache...</translation>
+    </message>
+    <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Indlæser masternode betalingscache...</translation>
+    </message>
+    <message>
+        <source>Loading sporks...</source>
+        <translation>Indlæser sporks ...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Indlæser tegnebog... (%3.2f%%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Indlæser tegnebog</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Placering af auth cookie (standard: data dir)</translation>
+    </message>
+    <message>
+        <source>Lock is already in place.</source>
+        <translation>Er allerede låst</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Lås masternoder fra masternode konfiguratinsfilen (default: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Opslag (): Ugyldig-proxy adresse eller værtsnavn: '%s'</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Vedligehold maksimalt &lt;n&gt; forbindelser til peers (default: %u)</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Masternodeoptioner</translation>
+    </message>
+    <message>
+        <source>Masternode queue is full.</source>
+        <translation>Masternodens kø er fyldt op.</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Masternode:</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maksimal størrelse på per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maksimal størrelse på per-connection send buffer, &lt;n&gt; *1000 bytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Mint did not make it into blockchain</source>
+        <translation>Mint gjorde det ikke til blockchain</translation>
+    </message>
+    <message>
+        <source>Missing input transaction information.</source>
+        <translation>Manglende transaktionsinformationsinput</translation>
+    </message>
+    <message>
+        <source>Mixing in progress...</source>
+        <translation>Usynliggørelse i gang</translation>
+    </message>
+    <message>
+        <source>Need address because change is not exact</source>
+        <translation>Har brug for adresse, fordi ændring ikke er nøjagtig</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Der skal specificeres en port med -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>No Masternodes detected.</source>
+        <translation>Ingen masternoder fundet.</translation>
+    </message>
+    <message>
+        <source>No compatible Masternode found.</source>
+        <translation>Ingen kompatible masternoder fundet.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>Ingen midler fundet til eventuel designering</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>ingen matchende designerede midler til usynliggørelse.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Node videresendelsesoptioner:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>Ikke standard offentlig nøgle fundet</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>Ikke kompatibel med eksisterende transaktioner</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Ikke nok fildescriptors tilgængelige</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Findes ikke i masternodelisten</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>Antal automatiske sikkerhedskopier af tegnebogen (default: 10)</translation>
+    </message>
+    <message>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Antal brugerdefinerede positionsbackups til at beholde (standard: %d)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>Tilsløringssystem ledigt</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Tilsløring færdig.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Tilsløringsanmodning ikke færdiggjort</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Accepter kun blokkæde matchende indbyggede kontrolpunkter (defaut %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Forbind udelukkende til noder i netværket &lt;net&gt; (ipv4, ipv6 eller onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Optioner:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Kodeord for JSON-RPC forbindelser</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid (): Ugyldig-proxy adresse eller værtsnavn: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>Forberedelse til genoptagelse ...</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Forbered debug output med tidsstempel (default %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Udskriftsversion og exit</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>RPC server optioner:</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>Drop 1 af hver &lt;n&gt; netværksmeddelelser efter tilfældighedsprincippet</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>Gør 1 af hver &lt;n&gt; netværksmeddelelser uklar efter tilfældighedsprincippet</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>Genopbyg blokkædens indeks fra de aktuelle blk000??.dat filer</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>Modtag og vis P2P netværksalarmer (default: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>Reindex akkumulatiedatabasen</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Videresend og minér databærer transaktioner (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Videresend ikke-P2SH mulisig (default %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation>Genskan blokkæden for manglende transaktioner i tegn
