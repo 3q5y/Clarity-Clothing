@@ -5919,4 +5919,239 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Genskan blokkæden for manglende transaktioner i tegn
+        <translation>Genskan blokkæden for manglende transaktioner i tegnebogen</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Genskanner...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>ResetSpentZerocoin færdig:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>ResetSpentZerocoin færdig:</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Kør en tråd periodevist for at rense tegnebogen ud (default %u)</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>Kør en tråd i baggrunden som en særlig service og tag imod kommandoer </translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Send transaktioner som nugebyrstransaktioner hvis muligt (default: %u)</translation>
+    </message>
+    <message>
+        <source>Session not complete!</source>
+        <translation>Sessionen blev ikke færdiggjort!</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>Sessionen brugte for meget tid.</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>Angiv databasecachens størrelse i megabytes (%d til  %d, default: %d)</translation>
+    </message>
+    <message>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation>Angiv den eksterne adresse:port for at komme til denne masternode (eksempel: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Angiv hoved poolstørrelse til &lt;n&gt; (default %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>Angiv maksimal blokstørrelse i bytes (default: %d)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Angiv minimums blokstørrelse i bytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>Indstil højeste dybde dybde (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Set the masternode private key</source>
+        <translation>angiv masternodens private nøgle</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Angiv antallet af tråde der anvendes til at servicere RPC opkald (default: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Sætter DB_PRIVATE flag i tegnebogens databasemiljø (default: %u)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>Vis alle debugoptioner (brug: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>Formindsk debug.logfilen ved opstart af klienten (default: 1 når der ikke er angivet -debug)</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>Signering mislykkedes</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>Signering brugte for meget tid.</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Signering af transaktionen mislykkedes</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Specificer konfigurationsfil (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Specificer forbindelsens timeout i millisekunder (minimum: 1, default : %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>angiv datamappe</translation>
+    </message>
+    <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>Specificer masternode konfigurationsfilen (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Angiv pid filen (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>angiv tegnebogens wallet fil (indenfor datamappen)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>Angiv Deres offentlige adresse</translation>
+    </message>
+    <message>
+        <source>Spend Valid</source>
+        <translation>Tilbring gyldig</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Brug ubekræftede returpenge når der sendes transaktioner (default: %u)</translation>
+    </message>
+    <message>
+        <source>Staking options:</source>
+        <translation>Staking muligheder:</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Stop kørsel efter import af blokke fra disken (default: %u)</translation>
+    </message>
+    <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>Afsendt følgende posteringer til masternode %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>Afsendt til masternode. Afventer flere posteringer (%u /%d) %s</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation>Afsendt til masternode, venter i kø %s</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Synkronisering mislykkedes.</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>Synkronisering færdig</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>Synkronisering venter</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Synkronisere budgetter</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>Synkroniserer masternodevinnere</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Synkroniserer masternoder...</translation>
+    </message>
+    <message>
+        <source>Synchronizing sporks...</source>
+        <translation>Synkroniserer sporks...</translation>
+    </message>
+    <message>
+        <source>Syncing zGIC wallet...</source>
+        <translation>Syncing zGIC wallet ..</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>Møntudgifterne er blevet brugt</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>Transaktionen bekræftede ikke</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Denne hjælpemeddelelse</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Denne software er eksperimentiel</translation>
+    </message>
+    <message>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation>Dette er ment som et tilbagekørings test- og appudviklingsværktøj.</translation>
+    </message>
+    <message>
+        <source>This is not a Masternode.</source>
+        <translation>Dette er ikke en masternode</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Terskel for frakoblíng af peers der udfører upassende handlinger (default: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>Alt for mange tilbringer nødvendig</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Tor-kontrolportadgangskode (standard: tom)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Tor-kontrolport, der skal bruges, hvis du lytter til løg (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>Transaktion oprettet</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>Transaktionsmynte startet</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Transaktionsbeløbet er for lille</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Transaktionsbeløbet skal være positivt</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</
