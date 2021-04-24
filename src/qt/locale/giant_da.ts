@@ -5509,4 +5509,182 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <source>Invalid port detected in masternode.conf</source>
         <translation>Ugyldig port fundet i masternode.conf</translation>
     </message>
-   
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Ugyldig privat nøgle</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>Ugyldigt script fundet.</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>Procentdel af automatisk mintede Zerocoin (10-100, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the GIC and zGIC money supply statistics</source>
+        <translation>Reindex GIC og zGIC pengemængde statistikker</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Reindexing zerocoin database ...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Reindexerende zerocoin mislykkedes</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>Valgt mønter værdi er mindre end betalingsmål</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftTX optioner:</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>Denne release er en testrelease. Anvendelse på eget ansvar - bør ikke anvendes til staking eller handelsapplikationer!</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation>minter slettet
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation>mints opdateret,</translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>ubekræftede transaktioner fjernet
+</translation>
+    </message>
+    <message>
+        <source>Disable all GIANT specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Slå alle GIANT funktioner fra (Masternoder, Tilsløring, SwiftTX, Budgetting)(0-1,default:%u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>Aktiver swifttx, vis bekræftelser for låste transaktioner (bool, default: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af mønterne i tegnebogen allerede er brugt. For eksempel hvis De har brugt en kopi af Wallet.dat filen, og mønterne har været brugt, men ikke markerede som brugte i den. </translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>Fejl: Denne transaktion kræver et transaktionsgebyr på mindst %s på grund af dets mængde, kompleksitet eller brug af nyligt modtagne penge!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>Fejl: Ikke understøttet argument -checklevel fundet. Checklevel skal være niveau 4.</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
+        <translation>Udfør kommando, når den bedste blok ændres, og dens størrelse er overstået (%s i cmd erstattes af blok hash, %d med blokstørrelsen)</translation>
+    </message>
+    <message>
+        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
+        <translation>Kunne ikke finde møntsæt blandt holdte mønter med mindre end maksimalt antal udgifter</translation>
+    </message>
+    <message>
+        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
+        <translation>I sjældne tilfælde overstiger en udgift med 7 mønter vores maksimale tilladte transaktionsstørrelse. Prøv igen med 6 eller færre mønter</translation>
+    </message>
+    <message>
+        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
+        <translation>Foretrukken Betegnelse for automatisk mintede Zerocoin (1/5/10/50/100/500/1000/5000), 0 uden præference. standard: %u)</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any automatic zGIC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Angiv brugerdefineret backup-vej for at tilføje en kopi af enhver zGIC-backup. Hvis det er angivet som dig, genererer hver backup en tidsstempelet fil. Hvis den er angivet som fil, ønsker man at omskrive til den pågældende fil hver backup. Hvis backupath er indstillet, vil der ske 4 sikkerhedskopier</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
+        <translation>Angiv en brugerdefineret backup-sti for at tilføje en kopi af en wallet-backup. Hvis det er angivet som dig, genererer hver backup en tidsstempelet fil. Hvis den er angivet som fil, ønsker man at omskrive til den pågældende fil hver backup.</translation>
+    </message>
+    <message>
+        <source>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation>SwiftTX kræver mindst 6 bekræftelser. Vent nogle minutter og prøv igen.</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; can be:</translation>
+    </message>
+    <message>
+        <source>Attempt to force blockchain corruption recovery</source>
+        <translation>Forsøg at gennemtvinge reparation af korrumperet blokkæde</translation>
+    </message>
+    <message>
+        <source>CoinSpend: Accumulator witness does not verify</source>
+        <translation>CoinSpend: Akkumulator vidne bekræfter ikke</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>Vis beregning af stavmodifikator i debug.log-filen.</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>Vis verbose møntspilsmeddelelser i debug.log-filen.</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>Aktivér publish hash-blok i &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>Aktivér publicering af hash-transaction I &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Aktivér offentliggør rå blok I &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Aktivér publicere rå transaktion i &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable staking functionality (0-1, default: %u)</source>
+        <translation>Aktivér stakfunktionalitet (0-1, standard: %u)</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Fejl! En fatal intern fejl opstod. Se debug.log for nærmere detaljer</translation>
+    </message>
+    <message>
+        <source>Error: No valid utxo!</source>
+        <translation>Fejl: Ingen gyldig udxo!</translation>
+    </message>
+    <message>
+        <source>Failed to create mint</source>
+        <translation>Kunne ikke oprette mynte</translation>
+    </message>
+    <message>
+        <source>Failed to find Zerocoins in wallet.dat</source>
+        <translation>Kunne ikke finde Zerocoins i wallet.dat</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Kunne ikke vælge en zerocoin</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Kunne ikke tørre zerocoinDB</translation>
+    </message>
+    <message>
+        <source>Failed to write coin serial number into wallet</source>
+        <translation>Kunne ikke skrive møntserienummer i tegnebog</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Behold højest &lt;n&gt; transaktioner i hukommelsen, der ikke kan forbindes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Last Obfuscation was too recent.</source>
+        <translation>Seneste tilsløring var for ny</translation>
+    </message>
+    <message>
+        <source>Last successful Obfuscation action was too recent.</source>
+        
