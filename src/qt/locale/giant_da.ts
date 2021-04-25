@@ -6154,4 +6154,176 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Transaktionsbeløbet skal være positivt</translation>
     </message>
     <message>
-        <source>Transaction created successfully.</
+        <source>Transaction created successfully.</source>
+        <translation>Transaktionen blev oprettet.</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Transaktionsgebyrerne er for høje</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Transaktionen er ugyldig</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Transaktionen er for stor til at opfylde gebyrpolitikken</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Transaktionen er for stor</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>Afsender sluttransaktionen.</translation>
+    </message>
+    <message>
+        <source>Try to spend with a higher security level to include more coins</source>
+        <translation>Prøv at bruge med et højere sikkerhedsniveau til at inkludere flere mønter</translation>
+    </message>
+    <message>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>Forsøger at bruge en allerede brugt serie #, prøv igen.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Det er ikke muligt at forbide til %s på denne computer (bind returnerede fejl %s)</translation>
+    </message>
+    <message>
+        <source>Unable to find transaction containing mint</source>
+        <translation>Kunne ikke finde transaktioner indeholdende mynte</translation>
+    </message>
+    <message>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation>Det var ikke muligt at signere spork meddelelsen. Er De sikker på De anvender den rigtige nøgle?</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Kan ikke starte HTTP-serveren. Se fejlfindingsloggen for detaljer.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Ukendt netværk specificeret i -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>Ukendt stade: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>Opdater tegnebogen til det nyeste format</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Anvend UPnP til at kortlægge den lyttende port (default: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>Anvend UPnP for at kortlægge lytteporten (default: 1 når der lyttes)</translation>
+    </message>
+    <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>Brug en brugerdefineret maks kædeomlægningsdybde (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Anvend testnetværket</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Brugernavn til JSON-RPC forbindelser</translation>
+    </message>
+    <message>
+        <source>Value is below the smallest available denomination (= 1) of zGIC</source>
+        <translation>Værdien er under den mindste tilgængelige værdi (= 1) for zGIC</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Værdien er højere end tilsløringsgruppen tillader</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Verificerer blokke</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Verificerer  tegnebog</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Tegnbogen %s befinder sig udenfor datamappen %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Tegnebogen er låst</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Tegnebogen måtte genskrives. Genstart GIANT core for at gøre færdig</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Optioner for tegnebogen</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Tegnebogens vinduestitel</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Advarsel!</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Advarsel! Denne version er forældet. Opgradering krævet.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Advarsel! Argumentet -benchmark understøttes ikke og blev ignoreret. Anvend -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Advarsel! Argumentet -debugnet understøttes ikke og blev ignoret. Brug -debug=net.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Prøver igen</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Du har ikke nok Zerocoins i din tegnebog</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Databasen skal genopbygges ved hjælp af -reindex for at ændre -txindex</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Posterne blev tilføjet.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Transaktionen blev accepteret af POOL!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Skifter alle transaktioner i tegnebogen.</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ notifikationsindstillinger:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin muligheder:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>Ved opstart</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>Tegnebogsfilen wallet.dat er beskadiget. Opbygning mislykkedes.</translation>
+    </message>
+</context>
+</TS>
