@@ -1333,3 +1333,299 @@ Address: %4
         <translation>Copy quantity</translation>
     </message>
     <message>
+        <location line="+2"/>
+        <source>Copy fee</source>
+        <translation>Copy fee</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy after fee</source>
+        <translation>Copy after fee</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy bytes</source>
+        <translation>Copy bytes</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy priority</source>
+        <translation>Copy priority</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy dust</source>
+        <translation>Copy dust</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy change</source>
+        <translation>Copy change</translation>
+    </message>
+    <message>
+        <location line="+147"/>
+        <source>Please switch to &quot;List mode&quot; to use this function.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+216"/>
+        <source>highest</source>
+        <translation>highest</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>higher</source>
+        <translation>higher</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>high</source>
+        <translation>high</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>medium-high</source>
+        <translation>medium-high</translation>
+    </message>
+    <message>
+        <location filename="../forms/coincontroldialog.ui" line="-334"/>
+        <location filename="../coincontroldialog.cpp" line="+2"/>
+        <source>medium</source>
+        <translation>medium</translation>
+    </message>
+    <message>
+        <location filename="../coincontroldialog.cpp" line="+2"/>
+        <source>low-medium</source>
+        <translation>low-medium</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>low</source>
+        <translation>low</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>lower</source>
+        <translation>lower</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>lowest</source>
+        <translation>lowest</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>(%1 locked)</source>
+        <translation>(%1 locked)</translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>none</source>
+        <translation>none</translation>
+    </message>
+    <message>
+        <location line="+126"/>
+        <source>yes</source>
+        <translation>yes</translation>
+    </message>
+    <message>
+        <location filename="../forms/coincontroldialog.ui" line="+80"/>
+        <location filename="../coincontroldialog.cpp" line="+0"/>
+        <source>no</source>
+        <translation>no</translation>
+    </message>
+    <message>
+        <location filename="../coincontroldialog.cpp" line="+15"/>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>This label turns red, if the transaction size is greater than 1000 bytes.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+5"/>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>This means a fee of at least %1 per kB is required.</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Can vary +/- 1 byte per input.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Transactions with higher priority are more likely to get included into a block.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
+        <translation>This label turns red, if the priority is smaller than &quot;medium&quot;.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>This label turns red, if any recipient receives an amount smaller than %1.</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <location line="+81"/>
+        <source>(no label)</source>
+        <translation>(no label)</translation>
+    </message>
+    <message>
+        <location line="-5"/>
+        <source>change from %1 (%2)</source>
+        <translation>change from %1 (%2)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>(change)</source>
+        <translation>(change)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <location filename="../forms/editaddressdialog.ui" line="+14"/>
+        <source>Edit Address</source>
+        <translation>Edit Address</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>&amp;Label</source>
+        <translation>&amp;Label</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>The label associated with this address list entry</source>
+        <translation>The label associated with this address list entry</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Address</source>
+        <translation>&amp;Address</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>The address associated with this address list entry. This can only be modified for sending addresses.</translation>
+    </message>
+    <message>
+        <location filename="../editaddressdialog.cpp" line="+28"/>
+        <source>New receiving address</source>
+        <translation>New receiving address</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>New sending address</source>
+        <translation>New sending address</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Edit receiving address</source>
+        <translation>Edit receiving address</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Edit sending address</source>
+        <translation>Edit sending address</translation>
+    </message>
+    <message>
+        <location line="+67"/>
+        <source>The entered address &quot;%1&quot; is not a valid GIANT address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>The entered address &quot;%1&quot; is already in the address book.</source>
+        <translation>The entered address &quot;%1&quot; is already in the address book.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Could not unlock wallet.</source>
+        <translation>Could not unlock wallet.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>New key generation failed.</source>
+        <translation>New key generation failed.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <location filename="../intro.cpp" line="+70"/>
+        <source>A new data directory will be created.</source>
+        <translation>A new data directory will be created.</translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>name</source>
+        <translation>name</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Directory already exists. Add %1 if you intend to create a new directory here.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Path already exists, and is not a directory.</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Cannot create data directory here.</source>
+        <translation>Cannot create data directory here.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <location filename="../forms/governancepage.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>GOVERNANCE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+168"/>
+        <source>Update Proposals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Next super block:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+14"/>
+        <location line="+14"/>
+        <location line="+14"/>
+        <location line="+14"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-63"/>
+        <source>Blocks to next super block:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Days to budget payout (estimate):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Allotted budget:</source>
+        <translatio
