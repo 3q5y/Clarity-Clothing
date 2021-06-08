@@ -4502,4 +4502,265 @@ Please be patient...</source>
         <translation>Rescan blockchain files</translation>
     </message>
     <message>
-        
+        <location line="+14"/>
+        <source>Rescan the block chain for missing wallet transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Recover transactions 1</source>
+        <translation>Recover transactions 1</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Recover transactions 2</source>
+        <translation>Recover transactions 2</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Upgrade wallet format</source>
+        <translation>Upgrade wallet format</translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>Rebuild block chain index from current blk000??.dat files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>-resync:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-333"/>
+        <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
+        <translation>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</translation>
+    </message>
+    <message>
+        <location line="-13"/>
+        <source>Wallet repair options.</source>
+        <translation>Wallet repair options.</translation>
+    </message>
+    <message>
+        <location line="+286"/>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Rebuild index</source>
+        <translation>Rebuild index</translation>
+    </message>
+    <message>
+        <location filename="../rpcconsole.cpp" line="-376"/>
+        <source>In:</source>
+        <translation>In:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Out:</source>
+        <translation>Out:</translation>
+    </message>
+    <message>
+        <location line="-39"/>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-218"/>
+        <source>&amp;Disconnect Node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+1"/>
+        <location line="+1"/>
+        <location line="+1"/>
+        <source>Ban Node for</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-3"/>
+        <source>1 &amp;hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>1 &amp;day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>1 &amp;week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>1 &amp;year</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>&amp;Unban Node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+95"/>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Confirm resync Blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+70"/>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+141"/>
+        <source>%1 B</source>
+        <translation>%1 B</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation>%1 KB</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation>%1 MB</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
+    </message>
+    <message>
+        <location line="+123"/>
+        <source>(node id: %1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>via %1</source>
+        <translation>via %1</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+1"/>
+        <source>never</source>
+        <translation>never</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Inbound</source>
+        <translation>Inbound</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Outbound</source>
+        <translation>Outbound</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <location line="+6"/>
+        <source>Unknown</source>
+        <translation>Unknown</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <location filename="../forms/receivecoinsdialog.ui" line="+263"/>
+        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
+        <translation>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>R&amp;euse an existing receiving address (not recommended)</source>
+        <translation>R&amp;euse an existing receiving address (not recommended)</translation>
+    </message>
+    <message>
+        <location line="-30"/>
+        <source>&amp;Message:</source>
+        <translation>&amp;Message:</translation>
+    </message>
+    <message>
+        <location line="-87"/>
+        <location line="+16"/>
+        <source>An optional label to associate with the new receiving address.</source>
+        <translation>An optional label to associate with the new receiving address.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+25"/>
+        <source>Your receiving address. You can copy and use it to receive coins on this wallet. A new one will be generated once it is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-22"/>
+        <source>&amp;Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>A&amp;mount:</source>
+        <translation type="unfinished">A&amp;mount:</translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over 
