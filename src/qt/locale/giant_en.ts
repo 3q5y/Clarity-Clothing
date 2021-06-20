@@ -5072,4 +5072,279 @@ Please be patient...</source>
     <message>
         <location line="+7"/>
         <source>0 GIC</source>
-  
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+167"/>
+        <source>SwiftX technology allows for near instant transactions - A flat fee of 0.01 GIC applies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+176"/>
+        <source>Transaction Fee:</source>
+        <translation>Transaction Fee:</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Choose...</source>
+        <translation>Choose...</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>collapse fee-settings</source>
+        <translation>collapse fee-settings</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Minimize</source>
+        <translation>Minimize</translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>per kilobyte</source>
+        <translation>per kilobyte</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>total at least</source>
+        <translation>total at least</translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>(read the tooltip)</source>
+        <translation>(read the tooltip)</translation>
+    </message>
+    <message>
+        <location line="-82"/>
+        <source>Custom:</source>
+        <translation>Custom:</translation>
+    </message>
+    <message>
+        <location line="-211"/>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Smart fee not initialized yet. This usually takes a few blocks...)</translation>
+    </message>
+    <message>
+        <location line="-101"/>
+        <source>SwiftX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Confirmation time:</source>
+        <translation>Confirmation time:</translation>
+    </message>
+    <message>
+        <location line="-750"/>
+        <source>Open Coin Control...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Coins automatically selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1062"/>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uGICs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uGICs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <location line="+13"/>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-374"/>
+        <source>normal</source>
+        <translation>normal</translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>fast</source>
+        <translation>fast</translation>
+    </message>
+    <message>
+        <location line="+360"/>
+        <source>Recommended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+115"/>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Send as zero-fee transaction if possible</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>(confirmation may take longer)</source>
+        <translation>(confirmation may take longer)</translation>
+    </message>
+    <message>
+        <location line="+71"/>
+        <source>Confirm the send action</source>
+        <translation>Confirm the send action</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>S&amp;end</source>
+        <translation>S&amp;end</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Clear all fields of the form.</source>
+        <translation>Clear all fields of the form.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Clear &amp;All</source>
+        <translation>Clear &amp;All</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Send to multiple recipients at once</source>
+        <translation>Send to multiple recipients at once</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add &amp;Recipient</source>
+        <translation>Add &amp;Recipient</translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Anonymized GIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Balance:</source>
+        <translation>Balance:</translation>
+    </message>
+    <message>
+        <location filename="../sendcoinsdialog.cpp" line="-590"/>
+        <source>Copy quantity</source>
+        <translation>Copy quantity</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy amount</source>
+        <translation>Copy amount</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy fee</source>
+        <translation>Copy fee</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy after fee</source>
+        <translation>Copy after fee</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy bytes</source>
+        <translation>Copy bytes</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy priority</source>
+        <translation>Copy priority</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy dust</source>
+        <translation>Copy dust</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy change</source>
+        <translation>Copy change</translation>
+    </message>
+    <message>
+        <location line="+146"/>
+        <source>The split block tool does not work when sending to outside addresses. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>The split block tool does not work with multiple addresses. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+653"/>
+        <source>Warning: Invalid GIANT address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-615"/>
+        <location line="+4"/>
+        <location line="+4"/>
+        <location line="+3"/>
+        <source>%1 to %2</source>
+        <translation>%1 to %2</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>Are you sure you want to send?</source>
+        <translation>Are you sure you want to send?</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>are added as transaction fee</source>
+        <translation>are added as transaction fee</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
+        <translation>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Confirm send coins</source>
+        <translation>Confirm send coins</translation>
+    </message>
+    <message>
+        <location line="+247"/>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>A fee %1 times higher than %2 per kB is considered an insanely high fee.</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+121"/>
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation>
+            <numerusform>Estimated to begin confirmation within %n block.</numerusform>
+            <numerusform>Estimated to begin confirmation within %n blocks.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="-152"/>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation>The recipient address is not valid, please recheck.</translation>
+    </message>
+    <message>
+        <location line="-346"/>
+        <source>using SwiftX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+89"/>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location line="+222"/>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>The amount to pay must be larger than 0.</translation>
+    </message>
+    <message>
+        <location line="+
