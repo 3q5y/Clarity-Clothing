@@ -5601,4 +5601,295 @@ Please be patient...</source>
     <message>
         <location line="+3"/>
         <location line="+137"/>
-        <source>Clear &amp;Al
+        <source>Clear &amp;All</source>
+        <translation>Clear &amp;All</translation>
+    </message>
+    <message>
+        <location line="-78"/>
+        <source>&amp;Verify Message</source>
+        <translation>&amp;Verify Message</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</translation>
+    </message>
+    <message>
+        <location line="+55"/>
+        <source>Verify &amp;Message</source>
+        <translation>Verify &amp;Message</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Reset all verify message fields</source>
+        <translation>Reset all verify message fields</translation>
+    </message>
+    <message>
+        <location filename="../signverifymessagedialog.cpp" line="+30"/>
+        <source>Click &quot;Sign Message&quot; to generate signature</source>
+        <translation>Click &quot;Sign Message&quot; to generate signature</translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <location line="+73"/>
+        <source>The entered address is invalid.</source>
+        <translation>The entered address is invalid.</translation>
+    </message>
+    <message>
+        <location line="-73"/>
+        <location line="+7"/>
+        <location line="+66"/>
+        <location line="+7"/>
+        <source>Please check the address and try again.</source>
+        <translation>Please check the address and try again.</translation>
+    </message>
+    <message>
+        <location line="-73"/>
+        <location line="+73"/>
+        <source>The entered address does not refer to a key.</source>
+        <translation>The entered address does not refer to a key.</translation>
+    </message>
+    <message>
+        <location line="-66"/>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Wallet unlock was cancelled.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Private key for the entered address is not available.</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Message signing failed.</source>
+        <translation>Message signing failed.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Message signed.</source>
+        <translation>Message signed.</translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>The signature could not be decoded.</source>
+        <translation>The signature could not be decoded.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+12"/>
+        <source>Please check the signature and try again.</source>
+        <translation>Please check the signature and try again.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>The signature did not match the message digest.</source>
+        <translation>The signature did not match the message digest.</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Message verification failed.</source>
+        <translation>Message verification failed.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Message verified.</source>
+        <translation>Message verified.</translation>
+    </message>
+</context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <location filename="../splashscreen.cpp" line="+36"/>
+        <source>GIANT Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Bitcoin Core developers</source>
+        <translation>The Bitcoin Core developers</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Dash Core developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The GIANT Core developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../networkstyle.cpp" line="+20"/>
+        <source>[testnet]</source>
+        <translation>[testnet]</translation>
+    </message>
+</context>
+<context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+79"/>
+        <source>KB/s</source>
+        <translation>KB/s</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDesc</name>
+    <message numerus="yes">
+        <location filename="../transactiondesc.cpp" line="+33"/>
+        <source>Open for %n more block(s)</source>
+        <translation>
+            <numerusform>Open for %n more block</numerusform>
+            <numerusform>Open for %n more blocks</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Open until %1</source>
+        <translation>Open until %1</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <location line="+11"/>
+        <location line="+10"/>
+        <location line="+12"/>
+        <source>conflicted</source>
+        <translation>conflicted</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1/offline</source>
+        <translation>%1/offline</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1/unconfirmed</source>
+        <translation>%1/unconfirmed</translation>
+    </message>
+    <message>
+        <location line="-10"/>
+        <location line="+12"/>
+        <source>%1 confirmations</source>
+        <translation>%1 confirmations</translation>
+    </message>
+    <message>
+        <location line="-37"/>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>, has not been successfully broadcast yet</source>
+        <translation>, has not been successfully broadcast yet</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+2"/>
+        <source>, broadcast through %n node(s)</source>
+        <translation>
+            <numerusform>, broadcast through %n node</numerusform>
+            <numerusform>, broadcast through %n nodes</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Date</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Source</source>
+        <translation>Source</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Generated</source>
+        <translation>Generated</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+8"/>
+        <location line="+63"/>
+        <source>From</source>
+        <translation>From</translation>
+    </message>
+    <message>
+        <location line="-63"/>
+        <source>unknown</source>
+        <translation>unknown</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+19"/>
+        <location line="+58"/>
+        <source>To</source>
+        <translation>To</translation>
+    </message>
+    <message>
+        <location line="-75"/>
+        <source>own address</source>
+        <translation>own address</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+60"/>
+        <source>watch-only</source>
+        <translation>watch-only</translation>
+    </message>
+    <message>
+        <location line="-58"/>
+        <source>label</source>
+        <translation>label</translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <location line="+10"/>
+        <location line="+45"/>
+        <location line="+23"/>
+        <location line="+50"/>
+        <source>Credit</source>
+        <translation>Credit</translation>
+    <
