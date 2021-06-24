@@ -5347,4 +5347,258 @@ Please be patient...</source>
         <translation>The amount to pay must be larger than 0.</translation>
     </message>
     <message>
-        <location line="+
+        <location line="+3"/>
+        <source>The amount exceeds your balance.</source>
+        <translation>The amount exceeds your balance.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>The total exceeds your balance when the %1 transaction fee is included.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Duplicate address found, can only send to each address once per send operation.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Transaction creation failed!</source>
+        <translation>Transaction creation failed!</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Error: The wallet was unlocked only to anonymize coins.</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+86"/>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Pay only the minimum fee of %1</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Estimated to get 6 confirmations near instantly with &lt;b&gt;SwiftX&lt;/b&gt;!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+158"/>
+        <source>Warning: Unknown change address</source>
+        <translation>Warning: Unknown change address</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>(no label)</source>
+        <translation>(no label)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <location filename="../forms/sendcoinsentry.ui" line="+21"/>
+        <source>This is a normal payment.</source>
+        <translation>This is a normal payment.</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Pay &amp;To:</source>
+        <translation>Pay &amp;To:</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>The GIANT address to send the payment to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Choose previously used address</source>
+        <translation>Choose previously used address</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Paste address from clipboard</source>
+        <translation>Paste address from clipboard</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+524"/>
+        <location line="+536"/>
+        <source>Remove this entry</source>
+        <translation>Remove this entry</translation>
+    </message>
+    <message>
+        <location line="-1044"/>
+        <source>&amp;Label:</source>
+        <translation>&amp;Label:</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Enter a label for this address to add it to the list of used addresses</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+521"/>
+        <location line="+536"/>
+        <source>A&amp;mount:</source>
+        <translation>A&amp;mount:</translation>
+    </message>
+    <message>
+        <location line="-1041"/>
+        <source>Message:</source>
+        <translation>Message:</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+426"/>
+        <source>This is an unverified payment request.</source>
+        <translation>This is an unverified payment request.</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <location line="+532"/>
+        <source>Pay To:</source>
+        <translation>Pay To:</translation>
+    </message>
+    <message>
+        <location line="-498"/>
+        <location line="+536"/>
+        <source>Memo:</source>
+        <translation>Memo:</translation>
+    </message>
+    <message>
+        <location line="-56"/>
+        <source>This is a verified payment request.</source>
+        <translation>This is a verified payment request.</translation>
+    </message>
+    <message>
+        <location filename="../sendcoinsentry.cpp" line="+30"/>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Enter a label for this address to add it to your address book</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <location filename="../utilitydialog.cpp" line="+75"/>
+        <source>GIANT Core is shutting down...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>Do not shut down the computer until this window disappears.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>Signatures - Sign / Verify a Message</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;Sign Message</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>The GIANT address to sign the message with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+195"/>
+        <source>Choose previously used address</source>
+        <translation>Choose previously used address</translation>
+    </message>
+    <message>
+        <location line="-185"/>
+        <location line="+195"/>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <location line="-188"/>
+        <source>Paste address from clipboard</source>
+        <translation>Paste address from clipboard</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Enter the message you want to sign here</source>
+        <translation>Enter the message you want to sign here</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Signature</source>
+        <translation>Signature</translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Copy the current signature to the system clipboard</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+103"/>
+        <source>The GIANT address the message was signed with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-134"/>
+        <source>Sign &amp;Message</source>
+        <translation>Sign &amp;Message</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Reset all sign message fields</source>
+        <translation>Reset all sign message fields</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+137"/>
+        <source>Clear &amp;Al
