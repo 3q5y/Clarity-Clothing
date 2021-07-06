@@ -6191,4 +6191,319 @@ Please be patient...</source>
         <translation>watch-only</translation>
     </message>
     <message>
-        <location 
+        <location line="+27"/>
+        <source>(n/a)</source>
+        <translation>(n/a)</translation>
+    </message>
+    <message>
+        <location line="+211"/>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>Transaction status. Hover over this field to show number of confirmations.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Date and time that the transaction was received.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Type of transaction.</source>
+        <translation>Type of transaction.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Whether or not a watch-only address is involved in this transaction.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Destination address of transaction.</source>
+        <translation>Destination address of transaction.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Amount removed from or added to balance.</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <location filename="../transactionview.cpp" line="+69"/>
+        <location line="+17"/>
+        <source>All</source>
+        <translation>All</translation>
+    </message>
+    <message>
+        <location line="-16"/>
+        <source>Today</source>
+        <translation>Today</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This week</source>
+        <translation>This week</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This month</source>
+        <translation>This month</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Last month</source>
+        <translation>Last month</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This year</source>
+        <translation>This year</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Range...</source>
+        <translation>Range...</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Most Common</source>
+        <translation>Most Common</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Received with</source>
+        <translation>Received with</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>To yourself</source>
+        <translation>To yourself</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mined</source>
+        <translation>Mined</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Minted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Masternode Reward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Zerocoin Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Zerocoin Spend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Zerocoin Spend to Self</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Other</source>
+        <translation>Other</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Enter address or label to search</source>
+        <translation>Enter address or label to search</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Min amount</source>
+        <translation>Min amount</translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Copy address</source>
+        <translation>Copy address</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy label</source>
+        <translation>Copy label</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy amount</source>
+        <translation>Copy amount</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy transaction ID</source>
+        <translation>Copy transaction ID</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Edit label</source>
+        <translation>Edit label</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show transaction details</source>
+        <translation>Show transaction details</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hide orphan stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+228"/>
+        <source>Export Transaction History</source>
+        <translation>Export Transaction History</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Comma separated file (*.csv)</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Confirmed</source>
+        <translation>Confirmed</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Watch-only</source>
+        <translation>Watch-only</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Date</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Address</source>
+        <translation>Address</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Exporting Failed</source>
+        <translation>Exporting Failed</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>There was an error trying to save the transaction history to %1.</source>
+        <translation>There was an error trying to save the transaction history to %1.</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <source>Exporting Successful</source>
+        <translation>Exporting Successful</translation>
+    </message>
+    <message>
+        <location line="-310"/>
+        <source>Received GIC from zGIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Zerocoin Spend, Change in zGIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+307"/>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>The transaction history was successfully saved to %1.</translation>
+    </message>
+    <message>
+        <location line="+121"/>
+        <source>Range:</source>
+        <translation>Range:</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>to</source>
+        <translation>to</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <location filename="../bitcoingui.cpp" line="+120"/>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Unit to show amounts in. Click to select another unit.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <location filename="../walletframe.cpp" line="+26"/>
+        <source>No wallet has been loaded.</source>
+        <translation>No wallet has been loaded.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <location filename="../walletmodel.cpp" line="+334"/>
+        <location line="+9"/>
+        <location line="+9"/>
+        <source>Send Coins</source>
+        <translation>Send Coins</translation>
+    </message>
+    <message>
+        <location line="-18"/>
+        <location line="+9"/>
+        <source>SwiftX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 GIC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <location filename="../walletview.cpp" line="+64"/>
+        <source>HISTORY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>&amp;Export</source>
+        <translation>&amp;Export</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Export the data in the current tab to a file</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Selected amount:</source>
+        <translation>Selected amount:</translation>
+    </message>
+    <message>
+        <location line="+265"/>
+        <source
