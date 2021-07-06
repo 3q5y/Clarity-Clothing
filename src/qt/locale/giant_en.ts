@@ -5892,4 +5892,303 @@ Please be patient...</source>
         <location line="+50"/>
         <source>Credit</source>
         <translation>Credit</translation>
-    <
+    </message>
+    <message numerus="yes">
+        <location line="-126"/>
+        <source>matures in %n more block(s)</source>
+        <translation>
+            <numerusform>matures in %n more block</numerusform>
+            <numerusform>matures in %n more blocks</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>not accepted</source>
+        <translation>not accepted</translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <location line="+22"/>
+        <location line="+50"/>
+        <source>Debit</source>
+        <translation>Debit</translation>
+    </message>
+    <message>
+        <location line="-63"/>
+        <source>Total debit</source>
+        <translation>Total debit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Total credit</source>
+        <translation>Total credit</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Transaction fee</source>
+        <translation>Transaction fee</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Net amount</source>
+        <translation>Net amount</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+10"/>
+        <source>Message</source>
+        <translation>Message</translation>
+    </message>
+    <message>
+        <location line="-8"/>
+        <source>Comment</source>
+        <translation>Comment</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Transaction ID</source>
+        <translation>Transaction ID</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Output index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Merchant</source>
+        <translation>Merchant</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Debug information</source>
+        <translation>Debug information</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Transaction</source>
+        <translation>Transaction</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Inputs</source>
+        <translation>Inputs</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Amount</source>
+        <translation>Amount</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <location line="+1"/>
+        <source>true</source>
+        <translation>true</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <location line="+1"/>
+        <source>false</source>
+        <translation>false</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDescDialog</name>
+    <message>
+        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
+        <source>Transaction details</source>
+        <translation>Transaction details</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>This pane shows a detailed description of the transaction</source>
+        <translation>This pane shows a detailed description of the transaction</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <location filename="../transactiontablemodel.cpp" line="+215"/>
+        <source>Date</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Address</source>
+        <translation>Address</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+57"/>
+        <source>Open for %n more block(s)</source>
+        <translation>
+            <numerusform>Open for %n more block</numerusform>
+            <numerusform>Open for %n more blocks</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Open until %1</source>
+        <translation>Open until %1</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Offline</source>
+        <translation>Offline</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Unconfirmed</source>
+        <translation>Unconfirmed</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Confirming (%1 of %2 recommended confirmations)</source>
+        <translation>Confirming (%1 of %2 recommended confirmations)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Confirmed (%1 confirmations)</source>
+        <translation>Confirmed (%1 confirmations)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Conflicted</source>
+        <translation>Conflicted</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Immature (%1 confirmations, will be available after %2)</source>
+        <translation>Immature (%1 confirmations, will be available after %2)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>This block was not received by any other nodes and will probably not be accepted!</source>
+        <translation>This block was not received by any other nodes and will probably not be accepted!</translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Received with</source>
+        <translation>Received with</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Masternode Reward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Received from</source>
+        <translation>Received from</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Received via Obfuscation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>GIC Stake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>zGIC Stake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Obfuscation Denominate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Obfuscation Collateral Payment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Obfuscation Create Denominations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Converted GIC to zGIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Spent zGIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Received GIC from zGIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Minted Change as zGIC from zGIC Spend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Converted zGIC to GIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>Anonymous (zGIC Transaction)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Anonymous (zGIC Stake)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-86"/>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
+    </message>
+    <message>
+        <location line="-44"/>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Payment to yourself</source>
+        <translation>Payment to yourself</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Mined</source>
+        <translation>Mined</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Obfuscated</source>
+        <translation>Obfuscated</translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>watch-only</source>
+        <translation>watch-only</translation>
+    </message>
+    <message>
+        <location 
