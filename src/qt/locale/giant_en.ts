@@ -7796,4 +7796,238 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>Need address because change is not exact</source>
-        <translation type="unfinished"></tra
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">Need to specify a port with -whitebind: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No Masternodes detected.</source>
+        <translation type="unfinished">No Masternodes detected.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No compatible Masternode found.</source>
+        <translation type="unfinished">No compatible Masternode found.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No funds detected in need of denominating.</source>
+        <translation type="unfinished">No funds detected in need of denominating.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No matching denominations found for mixing.</source>
+        <translation type="unfinished">No matching denominations found for mixing.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Node relay options:</source>
+        <translation type="unfinished">Node relay options:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Non-standard public key detected.</source>
+        <translation type="unfinished">Non-standard public key detected.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Not compatible with existing transactions.</source>
+        <translation type="unfinished">Not compatible with existing transactions.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">Not enough file descriptors available.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Not in the Masternode list.</source>
+        <translation type="unfinished">Not in the Masternode list.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation type="unfinished">Number of automatic wallet backups (default: 10)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Obfuscation is idle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Obfuscation request complete:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Obfuscation request incomplete:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation type="unfinished">Only accept block chain matching built-in checkpoints (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Options:</source>
+        <translation type="unfinished">Options:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">Password for JSON-RPC connections</translation>
+    </message>
+    <message>
+        <location line="+98"/>
+        <source>Use block spam filter (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>could not get lock on cs_spendcache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>isValid(): Invalid -proxy address or hostname: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-122"/>
+        <source>Preparing for resync...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">Prepend debug output with timestamp (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Print version and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>RPC server options:</source>
+        <translation type="unfinished">RPC server options:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation type="unfinished">Randomly drop 1 of every &lt;n&gt; network messages</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation type="unfinished">Randomly fuzz 1 of every &lt;n&gt; network messages</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation type="unfinished">Rebuild block chain index from current blk000??.dat files</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation type="unfinished">Receive and display P2P network alerts (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Reindex the accumulator database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Relay and mine data carrier transactions (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">Relay non-P2SH multisig (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation type="unfinished">Rescan the block chain for missing wallet transactions</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Rescanning...</source>
+        <translation type="unfinished">Rescanning...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ResetMintZerocoin finished: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation type="unfinished">Run a thread to flush wallet periodically (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">Run in the background as a daemon and accept commands</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">Send transactions as zero-fee transactions if possible (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Session not complete!</source>
+        <translation type="unfinished">Session not complete!</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Session timed out.</source>
+        <translation type="unfinished">Session timed out.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">Set database cache size in megabytes (%d to %d, default: %d)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation type="unfinished">Set external address:port to get to this masternode (example: %s)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">Set key pool size to &lt;n&gt; (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">Set maximum block size in bytes (default: %d)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set minimum block size in bytes (default: %u)</sou
