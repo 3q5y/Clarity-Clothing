@@ -7074,4 +7074,244 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
-        
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copyright (C) 2018-%i The GIANT Core Developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">Corrupted block database detected</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Could not parse masternode.conf</source>
+        <translation type="unfinished">Could not parse masternode.conf</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Couldn&apos;t generate the accumulator witness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">Debugging/Testing options:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation type="unfinished">Disable safemode, override a real safe mode event (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
+        <translation type="unfinished">Discover own IP address (default: 1 when listening and no -externalip)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">Do not load the wallet and disable wallet RPC calls</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">Do you want to rebuild the block database now?</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Done loading</source>
+        <translation type="unfinished">Done loading</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enable precomputation of zGIC spends and stakes (0-1, default %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation type="unfinished">Enable the client to act as a masternode (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Entries are full.</source>
+        <translation type="unfinished">Entries are full.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error connecting to Masternode.</source>
+        <translation type="unfinished">Error connecting to Masternode.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">Error initializing block database</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">Error initializing wallet database environment %s!</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error loading block database</source>
+        <translation type="unfinished">Error loading block database</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error loading wallet.dat</source>
+        <translation type="unfinished">Error loading wallet.dat</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation type="unfinished">Error loading wallet.dat: Wallet corrupted</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error opening block database</source>
+        <translation type="unfinished">Error opening block database</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">Error reading from database, shutting down.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error recovering public key.</source>
+        <translation type="unfinished">Error recovering public key.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error</source>
+        <translation type="unfinished">Error</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation type="unfinished">Error: A fatal internal error occured, see debug.log for details</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: Can&apos;t select current denominated inputs</source>
+        <translation type="unfinished">Error: Can&apos;t select current denominated inputs</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">Error: Disk space is low!</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">Error: Unsupported argument -tor found, use -onion.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Wallet locked, unable to create transaction!</source>
+        <translation type="unfinished">Error: Wallet locked, unable to create transaction!</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">Failed to listen on any port. Use -listen=0 if you want this.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Failed to parse host:port string</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Failed to read block</source>
+        <translation type="unfinished">Failed to read block</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Fee (in GIC/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Finalizing transaction.</source>
+        <translation type="unfinished">Finalizing transaction.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Force safe mode (default: %u)</source>
+        <translation type="unfinished">Force safe mode (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation type="unfinished">Found enough users, signing ( waiting %s )</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Found enough users, signing ...</source>
+        <translation type="unfinished">Found enough users, signing ...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Generate coins (default: %u)</source>
+        <translation type="unfinished">Generate coins (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">How many blocks to check at startup (default: %u, 0 = all)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation type="un
