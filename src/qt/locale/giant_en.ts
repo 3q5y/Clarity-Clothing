@@ -8030,4 +8030,248 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Set minimum block size in bytes (default: %u)</sou
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation type="unfinished">Set minimum block size in bytes (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set the masternode private key</source>
+        <translation type="unfinished">Set the masternode private key</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">Set the number of threads to service RPC calls (default: %d)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation type="unfinished">Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">Show all debugging options (usage: --help -help-debug)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">Shrink debug.log file on client startup (default: 1 when no -debug)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Signing failed.</source>
+        <translation type="unfinished">Signing failed.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Signing timed out.</source>
+        <translation type="unfinished">Signing timed out.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">Signing transaction failed</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">Specify configuration file (default: %s)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">Specify connection timeout in milliseconds (minimum: 1, default: %d)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify data directory</source>
+        <translation type="unfinished">Specify data directory</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation type="unfinished">Specify masternode configuration file (default: %s)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">Specify pid file (default: %s)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">Specify wallet file (within data directory)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">Specify your own public address</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spend Valid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">Spend unconfirmed change when sending transactions (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Staking options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation type="unfinished">Stop running after importing blocks from disk (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation type="unfinished">Submitted following entries to masternode: %u / %d</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation type="unfinished">Submitted to masternode, waiting for more entries ( %u / %d ) %s</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation type="unfinished">Submitted to masternode, waiting in queue %s</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Synchronization failed</source>
+        <translation type="unfinished">Synchronization failed</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronization finished</source>
+        <translation type="unfinished">Synchronization finished</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronization pending...</source>
+        <translation type="unfinished">Synchronization pending...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronizing budgets...</source>
+        <translation type="unfinished">Synchronizing budgets...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronizing masternode winners...</source>
+        <translation type="unfinished">Synchronizing masternode winners...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronizing masternodes...</source>
+        <translation type="unfinished">Synchronizing masternodes...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Synchronizing sporks...</source>
+        <translation type="unfinished">Synchronizing sporks...</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Syncing zGIC wallet...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The coin spend has been used</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The transaction did not verify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This help message</source>
+        <translation type="unfinished">This help message</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">This is experimental software.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation type="unfinished">This is intended for regression testing tools and app development.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This is not a Masternode.</source>
+        <translation type="unfinished">This is not a Masternode.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">Threshold for disconnecting misbehaving peers (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Too many spends needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction Created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction Mint Started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">Transaction amount too small</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">Transaction amounts must be positive</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction created successfully.</source>
+        <translation type="unfinished">Transaction created successfully.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction fees are too high.</source>
+        <translation type="unfinished">Transaction fees are too high.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction not valid.</source>
+        <translation type="unfinished">Transaction not valid.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
