@@ -290,4 +290,281 @@
         <translation>Copy the current signature to the system clipboard</translation>
     </message>
     <message>
-        <source>Encrypt the private key for 
+        <source>Encrypt the private key for this GIANT address</source>
+        <translation>Encrypt the private key for this GIANT address</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>Reset all fields</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>The encrypted private key</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>Decrypt the entered key using the passphrase</translation>
+    </message>
+    <message>
+        <source>Encrypt &amp;Key</source>
+        <translation>Encrypt &amp;Key</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Clear &amp;All</translation>
+    </message>
+    <message>
+        <source>&amp;BIP 38 Decrypt</source>
+        <translation>&amp;BIP 38 Decrypt</translation>
+    </message>
+    <message>
+        <source>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</source>
+        <translation>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</translation>
+    </message>
+    <message>
+        <source>Decrypt &amp;Key</source>
+        <translation>Decrypt &amp;Key</translation>
+    </message>
+    <message>
+        <source>Decrypted Key:</source>
+        <translation>Decrypted Key:</translation>
+    </message>
+    <message>
+        <source>Import Address</source>
+        <translation>Import Address</translation>
+    </message>
+    <message>
+        <source>Click "Decrypt Key" to compute key</source>
+        <translation>Click "Decrypt Key" to compute key</translation>
+    </message>
+    <message>
+        <source>The entered passphrase is invalid. </source>
+        <translation>The entered passphrase is invalid.</translation>
+    </message>
+    <message>
+        <source>Allowed: 0-9,a-z,A-Z,</source>
+        <translation>Allowed: 0-9,a-z,A-Z,</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>The entered address is invalid.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Please check the address and try again.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>The entered address does not refer to a key.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Wallet unlock was cancelled.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Private key for the entered address is not available.</translation>
+    </message>
+    <message>
+        <source>Failed to decrypt.</source>
+        <translation>Failed to decrypt.</translation>
+    </message>
+    <message>
+        <source>Please check the key and passphrase and try again.</source>
+        <translation>Please check the key and passphrase and try again.</translation>
+    </message>
+    <message>
+        <source>Data Not Valid.</source>
+        <translation>Data Not Valid.</translation>
+    </message>
+    <message>
+        <source>Please try again.</source>
+        <translation>Please try again.</translation>
+    </message>
+    <message>
+        <source>Please wait while key is imported</source>
+        <translation>Please wait while key is imported</translation>
+    </message>
+    <message>
+        <source>Key Already Held By Wallet</source>
+        <translation>Key Already Held By Wallet</translation>
+    </message>
+    <message>
+        <source>Error Adding Key To Wallet</source>
+        <translation>Error Adding Key To Wallet</translation>
+    </message>
+    <message>
+        <source>Successfully Added Private Key To Wallet</source>
+        <translation>Successfully Added Private Key To Wallet</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Wallet</source>
+        <translation>Wallet</translation>
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>Node</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Overview</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Show general overview of wallet</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Send</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Receive</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Transactions</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Browse transaction history</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zGIC</source>
+        <translation>Privacy Actions for zGIC</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>E&amp;xit</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Quit application</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>About &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Show information about Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Options...</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Show / Hide</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Show or hide the main Window</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Encrypt Wallet...</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Encrypt the private keys that belong to your wallet</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Backup Wallet...</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Backup wallet to another location</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Change Passphrase...</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Change the passphrase used for wallet encryption</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Unlock Wallet...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Unlock wallet</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Lock Wallet</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Sign &amp;message...</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Verify message...</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Information</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>Show diagnostic information</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debug console</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Open debugging console</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Network Monitor</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Show network monitor</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;Peers list</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Show peers info</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>Wallet &amp;Repair</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Show wallet repair options</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Open configuration file</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Show Automatic &amp;Backups</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Show automatically created wallet backups</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Sending addresses...</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Show the list of used sending addresses and labels</translation>
+    </m
