@@ -567,4 +567,269 @@
     <message>
         <source>Show the list of used sending addresses and labels</source>
         <translation>Show the list of used sending addresses and labels</translation>
-    </m
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Receiving addresses...</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Show the list of used receiving addresses and labels</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;Multisignature creation...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Create a new multisignature address and add it to this wallet</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;Multisignature spending...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Spend from a multisignature address</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;Multisignature signing...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Sign with a multisignature address</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Open &amp;URI...</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Command-line options</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>Processed %n block of transaction history.</numerusform><numerusform>Processed %n blocks of transaction history.</numerusform></translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Synchronising additional data: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 behind. Scanning block %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymisation and staking only</translation>
+    </message>
+    <message>
+        <source>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
+        <translation>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;File</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Settings</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;Tools</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Tabs toolbar</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Send coins to a GIANT address</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Request payments (generates QR codes and giant: URIs)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privacy</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Masternodes</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Browse masternodes</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>&amp;About GIANT Core</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Show information about GIANT Core</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Modify configuration options for GIANT</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Sign messages with your GIANT addresses to prove you own them</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Verify messages to ensure they were signed with specified GIANT addresses</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP38 tool</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Encrypt and decrypt private keys using a passphrase</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;MultiSend</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>MultiSend Settings</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Open Wallet &amp;Configuration File</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Open &amp;Masternode Configuration File</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Open Masternode configuration file</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Open a GIANT: URI or payment request</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;Blockchain explorer</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Block explorer window</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Show the GIANT Core help message to get a list with possible GIANT command-line options</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT Core client</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s) to GIANT network</source>
+        <translation><numerusform>%n active connection(s) to GIANT network</numerusform><numerusform>%n active connection(s) to GIANT network</numerusform></translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Synchronising with network...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Importing blocks from disk...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Reindexing blocks on disk...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>No block source available...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Up to date</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n hour</numerusform><numerusform>%n hours</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n day</numerusform><numerusform>%n days</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n week</numerusform><numerusform>%n weeks</numerusform></translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 and %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n year</numerusform><numerusform>%n years</numerusform></translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Catching up...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Last received block was generated %1 ago.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Transactions after this will not yet be visible.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Warning</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Information</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Sent transaction</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Incoming transaction</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Sent MultiSend transaction</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</translation>
+    </message>
+    <me
