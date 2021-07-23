@@ -2373,4 +2373,255 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf
         <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
     </message>
     <message>
-        <source>Requested payment amount of %
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Requested payment amount of %1 is too small (considered dust).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Refund from %1</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Payment request DoS protection</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Error communicating with %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Payment request cannot be parsed!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Bad response from server %1</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Network request error</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Payment acknowledged</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Address/Hostname</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping Time</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Zerocoin Actions:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronises with the GIANT network after a connection is established, but this process has not completed yet.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Mint Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Available for Minting:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reset</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>Coin Control...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Quantity:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Amount:</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>ReScan</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>Status and/or Messages from the last Mint Action.</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>PRIVACY</translation>
+    </message>
+    <message>
+        <source>Enter an amount of GIC to convert to zGIC</source>
+        <translation>Enter an amount of GIC to convert to zGIC</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC Control</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>zGIC Selected:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Quantity Selected:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Spend Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending</source>
+        <translation>Available (mature and spendable) zGIC for spending</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Available Balance:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pay &amp;To:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>The GIANT address to send the payment to. Creates local payment to yourself when empty.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Choose previously used address</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Paste address from clipboard</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Enter a label for this address to add it to the list of used addresses</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>A&amp;mount:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>Convert Change to Zerocoin (might cost additional fees)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>If checked, the wallet tries to minimise the returning change instead of minimising the number of spent denominations.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Minimise Change</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>Information about the available Zerocoin funds.</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Zerocoin Stats:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zGIC</source>
+        <translation>Total Balance including unconfirmed and immature zGIC</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Total Zerocoin  Balance:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>Denominations with value 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Denom. with value 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zGIC minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to giant.conf
+- disable: add 'enablezeromint=0' to giant.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominte
