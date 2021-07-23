@@ -2145,4 +2145,232 @@ https://giantpay.network/translations</translation>
         <translation>Client restart required to activate changes.</translation>
     </message>
     <message>
-        <source>Client will be shutdown, do you wa
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Client will be shut down, do you want to proceed?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>This change would require a client restart.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>The supplied proxy address is invalid.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>The supplied proxy port is invalid.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>The supplied proxy settings are invalid.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Available:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Your current spendable balance</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Total Balance, including all unavailable coins.</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC Balance</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Pending:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Immature:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Staked or masternode rewards that has not yet matured</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Current locked balance in watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Your current GIANT balance, unconfirmed and immature transactions included</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC Balance</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronises with the GIANT network after a connection is established, but this process has not completed yet.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>OVERVIEW</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Combined Balance (including unconfirmed and immature coins)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Combined Balance</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Unconfirmed transactions to watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Staked or masternode rewards in watch-only addresses that have not yet matured</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Total:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Current total balance in watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Watch-only:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Your current balance in watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Spendable:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Locked:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Unconfirmed:</translation>
+    </message>
+    <message>
+        <source>Your current zGIC balance, unconfirmed and immature zGIC included.</source>
+        <translation>Your current zGIC balance, unconfirmed and immature zGIC included.</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Recent transactions</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>out of sync</translation>
+    </message>
+    <message>
+        <source>Current percentage of zGIC.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>Current percentage of zGIC.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint is currently enabled and set to </translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>To disable AutoMint add 'enablezeromint=0' in giant.conf.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</source>
+        <translation>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Payment request error</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI handling</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Payment request fetch URL is invalid: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Payment request file handling</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Invalid payment address %1</translation>
+    </message>
+    <message>
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>Cannot start GIANT: click-to-pay handler</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Payment request file cannot be read! This can be caused by an invalid payment request file.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Payment request rejected</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Payment request network doesn't match client network.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Payment request has expired.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Payment request is not initialised.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %
