@@ -1923,4 +1923,226 @@ Please be patient after clicking import.</translation>
         <translation>W&amp;allet</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</so
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Accept connections from outside</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Allow incoming connections</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Connect through SOCKS5 proxy (default proxy):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Expert</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>Automatically start GIANT after logging in to the system.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;Start GIANT on system login</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Whether to show coin control features or not.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Enable coin &amp;control features</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Show Masternodes Tab</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Spend unconfirmed change</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Network</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>The user interface language can be set here. This setting will take effect after restarting GIANT.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Map port using &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>Enable automatic minting of GIC units to zGIC</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>Enable zGIC Automint</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>Percentage of autominted zGIC</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</source>
+        <translation>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>Preferred Automint zGIC Denomination</translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Stake split threshold:</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Connect to the GIANT network through a SOCKS5 proxy.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Port:</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Port of the proxy (e.g. 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Window</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Show only a tray icon after minimising the window.</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp;Minimise to the tray instead of the taskbar</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Minimise instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>M&amp;inimise on close</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Display</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>User Interface &amp;language:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>User Interface Theme:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Unit to show amounts in:</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>Choose the default subdivision unit to show in the interface and when sending coins.</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Decimal digits</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Hide empty balances</translation>
+    </message>
+    <message>
+        <source>Hide orphan stakes in transaction lists</source>
+        <translation>Hide orphan stakes in transaction lists</translation>
+    </message>
+    <message>
+        <source>Hide orphan stakes</source>
+        <translation>Hide orphan stakes</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Third party transaction URLs</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Active command-line options that override above options:</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Reset all client options to default.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Reset Options</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancel</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>Any</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>default</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>none</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Confirm options reset</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Client restart required to activate changes.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you wa
