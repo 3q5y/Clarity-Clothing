@@ -1420,4 +1420,258 @@ Address: %4
         <translation>Are you sure you want to start masternode %1?</translation>
     </message>
     <message>
-     
+        <source>Confirm all masternodes start</source>
+        <translation>Confirm all masternodes start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Are you sure you want to start ALL masternodes?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Command is not available right now</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>You can't use this command until masternode list is synced</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Confirm missing masternodes start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Are you sure you want to start MISSING masternodes?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>MultiSend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Enter whole numbers 1 - 100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Enter % to Give (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Enter Address to Send to</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Add to MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Add</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Deactivate MultiSend</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Deactivate</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Choose an address from the address book</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Percentage of stake to send</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Percentage:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Address to send portion of stake to</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Address:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Enter a label for this address to add it to your address book</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Delete Address From MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Delete</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Activate MultiSend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Activate</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>View MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>View MultiSend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Send For Stakes</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Send For Masternode Rewards</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(no label)</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Stakes and Masternode Rewards</source>
+        <translation>MultiSend Active for Stakes and Masternode Rewards</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Stakes</source>
+        <translation>MultiSend Active for Stakes</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Masternode Rewards</source>
+        <translation>MultiSend Active for Masternode Rewards</translation>
+    </message>
+    <message>
+        <source>MultiSend Not Active</source>
+        <translation>MultiSend Not Active</translation>
+    </message>
+    <message>
+        <source>The entered address: %1 is invalid.
+Please check the address and try again.</source>
+        <translation>The entered address: %1 is invalid.
+Please check the address and try again.</translation>
+    </message>
+    <message>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
+        <translation>The total amount of your MultiSend vector is over 100% of your stake reward</translation>
+    </message>
+    <message>
+        <source>Saved the MultiSend to memory, but failed saving properties to the database.</source>
+        <translation>Saved the MultiSend to memory, but failed saving properties to the database.</translation>
+    </message>
+    <message>
+        <source>MultiSend Vector</source>
+        <translation>MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Removed %1</source>
+        <translation>Removed %1</translation>
+    </message>
+    <message>
+        <source>Could not locate address</source>
+        <translation>Could not locate address</translation>
+    </message>
+    <message>
+        <source>Unable to activate MultiSend, check MultiSend vector</source>
+        <translation>Unable to activate MultiSend, check MultiSend vector</translation>
+    </message>
+    <message>
+        <source>Need to select to send on stake and/or masternode rewards</source>
+        <translation>Need to select to send on stake and/or masternode rewards</translation>
+    </message>
+    <message>
+        <source>MultiSend activated but writing settings to DB failed</source>
+        <translation>MultiSend activated but writing settings to DB failed</translation>
+    </message>
+    <message>
+        <source>MultiSend activated</source>
+        <translation>MultiSend activated</translation>
+    </message>
+    <message>
+        <source>First Address Not Valid</source>
+        <translation>First Address Not Valid</translation>
+    </message>
+    <message>
+        <source>MultiSend deactivated but writing settings to DB failed</source>
+        <translation>MultiSend deactivated but writing settings to DB failed</translation>
+    </message>
+    <message>
+        <source>MultiSend deactivated</source>
+        <translation>MultiSend deactivated</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Please Enter 1 - 100 for percent.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Multisignature Address Interactions</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Create MultiSignature &amp;Address</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>How many people must sign to verify a transaction</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Enter the minimum number of signatures required to sign transactions</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Address Label:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Add another address that could sign to verify a transaction from the multisig address.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Add Address / Key</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Local addresses or public keys that can sign:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Create a new multisig address</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>C&amp;reate</translation>
+    </message>
+    <message>
+  
