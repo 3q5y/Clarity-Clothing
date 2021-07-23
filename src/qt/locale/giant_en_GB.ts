@@ -1151,4 +1151,273 @@ Address: %4
     </message>
 </context>
 <context>
-    <name>E
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Edit Address</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Label</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>The label associated with this address list entry</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Address</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>The address associated with this address list entry. This can only be modified for sending addresses.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>New receiving address</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>New sending address</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Edit receiving address</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Edit sending address</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>The entered address "%1" is not a valid GIANT address.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>The entered address "%1" is already in the address book.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Could not unlock wallet.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>New key generation failed.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>A new data directory will be created.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>name</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Directory already exists. Add %1 if you intend to create a new directory here.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Path already exists and is not a directory.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Cannot create data directory here.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>version</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>About GIANT Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Command-line options</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Usage:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>command-line options</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI Options:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Choose data directory on start up (default: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Show splash screen on start up (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Set language, for example "de_DE" (default: system locale)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Start minimised</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Set SSL root certificates for payment request (default: -system-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Welcome</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Welcome to GIANT Core.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Use the default data directory</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Use a custom data directory:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Error: Specified data directory "%1" cannot be created.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB of free space available</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(of %1 GB needed)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTERNODES</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Address</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protocol</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Active</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Last Seen (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Pubkey</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>S&amp;tart alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Start &amp;all</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Start &amp;MISSING</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Update status</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Status will be updated automatically in (sec):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Start alias</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Confirm masternode start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Are you sure you want to start masternode %1?</translation>
+    </message>
+    <message>
+     
