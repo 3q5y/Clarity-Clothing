@@ -1674,4 +1674,253 @@ Please check the address and try again.</translation>
         <translation>C&amp;reate</translation>
     </message>
     <message>
-  
+        <source>Status:</source>
+        <translation>Status:</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;Import Redeem</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Create MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Inputs:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Coin Control</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Quantity Selected:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Amount:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Add an input to fund the outputs</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Add a Raw Input</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Address / Amount:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Add destinations to send GIC to</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Add &amp;Destination</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Create a transaction object using the given inputs to the given outputs</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Cr&amp;eate</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Sign MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaction Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Sign the transaction from this wallet or from provided private keys</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>S&amp;ign</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Co&amp;mmit</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Add private keys to sign the transaction with</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Add Private &amp;Key</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Sign with only private keys (Not Recommened)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Invalid Tx Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout position must be positive.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Maximum possible addresses reached. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout Position: </translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Amount: </translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maximum (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Configure Obfuscation</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Basic Privacy</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>High Privacy</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maximum Privacy</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Please select a privacy level.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Use 2 separate masternodes to mix funds up to 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Use 8 separate masternodes to mix funds up to 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Use 16 separate masternodes</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>This option is the quickest and will cost about ~0.025 GIC to anonymise 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>This option is moderately fast and will cost about 0.05 GIC to anonymise 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>This is the slowest and most secure option. Using maximum anonymity will cost</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>0.1 GIC per 10000 GIC you anonymise.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Obfuscation Configuration</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Open URI</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Open payment request from URI or file</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Select payment request file</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Select payment request file to open</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Options</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Main</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Size of &amp;database cache</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Number of script &amp;verification threads</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>W&amp;allet</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</so
