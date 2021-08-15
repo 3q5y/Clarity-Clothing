@@ -3227,4 +3227,264 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>&amp;Network Traffic</tra
+        <translation>&amp;Network Traffic</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;Clear</translation>
+    </message>
+    <message>
+        <source>Totals</source>
+        <translation>Totals</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Received</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Sent</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Peers</translation>
+    </message>
+    <message>
+        <source>Banned peers</source>
+        <translation>Banned peers</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Select a peer to view detailed information.</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>Whitelisted</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direction</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protocol</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Services</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Ban Score</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Connection Time</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Last Send</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Last Receive</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Bytes Sent</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Bytes Received</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping Time</translation>
+    </message>
+    <message>
+        <source>&amp;Wallet Repair</source>
+        <translation>&amp;Wallet Repair</translation>
+    </message>
+    <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Delete local Blockchain Folders</translation>
+    </message>
+    <message>
+        <source>Wallet In Use:</source>
+        <translation>Wallet In Use:</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>Starting Block</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>Synced Headers</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>Synced Blocks</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>The duration of a currently outstanding ping.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>Ping Wait</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>Time Offset</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>Custom Backup Path:</translation>
+    </message>
+    <message>
+        <source>Custom zGIC Backup Path:</source>
+        <translation>Custom zGIC Backup Path:</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>Custom Backups Threshold:</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Salvage wallet</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Attempt to recover private keys from a corrupt wallet.dat.</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files</source>
+        <translation>Rescan blockchain files</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions.</source>
+        <translation>Rescan the block chain for missing wallet transactions.</translation>
+    </message>
+    <message>
+        <source>Recover transactions 1</source>
+        <translation>Recover transactions 1</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
+        <translation>Recover transactions from blockchain (keep meta-data, e.g. account owner).</translation>
+    </message>
+    <message>
+        <source>Recover transactions 2</source>
+        <translation>Recover transactions 2</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>Recover transactions from blockchain (drop meta-data).</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet format</source>
+        <translation>Upgrade wallet format</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files.</source>
+        <translation>Rebuild block chain index from current blk000??.dat files.</translation>
+    </message>
+    <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Deletes all local blockchain folders so the wallet synchronises from scratch.</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
+        <translation>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</translation>
+    </message>
+    <message>
+        <source>Wallet repair options.</source>
+        <translation>Wallet repair options.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
+        <translation>Upgrade wallet to latest format on start up. (Note: this is NOT an update of the wallet itself!)</translation>
+    </message>
+    <message>
+        <source>Rebuild index</source>
+        <translation>Rebuild index</translation>
+    </message>
+    <message>
+        <source>In:</source>
+        <translation>In:</translation>
+    </message>
+    <message>
+        <source>Out:</source>
+        <translation>Out:</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>Welcome to the GIANT RPC console.</translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp;Disconnect Node</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>Ban Node for</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;hour</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;day</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 &amp;week</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 &amp;year</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp;Unban Node</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>This will delete your local blockchain folders and the wallet will synchronise the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>Do you want to continue?.&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>Confirm resync Blockchain</translation>
+    </message>
+    <message>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation>Use up and down arrows to navigate history, and %1 to clear screen.</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
+    </message>
+    <message>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</translati
