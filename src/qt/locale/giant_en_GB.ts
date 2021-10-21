@@ -5611,4 +5611,193 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Invalid amount</translation>
     </message>
     <message>
-        <source>Invalid masternodeprivkey. Please see documenation.</sou
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>Invalid masternodeprivkey. Please see documentation.</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Invalid netmask specified in -whitelist: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Invalid port detected in masternode.conf</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Invalid private key.</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>Invalid script detected.</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>Percentage of automatically minted Zerocoin  (1-100, default: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the GIC and zGIC money supply statistics</source>
+        <translation>Reindex the GIC and zGIC money supply statistics</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Reindexing zerocoin database...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Reindexing zerocoin failed</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>Selected coins value is less than payment target</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX options:</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation> mints deleted
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation> mints updated, </translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation> unconfirmed transactions removed
+</translation>
+    </message>
+    <message>
+        <source>Disable all GIANT specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Disable all GIANT specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
+        <translation>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</translation>
+    </message>
+    <message>
+        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
+        <translation>Failed to find coin set amongst held coins with less than maxNumber of Spends</translation>
+    </message>
+    <message>
+        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
+        <translation>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</translation>
+    </message>
+    <message>
+        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
+        <translation>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any automatic zGIC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specify custom backup path to add a copy of any automatic zGIC backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
+        <translation>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</translation>
+    </message>
+    <message>
+        <source>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; can be:</translation>
+    </message>
+    <message>
+        <source>Attempt to force blockchain corruption recovery</source>
+        <translation>Attempt to force blockchain corruption recovery</translation>
+    </message>
+    <message>
+        <source>CoinSpend: Accumulator witness does not verify</source>
+        <translation>CoinSpend: Accumulator witness does not verify</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>Display the stake modifier calculations in the debug.log file.</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>Display verbose coin stake messages in the debug.log file.</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>Enable publish hash block in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>Enable publish hash transaction in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Enable publish raw block in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Enable publish raw transaction in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable staking functionality (0-1, default: %u)</source>
+        <translation>Enable staking functionality (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Error: A fatal internal error occurred, see debug.log for details</translation>
+    </message>
+    <message>
+        <source>Error: No valid utxo!</source>
+        <translation>Error: No valid utxo!</translation>
+    </message>
+    <message>
+        <source>Failed to create mint</source>
+        <translation>Failed to create mint</translation>
+    </message>
+    <message>
+        <source>Failed to find Zerocoins in wallet.dat</source>
+        <translation>Failed to find Zerocoins in wallet.dat</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Failed to select a zerocoin</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Failed to wipe zerocoinDB</translation>
+    </message>
+    <message>
+        <source>Failed to write coin serial number into wallet</source>
+        <translation>Failed to write coin serial number into wallet</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</translation>
+    </message>
+    <message>
+        <source>Last Obfuscation was too recent.</source>
+        <translation>Last Obfuscation was too recent.</translation>
+    </message>
+    <message>
+        <source>Last successful Obfuscation action was too recent.</source>
+        <translation>Last succe
