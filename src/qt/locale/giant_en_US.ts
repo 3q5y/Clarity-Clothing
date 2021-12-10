@@ -1168,4 +1168,259 @@ Address: %4
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
         <translation>Directory already exists. Add %1 if you intend to create a new directory here.</translation>
     </message>
-    <mess
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Path already exists, and is not a directory.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Cannot create data directory here.</translation>
+    </message>
+</context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>version</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>About GIANT Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Command-line options</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Usage:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>command-line options</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI Options:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Choose data directory on startup (default: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Show splash screen on startup (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Set language, for example "de_DE" (default: system locale)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Start minimized</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Set SSL root certificates for payment request (default: -system-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Welcome</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Welcome to GIANT Core.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Use the default data directory</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Use a custom data directory:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Error: Specified data directory "%1" cannot be created.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB of free space available</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(of %1 GB needed)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>My Masternodes</source>
+        <translation>My Masternodes</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Address</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protocol</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Active</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Last Seen (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Pubkey</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>S&amp;tart alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Start &amp;all</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Start &amp;MISSING</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Update status</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Status will be updated automatically in (sec):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Start alias</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Confirm masternode start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Are you sure you want to start masternode %1?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Confirm all masternodes start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Are you sure you want to start ALL masternodes?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Command is not available right now</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>You can't use this command until masternode list is synced</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Confirm missing masternodes start</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Are you sure you want to start MISSING masternodes?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>MultiSend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Enter whole numbers 1 - 100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Enter % to Give (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Enter Address to Send to</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Add to MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Add</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Deactivate MultiSend</translation>
+    </message>
+    <message>
+        <sou
