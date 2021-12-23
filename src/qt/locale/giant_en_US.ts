@@ -2996,4 +2996,225 @@ https://giantpay.network/translations</translation>
         <translation>The recipient address is not valid, please recheck.</translation>
     </message>
     <message>
-     
+        <source>(obfuscation requires this amount to be rounded up to the nearest %1).</source>
+        <translation>(obfuscation requires this amount to be rounded up to the nearest %1).</translation>
+    </message>
+    <message>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation> split into %1 outputs using the UTXO splitter.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>The amount to pay must be larger than 0.</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>The amount exceeds your balance.</translation>
+    </message>
+    <message>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>The total exceeds your balance when the %1 transaction fee is included.</translation>
+    </message>
+    <message>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Duplicate address found, can only send to each address once per send operation.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>Transaction creation failed!</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Error: The wallet was unlocked only to anonymize coins.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Pay only the minimum fee of %1</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>Warning: Unknown change address</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(no label)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>This is a normal payment.</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pay &amp;To:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>The GIANT address to send the payment to</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Choose previously used address</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Paste address from clipboard</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Remove this entry</source>
+        <translation>Remove this entry</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>Enter a label for this address to add it to the list of used addresses</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>A&amp;mount:</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Message:</translation>
+    </message>
+    <message>
+        <source>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</source>
+        <translation>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</translation>
+    </message>
+    <message>
+        <source>This is an unverified payment request.</source>
+        <translation>This is an unverified payment request.</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>Pay To:</translation>
+    </message>
+    <message>
+        <source>Memo:</source>
+        <translation>Memo:</translation>
+    </message>
+    <message>
+        <source>This is a verified payment request.</source>
+        <translation>This is a verified payment request.</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Enter a label for this address to add it to your address book</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>GIANT Core is shutting down...</source>
+        <translation>GIANT Core is shutting down...</translation>
+    </message>
+    <message>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>Do not shut down the computer until this window disappears.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>Signatures - Sign / Verify a Message</translation>
+    </message>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;Sign Message</translation>
+    </message>
+    <message>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
+    </message>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>The GIANT address to sign the message with</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Choose previously used address</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Paste address from clipboard</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Enter the message you want to sign here</source>
+        <translation>Enter the message you want to sign here</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Signature</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Copy the current signature to the system clipboard</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>Sign the message to prove you own this GIANT address</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>The GIANT address the message was signed with</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>Verify the message to ensure it was signed with the specified GIANT address</translation>
+    </message>
+    <message>
+        <source>Sign &amp;Message</source>
+        <translation>Sign &amp;Message</translation>
+    </message>
+    <message>
+        <source>Reset all sign message fields</source>
+        <translation>Reset all sign message fields</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Clear &amp;All</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>&amp;Verify Message</translation>
+    </message>
+    <message>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>Verify &amp;Message</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fie
