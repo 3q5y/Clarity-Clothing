@@ -1674,4 +1674,230 @@ Please check the address and try again.</translation>
         <translation>&amp;Start GIANT on system login</translation>
     </message>
     <message>
-        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</
+        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</source>
+        <translation>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</translation>
+    </message>
+    <message>
+        <source>Obfuscation rounds to use</source>
+        <translation>Obfuscation rounds to use</translation>
+    </message>
+    <message>
+        <source>This amount acts as a threshold to turn off Obfuscation once it's reached.</source>
+        <translation>This amount acts as a threshold to turn off Obfuscation once it's reached.</translation>
+    </message>
+    <message>
+        <source>Amount of GIANT to keep anonymized</source>
+        <translation>Amount of GIANT to keep anonymized</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Whether to show coin control features or not.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Enable coin &amp;control features</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Show Masternodes Tab</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Spend unconfirmed change</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Network</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>The user interface language can be set here. This setting will take effect after restarting GIANT.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Map port using &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Connect to the GIANT network through a SOCKS5 proxy.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Port:</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Port of the proxy (e.g. 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Window</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Show only a tray icon after minimizing the window.</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp;Minimize to the tray instead of the taskbar</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>M&amp;inimize on close</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Display</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>User Interface &amp;language:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>User Interface Theme:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Unit to show amounts in:</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>Choose the default subdivision unit to show in the interface and when sending coins.</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Decimal digits</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Third party transaction URLs</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Active command-line options that override above options:</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Reset all client options to default.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Reset Options</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancel</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>default</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>none</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Confirm options reset</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Client restart required to activate changes.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Client will be shutdown, do you want to proceed?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>This change would require a client restart.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>The supplied proxy address is invalid.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Available:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Your current spendable balance</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Pending:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Immature:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Staked or masternode rewards that has not yet matured</translation>
+    </message>
+    <message>
+        <source>Balances</source>
+        <translation>Balances</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Unconfirmed transactions to watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Staked or masternode rewards in watch-only addresses that has not yet matured</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Total:</translation>
+    </message>
+    <message>
+        <source>Your current total balance</source>
+        <translation>Your current total b
