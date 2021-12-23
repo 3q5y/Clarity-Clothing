@@ -1900,4 +1900,256 @@ https://giantpay.network/translations</translation>
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Your current total b
+        <translation>Your current total balance</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Current total balance in watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Watch-only:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Your current balance in watch-only addresses</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Spendable:</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Status:</translation>
+    </message>
+    <message>
+        <source>Obfuscation Balance:</source>
+        <translation>Obfuscation Balance:</translation>
+    </message>
+    <message>
+        <source>0 GIC / 0 Rounds</source>
+        <translation>0 GIC / 0 Rounds</translation>
+    </message>
+    <message>
+        <source>Enabled/Disabled</source>
+        <translation>Enabled/Disabled</translation>
+    </message>
+    <message>
+        <source>Try to manually submit a Obfuscation request.</source>
+        <translation>Try to manually submit a Obfuscation request.</translation>
+    </message>
+    <message>
+        <source>Reset the current status of Obfuscation (can interrupt Obfuscation if it's in the process of Mixing, which can cost you money!)</source>
+        <translation>Reset the current status of Obfuscation (can interrupt Obfuscation if it's in the process of Mixing, which can cost you money!)</translation>
+    </message>
+    <message>
+        <source>Obfuscation</source>
+        <translation>Obfuscation</translation>
+    </message>
+    <message>
+        <source>Completion:</source>
+        <translation>Completion:</translation>
+    </message>
+    <message>
+        <source>Amount and Rounds:</source>
+        <translation>Amount and Rounds:</translation>
+    </message>
+    <message>
+        <source>Submitted Denom:</source>
+        <translation>Submitted Denom:</translation>
+    </message>
+    <message>
+        <source>n/a</source>
+        <translation>n/a</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Recent transactions</translation>
+    </message>
+    <message>
+        <source>Start/Stop Mixing</source>
+        <translation>Start/Stop Mixing</translation>
+    </message>
+    <message>
+        <source>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</source>
+        <translation>The denominations you submitted to the Masternode.&lt;br&gt;To mix, other users must submit the exact same denominations.</translation>
+    </message>
+    <message>
+        <source>(Last Message)</source>
+        <translation>(Last Message)</translation>
+    </message>
+    <message>
+        <source>Try Mix</source>
+        <translation>Try Mix</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reset</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>out of sync</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation>Disabled</translation>
+    </message>
+    <message>
+        <source>No inputs detected</source>
+        <translation>No inputs detected</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n Rounds</source>
+        <translation><numerusform>%n Round</numerusform><numerusform>%n Rounds</numerusform></translation>
+    </message>
+    <message>
+        <source>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</source>
+        <translation>Not enough compatible inputs to anonymize &lt;span style='color:red;'&gt;%1&lt;/span&gt;,&lt;br&gt;will anonymize &lt;span style='color:red;'&gt;%2&lt;/span&gt; instead</translation>
+    </message>
+    <message>
+        <source>Overall progress</source>
+        <translation>Overall progress</translation>
+    </message>
+    <message>
+        <source>Denominated</source>
+        <translation>Denominated</translation>
+    </message>
+    <message>
+        <source>Anonymized</source>
+        <translation>Anonymized</translation>
+    </message>
+    <message numerus="yes">
+        <source>Denominated inputs have %5 of %n rounds on average</source>
+        <translation><numerusform>Denominated inputs have %5 of %n rounds on average</numerusform><numerusform>Denominated inputs have %5 of %n rounds on average</numerusform></translation>
+    </message>
+    <message>
+        <source>Last Obfuscation message:
+</source>
+        <translation>Last Obfuscation message:
+</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully reset.</source>
+        <translation>Obfuscation was successfully reset.</translation>
+    </message>
+    <message>
+        <source>If you don't want to see internal Obfuscation fees/transactions select "Most Common" as Type on the "Transactions" tab.</source>
+        <translation>If you don't want to see internal Obfuscation fees/transactions select "Most Common" as Type on the "Transactions" tab.</translation>
+    </message>
+    <message>
+        <source>Obfuscation requires at least %1 to use.</source>
+        <translation>Obfuscation requires at least %1 to use.</translation>
+    </message>
+    <message>
+        <source>Wallet is locked and user declined to unlock. Disabling Obfuscation.</source>
+        <translation>Wallet is locked and user declined to unlock. Disabling Obfuscation.</translation>
+    </message>
+    <message>
+        <source>Found enough compatible inputs to anonymize %1</source>
+        <translation>Found enough compatible inputs to anonymize %1</translation>
+    </message>
+    <message>
+        <source>Start Obfuscation</source>
+        <translation>Start Obfuscation</translation>
+    </message>
+    <message>
+        <source>Stop Obfuscation</source>
+        <translation>Stop Obfuscation</translation>
+    </message>
+    <message>
+        <source>Mixed</source>
+        <translation>Mixed</translation>
+    </message>
+    <message>
+        <source>Enabled</source>
+        <translation>Enabled</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Payment request error</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI handling</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Payment request fetch URL is invalid: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Payment request file handling</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Invalid payment address %1</translation>
+    </message>
+    <message>
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>Cannot start GIANT: click-to-pay handler</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Payment request file cannot be read! This can be caused by an invalid payment request file.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Payment request rejected</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Payment request network doesn't match client network.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Payment request has expired.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Payment request is not initialized.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Requested payment amount of %1 is too small (considered dust).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Refund from %1</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Payment request DoS protection</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Error communicating with %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Payment request cannot be parsed!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Bad response from server %1</translation>
+    </message>
+    <message>
+        <source>Networ
