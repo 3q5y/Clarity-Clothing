@@ -1423,4 +1423,255 @@ MultiSend will not be activated unless you have clicked Activate</translation>
         <translation>Deactivate MultiSend</translation>
     </message>
     <message>
-        <sou
+        <source>Deactivate</source>
+        <translation>Deactivate</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Choose an address from the address book</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Percentage of stake to send</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Percentage:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Address to send portion of stake to</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Address:</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Delete Address From MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Delete</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Activate MultiSend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Activate</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>View MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>View MultiSend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Send For Stakes</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Send For Masternode Rewards</translation>
+    </message>
+    <message>
+        <source>The entered address:
+</source>
+        <translation>The entered address:
+</translation>
+    </message>
+    <message>
+        <source> is invalid.
+Please check the address and try again.</source>
+        <translation> is invalid.
+Please check the address and try again.</translation>
+    </message>
+    <message>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward
+</source>
+        <translation>The total amount of your MultiSend vector is over 100% of your stake reward
+</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Please Enter 1 - 100 for percent.</translation>
+    </message>
+    <message>
+        <source>MultiSend Vector
+</source>
+        <translation>MultiSend Vector
+</translation>
+    </message>
+    <message>
+        <source>Removed </source>
+        <translation>Removed </translation>
+    </message>
+    <message>
+        <source>Could not locate address
+</source>
+        <translation>Could not locate address
+</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Configure Obfuscation</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Basic Privacy</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>High Privacy</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maximum Privacy</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Please select a privacy level.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Use 2 separate masternodes to mix funds up to 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Use 8 separate masternodes to mix funds up to 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Use 16 separate masternodes</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>This is the slowest and most secure option. Using maximum anonymity will cost</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>0.1 GIC per 10000 GIC you anonymize.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Obfuscation Configuration</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Open URI</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Open payment request from URI or file</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Select payment request file</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Select payment request file to open</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Options</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Main</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Size of &amp;database cache</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Number of script &amp;verification threads</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>W&amp;allet</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Accept connections from outside</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Allow incoming connections</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Connect through SOCKS5 proxy (default proxy):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Expert</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>Automatically start GIANT after logging in to the system.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;Start GIANT on system login</translation>
+    </message>
+    <message>
+        <source>This setting determines the amount of individual masternodes that an input will be anonymized through.&lt;br/&gt;More rounds of anonymization gives a higher degree of privacy, but also costs more in fees.</
