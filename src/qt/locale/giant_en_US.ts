@@ -4564,3 +4564,239 @@ for example: alertnotify=echo %%s | mail -s "GIANT Alert" admin@foo.com
     <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
         <translation>Enable publish hash transaction in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Enable publish raw block in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</source>
+        <translation>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Enable publish raw transaction in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable staking functionality (0-1, default: %u)</source>
+        <translation>Enable staking functionality (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Keep N GIC anonymized (default: %u)</source>
+        <translation>Keep N GIC anonymized (default: %u)</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</translation>
+    </message>
+    <message>
+        <source>Last Obfuscation was too recent.</source>
+        <translation>Last Obfuscation was too recent.</translation>
+    </message>
+    <message>
+        <source>Last successful Obfuscation action was too recent.</source>
+        <translation>Last successful Obfuscation action was too recent.</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Limit size of signature cache to &lt;n&gt; entries (default: %u)</translation>
+    </message>
+    <message>
+        <source>Line: %d</source>
+        <translation>Line: %d</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Loading addresses...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Loading block index...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Loading budget cache...</translation>
+    </message>
+    <message>
+        <source>Loading masternode cache...</source>
+        <translation>Loading masternode cache...</translation>
+    </message>
+    <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Loading masternode payment cache...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Loading wallet... (%3.2f %%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Loading wallet...</translation>
+    </message>
+    <message>
+        <source>Lock is already in place.</source>
+        <translation>Lock is already in place.</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Lock masternodes from masternode configuration file (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Maintain at most &lt;n&gt; connections to peers (default: %u)</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Masternode options:</translation>
+    </message>
+    <message>
+        <source>Masternode queue is full.</source>
+        <translation>Masternode queue is full.</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Masternode:</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>Missing input transaction information.</source>
+        <translation>Missing input transaction information.</translation>
+    </message>
+    <message>
+        <source>Mixing in progress...</source>
+        <translation>Mixing in progress...</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Need to specify a port with -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>No Masternodes detected.</source>
+        <translation>No Masternodes detected.</translation>
+    </message>
+    <message>
+        <source>No compatible Masternode found.</source>
+        <translation>No compatible Masternode found.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>No funds detected in need of denominating.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>No matching denominations found for mixing.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Node relay options:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>Non-standard public key detected.</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>Not compatible with existing transactions.</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Not enough file descriptors available.</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Not in the Masternode list.</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>Number of automatic wallet backups (default: 10)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>Obfuscation is idle.</translation>
+    </message>
+    <message>
+        <source>Obfuscation options:</source>
+        <translation>Obfuscation options:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Obfuscation request complete:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Obfuscation request incomplete:</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Only accept block chain matching built-in checkpoints (default: %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Options:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Password for JSON-RPC connections</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Prepend debug output with timestamp (default: %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Print version and exit</translation>
+    </message>
+    <message>
+        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <translation>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>RPC server options:</translation>
+    </message>
+    <message>
+        <source>RPC support for HTTP persistent connections (default: %d)</source>
+        <translation>RPC support for HTTP persistent connections (default: %d)</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>Randomly drop 1 of every &lt;n&gt; network messages</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>Randomly fuzz 1 of every &lt;n&gt; network messages</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>Rebuild block chain index from current blk000??.dat files</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>Receive and display P2P network alerts (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Relay and mine data carrier transactions (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translat
