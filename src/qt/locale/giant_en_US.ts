@@ -5035,4 +5035,119 @@ for example: alertnotify=echo %%s | mail -s "GIANT Alert" admin@foo.com
     </message>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
-        <trans
+        <translation>Unknown network specified in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>Unknown state: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>Upgrade wallet to latest format</translation>
+    </message>
+    <message>
+        <source>Use N separate masternodes to anonymize funds  (2-8, default: %u)</source>
+        <translation>Use N separate masternodes to anonymize funds  (2-8, default: %u)</translation>
+    </message>
+    <message>
+        <source>Use OpenSSL (https) for JSON-RPC connections</source>
+        <translation>Use OpenSSL (https) for JSON-RPC connections</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Use UPnP to map the listening port (default: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>Use UPnP to map the listening port (default: 1 when listening)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Use the test network</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Username for JSON-RPC connections</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Value more than Obfuscation pool maximum allows.</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Verifying blocks...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Verifying wallet...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Wallet %s resides outside data directory %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Wallet is locked.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Wallet needed to be rewritten: restart GIANT Core to complete</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Wallet options:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Wallet window title</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Warning</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Warning: This version is obsolete, upgrade required!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Warning: Unsupported argument -debugnet ignored, use -debug=net.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Will retry...</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>You need to rebuild the database using -reindex to change -txindex</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Your entries added successfully.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Your transaction was accepted into the pool!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Zapping all transactions from wallet...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ notification options:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>on startup</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat corrupt, salvage failed</translation>
+    </message>
+</context>
+</TS>
