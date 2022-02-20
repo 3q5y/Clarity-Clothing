@@ -363,4 +363,286 @@
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-       
+        <translation>Privatan ŝlosilon por la enirita adreson estas ne disponebla</translation>
+    </message>
+    <message>
+        <source>Failed to decrypt.</source>
+        <translation>Malsukcesis maĉifri</translation>
+    </message>
+    <message>
+        <source>Please check the key and passphrase and try again.</source>
+        <translation>Bonvolu kontroli la ŝlosilo kaj la pasfrazo kaj riprovi.</translation>
+    </message>
+    <message>
+        <source>Data Not Valid.</source>
+        <translation>Nevalidaj datumoj</translation>
+    </message>
+    <message>
+        <source>Please try again.</source>
+        <translation>Bonvolu reprovi.</translation>
+    </message>
+    <message>
+        <source>Please wait while key is imported</source>
+        <translation>Bonvolu atendi dum la ŝlosilo estas importita</translation>
+    </message>
+    <message>
+        <source>Key Already Held By Wallet</source>
+        <translation>Ŝlosilo jam tenata per monujo</translation>
+    </message>
+    <message>
+        <source>Error Adding Key To Wallet</source>
+        <translation>Eraro aldonante ŝlosilon al monujo</translation>
+    </message>
+    <message>
+        <source>Successfully Added Private Key To Wallet</source>
+        <translation>Sukcsese aldonita privata ŝlosilo al monujo</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Wallet</source>
+        <translation>Monujo</translation>
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>Nodo</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Superrigardo</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Montri ĝeneralan superrigardon de la monujo</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Sendu</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Ricevi</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Transakcioj</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>&amp;Foliumi transakcio historio</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zGIC</source>
+        <translation>Privataj agoj por zGIC</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>&amp;Eliri</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Eliri</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Pri&amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Montri informon pri Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Ebloj</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Montri/Kaŝi</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Montri aŭ kaŝi la ĉefan fenestron</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Ĉifri monujon...</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Ĉifri la privatajn ŝlosilojn kiu apartenas al la via monujo</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Restaŭrkopio monujon...</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Restaŭrkopiu monujon al alia loko</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Ŝanĝi pasfrazon</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Ŝanĝi la uzata pasfrazon per la monujon ĉifrado</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Malŝlosi monujon</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Malŝlosi monujon</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Ŝlosi monujon</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Sibskribu &amp;mesaĝon...</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Kontrolu messaĝon...</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informoj</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>Montri diagnozo informon</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debug konzolo</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Malfermi debug konzolon</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Reto monitoro</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Montri reton monitoron</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;Samuloj listo</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Montri samuloj info</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>Monujo &amp;Riparo</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Montri monujon ripari opcio</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Malfermi agordi dosiero</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Montri aŭtomate &amp;restaŭrkopioj</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Montri aŭtomate kreita monujo restaŭrkopio</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Sendante adresojn</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Montri la uzinta sendanta adreso  kaj etikedo listo </translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Ricevanta adreso</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Montri la uzinta ricevanta adresoj kaj etikedoj listo</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;Multisubskribo kreitajo</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Krei novan multisubskribon adreson kaj aldoni ĝin al ĉi tiu monujo</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;Multisubskribo elspezado...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Elspezi el multisubskribo adreso</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;Multisubskribo subskribii...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Signu per multisubskribo adreso</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Malfermi &amp;URI</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Komando-linio opcioj</translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Ĝisdatiĝante pliaj datumo: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 malantaŭe. Skanado %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Monujo estas &lt;b&gt;ĉifrita&lt;/b&gt; kaj nuntempe &lt;b&gt;malfermita&lt;/b&gt; por anonimigi kaj staki nun</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Dosiero</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Agordoj</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;Iloj</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Helpo</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Iloj langeto</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerno</translation>
+    </message>
+    <message>
+        <source>Send coin
