@@ -645,4 +645,298 @@
         <translation>GIANT kerno</translation>
     </message>
     <message>
-        <source>Send coin
+        <source>Send coins to a GIANT address</source>
+        <translation>Sendu mono al GIANT addreso</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Peto pagojn (generas QR kodojn kaj giant: URIs)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privateco</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Mastronodoj</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Foliumi mastro-nodo</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>&amp;Pri GIANT Kerno</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Montri informon pri GIANT Kerno</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Modifi agordajn opciojn por GIANT</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Subskribu mesaĝo per via GIANT adreso por pruvi vi posedas ĝin</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Kontrolu mesaĝojn por certigi ke ili estas subskribita kun specifita GIANT adreso</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP38 ilo</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Ĉifri kaj malĉifri privataj ŝlosiloj per pasfrazo</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;Multisendi</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>Multisendi agordoj</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Malfermi monujon &amp;Agordo-dosieron</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Malfermi &amp;Mastro-nodo Algord-dosieron</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Malfermi mastro-nodo agord-dosieron</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Malfermi unu GIANT: URI aŭ pago peto</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;Bloko esplorilo</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Bloko esplorilo fenestro</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Montri la GIANT Kore help-mesaĝo por havi liston de havebla GIANT komandlinion opciojn</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT Kerno kliento</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Ĝisdatiĝante kun reto...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Importante blokojn el disco...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Reindeksante blokojn en disko...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>Neniu bloko fonto disponebla...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Ĝisdata</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 kaj %2</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Kaptante...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Lasta ricevita bloko estis generita %1 antaŭe.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Transakcio post tio estos ankoraŭ nevidebla.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Eraro</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Averto</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informoj</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Sendita transakcio</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Venonta transakcio</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Sendita multisend transakcio</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Dato: %1
+Kvanto: %2
+Tipo: %3
+Adreso: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>Staki estas aktiva
+Multisendi: %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktiva</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>Ne aktiva</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>Staki ne estas aktiva
+Muktisendi: %1</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Autominti estas nuntempe ebligita kaj agordita a</translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>Autominti estas neebligita</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Monujo estas &lt;b&gt;ĉifrita&lt;/b&gt; kaj nuntempe &lt;b&gt;malŝlosita&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Monujo estas &lt;b&gt;ĉifrita&lt;/b&gt; kaj nuntempe &lt;b&gt;ŝlosita&lt;/b&gt;</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>&amp;Blokĉeno esplorilo</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Reen</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Antaŭi</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>Adreso/Bloko/Transakcio</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Serĉu</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Tekstetikedo</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>Ĉiuj transakcio ne estos montri. Peor vidi ĉiuj transakcio bezonas agordi txindekso=1 en la agordo dosiero (giant.conf).</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Totalo: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Nekonata: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>Reto alarmo</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kvanto</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bajtoj</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Kvanto:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritato:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Krompago</translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>Mono selektado</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Post krompago</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ŝanĝu:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>(mal)elekti ĉion</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>Baskuligu seruron ŝtato</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>Arboreĝimo</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Listreĝimo</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 enfermita)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Sumo:</tra
