@@ -939,4 +939,308 @@ Muktisendi: %1</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Sumo:</tra
+        <translation>Sumo:</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Ricevita kun etikedo</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Ricevita kun adreso</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tajpu</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Konfirmoj</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Konfirmita</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioritato</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopi adreson</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopi etikedo</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopii kvanto</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopiu transakcion ID</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Ŝlosi neelspezita</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Malfermi malelspezita</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopi kvanto</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopiu krompago</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopiu post krompago</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopiu bajtoj</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopiu prioritato</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopi ŝanĝo</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>Bonvolu baskulu "Listo modo" por uzi tiun funkcio.</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>plej alta</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>pli alta</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>alta</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>alta meza</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>meza</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>baza meza</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>malalta</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>pli malalta</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>plej malalta</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 ŝlosita)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>neniu</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>jes</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>Tiun etikedon ruĝigis se la transakcio grandeco estas pli granda ol 1000 bajtoj.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Tio signifas %1 por KB almenaŭ bezonas.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Povas varii +/- 1 bajto per enigo.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Pli alta prioritato tansakcio estas pli verŝajna esti inklusitaj en la bloko</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Tiun etikedo ruĝiĝas se la prioritato estas pli malgranda ol "meza".</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Ĉi tiun etikedo ruĝiĝas se iu ajna ricevanto ricevas totalo pli malgranda ol %1.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Povas varii +/- %1 ugic per enigo.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(neniu etikedo)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>ŝanĝi el %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(ŝanĝu)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Redaktu adreson</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Etikedo</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Etikedo asociita kun la adreso eniri listo</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Adreso</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Asociita adreson kun ĉi tio adresaro eniro. Ĉi tio povas nun esti modifita por send-adresoj.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>Nova ricevanta adreso</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Nova sendanta adreso</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Redaktu ricenvantan adreson</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Redaktu sendantan adreson</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>La enirita "%1" adreso ne estas validan GIANT adreson.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>La enirita adreson "%1" estas jam en la adresaron.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Ne povis malŝlosi monujo.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Novan ŝlosilo generacio malsukcesis.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>Novan datumojn dosierujojn estos kreita.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>nomo</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Dosoerujo jam eksistas. Aldonu %1 se vi volus krei novan dosierujon ĉi tie.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Vojon jam eksistas, kaj ne estas dosierujon.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Ne povas krei datumoj dosierujo ĉi tie.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formo</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>versio</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerno</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bajto)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>Pri GIANT Kerno</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Komando-linio opcioj</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Usado:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>komando-linio opcioj</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI Agordoj:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Elektu datumojn dosierujo sur komenĉo (defaŭltas: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Montri ekranĉ
