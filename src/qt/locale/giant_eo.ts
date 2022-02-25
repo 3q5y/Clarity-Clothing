@@ -1519,4 +1519,255 @@ Muktisendi: %1</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
-        <translation>Aldoni &
+        <translation>Aldoni &amp;Destino</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Krei trasakcion objekcton uzante donataj eniroj al la donata eliroj</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;Krei</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Subskibu la transakcion de ĉi tiu monujo aŭ provizu privataj ŝlosiloj</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;Subskribi</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MALŜALTITA ĝis transakcio estas subskribita sufican fojon.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Aldoni privatajn ŝlosilojn por kunsubskribi transakcion</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Aldoni privata &amp;ŝlosilo</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Subskribu nun kun privataj ŝlosiloj (Ne rekomendita)</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Maximuman eblajn adreson antigita. (15)</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maximuma (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Baza privateco</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Alta privateco</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maximuma privateco</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Bonvolu elekti privata nivelo.</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 GIC por anonimigi 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 GIC por anonimigi 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Ĉi tio estas plej malrapida kaj plej sekura opcio. Uzante maximuma anonimeco kostos</translation>
+    </message>
+    </context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Malfermi URI</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Malfermi pago peto el URI aŭ dosiero</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Elektu pago peto dosieron</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Elektu pago peto dosieron por malfermi</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Agordoj</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Ĉefa</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>&amp;Monujo</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aŭtomate malfermi GIANT klienton havenon en la enkursigilo. Tio nur laboras kiam via enkursigilo subtenas UPnP kaj estas ebligita.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Accepti ekster-ligojn</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Sperta</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;Komencu GIANT en sistem-ensaluto</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Elspezi nekonfirmita ŝanĝo</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Reto</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>La uzanta interfaco lingvo povas esti agordi ĉi tie. Tio agordo efektivigos post rekomenci GIANT.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Ĉu mankas lingvon aŭ nekompleta tradukado? Helpu la  tradukcio ĉi tie:
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Konekti al la GIANT reto per SOCKS5 prokurilo.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Prokurilo &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP prokurilo adreso (ekz. IPv4:127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Fenestro</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>Uzanta interfaca &amp;lingvo:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Usanto interfaco temo:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Uneco per montri kvantojn:</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Kaŝi malplenajn ekvilibrojn</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>defaŭlte</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>neniu</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Konfirmu restarigi opiojn</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>La provinta prokurilon adreson estas nevalida</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>La provinta prokurilon agordojn estas nevalida.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formo</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Disponebla:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Via aktuala elspezebla saldo</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC kvanto</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Nematura:</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Via aktuala GIANT totalo, nekonformita kaj nematurita transakcioj inkluzivita</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC kvanto</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Malkonfirmita: malpli ol 20 konfirmacioj
+Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mintita</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la GIANT reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>SUPERRIGARDO</translation>
+    </message>
+    <message>
+        <so
