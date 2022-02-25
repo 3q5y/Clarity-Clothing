@@ -1243,4 +1243,280 @@ Muktisendi: %1</translation>
     </message>
     <message>
         <source>Show splash screen on startup (default: %u)</source>
-        <translation>Montri ekranĉ
+        <translation>Montri ekranĉeblan ekranon sur komenĉo (defaŭltas: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Agordi lingvon, ekzemple "de_DE" (defaŭlta: sistemo-loka)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Komenci minimumigita</translation>
+    </message>
+    </context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Bonvenon</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Bonvenon al la GIANT Kerno.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>Ĉar estas la unuan fojon ke la programo estas lanĉita, vi povas elekti kie GIANT kernk storigis sian datumojn. </translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT kerno elŝutos kaj konservi kopion de la GIANT blokĉeno. Almenaŭ %1GB datumoj stokitos en ĉi tiun dosierujo, kaj ĝi kresko kun la tempo. Monujo stokitos en ĉi tiun dosierujo.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Uzi defaŭltan dosierujon</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Uzi kutimon datumojn dosierujo:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerno</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Eraro: specifita datumoj dosierujo "%1" ne povas esti kreita.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Eraro</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB de libera spaco havebla</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(de %1 GB bezonita)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Formo</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTRONODOJ</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Notu: mastro-nodo stato en lokalo monujo povas eble esti iomete malkorekta.&lt;br /&gt;Ĉiam atendi la monujo sinkronigo pliaj datumoj kaj poste kontrolu denove el alia nodo&lt;br /&gt;Se vian nodo devus esti sed vi ankoraŭ vidas "MANKAS" en "Stato" kampo.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adreso</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokolo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Statuso</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktiva</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Lasta vidita (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Pubŝlosilo</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Ĝisdatigo statuso</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Ŝtatuso estos ĝisdatĝita automate en (sek):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Konfirmu mastronodo komenco</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Komando ne disponebla nun</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Ne povas uzi tion komandon ĝis mastronodo listo estas sinkronigita</translation>
+    </message>
+    </context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>Multisendi</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Tajpu adreson por sendi al</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Aldoni al multisendo vektoro</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Aldonu</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Malaktivigi</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Elektu adreson el adresaron</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adreso:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Etikedo:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Eniru etikedo por ĉi tiun adreso por aldoni ĝin en vian adreson livro</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Forigi adreson el multisendo vektoro</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Forigi</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Aktivigi multisendon</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Aktivi</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Vidi multisendon vektoron</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Vidi multisendo</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Sendi por stakoj</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Sendi por mastronodo rekompenco</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(neniu etikedo)</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Bonvolu eniru 1 - 100 por porcento.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Kreu Multisubskriboj &amp;Adreson</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Kiom da homoj devas subsktibi por konfirmi transakcio </translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Eniri minimuman subskribojn nombron por subskribi transakcion.</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Adreso etikedo:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Aldoni alian adreson kio povus subskribi por konfirmi transakcio el multisigno adreso.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Aldoni adreson /Ŝlosilon</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Lokala adresoj aŭ privataj ŝlosiloj ke povas subskribi:</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>&amp;Krei</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Ŝtato:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Mono kontrolo</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Elektita kvanto:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Kvanto:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Aldoni eniron por fundi elirojn</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Adreso / Kvanto:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Aldonu destinoj por sendi GIC al</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Aldoni &
