@@ -1770,4 +1770,316 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>SUPERRIGARDO</translation>
     </message>
     <message>
-        <so
+        <source>Total:</source>
+        <translation>Sumo:</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Rigardu-nur</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Elspezebla:</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Malfermita:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Nekonfirmita:</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Autominti estas nuntempe ebligita kaj agordita a</translation>
+    </message>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Pago peto eraro</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Pago peto dosiero ne povas estas legi! Ĉi tio pivas esti kauzita por nevalida pago peto dosiero.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Malakceptita pago peto</translation>
+    </message>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la GIANT reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restarigi</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kvanto</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Kvanto:</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC kontrolu</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>Elektita zGIC</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Elektita kvanto:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Elspezi zerocoin</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending</source>
+        <translation>Havebla (matura kaj elspezebla) zGIC por elspezi</translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pagu &amp;Al:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>GIANT adreso por alsendi la pago. Kreas lokala pago al vi mem kiam malplenija.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Elektu antaŭe uzatan adreson</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Almetu adreson el poŝo</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etikedo:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Malkonfirmita: malpli ol 20 konfirmacioj
+Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mintita</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritato:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Tekstetikedo</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Krompago</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bajtoj</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>meza</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Se estas aktiva sed ŝanĝo-adreso estas malpleniĝa au nevalida, ŝanĝo sendos al nova generita adreson.</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ŝanĝu:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopi kvanto</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopii kvanto</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;ebligita&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;malebligita&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
+        <translation>Eraro: vian monujo estas fermita. Bonvolu eniri monujon pasfrazon unue.</translation>
+    </message>
+    <message>
+        <source>Message: Enter an amount &gt; 0.</source>
+        <translation>Mesaĝo: eniri kvanto &gt; 0.</translation>
+    </message>
+    <message>
+        <source>Invalid GIANT Address</source>
+        <translation>Nevalida GIANT adreso</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Konfirmu sendi monojn</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>Tro eniroj (</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>adreso:</translation>
+    </message>
+    </context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>Sumo:</translation>
+    </message>
+    <message>
+        <source>%1 d</source>
+        <translation>%1 t</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>RETO</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>NEKONATA</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerno</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>Tools window</source>
+        <translation>Iloj fenestro</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informoj</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nomo</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Malfermi</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Reto</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>Blokoĉeno</translation>
+    </message>
+    <message>
+        <source>&amp;Console</source>
+        <translation>&amp;Konzolo</translation>
+    </message>
+    <message>
+        <source>Clear console</source>
+        <translation>Malplenigi konzolo</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;Malplenigi</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Ricevita</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Sendita</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Samuloj</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokolo</translation>
+    </message>
+    <message>
+        <source>Rebuild index</source>
+        <translation>Rekonstrui indekson</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>Bonvenon al la GIANT RPC konzolo.</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1&amp;horo</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1&amp;tago</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1&amp;semajno</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Tajpu &lt;b&gt;helpo&lt;/b&gt; por superrigardi la disponeblajn komandojn.</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>neniam</translation>
