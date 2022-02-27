@@ -2083,3 +2083,332 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     <message>
         <source>never</source>
         <translation>neniam</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Jes</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Ne</translation>
+    </message>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>&amp;Message:</source>
+        <translation>&amp;Mesaĝo:</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etikedo:</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;Pago peto</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Malpleniĝi ĉiuj kampojn el la formo.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Malplenigi</translation>
+    </message>
+    <message>
+        <source>Requested payments history</source>
+        <translation>Pago peto historjo</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Montri</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Forigi</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopi etikedo</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>Kopii mesaĝo</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopii kvanto</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopi adreson</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR kodo</translation>
+    </message>
+    <message>
+        <source>Copy &amp;URI</source>
+        <translation>Kopi &amp;URI</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>Kopii &amp;Adreso</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adreso</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Sumo:</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etikedo</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Mesaĝo</translation>
+    </message>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etikedo</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Mesaĝo</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adreso</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Sumo:</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(neniu etikedo)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(neniam mesaĝo)</translation>
+    </message>
+    </context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Sendu monojn</translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>SENDU</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kvanto</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bajtoj</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Kvanto:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritato:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>meza</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Krompago</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Post krompago</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Ŝanĝu:</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Se estas aktiva sed ŝanĝo-adreso estas malpleniĝa au nevalida, ŝanĝo sendos al nova generita adreson.</translation>
+    </message>
+    <message>
+        <source>0 GIC</source>
+        <translation>0 GIC</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Malfermi mono kontrolo...</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Rekomendita</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Malpleniĝi ĉiuj kampojn el la formo.</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Malplenigi &amp;Ĉiu</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopi kvanto</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopii kvanto</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopiu krompago</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopiu post krompago</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopiu bajtoj</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopiu prioritato</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopi ŝanĝo</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid GIANT address</source>
+        <translation>Averto: nevalida GIANT adreson</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Ĉu vi estas ĉerta vi volus sendi?</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Konfirmu sendi monojn</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(neniu etikedo)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>.Tio estas normala pago</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Pagu &amp;Al:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>GICC adreso por sendi la pago al</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Elektu antaŭe uzatan adreson</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Almetu adreson el poŝo</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etikedo:</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Mesaĝo:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Eniru etikedo por ĉi tiun adreso por aldoni ĝin en vian adreson livro</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>GIANT Core is shutting down...</source>
+        <translation>GIANT kerno fermanta...</translation>
+    </message>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Elektu antaŭe uzatan adreson</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Almetu adreson el poŝo</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Kopiu la aktualan subskribo al la sistemo-poŝo</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Malplenigi &amp;Ĉiu</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>La skribita adreso estas nevalida.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Bonvolu kontroli la adreson kaj riprovi.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>La enirita adreso ne rilatas al ŝl
