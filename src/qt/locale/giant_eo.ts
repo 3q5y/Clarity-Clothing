@@ -2411,4 +2411,299 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>La enirita adreso ne rilatas al ŝl
+        <translation>La enirita adreso ne rilatas al ŝlosilo.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Monujo malĉifri estis nuligita.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Privatan ŝlosilon por la enirita adreson estas ne disponebla</translation>
+    </message>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT kerno</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>La Bitcoin kerno programistoj</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>La Dash kerno programistoj</translation>
+    </message>
+    <message>
+        <source>The GIANT Core developers</source>
+        <translation>La GIANT kerno programistoj</translation>
+    </message>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>conflicted</source>
+        <translation>konfliktita</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Statuso</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>own address</source>
+        <translation>propra adreso</translation>
+    </message>
+    <message>
+        <source>label</source>
+        <translation>etikedo</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Transakcio krompago</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Mesaĝo</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Sumo:</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tajpu</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adreso</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Ricevita kun</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendita al</translation>
+    </message>
+    <message>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>Orfo bloko - generita sed ne akceptita. Tio ne ŝanĝas vian tenojn.</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>Today</source>
+        <translation>Hodiaŭ</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Ĉi semajno</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Ĉi monato</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Pasinmonate</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Ĉijaro</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Ricevita kun</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Sendita al</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopi adreson</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopi etikedo</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopii kvanto</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopiu transakcion ID</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Koma disgito dosiero (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Konfirmita</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dato</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tajpu</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etikedo</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adreso</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Eksporti malsukcesis</translation>
+    </message>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <source>No wallet has been loaded.</source>
+        <translation>Neniam monujo ŝarĝitas.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Sendu monojn</translation>
+    </message>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Eksporti</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Eksporti la datumojn sur la nuna pestajo al dosiero</translation>
+    </message>
+    </context>
+<context>
+    <name>ZGICControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    </context>
+<context>
+    <name>giant-core</name>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Konekti per SOCKS5 prokurilo</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Eraro</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informoj</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Privata ŝlosilo nevalida.</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Ŝarĝante blok-indekson</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Sincronigo malsukcesis</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Jeno helpo mesaĝo</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Ĉi tio estas eksperimenta programaro.</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>Transakcio verkita sukcese.</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Transakcio krompago estas tro alta.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Transakcio nevalida.</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Tro longa transakcio</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Monujo estas ŝlosita.</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Monujo opcioj:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Averto</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Reprovos</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Vi ne havas sufiĉan Zeromonojn en vian monujon</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Vian enirojn aldonis sukcese.</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zeromono opcioj:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>je startigo</translation>
+    </message>
+    </context>
+</TS>
