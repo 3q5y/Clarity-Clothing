@@ -490,4 +490,303 @@
     </message>
     <message>
         <source>&amp;Unlock Wallet...</source>
-        <translatio
+        <translation>&amp;지갑 잠금해제...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>지갑 잠금해제</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;지갑 잠금</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>메세지 &amp;서명...</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;메시지 확인...</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;정보</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>진단 정보 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;디버그 콘솔</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>디버깅 콘솔 열기</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;네트워크 모니터</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>네트워크 모니터 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;피어 목록</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>피어 정보 표시</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>지갑 &amp;복구</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>지갑 복구 옵션 표시</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>구성 파일 열기</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>자동 &amp;백업 폴더 열기</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>자동 생성된 지갑 백업 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;송금 주소</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>송금 주소 및 라벨 목록 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;입금 주소</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>입금 주소 및 라벨 목록 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;멀티시그너쳐 생성...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>신규 멀티시그너쳐 주소 생성 및 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;멀티시그너쳐 전송중...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>멀티시그너쳐 주소에서 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;멀티시그너쳐 서명중...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>멀티시그너쳐 주소로 서명</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>&amp;URI 열기...</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;명령행 옵션</translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>추가 데이터 동기화: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 남음. %2 블록 스캔중...</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>현재 지갑은 &lt;b&gt;암호화&lt;/b&gt; 되어 &lt;b&gt;잠긴&lt;/b&gt; 상태로 스테이킹 전용모드로 안전하게 구동중입니다.</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;파일</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;설정</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;도구</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;도움말</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>탭 도구 모음</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>GIANT 주소로 입금하기</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>결제 요청 (QR 코드 및 giant: URI 생성)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;프라이버시</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;마스터노드</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>마스터노드 검색</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>GIANT Core &amp;정보</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>GIANT Core에 대한 정보 표시</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>GIANT에 대한 구성 옵션 수정</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>GIANT 주소로 메시지에 서명하여 소유하고 있음을 증명하십시오.</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>메시지가 지정된 GIANT 주소로 서명되었는지 확인합니다.</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP38 도구</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>암호를 사용하여 개인 키 암호화 및 암호해제</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;다중전송</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>다중전송 설정</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>지갑 &amp;구성 파일 열기</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>&amp;마스터노드 구성 파일 열기</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>마스터노드 구성 파일 열기</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>GIANT: URI 또는 ​​결제 요청 열기</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;블록체인 탐색기</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>블록 탐색 창</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>GIANT Core 도움말 메세지를 표시하여 사용 가능한 GIANT 명령행 옵션 목록 표시</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT Core 클라이언트</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>네트워크 동기화중...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>디스크에서 블록 가져오기...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>디스크 블록 재색인...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>사용 가능한 블록 소스 없음...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>최신</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 그리고 %2</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>동기화 중...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>마지막으로 받은 블록이 %1 전에 생성되었습니다.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>이후의 트랜잭션은 아직 표시되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>에러</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>경고</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>정보</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>보낸 내역</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>받은 내역</translation>
+    </message>
+    <message>
+        <source>Sent MultiSe
