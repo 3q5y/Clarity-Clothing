@@ -789,4 +789,346 @@
         <translation>받은 내역</translation>
     </message>
     <message>
-        <source>Sent MultiSe
+        <source>Sent MultiSend transaction</source>
+        <translation>다중 보내기 방식으로 보냄</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>날짜: %1
+금액: %2
+유형: %3
+주소: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>스테이킹 활성화
+다중전송: %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>누적 활성 시간</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>비활성</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>스테이킹이 활성화 되지 않음
+다중전송: %1</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>자동 생성기능이 현재 작동중 그리고 </translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>자동생성이 비활성화 되었습니다.</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>현재 지갑은 &lt;b&gt;암호화되어 &lt;b&gt;잠금해제되었습니다.</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>지갑은 &lt;b&gt;암호화&lt;/ b&gt;되어 있으며 현재 &lt;b&gt;잠겨 있습니다&lt;/ b&gt;.</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>블록체인 탐색기</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>주소 / 블록 / 트랜잭션</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>검색</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>텍스트라벨</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>모든 트랜잭션이 표시되지는 않습니다. 모든 트랜잭션을 보려면 구성 파일 (giant.conf)에 txindex = 1을 설정해야합니다.</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>전체 : %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / 미확인: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>네트워크 알림</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>수량:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>바이트:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>우선 순위:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>수수료:</translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>코인 선택</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>현금:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>최종 금액:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>잔돈:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>모두 선택(해제)</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>토글 잠금상태</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>트리 모드</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>목록 모드</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 잠김)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>금액</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>수신 된 라벨</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>수신 된 주소</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>분류</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>날짜</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>확인</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>확정됨</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>우선 사항</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>주소 복사</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>라벨 복사</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>트랜잭션 ID 복사</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>잠금되지 않음</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>잠금해제되지 않음</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>수량 복사</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>수수료 복사</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>이용 수수료 복사</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>바이트 복사</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>우선 사항 복사</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>현금 복사</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>변경 복사</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>이 기능을 사용하려면 "목록 모드"로 전환하십시오.</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>9 최고</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>8 매우 높음</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>7 높음</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>6 약간 높음</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>5 중간</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>4 낮은 중간</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>3 낮음</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>2 매우 낮음</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>1 최저</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 잠김)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>예</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>아니오</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>트랜잭션 크기가 1000 byte 보다 클 경우 라벨이 빨간색으로 변경됩니다.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>즉, KB 당 최소 %1 의 수수료가 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>입력당 +/- 1 byte 조절 가능.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>우선 순위가 높은 트랜잭션이 블록에 포함 될 확률이 높아집니다.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>우선 순위가 "중간" 보다 낮으면 라벨이 빨간색으로 변경됩니다.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>받는 사람이 %1 보다 작은 금액을 받으면 라벨이 빨간색으로 변경됩니다.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Can vary +/- %1 ugic per input.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(라벨 없음)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>%1 (%2) 에서 변경</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(잔돈)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>주소 수정</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;라벨</translation>
+    </
