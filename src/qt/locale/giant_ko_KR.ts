@@ -1131,4 +1131,293 @@ Address: %4
     <message>
         <source>&amp;Label</source>
         <translation>&amp;라벨</translation>
-    </
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>이 주소 목록과 관련된 라벨</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;주소</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>이 주소 목록과 관련된 주소입니다. 주소를 보낼 때만 수정할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>새로운 받는 주소</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>새로운 보내는 주소</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>받는 주소 수정</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>보내는 주소 수정</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>입력된 주소 "%1"는 올바른 GIANT 주소가 아닙니다.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>입력한 주소 "%1"는 이미 주소록에 등록 되있습니다.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>지갑의 잠금을 해제할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>새로운 키 생성에 실패하였습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>새로운 데이터 디렉토리가 생성됩니다.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>디렉토리가 이미 존재합니다. 여기에 새로운 디렉토리를 만들려면 %1을 추가해주세요.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>경로가 이미 존재하며 디렉토리가 아닙니다.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>여기에 디렉토리를 만들 수 없습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>버전</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>GIANT Core 정보</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>명령행 옵션</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>사용:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>명령행 옵션</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI 옵션:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>데이터 디렉토리 선택 (기본: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>실행시 초기화면 표시 (기본: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>언어 설정 예시 "de_DE" (기본값: 시스템 언어)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>시작시 최소화</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>결제 요청에 대한 SSL 루트 인증서 설정 (기본값: -system-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>환영합니다</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>GIANT Core에 오신 것을 환영합니다.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>이 프로그램이 처음 실행되었으므로 GIANT Core가 데이터를 저장할 위치를 선택할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Core는 GIANT 블록체인을 다운로드하여 저장합니다. 최소 %1GB의 데이터가 디렉토리에 저장되며 시간이 지날수록 증가합니다. 또한 지갑도 해당 디렉토리에 저장됩니다.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>기본 데이터 디렉토리 사용</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>사용자 지정 데이터 디렉토리 사용:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>오류: 지정된 데이터 디렉토리 "%1"을 생성할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>에러</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB의 사용 가능한 여유 공간</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(%1 GB 필요)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>마스터노드</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>참고: </translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>프로토콜</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>상태</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>누적 활성 시간</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>최근 업데이트 (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>공개키</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>마스트노드 시&amp;작</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>&amp;전체 시작</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>누락된 마스트노드 시&amp;작</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;업데이트 상태</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>마스터노드 상태는 자동 업데이트됩니다:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>선택 시작</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>마스터노드 시작 확인</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>마스터노드 %1을 시작하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>모든 마스터노드 시작 확인</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>모든 마스터노드를 시작하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>현재 명령을 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>마스터노드 목록이 동기화 될 때까지이 명령을 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>누락된 마스터노드 확인 시작</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>누락된 마스터노드를 시작하시겠습니까?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>다중전송</translat
