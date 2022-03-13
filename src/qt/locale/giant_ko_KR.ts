@@ -1420,4 +1420,304 @@ Address: %4
     <name>MultiSendDialog</name>
     <message>
         <source>MultiSend</source>
-        <translation>다중전송</translat
+        <translation>다중전송</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>1 - 100의 정수 입력</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>부여할 % 입력 (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>보낼 주소 입력</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>다중전송을 사용하면 성취 한 뒤 다른 GIANT 주소 목록에 최대 100% 스테이크 또는 마스터노드 보상을 자동으로 보낼 수 있습니다.
+추가하려면 : 부여 할 백분율과 다중전송 벡터에 추가 할 GIANT 주소를 입력하십시오.
+삭제하려면 삭제할 주소를 입력하고 삭제를 누릅니다.
+활성화를 클릭하지 않으면 다중전송이 활성화되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>다중전송 벡터 추가</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>추가</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>다중전송 비활성화</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>비활성화</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>주소록에서 주소 선택</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>전송할 스테이크 비율</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>백분율:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>스테이크 일부를 보낼 주소</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>주소:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>주소록에 추가하려면 이 주소의 라벨을 입력해주세요.</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>다중전송 벡터에서 주소 삭제</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>다중전송 활성화</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>활성화</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>다중전송 벡터 보기</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>다중전송 보기</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>스테이크를 위한 전송</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>마스터노드 보상 전송</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(라벨 없음)</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>퍼센트로 1 - 100을 입력하십시오.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>멀티 서명 주소 상호 작용</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>&amp;멀티시그너쳐 주소 생성</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>얼마나 많은 사람들이 거래를 확인하기 위해 서명해야합니까?</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>거래에 서명하는 데 필요한 최소 서명 수를 입력하십시오.</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>주소 이름:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>multisig 주소에서 트랜잭션을 확인하기 위해 서명 할 수있는 다른 주소를 추가하십시오.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;주소 / 키 추가</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>서명 할 수있는 로컬 주소 또는 공개 키 :</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>신규 멀티시그 주소 생성</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>&amp;생성</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>상태:</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>아래 주소를 사용하여 주소를 신속하게 가져옵니다. 가져 오기를 클릭하기 전에 레이블을 추가하는 것을 잊지 마십시오!
+지갑은 블록 체인을 다시 스캔하여 새 주소가 포함 된 거래를 찾습니다 .
+가져 오기를 클릭 한 후 기다려주십시오.</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;리딤코드 가져오기</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>맺음말 Tx 만들기 (&amp; A)</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>입력:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>코인 설정</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>선택된 수량 :</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>출력을위한 입력을 추가하십시오.</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation> Raw 입력</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>주소 / 금액:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>GIC를 보낼 목적지 추가</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>추가 및 대상</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>주어진 출력에 주어진 입력을 사용하여 트랜잭션 객체를 만듭니다.</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;생성</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>멀티 시그니처 Tx 서명 (&amp; S)</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaction Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>이 지갑이나 제공된 개인 키에서 거래에 서명하십시오.</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;서명</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>거래가 충분히 서명 될 때까지 1234DISABLED</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Co&amp;mmit</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>개인 키를 추가하여 다음을 사용하여 트랜잭션에 서명하십시오.</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>&amp;개인키 추가</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>개인 키만 사용하여 서명 (권장하지 않음)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>맞지 않는 Tx Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout 위치는 양수 여야합니다.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>가능한 주소 최대치 입니다. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout 포지션 :</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>최대 (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>난독화 구성</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>기본 익명화</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>높은 익명화</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>최
