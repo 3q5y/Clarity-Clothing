@@ -1959,4 +1959,279 @@ https://giantpay.network/translations</translation>
         <translation>창 닫기시 프로그램 종료하지 않고 최소화하기. 이 옵션을 사용하면 메뉴에서 종료를 선택해야 프로그램이 종료됩니다.</translation>
     </message>
     <message>
-     
+        <source>M&amp;inimize on close</source>
+        <translation>닫&amp;기시 최소화</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;디스플레이</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>사용자 인터페이스 &amp;언어:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>사용자 인터페이스 테마:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;금액을 표시 할 단위:</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>코인 전송시 인터페이스에 표시할 기본 세분화 단위를 선택해주세요.</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>10진수</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>잔액 0 숨기기</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>트랜잭션 탭에 컨텍스트 메뉴 항목으로 표시되는 서드파티 URL (예: 블록 탐색) URL의 %s 는 트랜잭션 해시로 대체됩니다. 여러 개의 URL은 세로 막대로 구분됩니다 |.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>서드파티 트랜잭션 URL</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>위의 옵션을 무시하는 활성 명령행 옵션:</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>모든 클라이언트 옵션을 기본값으로 재설정.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;옵션 재설정</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;예</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;취소</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>어떤</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>기본값</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>옵션 재설정 확인</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>변경 사항을 적용하려면 클라이언트를 다시 시작해야합니다.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>클라이언트가 종료됩니다. 계속 진행하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>이 변경은 클라이언트가 재시작 되야 적용됩니다.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>프록시 주소가 잘못되었습니다.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>제공된 프록시 포트가 유효하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>제공된 프록시 설정이 유효하지 않습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>사용가능:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>현재 출금 가능한 잔액</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>전체 잔액, (현재 전송이 불가능한 코인 포함)</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC 잔액</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>대기중:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>아직 승인되지 않아 사용할 수 없으며, 잔고에 포함되지 않은 총 트랜잭션</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>미완료:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>아직 완료되지 않은 스테이크 및 마스터노드 보상</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>현재 보기전용 주소의 잠긴 잔액 </translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>현재 GIANT 잔액, 미확정, 생성중인 코인 포함</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC 잔액</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>성숙한 : 그것이 발행 된 후 같은 명칭의 20 개 이상의 확인 및 1 개 민트.
+이 zGIC는 쓸만합니다.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>미확인 : 20 회 미만 확인
+미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 GIANT 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>개요</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>전체 잔액 (미확정, 생성중인 코인 포함)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>전체 잔액</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>읽기 전용 주소의 미승인 트랜잭션</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>완료되지 않은 읽기 전용 주소의 스테이크 및 마스터노드 보상</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>총:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>현재 읽기 전용 주소의 총 잔액</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>읽기 전용:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>읽기 전용 주소의 현재 잔액</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>출금 가능 액수:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>잠금 GIC 또는 Masternode collaterals. 이들은 zGIC minting에서 제외됩니다.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>잠김:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>미승인:</translation>
+    </message>
+    <message>
+        <source>Your current zGIC balance, unconfirmed and immature zGIC included.</source>
+        <translation>zGIC 잔액, 미확정, 생성중인 zGIC 포함.</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>최근 트랜잭션</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>동기화되지 않음</translation>
+    </message>
+    <message>
+        <source>Current percentage of zGIC.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>현재 zGIC의 백분율 .
+자동 저장 기능이 활성화 된 경우이 비율은 구성된 자동 저장 비율 (기본값 = 10 %)을 기준으로 정해집니다.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>자동 생성기능이 현재 작동중 그리고 </translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>자동생성 기능을 사용하지 않으시려면, giant.conf 화일에 enablezeromint=0 를 추가하세요.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</source>
+        <translation>자동 저장 기능이 현재 사용 중지되었습니다 .
+자동 변환을 사용하려면 giant.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>결제 요청 오류</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URI 처리</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>결제 요청을 불러오기 위한 URL이 잘못 되었습니다: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>결제 요청 파일 처리 중</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>잘못된 결제 주소 %1</translation>
+    </message>
+    <message>
+       
