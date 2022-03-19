@@ -1720,4 +1720,243 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <source>Maximum Privacy</source>
-        <translation>최
+        <translation>최대 익명화</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>익명화 레벨을 선택해주세요.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 GIC 를 섞을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 GIC 를 섞을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>16개의 개별 마스터노드를 사용</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>이 옵션은 가장 빠르게 전송되며 10000 GIC 익명화에 약 ~0.025 GIC의 비용이 들어갑니다.</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 GIC 익명화에 약 0.05 GIC의 비용이 들어갑니다.</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>10000 GIC 익명화에 0.1 GIC 가 듭니다.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>난독화 구성</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 2 rounds) GIANT의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 8 rounds) GIANT의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 16 rounds) GIANT의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>URI 열기</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>URI 또는 파일에서 결제 요청 열기</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>결제 요청 파일 선택</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>열려고하는 결제 요청 파일을 선택해주세요</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>옵션</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;메인</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>&amp;데이터베이스 캐시 크기</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>스크립트 &amp;검증 스레드 개수</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = 자동, &lt;0 = 많은 코어들을 여유롭게 두기)</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>지&amp;갑</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>확인되지 않은 변경사항을 사용하지 않도록 설정하면 해당 트랜잭션에 하나 이상의 컨펌이 진행되야&lt;br/&gt;트랜잭션에 변경사항을 적용할 수 있습니다.&lt;br/&gt;또한 이것은 잔액 계산 방식에도 영향을 줍니다.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>라우터에서 GIANT 클라이언트 포트를 자동으로 엽니다. 이 기능은 라우터가 UPnP를 지원하고 활성화 된 경우에만 사용할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>외부에서의 연결 허용</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>들어오는 연결 허용</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;SOCKS5 프록시를 통해 연결 (기본 프록시):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>전문적</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>시스템 로그인 후 GIANT을 자동으로 시작합니다.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;시스템 로그인시 GIANT 시작</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>동전 제어 기능을 표시할지 여부를 나타냅니다.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>코인 &amp;제어 기능 사용</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>첫 번째 하위 탭에서 모든 마스터 노드를 나열하는 추가 탭과&lt;br/&gt;두 번째 하위 탭에서 네트워크의 모든 마스터 노드를 표시하십시오.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>마스터노드 탭 표시</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;확인되지 않은 변경사항 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;네트워크</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>사용자 인터페이스 언어를 설정할 수 있습니다. 이 설정은 GIANT을 다시 시작한 후에 적용됩니다.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>지원 언어가 없거나 번역이 불완전한가요? 번역을 도와주세요 :
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>보상받은 GIC를 zGIC로 자동변환 활성화</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>zGIC 자동생성 활성화</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>GIC수신시 자동변환 zGIC 비율 (최소값:10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>자동 변환되는 zGIC 비율</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</source>
+        <translation>이 디노미네이션의 GIC가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>선호하는 자동생성 zGIC 디노미네이션 </translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Stake split threshold:</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>SOCKS5 프록시를 통해 GIANT 네트워크에 연결해주세요.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>프록시 &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>프록시 IP 주소 (예: IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;포트:</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>프록시 포트 (예: 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;윈도우</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>창 최소화 후 트레이 아이콘으로만 표시.</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp;최소화시 작업표시줄이 아닌 트레이로 최소화</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>창 닫기시 프로그램 종료하지 않고 최소화하기. 이 옵션을 사용하면 메뉴에서 종료를 선택해야 프로그램이 종료됩니다.</translation>
+    </message>
+    <message>
+     
