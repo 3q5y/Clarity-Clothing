@@ -2813,4 +2813,347 @@ Maximum allowed: </source>
     </message>
     <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
-        <transl
+        <translation>Error : 지갑이 잠겨있습니다. 먼저 지갑을 열어주세요.</translation>
+    </message>
+    <message>
+        <source>Message: Enter an amount &gt; 0.</source>
+        <translation>Message: 0 이상의 수량을 입력하세요.</translation>
+    </message>
+    <message>
+        <source>Minting </source>
+        <translation>생성중입니다.</translation>
+    </message>
+    <message>
+        <source>Successfully minted </source>
+        <translation>성공적으로 발행됨</translation>
+    </message>
+    <message>
+        <source> zGIC in </source>
+        <translation> zGIC in </translation>
+    </message>
+    <message>
+        <source> sec. Used denominations:
+</source>
+        <translation> 초. 사용된 디노미네이션:
+</translation>
+    </message>
+    <message>
+        <source>Duration: </source>
+        <translation>경과시간:</translation>
+    </message>
+    <message>
+        <source> sec.
+</source>
+        <translation>초.
+</translation>
+    </message>
+    <message>
+        <source>Starting ResetSpentZerocoin: </source>
+        <translation>전송된 제로코인 리셋 시작중...</translation>
+    </message>
+    <message>
+        <source>No 'Pay To' address provided, creating local payment</source>
+        <translation>주소를 입력하지 않아, 신규 주소를 생성합니다.</translation>
+    </message>
+    <message>
+        <source>Invalid GIANT Address</source>
+        <translation>잘못된 GIANT 주소</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>잘못된 전송 수량</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>추가 수수료 확인</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>정말로 보내시겠습니까?&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>주소로</translation>
+    </message>
+    <message>
+        <source> to a newly generated (unused and therefore anonymous) local address &lt;br /&gt;</source>
+        <translation>새로 생성된 개인 지갑 주소(미사용된 익명의) &lt;br /&gt; 로</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>코인 전송 확인</translation>
+    </message>
+    <message>
+        <source>Failed to fetch mint associated with serial hash</source>
+        <translation>Failed to fetch mint associated with serial hash</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>너무 많은 입력 (</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>높은 디노미네션 값으로 생성하거나, 보내실 금액을 줄여주세요.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin failed with status = </source>
+        <translation>제로코인 송금 실패 상태 =</translation>
+    </message>
+    <message>
+        <source>denomination: </source>
+        <translation>디노미네이션: </translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>시리얼:</translation>
+    </message>
+    <message>
+        <source>Spend is 1 of : </source>
+        <translation>Spend is 1 of : </translation>
+    </message>
+    <message>
+        <source>value out: </source>
+        <translation>출력 값:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>주소:</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>성공 완료, 리턴 코드 :</translation>
+    </message>
+    <message>
+        <source>txid: </source>
+        <translation>txid:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>수수료:</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>금액</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT address (e.g. %1)</source>
+        <translation>GIANT 주소를 입력하세요 (예 %1)</translation>
+    </message>
+    <message>
+        <source>%1 d</source>
+        <translation>%1 일</translation>
+    </message>
+    <message>
+        <source>%1 h</source>
+        <translation>%1 시간</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 분</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 초</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>네트워크</translation>
+    </message>
+    <message>
+        <source>BLOOM</source>
+        <translation>BLOOM</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>UNKNOWN</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>None</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>이미지 &amp;저장...</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;이미지 복사</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>QR 코드 저장</translation>
+    </message>
+    <message>
+        <source>PNG Image (*.png)</source>
+        <translation>PNG 형식 이미지 (*.png)</translation>
+    </message>
+</context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>Tools window</source>
+        <translation>도구 창</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;정보</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>일반</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <source>Client name</source>
+        <translation>클라이언트 이름</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Number of connections</source>
+        <translation>연결된 수</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;열기</translation>
+    </message>
+    <message>
+        <source>Startup time</source>
+        <translation>시작 시간</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>네트워크</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>최근 블록 시간</translation>
+    </message>
+    <message>
+        <source>Debug log file</source>
+        <translation>로그 파일 디버그</translation>
+    </message>
+    <message>
+        <source>Using OpenSSL version</source>
+        <translation>OpenSSL 버전 사용</translation>
+    </message>
+    <message>
+        <source>Build date</source>
+        <translation>빌드 날짜</translation>
+    </message>
+    <message>
+        <source>Current number of blocks</source>
+        <translation>현재 블록 개수</translation>
+    </message>
+    <message>
+        <source>Client version</source>
+        <translation>클라이언트 버전</translation>
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>사용중인 BerkeleyDB 버전</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>블록체인</translation>
+    </message>
+    <message>
+        <source>Open the GIANT debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>현재 데이터 디렉토리에서 GIANT 디버그 로그 파일을 엽니다. 로그 파일이 클 경우, 약간의 시간이 걸릴 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Number of Masternodes</source>
+        <translation>마스터노드 개수</translation>
+    </message>
+    <message>
+        <source>&amp;Console</source>
+        <translation>&amp;콘솔</translation>
+    </message>
+    <message>
+        <source>Clear console</source>
+        <translation>콘솔 초기화</translation>
+    </message>
+    <message>
+        <source>&amp;Network Traffic</source>
+        <translation>&amp;네트워크 트래픽</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;초기화</translation>
+    </message>
+    <message>
+        <source>Totals</source>
+        <translation>총</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>받음</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>보냄</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;피어</translation>
+    </message>
+    <message>
+        <source>Banned peers</source>
+        <translation>제한된 피어</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>자세한 정보를 보기 위해 피어를 선택 하세요.</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>화이트리스트</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>위치</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>프로토콜</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>버전</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>서비스</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>밴 스코어</translation>
+    </message>
+    <message
