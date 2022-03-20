@@ -2234,4 +2234,282 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf
         <translation>잘못된 결제 주소 %1</translation>
     </message>
     <message>
-       
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>GIANT을 시작할 수 없습니다: 결제하기 위한 클릭 처리</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URI를 분석할 수 없습니다! 이는 잘못된 GIANT 주소 또는 URI 매개변수 손상으로 인해 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>결제 요청 파일을 읽어 올 수 없습니다! 이는 결제 요청 파일이 잘못되었을 때 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>결제 요청 거부</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>결제가 요청된 네트워크와 클라이언트의 네트워크가 일치하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>결제 요청 기간이 만료되었습니다.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>결제 요청 값이 초기화 되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>커스텀 결제 스크립트에 대한 확인되지 않은 결제 요청은 지원되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>%1 이하의 결제 요청 금액은 너무 적습니다(현금으로 간주됨).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>%1로 부터 환불 되었습니다.</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>결제 요청 금액 %1은 너무 큽니다 (%2 바이트, %3 바이트 허용).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>결제 요청 DoS 보호</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>%1: %2 통신하는 중 오류 발생: </translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>결제 요청을 확인할 수 없습니다!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>%1 서버로 부터 응답 없음</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>네트워크 요청 오류</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>결제 확인 됨</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>주소/사용자 이름</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>버전</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>응답 시간</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>제로코인 관리:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 GIANT 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>제로코인 생성</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>주화 사용 가능 여부는 확정되고 잠기지 않은 주화 또는 주전원 collaterals입니다.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>생성 가능한 수량:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
+        <translation>제로코인 지갑 DB 재설정. 블록 체인에 포함시키지 않은 트랜잭션을 삭제합니다.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>초기화</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>코인 컨트롤...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>수량:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>제로코인 생성과 메타데이타를 위해 블록체인을 다시 스캔합니다.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>다시 스캔</translation>
+    </message>
+    <message>
+        <source>Status and/or Mesages from the last Mint Action.</source>
+        <translation>마지막 발행 이후 상태나 메세지</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>프라이버시</translation>
+    </message>
+    <message>
+        <source>Enter an amount of GIC to convert to zGIC</source>
+        <translation>zGIC로 변환할 GIC 수량을 입력하세요.</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC 컨트롤</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>선택된 zGIC :</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>선택된 수량 :</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>제로코인 전송 'Pay To :' 주소가 없으면 자신에게 지불합니다.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>제로코인 보내기</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending</source>
+        <translation>전송 가능한 zGIC</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>가능한 잔액:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zGIC for spending
+
+zGIC are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>지출에 사용할 수있는 성숙한 소비재 zGIC
+
+zGIC는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>지불 &amp;대상:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>GIC를 전송할 GIANT 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>이전에 사용한 주소 선택</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>클립보드에서 주소 붙여 넣기</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;라벨:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>이 주소의 라벨을 입력하여 사용된 주소 목록에 추가하십시오</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>금&amp;액:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>잔돈을 제로코인으로 변환 (추가 요금이 부과될 수 있음)</translation>
+    </message>
+    <message>
+        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
+        <translation>이 옵션을 선택하면, 사용한 디노미네이션의 수를 최소화하는 대신 남는 잔돈을 최소화합니다.</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>잔돈 최소화하기</translation>
+    </message>
+    <message>
+        <source>Information about the available Zerocoin funds.</source>
+        <translation>사용가능한 제로코인 정보</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>제로코인 상태 :</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zGIC</source>
+        <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>제로코인 잔액 :</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>디노미네이션 값 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Denom. 값 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>미확인 : 20 회 미만 확인
+미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zGIC minting.
+
+To change the status (restart req
