@@ -3156,4 +3156,285 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <source>Ban Score</source>
         <translation>밴 스코어</translation>
     </message>
-    <message
+    <message>
+        <source>Connection Time</source>
+        <translation>연결 시간</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>최근 보냄</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>최근 받음</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>보낸 바이트</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>받은 바이트</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>응답 시간</translation>
+    </message>
+    <message>
+        <source>&amp;Wallet Repair</source>
+        <translation>&amp;지갑 복구</translation>
+    </message>
+    <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>자신의 컴퓨터의 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
+        <source>Wallet In Use:</source>
+        <translation>사용중인 지갑:</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>시작 블록</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>동기화된 헤더</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>동기화된 블록</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>현재 미해결 ping의 지속 시간.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>핑 대기</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>타임 오프셋</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>맞춤 백업 경로 :</translation>
+    </message>
+    <message>
+        <source>Custom zGIC Backup Path:</source>
+        <translation>맞춤 zGIC 백업 경로 :</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>맞춤 백업 역치(threshold) : </translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>지갑 복구</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>손상된 wallet.dat로 부터 개인키 복구 시도</translation>
+    </message>
+    <message>
+        <source>Rescan blockchain files</source>
+        <translation>블록체인 파일 재스캔</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions.</source>
+        <translation>거래내역 복구를 위한 블록체인 재검색</translation>
+    </message>
+    <message>
+        <source>Recover transactions 1</source>
+        <translation>트랜잭션 복구 1</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep meta-data, e.g. account owner).</source>
+        <translation>블록체인에서 거래내역 복구 (메타 데이터 저장 예: 사용자 주소)
+</translation>
+    </message>
+    <message>
+        <source>Recover transactions 2</source>
+        <translation>트랜잭션 복구 2</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>블록체인에서 거래내역 복구 (메타 데이터 삭제)</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet format</source>
+        <translation>지갑 구성 업그레이드</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files.</source>
+        <translation>현재 blk000??.dat로 부터 블록체인 인덱스 재작성</translation>
+    </message>
+    <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>블록체인을 재동기화를 위해 모든 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
+        <translation>아래 버튼들은 지갑을 고치기 위한 명령어 옵션들로 실행시 지갑을 재시작합니다, 손상된 블록체인 파일 또는 누락되었거나 오래된 트랜잭션들에 대한 문제를 해결합니다.</translation>
+    </message>
+    <message>
+        <source>Wallet repair options.</source>
+        <translation>지갑 복구 옵션.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
+        <translation>시작시 지갑을 최신 포맷으로 업그레이드 (참고 : 지갑 자체의 업데이트 아님!)</translation>
+    </message>
+    <message>
+        <source>Rebuild index</source>
+        <translation>색인 재구축</translation>
+    </message>
+    <message>
+        <source>In:</source>
+        <translation>입력:</translation>
+    </message>
+    <message>
+        <source>Out:</source>
+        <translation>출력:</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>GIANT RPC 콘솔에 오신 것을 환영합니다.</translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp; 연결이 끊어진 노드</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>제한된 노드</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;시간</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;일</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 &amp;주일</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 &amp;년</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp;제한 해지된 노드</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>그러면 로컬 블록 체인 폴더가 삭제되고 Wallet은 전체 Blockchain을 처음부터 동기화합니다.</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>이것은 상당한 시간을 필요로하며 많은 양의 데이터를 다운로드합니다.</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>다운로드가 완료되면 거래와 자금이 다시 표시됩니다 .12</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>계속 진행하겠습니까?&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>블록체인 동기화를 다시 하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>사용가능한 명령을 보려면 &lt;b&gt;help&lt;/b&gt;를 입력하십시오.</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation>%1 B</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 KB</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 MB</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GB</translation>
+    </message>
+    <message>
+        <source>(node id: %1)</source>
+        <translation>(노드 id: %1)</translation>
+    </message>
+    <message>
+        <source>via %1</source>
+        <translation>via %1</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>never</translation>
+    </message>
+    <message>
+        <source>Inbound</source>
+        <translation>인바운드</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>아웃바운드</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Yes</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>No</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Unknown</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
+        <translation>이전에 사용한 수신 주소 중 하나를 다시 사용하십시오.&lt;br&gt;주소 재사용은 보안 및 개인정보보호 문제가 있습니다.&lt;br&gt;이전에 만든 결제 요청을 다시 생성하지 않는 한 이것을 사용하지 마십시오.</translation>
+    </message>
+    <message>
+        <source>R&amp;euse an existing receiving address (not recommended)</source>
+        <translation>기&amp;존 수신 주소 재사용 (권장하지 않음)</translation>
+    </message>
+    <message>
+        <source>&amp;Message:</source>
+        <translation>&amp;메세지:</translation>
+    </message>
+    <message>
+        <source>An optional label to associate with the new receiving address.</source>
+        <translation>새로운 수신 주소와 연결할 선택적 라벨.</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>금&amp;액:</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GIANT network.</source>
+        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다. 참고: GIANT 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>RECEIVE</source>
+        <translation>받기</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when t
