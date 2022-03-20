@@ -2512,4 +2512,305 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <source>Show the current status of automatic zGIC minting.
 
-To change the status (restart req
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to giant.conf
+- disable: add 'enablezeromint=0' to giant.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zGIC
+
+</source>
+        <translation>현재 zGIC 자동 생성 상태를 보여줍니다.
+
+자동생성 상태를 변경하시려면 (지갑 재시작 필요함):
+- 활성화: 'enablezeromint=1' 를 giant.conf 파일에 추가
+- 비활성화: 'enablezeromint=0' 를 giant.conf 파일에 추가
+
+자동 생성 비율 변경하시려면 (지갑 재시작 필요없음):
+- 메뉴 설정-&gt;옵션-&gt;zGIC 자동생성 비율
+
+</translation>
+    </message>
+    <message>
+        <source>AutoMint Status</source>
+        <translation>자동생성 상태</translation>
+    </message>
+    <message>
+        <source>Global Supply:</source>
+        <translation>총 공급량:</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Denom. 1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Denom. 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Denom. 10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Denom. 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Denom. 100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Denom. 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Denom. 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Denom. 5000:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>디노미네이션 값 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Denom. 값 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>디노미네이션  값 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Denom. 값 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>디노미네이션 값 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Denom. 값 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>디노미네이션 값 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Denom. 값 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>디노미네이션 값 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Denom. 값 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>디노미네이션 값 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Denom. 값 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>디노미네이션 값 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Denom. 값 5000:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>우선 순위:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>텍스트라벨</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>수수료:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>현금:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>아니오</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>바이트:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>자금이 충분하지 않습니다!</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>자동으로 선택됩니다.</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>5 중간</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>코인 제어 기능</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>이 옵션이 활성화되었지만, 변경 주소가 비어있거나 유효하지 않은 경우 변경사항은 새로 생성된 주소로 전송됩니다.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>커스텀 주소 변경</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>수수료 차감 금액:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>잔돈:</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>동기화되지 않음</translation>
+    </message>
+    <message>
+        <source>Mint Status: Okay</source>
+        <translation>생성 상태 : Okay</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>수량 복사</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
+Please be patient...</source>
+        <translation>제로코인 생성 초기화 진행중... : 전체 블록체인을 다시 검색합니다. 하드웨어에 따라 최대 30분이 걸릴수 있습니다.
+기다려주세요...</translation>
+    </message>
+    <message>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation>) 가 필요함.
+가능한 최대값 :</translation>
+    </message>
+    <message>
+        <source>zGIC Spend #: </source>
+        <translation>zGIC 전송 # :</translation>
+    </message>
+    <message>
+        <source>zGIC Mint</source>
+        <translation>zGIC 생성</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt; 활성화됨 &lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt;비활성화됨&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> Configured target percentage: &lt;b&gt;</source>
+        <translation> 구성된 목표 비율 : &lt;b&gt;</translation>
+    </message>
+    <message>
+        <source>zGIC is currently disabled due to maintenance.</source>
+        <translation>zGIC는 현재 점검중이라 사용하실수 없습니다.</translation>
+    </message>
+    <message>
+        <source>zGIC is currently undergoing maintenance.</source>
+        <translation>zGIC는 현재 점검중입니다.</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. 값 &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>자동생성 상태:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
+        <transl
