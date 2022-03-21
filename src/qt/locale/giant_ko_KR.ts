@@ -3437,4 +3437,302 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>받기</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when t
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the GIANT network.</source>
+        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다.&lt;br&gt;참고: GIANT 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
+        <translation>결제 요청을 진행하려면 해당 양식을 입력하세요. 모든 입력란은 &lt;b&gt;선택 사항&lt;/b&gt;입니다.</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;라벨:</translation>
+    </message>
+    <message>
+        <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
+        <translation>요청할 선택적 금액. 이 금액을 비워두거나 특정 금액을 요청하지 않으려면 0으로 두세요.</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;결제 요청</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>모든 입력 양식 지우기.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>지우기</translation>
+    </message>
+    <message>
+        <source>Requested payments history</source>
+        <translation>요청된 결제 내역</translation>
+    </message>
+    <message>
+        <source>Show the selected request (does the same as double clicking an entry)</source>
+        <translation>선택한 요청을 표시합니다 (항목을 두 번 클릭하는 것과 동일)</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>표시</translation>
+    </message>
+    <message>
+        <source>Remove the selected entries from the list</source>
+        <translation>선택한 항목을 목록에서 제거하십시오</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>제거</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>라벨 복사</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>메세지 복사</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>주소 복사</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR 코드</translation>
+    </message>
+    <message>
+        <source>Copy &amp;URI</source>
+        <translation>&amp;URI 복사</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>&amp;주소 복사</translation>
+    </message>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>이미지 &amp;저장...</translation>
+    </message>
+    <message>
+        <source>Request payment to %1</source>
+        <translation>%1 결제 요청</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>결제 정보</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>금액</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>메세지</translation>
+    </message>
+    <message>
+        <source>Resulting URI too long, try to reduce the text for label / message.</source>
+        <translation>URI 결과가 너무 길면, 라벨 / 메세지의 텍스트를 줄입니다.</translation>
+    </message>
+    <message>
+        <source>Error encoding URI into QR Code.</source>
+        <translation>URI를 QR 코드로 인코딩하는 도중 오류가 발생하였습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>날짜</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>메세지</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>금액</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(라벨 없음)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(메세지 없음)</translation>
+    </message>
+    <message>
+        <source>(no amount)</source>
+        <translation>(금액 없음)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>코인 전송 </translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>보내기</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>코인 제어 기능</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>자금이 충분하지 않습니다!</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>수량:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>바이트:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>우선 순위:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>5 중간</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>수수료:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>현금:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>아니오</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>최종 금액:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>잔돈:</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>이 옵션이 활성화되었지만, 변경 주소가 비어있거나 유효하지 않은 경우 변경사항은 새로 생성된 주소로 전송됩니다.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>커스텀 주소 변경</translation>
+    </message>
+    <message>
+        <source>Split UTXO</source>
+        <translation>UTXO 분할</translation>
+    </message>
+    <message>
+        <source># of outputs</source>
+        <translation># 출력 수</translation>
+    </message>
+    <message>
+        <source>UTXO Size:</source>
+        <translation>UTXO 크기:</translation>
+    </message>
+    <message>
+        <source>0 GIC</source>
+        <translation>0 GIC</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>거래 수수료:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>선택...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>간단한 수수료 설정</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>닫기</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>킬로바이트당</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>전체에서 최소</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(툴팁을 읽어주세요)</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>커스텀:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(스마트 수수료가 아직 초기화 되지 않았습니다. 일반적으로 몇 블록이 지나야됩니다...)</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>승인 시간:</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>코인 설정 열기</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>자동으로 선택됩니다.</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uGICs로 설정되고,&lt;br /&gt;1000 uGICs 안에는 최소 "킬로바이트당" 250 uGICs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "total at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uGICs로 설정되고,&lt;br /&gt;1000 uGICs 안에는 전체에서 최소 "킬로바이트당" 250 uGICs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
+        <translation>블록의 공간
