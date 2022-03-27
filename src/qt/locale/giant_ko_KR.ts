@@ -3735,4 +3735,284 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
-        <translation>블록의 공간
+        <translation>블록의 공간보다 트랜잭션량이 적으면 최소 수수료만 지불하면 됩니다.&lt;br /&gt;하지만 GIANT 트랜잭션 수가 많으면 미확인된 트랜잭션로 네트워크가 처리할 수도 있습니다.</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>보통</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>빠른</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>권장</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>가능하다면 제로 수수료 트랜잭션으로 전송하십시오</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(승인이 오래걸릴 수 있습니다)</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>전송 작업 확인</translation>
+    </message>
+    <message>
+        <source>S&amp;end</source>
+        <translation>전&amp;송</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>모든 입력 양식 지우기.</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>전체 &amp;지우기</translation>
+    </message>
+    <message>
+        <source>Send to multiple recipients at once</source>
+        <translation>한번에 여러 곳 전송</translation>
+    </message>
+    <message>
+        <source>Add &amp;Recipient</source>
+        <translation>&amp;받는 사람 추가</translation>
+    </message>
+    <message>
+        <source>Anonymized GIC</source>
+        <translation>익명화된 GIC</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>잔액:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>수량 복사</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>수수료 복사</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>이용 수수료 복사</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>바이트 복사</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>우선 사항 복사</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>현금 복사</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>변경 복사</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work when sending to outside addresses. Try again.</source>
+        <translation>분할 블록 도구는 외부 주소로 보낼 때 작동하지 않습니다. 다시 시도하십시오.</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work with multiple addresses. Try again.</source>
+        <translation>분할 블록 도구는 여러 주소에서 작동하지 않습니다. 다시 시도하십시오.</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid GIANT address</source>
+        <translation>경고: 잘못된 GIANT 주소</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 에서 %2</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>정말 보내시겠습니까?</translation>
+    </message>
+    <message>
+        <source>are added as transaction fee</source>
+        <translation>거래 수수료가 추가됩니다</translation>
+    </message>
+    <message>
+        <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
+        <translation>총 금액 = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>코인 전송 확인</translation>
+    </message>
+    <message>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>KB당 %1보다 %2배 많은 수수료는 너무 높은 수수료입니다.</translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation>수신자 주소가 유효하지 않습니다. 다시 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>using SwiftX</source>
+        <translation>SwiftX 사용</translation>
+    </message>
+    <message>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation>UTXO 스플리터를 사용하여 %1 출력으로 분할하십시오.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(표시된 %2개 항목중 %1개)&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>지불 할 금액은 0보다 커야합니다.</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>입력한 금액이 잔액을 초과합니다.</translation>
+    </message>
+    <message>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>%1 트랜잭션 수수료가 포함하면 현재 잔액을 초과합니다.</translation>
+    </message>
+    <message>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>중복된 주소를 발견했습니다. 각 주소는 전송 작업당 한 번씩만 보낼 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>트랜잭션 생성 실패!</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>트랜잭션이 거부되었습니다! 지갑에 있는 코인 중 일부가 이미 사용된 경우일 수 있습니다. wallet.dat 사본을 사용하고 코인을 이미 사용하고 현재 여기에 표시되지 않은 경우에 이런 현상이 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>오류: 현재 지갑이 익명 처리를 위해 잠금해제 되어 있습니다. 익명화 및 스테이킹 전용을 해제하시고 다시 시도하세요.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>에러 : 현재 지갑은 코인 익명화를 위해서만 잠금해제되었습니다. 잠금해제가 취소됩니다.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>%1의 최소 수수료만 지불하십시오</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>경고: 알 수 없는 변경 주소</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(라벨 없음)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>이것은 일반 결제입니다.</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>지불 &amp;대상:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>보낼 GIANT 주소</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>이전에 사용한 주소 선택</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>클립보드에서 주소 붙여 넣기</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Remove this entry</source>
+        <translation>이 항목 삭제</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;라벨:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to the list of used addresses</source>
+        <translation>이 주소의 라벨을 입력하여 사용된 주소 목록에 추가하십시오</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>금&amp;액:</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>메세지:</translation>
+    </message>
+    <message>
+        <source>A message that was attached to the GIANT: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GIANT network.</source>
+        <translation>참조용으로 트랜잭션과 함께 기록되는 GIANT : URI에 첨부된 메세지입니다. 참고: 이 메세지는 GIANT 네트워크를 통해 전송되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>This is an unverified payment request.</source>
+        <translation>확인되지 않은 결제 요청입니다.</translation>
+    </message>
+    <message>
+        <source>Pay To:</source>
+        <translation>보낼 주소:</translation>
+    </message>
+    <message>
+        <source>Memo:</source>
+        <translation>메모:</translation>
+    </message>
+    <message>
+        <source>This is a verified payment request.</source>
+        <translation>확인된 결제 요청입니다.</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>주소록에 추가하려면 이 주소의 라벨을 입력해주세요.</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    <message>
+        <source>GIANT Core is shutting down...</source>
+        <translation>GIANT Core가 종료됩니다...</translation>
+    </message>
+    <message>
+        <source>Do not shut down the computer until this window disappears.</source>
+        <translation>이 창이 사라질 때까지 컴퓨터를 종료하지 마십시오.</translation>
+    </message>
+</context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>Signatures - Sign / Verify a Message</source>
+        <translation>서명 - 서명 / 메세지 검증</translation>
+    </message>
+    <message>
+        <source>&amp;Sign Message</source>
+        <translation>&amp;메세지 서명</translation>
+    </message>
+    <message>
+        <source>You can sign messages with your addresses to prove you
