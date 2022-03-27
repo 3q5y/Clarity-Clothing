@@ -4015,4 +4015,307 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>&amp;메세지 서명</translation>
     </message>
     <message>
-        <source>You can sign messages with your addresses to prove you
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>자신의 주소로 메세지에 서명할 수 있습니다. 피싱 공격으로 사용자를 속일 수 있으므로 서명에 주의해주세요. 동의하는 바에 한하여 서명하십시오.</translation>
+    </message>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>메세지를 서명하기 위한 GIANT 주소</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>이전에 사용한 주소 선택</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>클립보드에서 주소 붙여 넣기</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Enter the message you want to sign here</source>
+        <translation>서명할 메세지를 입력해주세요</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>서명</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>현재 서명을 시스템 클립 보드에 복사</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>이 GIANT 주소를 소유하고 있다는 것을 증명하기 위해 메세지에 서명하십시오</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>메세지에 서명된 GIANT 주소</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>메세지가 지정된 GIANT 주소로 서명되었는지 확인해주세요</translation>
+    </message>
+    <message>
+        <source>Sign &amp;Message</source>
+        <translation>서명 &amp;메세지</translation>
+    </message>
+    <message>
+        <source>Reset all sign message fields</source>
+        <translation>모든 서명 메세지 입력 지우기</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>전체 &amp;지우기</translation>
+    </message>
+    <message>
+        <source>&amp;Verify Message</source>
+        <translation>&amp;메세지 확인</translation>
+    </message>
+    <message>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>메세지를 확인하기 위해 서명 주소, 메세지 (줄 바꿈, 공백, 탭 등을 정확하게 복사해주세요) 및 서명을 입력하십시오. 중간자 공격에 주의해서 서명을 입력해주세요.</translation>
+    </message>
+    <message>
+        <source>Verify &amp;Message</source>
+        <translation>&amp;메세지 확인</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fields</source>
+        <translation>모든 확인 메세지 영역 지우기</translation>
+    </message>
+    <message>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>"서명 메세지"를 클릭하여 서명 생성</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>입력한 주소가 올바르지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>주소를 다시 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>입력한 주소가 키를 참조하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>지갑 잠금 해제가 취소되었습니다.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>입력한 주소의 개인 키를 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Message signing failed.</source>
+        <translation>메세지 서명 실패.</translation>
+    </message>
+    <message>
+        <source>Message signed.</source>
+        <translation>서명된 메세지.</translation>
+    </message>
+    <message>
+        <source>The signature could not be decoded.</source>
+        <translation>서명을 디코딩 할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Please check the signature and try again.</source>
+        <translation>서명을 확인하고 다시 시도해주세요.</translation>
+    </message>
+    <message>
+        <source>The signature did not match the message digest.</source>
+        <translation>서명이 메세지 요약과 일치하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Message verification failed.</source>
+        <translation>메세지 확인에 실패하였습니다.</translation>
+    </message>
+    <message>
+        <source>Message verified.</source>
+        <translation>메세지 확인 됨.</translation>
+    </message>
+</context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>버전 %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>비트코인 Core 개발자</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>Dash Core 개발자</translation>
+    </message>
+    <message>
+        <source>The GIANT Core developers</source>
+        <translation>GIANT Core 개발자</translation>
+    </message>
+    <message>
+        <source>[testnet]</source>
+        <translation>[테스트넷]</translation>
+    </message>
+</context>
+<context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <source>KB/s</source>
+        <translation>KB/s</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>Open until %1</source>
+        <translation>%1까지 열기</translation>
+    </message>
+    <message>
+        <source>conflicted</source>
+        <translation>충돌됨</translation>
+    </message>
+    <message>
+        <source>%1/offline</source>
+        <translation>%1/오프라인</translation>
+    </message>
+    <message>
+        <source>%1/unconfirmed</source>
+        <translation>%1/미확인 됨</translation>
+    </message>
+    <message>
+        <source>%1 confirmations</source>
+        <translation>%1 확인</translation>
+    </message>
+    <message>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1/오프라인 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1/확인 됨 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1 확인 (swifttx를 통해 확인 됨)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/오프라인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation>%1/확인 됨 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1 확인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation>%1/오프라인 (SwiftTX 확인 실패)
+</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation>%1/확인 됨 (SwiftTX 확인 실패)</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>상태</translation>
+    </message>
+    <message>
+        <source>, has not been successfully broadcast yet</source>
+        <translation>, 아직 성공적으로 브로드캐스트되지 않았습니다</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>날짜</translation>
+    </message>
+    <message>
+        <source>Source</source>
+        <translation>원본</translation>
+    </message>
+    <message>
+        <source>Generated</source>
+        <translation>생성 된</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>From</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>unknown</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>대상</translation>
+    </message>
+    <message>
+        <source>own address</source>
+        <translation>내 주소</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>읽기 전용</translation>
+    </message>
+    <message>
+        <source>label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Credit</source>
+        <translation>크레딧</translation>
+    </message>
+    <message>
+        <source>not accepted</source>
+        <translation>허용되지 않음</translation>
+    </message>
+    <message>
+        <source>Debit</source>
+        <translation>인출액</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>총 인출액</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>총 크레딧</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>트랜잭션 수수료</translation>
+    </message>
+    <message>
+        <source>Net amount</source>
+        <translation>순수액</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>메세지</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>코멘트</translation>
+    </message>
+    <message>
+        <source>Transaction ID</source>
+        <translation>트랜잭션 ID</translation>
+    </message>
+    <message>
+        <source>Output index</source>
+        <translation>
