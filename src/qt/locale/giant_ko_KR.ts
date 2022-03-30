@@ -4318,4 +4318,324 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Output index</source>
-        <translation>
+        <translation>출력 인덱스</translation>
+    </message>
+    <message>
+        <source>Merchant</source>
+        <translation>상인</translation>
+    </message>
+    <message>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>생성된 코인은 사용되기 전 %1 블록이 완료되야 합니다. 이 블록을 생성하면 네트워크에 브로드캐스팅되어 블록체인에 추가 됩니다. 체인이 실패한 경우 "승인되지 않음"으로 바뀌어 사용할 수 없습니다. 다른 노드가 당신과 겹쳐서 몇 초 이내 블록을 생성하면 때때로 이런 일이 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Debug information</source>
+        <translation>디버그 정보</translation>
+    </message>
+    <message>
+        <source>Transaction</source>
+        <translation>트랜잭션</translation>
+    </message>
+    <message>
+        <source>Inputs</source>
+        <translation>입력</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>금액</translation>
+    </message>
+    <message>
+        <source>true</source>
+        <translation>허용</translation>
+    </message>
+    <message>
+        <source>false</source>
+        <translation>거부</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDescDialog</name>
+    <message>
+        <source>Transaction details</source>
+        <translation>트랜잭션 세부 정보</translation>
+    </message>
+    <message>
+        <source>This pane shows a detailed description of the transaction</source>
+        <translation>이 창은 트랜잭션에 대한 자세한 설명을 보여줍니다.</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>날짜</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>분류</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
+        <source>Open until %1</source>
+        <translation>%1까지 열기</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>오프라인</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>미확인됨</translation>
+    </message>
+    <message>
+        <source>Confirming (%1 of %2 recommended confirmations)</source>
+        <translation>확인 중 (%2 중 %1 확인 중)</translation>
+    </message>
+    <message>
+        <source>Confirmed (%1 confirmations)</source>
+        <translation>확인 됨 (%1 확인)</translation>
+    </message>
+    <message>
+        <source>Conflicted</source>
+        <translation>충돌됨</translation>
+    </message>
+    <message>
+        <source>Immature (%1 confirmations, will be available after %2)</source>
+        <translation>완료되지 않음 (%1 확인이 %2 후에 가능합니다)</translation>
+    </message>
+    <message>
+        <source>This block was not received by any other nodes and will probably not be accepted!</source>
+        <translation>이 블록은 다른 노드에 의해 수신되지 않았으며 아마도 승인되지 않을 것입니다!</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>수신됨</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>마스터노드 보상 </translation>
+    </message>
+    <message>
+        <source>Received from</source>
+        <translation>수신됨</translation>
+    </message>
+    <message>
+        <source>Received via Obfuscation</source>
+        <translation>난독화를 통해 수신 됨</translation>
+    </message>
+    <message>
+        <source>GIC Stake</source>
+        <translation>GIC stake</translation>
+    </message>
+    <message>
+        <source>zGIC Stake</source>
+        <translation>zGIC stake</translation>
+    </message>
+    <message>
+        <source>Obfuscation Denominate</source>
+        <translation>난독화 표시</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>난독화 보증 결제 </translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>난독화로 보증 입력</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>난독화 표시 만들기</translation>
+    </message>
+    <message>
+        <source>Converted GIC to zGIC</source>
+        <translation>GIC를 zGIC로 변환</translation>
+    </message>
+    <message>
+        <source>Spent zGIC</source>
+        <translation>zGIC 사용</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>zGIC를 GIC로 받음</translation>
+    </message>
+    <message>
+        <source>Minted Change as zGIC from zGIC Spend</source>
+        <translation>zGIC 전송후 남은 zGIC로 잔돈 생성</translation>
+    </message>
+    <message>
+        <source>Converted zGIC to GIC</source>
+        <translation>zGIC를 GIC로 변환</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Transaction)</source>
+        <translation>Anonymous (zGIC 거래)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Stake)</source>
+        <translation>Anonymous (zGIC 스테이킹)</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>대상 전송</translation>
+    </message>
+    <message>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>고아 블록 - 생성되었지만 승인되지 않았습니다. 이것은 당신의 소유액에 영향을 주지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Payment to yourself</source>
+        <translation>자신에게 지불</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>채굴</translation>
+    </message>
+    <message>
+        <source>Obfuscated</source>
+        <translation>난독화</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>읽기 전용</translation>
+    </message>
+    <message>
+        <source>(n/a)</source>
+        <translation>(n/a)</translation>
+    </message>
+    <message>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>트랜잭션 상태. 이 영역에 마우스를 올리면 승인 수가 표시됩니다.</translation>
+    </message>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>트랜잭션이 수신 된 날짜와 시간.</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>트랜잭션 유형.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>읽기 전용 주소 트랜잭션 포함 여부.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>트랜잭션 목적지 주소.</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>잔액에서 제거되거나 추가된 금액.</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>전체</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>오늘</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>이번 주</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>이번 달</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>지난 달</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>올해</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>범위...</translation>
+    </message>
+    <message>
+        <source>Most Common</source>
+        <translation>기본적인</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>수신됨</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>대상 전송</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>자신에게</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>채굴</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>발행</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>마스터노드 보상 </translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>제로코인 생성</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>제로코인 전송</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>자신에게 제로코인 전송</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>기타</translation>
+    </message>
+    <message>
+        <source>Enter address or label to search</source>
+        <translation>검색 할 주소 또는 라벨 입력</translation>
+    </message>
+    <message>
+        <source>Min amount</source>
+        <translation>최소 금액</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>주소 복사</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>라벨 복사</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>금액 복사</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>트랜잭션 ID 복사</translation>
+    </message>
+    <message>
+        <source>Edit label</source>
+        <translation>라벨 수정</translation>
+    </message>
+    <message>
+        <source>Show transaction details</source>
+        <translation>트랜잭션 세부 정보 표시</translation>
+    </message>
+    <message>
+        <source>Export 
