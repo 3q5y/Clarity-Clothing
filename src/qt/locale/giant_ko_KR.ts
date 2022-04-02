@@ -4638,4 +4638,234 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>트랜잭션 세부 정보 표시</translation>
     </message>
     <message>
-        <source>Export 
+        <source>Export Transaction History</source>
+        <translation>트랜잭션 내역 내보내기</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>콤마로 구분 된 파일 (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>확정됨</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>읽기 전용</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>날짜</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>분류</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>주소</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>내보내기 실패</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the transaction history to %1.</source>
+        <translation>트랜잭션 기록을 %1로 저장하는 동안 오류가 발생하였습니다.</translation>
+    </message>
+    <message>
+        <source>Exporting Successful</source>
+        <translation>내보내기 성공</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>zGIC를 GIC로 받음</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zGIC</source>
+        <translation>제로코인 전송, 잔돈은 zGIC</translation>
+    </message>
+    <message>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>트랜잭션 기록이 %1에 성공적으로 저장되었습니다.</translation>
+    </message>
+    <message>
+        <source>Range:</source>
+        <translation>범위:</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>대상</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>금액을 표시할 단위. 다른 단위를 선택하려면 클릭해주세요.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <source>No wallet has been loaded.</source>
+        <translation>지갑이 로드되지 않았습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>코인 전송 </translation>
+    </message>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 GIC.</source>
+        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 GIC로 제한됩니다.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>거래내역</translation>
+    </message>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;내보내기</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>현재 선택된 탭의 데이터를 파일로 내보내기</translation>
+    </message>
+    <message>
+        <source>Selected amount:</source>
+        <translation>선택한 금액:</translation>
+    </message>
+    <message>
+        <source>Backup Wallet</source>
+        <translation>지갑 백업</translation>
+    </message>
+    <message>
+        <source>Wallet Data (*.dat)</source>
+        <translation>지갑 데이터 (*.dat)</translation>
+    </message>
+</context>
+<context>
+    <name>ZGICControlDialog</name>
+    <message>
+        <source>Select zGIC to Spend</source>
+        <translation>사용할 zGIC 선택</translation>
+    </message>
+    <message>
+        <source>Quantity</source>
+        <translation>수량</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>전체 선택 / 해제</translation>
+    </message>
+    </context>
+<context>
+    <name>giant-core</name>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = tx 메타 데이터 유지 예 : 계정 소유자 및 지불 요청 정보, 2 = tx 메타 데이터 삭제)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>지정된 소스에서 JSON-RPC 연결을 허용하십시오. 단일 IP (예 : 1.2.3.4), 네트워크/넷마스크 (예 : 1.2.3.4/255.255.255.0) 또는 네트워크 / CIDR (예 : 1.2.3.4/24)에 대해 &lt;ip&gt; 가 유효합니다. 이 옵션은 여러번 지정할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation>주어진 주소를 지정하고 항상 수신하도록 하십시오. [host]:IPv6 포트 표기법 사용</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>주어진 주소에 바인딩하고 피어 연결을 허용하십시오. IPv6 [host]:port 표기법 사용</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>JSON-RPC연결 수신을 위해 주어진 주소를 지정합니다. [host]: IPv6 포트 표기법 사용. 이 옵션은 여러번 지정할 수 있습니다. (기본값 : 모든 인터페이스에 지정)</translation>
+    </message>
+    <message>
+        <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
+        <translation>계산된 누산기 체크포인트는 블록 인덱스에 의해 기록되는 것이 아닙니다.</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. GIANT Core is probably already running.</source>
+        <translation>        &lt;translation&gt;잠겨진 데이터 디렉토리 %s 를 가져올 수 없습니다. GIANT Core는 이미 실행 중입니다.</translation>
+    </message>
+    <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>최종 budget 투표 자동 작동 값을 변경합니다. mode=auto: 오직 내가 생성한 budget과 최종 budget이 정확히 일치할때 투표합니다. (string, 기본값: 자동)</translation>
+    </message>
+    <message>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>연속적인 무료 트랜잭션을 분당 &lt;n&gt;*1000 bytes로 제한합니다. (기본값:%u)</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>umask 077대신 시스템 기본 권한으로 새로운 파일들을 만듭니다. (지갑 기능이 비활성화일 때만 효과가 발휘됩니다)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>지갑의 모든 트랜잭션들을 삭제하고 오직 블록체인을 통한 트랜잭션 부분들만 복구합니다 -시작 시 다시 스캔</translation>
+    </message>
+    <message>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
+    </message>
+    <message>
+        <source>Enable automatic wallet backups triggered after each zGIC minting (0-1, default: %u)</source>
+        <translation>Enable automatic wallet backups triggered after each zGIC minting (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for GIC inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for GIC inputs (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zGIC inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for zGIC inputs (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable spork administration functionality with the appropriate private key.</source>
+        <translation>올바른 개인키로 spork 관리 기능을 사용 가능</translation>
+    </message>
+    <message>
+        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
+        <translation>리그레션 테스트에 들어갑니다. 특수 체인을 사용하며 블록들을 바로 푸는 것이 가능합니다.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>오류: 오는 연결들을 수신하는데 실패했습니다.(수신 중 오류 반환됨 %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
+        <translation>Error: 트랜젝션의 크기가 혀용된 크기를 넘었습니다.</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>오류 : 지원하지 않는 인수 -socks가 발견되었습니다. SOCKS 버전 설정은 더 이상 가능하지 않으며 SOCKS5 프록시만 지원합니다.</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a
