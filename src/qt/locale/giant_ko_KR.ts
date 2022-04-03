@@ -4868,4 +4868,168 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>오류 : 지원하지 않는 인수 -socks가 발견되었습니다. SOCKS 버전 설정은 더 이상 가능하지 않으며 SOCKS5 프록시만 지원합니다.</translation>
     </message>
     <message>
-        <source>Execute command when a relevant alert is received or we see a
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation>관련된 경고 또는 포크가 길어질 경우 명령을 실행하십시오. (명령 내 %s 는 메시지로 대체 되었습니다)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation>지갑 트랜잭션이 변경될 경우 명령을 실행하십시오.(명령 내 %s 는 TxID로 대체 되었습니다)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation>최고 블록이 변경될 경우 명령을 실행하십시오 (명령 내 %s 는 블록 해시로 대체 되었습니다)</translation>
+    </message>
+    <message>
+        <source>Fees (in GIC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>이것보다 작은 수수료 (GIC/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in GIC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>이것보다 작은 수수료 (GIC/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
+        <translation>메모리 풀에서 디스크로 매 &lt;n&gt; 메가바이트만큼 데이터베이스 활동 플러쉬를 기록합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
+        <translation>미확인 표시된 출력들을 찾고 계속하기 위한 확인을 받기 전까지 기다립니다.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>paytxfee가 설정되어 있지 않는 경우 충분한 수수료를 넣어야만 평균이내 n블록들을 확인하고 트랜잭션를 시작합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
+        <translation>이 모드에서 -genproclimit는 즉시 생성되는 블록 수를 제어합니다.</translation>
+    </message>
+    <message>
+        <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
+        <translation>확정 된 자금이 불충분하거나 부족한 경우 몇 분 후에 다시 시도하십시오.</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>-maxtxfee=&lt;amount&gt;에 대한 잘못된 금액: '%s' (트랜잭션 정지를 막을려면 적어도 %s의 minrelay 수수료가 있어야 합니다)</translation>
+    </message>
+    <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>항상 송금할수 있도록 지정된 수량 유지 (기본값 : 0)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>블록을 채굴 할 때 트랜잭션 우선 순위 및 kB 당 수수료를 기록합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>getrawtransaction rpc 호출에서 사용되는 전체 트랜잭션 색인를 유지보수합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>데이터 캐리어 내에서 우리가 중계하고 채굴하는 트랜잭션 데이터의 최대 사이즈 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>단일 지갑 트랜잭션에서 사용하기 위한 최대 전체 수수료, 너무 낮은 값이 설정되어 있으면 큰 트랜잭션이 유실될 수 있습니다 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>재연결로 인해 피어가 오작동을 유지하는 초 단위 시간 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
+        <translation>난독화는 정확한 금액을 사용하여 자금을 송금하기 때문에 더 많은 코인을 익명화해야 할 수도 있습니다.</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>디버깅 정보 출력 (기본값: %u, &lt;category&gt; 공급은 선택입니다)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>DNS 검색을 통한 피어 주소 쿼리, 주소가 부족할 경우 (-connect 아닌 이상 기본값:1)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation>모든 프록시 연결마다 자격 증명 무작위화. 이렇게하면 Tor 스트림을 격리할수 있습니다. (기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>무료 또는 낮은 수수료 트랜잭션를 중계하는데 높은 우선 순위가 필요합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file (default: %u)</source>
+        <translation>debug.log 파일 대신 추적/디버그 정보를 콘솔에 보냅니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation>최우선/낮은 수수료 트랜잭션의 최대 크기를 바이트 단위로 설정합니다 (기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation>스크립트 허용 스레드의 개수를 설정합니다. (%u 에서 %d, 0 = 자동, &lt;0 = 충분한 코어들을 남겨두세요, 기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>활성화 시에 코인 생성을 위한 스레드 숫자를 설정합니다 (-1= 모든 코어, 기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
+        <translation>성공적으로 잠긴 트랜잭션에 대한 확인을 N으로 나타냅니다 (0-9999, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>bloom필터를 사용한 블록 및 트랜잭션 필터링 지원 (기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>이 제품은 OpenSSL이 개발한 Open SSL 툴킷 &lt;https://www.openssl.org/&gt; 에서 사용하기 위한 프로젝트 소프트웨어, Eric Young이 개발한 암호화 소프트웨어, Thomas Bernard가 개발한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. GIANT Core is probably already running.</source>
+        <translation>이 컴퓨터를 %s 로 지정하는것은 불가능합니다. GIANT Core는 이미 실행 중입니다.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
+        <translation>이 트랜잭션를 위해 난독화 표기된 충분한 금액을 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 GIC.</source>
+        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 GIC과 일치하지 않음.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 GIC.</source>
+        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 GIC와 같지 않음</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Tor hidden services를 통하여 피어에게 도달하기 위해 독립된 SOCKS5 프록시를 사용합니다(기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>경고: -maxrtxfee가 매우 높게 설정 되었습니다! 이렇게 큰 수수료는 단 한번의 단일 트랜잭션에 지불될 수도 있습니다.</translation>
+    </message>
+    <message>
+        <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation>경고 : -paytxfee가 매우 높게 설정되었습니다! 이것은 전송할 경우 지불 할 트랜잭션 수수료입니다.</translation>
+    </message>
+    <message>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong GIANT Core will not work properly.</source>
+        <translation>경고: 컴퓨터의 날짜와 시간이 올바르게 설정되어 있는지 확인해 주세요! 만일 시계가 잘못되어 있다면 GIANT 코어는 정상적으로 작동하지 않을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation>경고: 네트워크가 완전히 동의하지 않는 것 같습니다! 일부 마이너에 문제가 발생한 것으로 보입니다.</translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation>경고: 우리의 피어들과 완벽하게 일치하지 않습니다! 업그레이드 또는 다른 노드들의 업그레이드가 필요할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation>경고 : wallet.dat을 읽는 중 오류가 발생했습니다! 모든 키가 올바르게 읽혀 지지만 트랜잭션 데이터 또는 주소록 항목이 누락되었거나 올바르지 않을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation>경고 : wallet.dat에 손상된 데이터가 복구되었습니다. 본래 wallet.dat은 wallet으로 저장되었습니다. {timestamp}.bak %s; 잔액 또는 트랜잭션가 올바르지 않은 경우 백업에서 복원해야합니다.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from 
