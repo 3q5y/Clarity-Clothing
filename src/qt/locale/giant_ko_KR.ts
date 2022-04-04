@@ -5032,4 +5032,242 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>경고 : wallet.dat에 손상된 데이터가 복구되었습니다. 본래 wallet.dat은 wallet으로 저장되었습니다. {timestamp}.bak %s; 잔액 또는 트랜잭션가 올바르지 않은 경우 백업에서 복원해야합니다.</translation>
     </message>
     <message>
-        <source>Whitelist peers connecting from 
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>주어진 넷마스크 또는 IP 주소로부터 화이트리스트 피어가 연결되고 있습니다. 여러 번 지정될 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>화이트리스트 피어들은 DoS 밴 될 수 없으며 그들이 이미 메모리 풀에 있을지라도 그들의 트랜잭션는 항상 중계됩니다. 예를들면 게이트웨이 같은 것에 유용</translation>
+    </message>
+    <message>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation>환경설정에서 masternodeprivkey를 지정해야 합니다. 도움말을 참조하십시오.</translation>
+    </message>
+    <message>
+        <source>(40444 could be used only on mainnet)</source>
+        <translation>(40444 은 메인넷에서만 사용될 수 있습니다)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(기본값: %s)</translation>
+    </message>
+    <message>
+        <source>(default: 1)</source>
+        <translation>(기본값: 1)</translation>
+    </message>
+    <message>
+        <source>(must be 40444 for mainnet)</source>
+        <translation>(메인넷 일경우 40444)</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation> command line 과 JSON-RPC 적용</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>외부에서의 접속을 허용 (1 -프록시 또는 -연결이 없을 경우 기본값)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>공개 REST 요청 수락(기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation>연결할 노드를 추가하고 계속해서 연결을 유지하십시오.</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation>-addnode, -seednode, -connect을 위해 DNS 조회를 허용하십시오.</translation>
+    </message>
+    <message>
+        <source>Already have that input.</source>
+        <translation>이미 연결 중입니다.</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>피어 주소에게 DNS 조회를 통한 지속적인 정보 수신 요청을 합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>손상된 wallet.dat으로 부터 개인 키 복구를 시도합니다.</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>자동 Tor 히든 서버스 생성 (기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation>블록 생성 옵션:</translation>
+    </message>
+    <message>
+        <source>Calculating missing accumulators...</source>
+        <translation>누락된 누산기 계산중...</translation>
+    </message>
+    <message>
+        <source>Can't denominate: no compatible inputs left.</source>
+        <translation>표시할 수 없음: 남아있는 호환된 연결이 없습니다.</translation>
+    </message>
+    <message>
+        <source>Can't find random Masternode.</source>
+        <translation>임의의 마스터노드를 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Can't mix while sync in progress.</source>
+        <translation>동기화가 진행 중일 때에는 믹싱을 할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation>지갑을 다운그레이드 할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>주소를 변환할 수 없습니다 주소 -bind: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>주소를 변환할 수 없습니다 -externalip 주소: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>해결할 수 없습니다 -whitebind 주소: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation>기본 주소를 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Collateral not valid.</source>
+        <translation>Collateral이 유효하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>지정된 노드(s)로만 연결이 가능합니다.</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>SOCKS5 프록시를 통해 연결합니다</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation>노드에 연결하여 피어 주소를 검색하고 연결을 끊습니다</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation>연결 옵션:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i 비트코인 Core 개발자들</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2014-%i The Dash Core Developers</source>
+        <translation>Copyright (C) 2014-%i The Dash Core 개발자들</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
+        <translation>Copyright (C) 2015-%i The PIVX Core 개발자</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The GIANT Core Developers</source>
+        <translation>Copyright (C) 2018-%i The GIANT Core 개발자</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation>손상된 블록 데이터베이스가 발견되었습니다</translation>
+    </message>
+    <message>
+        <source>Could not parse masternode.conf</source>
+        <translation>masternode.conf 를 분석할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation>디버깅/테스팅 옵션:</translation>
+    </message>
+    <message>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation>블록 체인 폴더 삭제 및 처음부터 다시 동기화</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>거래시 수신 알림창 해제  (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>안전모드 비활성화, 실시간 안전모드 이벤트 중단 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
+        <translation>자신의 IP 주소를 찾습니다 (기본값: 1 수신중이거나 -외부아이피가 없을 경우)</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation>지갑 RPC 호출을 비활성화하고 지갑을 불러오지 마시오</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation>블록 데이터베이스를 다시 작성하시기를 원하십니까?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>로딩 완료</translation>
+    </message>
+    <message>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation>자동 제로코인 생성 (0-1, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 전송 게시 가능 (SwiftTX로 설정된)</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt;에서 Raw 트랜잭션 게시 지원 (SwiftTX를 통해 잠겨진)</translation>
+    </message>
+    <message>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation>클라이언트가 마스터노드로 작동하는 것을 활성화 (0-1, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Entries are full.</source>
+        <translation>항목이 가득 찼습니다.</translation>
+    </message>
+    <message>
+        <source>Error connecting to Masternode.</source>
+        <translation>Masternode에 연결하는 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation>블록 데이터베이스를 초기화하는 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation>지갑 데이터베이스 환경  %s 을 초기화하는 중 오류가 발생했습니다!</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>블록 데이터베이스를 불러오는 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat</source>
+        <translation>wallet.dat을 불러오는 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation>wallet.dat을 불러오는 중 오류가 발생했습니다: 지갑 손상됨</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation>wallet.dat를 로드하는 중 오류가 발생했습니다. 지갑에 최신 버전의 GIANT 코어가 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>블록 데이터베이스를 여는 중 오류가 발생했습니다.</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>데이터베이스에서서 읽어오는 중 오류가 발생했습니다. 종료합니다.</translation>
+    </message>
+    <message>
+        <source>Error recovering public key.</source>
+        <translation>공개 키를 복구하는 중 오류가 발생했습니다.</translation>
+    </m
