@@ -5270,4 +5270,246 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>Error recovering public key.</source>
         <translation>공개 키를 복구하는 중 오류가 발생했습니다.</translation>
-    </m
+    </message>
+    <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>디스크에 zerocoinDB 쓰기 오류</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>에러</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation>오류 : 내부에서 치명적인 오류가 발생했습니다. 자세한 내용은 debug.log를 참조하십시오</translation>
+    </message>
+    <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>오류 : 현재 표시된 입력을 선택할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>오류 : 디스크 공간이 부족합니다!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>오류 : 지원하지 않는 인수 -tor가 발견되었습니다. -onion을 사용하십시오.</translation>
+    </message>
+    <message>
+        <source>Error: Wallet locked, unable to create transaction!</source>
+        <translation>오류 : 지갑이 잠겼습니다, 트랜잭션을 생성할 수 없습니다!</translation>
+    </message>
+    <message>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation>오류 : 이미 난독화 그룹에 보류중인 항목들이 있습니다.</translation>
+    </message>
+    <message>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>축 압기 체크 포인트를 계산하지 못했습니다.</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>어떠한 포트에서도 수신하는 것에 실패했습니다. 원하신다면 -listen=0 을 사용하십시오.</translation>
+    </message>
+    <message>
+        <source>Failed to parse host:port string</source>
+        <translation>호스트 : 포트 문자열을 구문 분석하지 못했습니다.</translation>
+    </message>
+    <message>
+        <source>Failed to read block</source>
+        <translation>블록을 받아오는데 실패했습니다.</translation>
+    </message>
+    <message>
+        <source>Fee (in GIC/kB) to add to transactions you send (default: %s)</source>
+        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (GIC/kB) (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Finalizing transaction.</source>
+        <translation>트랜잭션 완료.</translation>
+    </message>
+    <message>
+        <source>Force safe mode (default: %u)</source>
+        <translation>강제 안전 모드 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation>충분한 사용자를 찾았습니다, 서명 중 ( %s 기다리는 중 )</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ...</source>
+        <translation>충분한 사용자를 찾았습니다, 서명 중 ...</translation>
+    </message>
+    <message>
+        <source>Generate coins (default: %u)</source>
+        <translation>코인 생성 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>시작할 때 검사할 블록의 수 (기본값: %u, 0=모두)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation>&lt;category&gt;가 제공되지 않으면, 모든 디버깅 정보를 출력합니다.</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>가져오는 중...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file</source>
+        <translation>내부에 blk000??.dat 파일로부터 블록들을 가져옴</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>디버그 출력에 IP 주소를 포함합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Incompatible mode.</source>
+        <translation>호환되지 않는 모드.</translation>
+    </message>
+    <message>
+        <source>Incompatible version.</source>
+        <translation>호환되지 않는 버전.</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation>잘못되었거나 블록을 찾지 못하였습니다. 네트워크에 대한 잘못된 데이터 디렉토리 문제?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>정보</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. GIANT Core is shutting down.</source>
+        <translation>초기화 정확성 검사에 실패 했습니다. GIANT Core가 종료됩니다.</translation>
+    </message>
+    <message>
+        <source>Input is not valid.</source>
+        <translation>입력이 올바르지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>잔액이 충분하지 않음</translation>
+    </message>
+    <message>
+        <source>Insufficient funds.</source>
+        <translation>충분하지 않은 금액.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>잘못된 -onion 주소거나 호스트네임 : '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-maxtxfee=&lt;amount&gt; 에 대한 유효하지 않은 값: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-minrelaytxfee=&lt;amount&gt;; 에 대한 유효하지 않은 값: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-mintxfee=&lt;amount&gt;; 에 대한 유효하지 않은 값: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>-paytxfee=&lt;amount&gt; 에 대한 유효하지 않은 값: '%s' (적어도 %s 가 필요합니다)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-paytxfee=&lt;amount&gt; 에 대한 유효하지 않은 값: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
+        <translation>-reservebalance=&lt;amount&gt;에 대한 금액이 유효하지 않은 값</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>잘못된 수량</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>마스터노드 개인 키가 잘못되었습니다. 설명서를 참조하십시오.</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>-whitelist: '%s' 에 지정된 넷마스크가 유효하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>masternode.conf 에서 유효하지 않은 포트가 감지되었습니다</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>유효하지 않은 개인 키입니다.</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>유효하지 않은 스크립트가 발견되었습니다.</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>자동생성 zGIC 비율  (1-100, default: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the GIC and zGIC money supply statistics</source>
+        <translation>GIC 및 zGIC 공급량 다시 색인</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>제로코인 데이타베이스 재색인</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>제로코인 재 인덱싱 실패</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>지불대상보다 적은 코인 선택됨</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX 옵션:</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>이것은 사전 릴리스 테스트 빌드입니다 - 사용상 책임은 귀하에게 있습니다. - staking이나 상업적인 용도로는 절대 사용하지 마십시오!</translation>
+    </message>
+    <message>
+        <source> mints deleted
+</source>
+        <translation>생성 삭제
+</translation>
+    </message>
+    <message>
+        <source> mints updated, </source>
+        <translation>생성 업데이드</translation>
+    </message>
+    <message>
+        <source> unconfirmed transactions removed
+</source>
+        <translation>미확인된 거래 삭제됨
+</translation>
+    </message>
+    <message>
+        <source>Disable all GIANT specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>GIANT의 모든 특정 기능들을 비활성화합니다(마스터노드, 난독화, SwiftTX, Budgeting) (0-1, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>swiftTX 활성화, 잠긴 트랜잭션들에 대한 확인 표시 (bool, 기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>에러 : 거래가 거부되었습니다. 예를 들어 다른 사본 wallet.dat에서 코인을 사용했다면 2중 사용으로 인식될수 있습니다. 혹은, 일부가 이미 소비 된 경우에 이런 일이 발생할 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation>에러 :이 거래에는 전송량, 복잡성 또는 최근에 받은 자금의 사용등으로 인해 적어도 %s의 거래 수수료가 필요합니다!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
+        <translation>에러 : 지원하지않는 argument -checklevel 발견된.  Checklevel는 레벨 4이어야 합니다.</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)<
