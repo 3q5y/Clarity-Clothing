@@ -5989,4 +5989,271 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>마스터노드에 제출했습니다, 남은 항목들 기다리는중 ( %u / %d ) %s</translat
+        <translation>마스터노드에 제출했습니다, 남은 항목들 기다리는중 ( %u / %d ) %s</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation>마스터노드에 제출했습니다, 대기열을 기다리는 중 %s</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>동기화 실패</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>동기화 완료</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>동기화 대기중...</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>budgets 동기화 중입니다...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>마스터노드 승자를 동기화 중입니다...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>마스터노드와 동기화중입니다...</translation>
+    </message>
+    <message>
+        <source>Synchronizing sporks...</source>
+        <translation>sporks와 동기화 중입니다...</translation>
+    </message>
+    <message>
+        <source>Syncing zGIC wallet...</source>
+        <translation>zGIC 지갑 동기화중...</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>전송이 이미 되었습니다.</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>거래가 확인되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>도움말 메시지입니다</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>이것은 실험용 소프트웨어입니다.</translation>
+    </message>
+    <message>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation>이것은 리그레션 테스팅 및 앱 개발을 위해 만들어졌습니다.</translation>
+    </message>
+    <message>
+        <source>This is not a Masternode.</source>
+        <translation>마스터노드가 아닙니다.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>제대로 동작하지 않는 피어와 연결을 끊을 임계값 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>너무 많은 지출이 필요함</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Tor 컨트롤 포트 암호 (기본값: 공백)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>onion 활성화되었을 경우 사용할 Tor 코트롤 포트 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>트랜잭션 취소됨</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>트랜잭션 생성 시작됨</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>트랜잭션 금액이 너무 적습니다</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>트랜잭션 금액에 반드시 양수값이 들어가야 합니다</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>트랜잭션이 성공적으로 생성되었습니다.</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>트랜잭션 수수료가 너무 높습니다.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>올바르지 않은 트랜잭션입니다.</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>수수료 정책에 비해 트랜잭션이 너무 많습니다</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>트랜잭션이 너무 큽니다</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>최종 트랜잭션를 전송 중입니다.</translation>
+    </message>
+    <message>
+        <source>Try to spend with a higher security level to include more coins</source>
+        <translation>높은 보안 수준으로 더 많은 코인을 전송해주세요.</translation>
+    </message>
+    <message>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>이미 전송된 리얼 번호를 보내려고 했습니다. 다시 시도하십시오.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>이 컴퓨터에서 %s 로 바인드할 수 없습니다 (바인드 리턴 오류 %s)</translation>
+    </message>
+    <message>
+        <source>Unable to find transaction containing mint</source>
+        <translation>코인 생성이 포함된 거래를 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation>스포크 메시지를 인증할 수 없습니다, 키를 확인해주세요</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>HTTP 서버를 시작할수 없습니다. log 파일을 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>-onlynet: '%s' 에 알 수 없는 네트워크가 지정되었습니다</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>알 수없는 상태: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>지갑을 최신 포맷으로 업그레이드합니다</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>수신 포트를 매핑하려면 UPnP를 사용하십시오 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>수신 포트를 매핑하려면 UPnP를 사용하십시오 (기본값: 1 수신 상태일 때)</translation>
+    </message>
+    <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>맞춤 최대 체인 재구성 깊이 사용 (기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>테스트 네트워크를 사용합니다</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>JSON-RPC 연결 사용자 이름</translation>
+    </message>
+    <message>
+        <source>Value is below the smallest available denomination (= 1) of zGIC</source>
+        <translation>Value is below the smallest available denomination (= 1) of zGIC</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>난독화 풀의 최대 허용 값보다 높습니다.</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>블록 인증 중...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>지갑 인증 중...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>지갑 %s 가 데이터 디렉토리 외부에 존재합니다 %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>지갑이 잠겼습니다.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>지갑을 다시 작성해야 합니다: 완료하려면 GIANT 코어를 재시작해야 합니다</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>지갑 옵션:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>지갑 창 제목</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>경고</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>경고 : 현재 사용중인 버전은 더이상 사용되지 않으므로 업그레이드가 필요합니다!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>경고 : 지원하지 않는 인수 -benchmark 무시됨 -debug = bench를 사용하십시오.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>경고 : 지원하지 않는 인수 -debugnet 무시됨 -debug=net를 사용하십시오.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>다시 시도합니다...</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>지갑에 zGIC 가 부족합니다.</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>-treindex를 변경하려면 -reindex를 사용하여 데이터베이스를 다시 빌드해야합니다.</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>항목이 성공적으로 추가되었습니다.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>트랜잭션이 풀로 접수되었습니다!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>지갑 내 모든 트랜잭션들을 재핑하는 중...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ 알림 옵션:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>제로코인 옵션:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>시작 시</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat 파일이 손상되어 복구에 실패했습니다</translation>
+    </message>
+</context>
+</TS>
