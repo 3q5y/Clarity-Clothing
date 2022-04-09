@@ -5737,4 +5737,256 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>No funds detected in need of denominating.</source>
-        <translat
+        <translation>분류가 필요한 자금이 발견되지 않았습니다.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>믹싱에 대한 일치하는 표기를 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>노드 중계 옵션:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>비 표준 공개 키가 감지되었습니다.</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>기존 트랜잭션과 호환되지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>사용 가능한 파일 디스크립터가 충분하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>마스터노드 목록에 없습니다.</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>자동 지갑 백업 횟수 (기본값: 10)</translation>
+    </message>
+    <message>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Number of custom location backups to retain (default: %d)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>난독화는 유휴상태입니다.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>난독화 요청 완료:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>난독화 요청 미완료:</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>내장된 체크 포인트와 일치하는 블록체인만 허용 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>네트워크에 연결된 노드에만 연결 &lt;net&gt; (ipv4, ipv6 또는 onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>옵션:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>JSON-RPC 연결 비밀번호</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Invalid -proxy address or hostname: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>재동기화 준비중...</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>디버그 출력 앞에 타임스탬프를 추가합니다. (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>버전 출력후 종료</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>RPC 서버 옵션:</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>&lt;n&gt;개의 네트워크 메세지마다 무작위로 1개 삭제</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>&lt;n&gt;개의 네트워크 메세지마다 무작위로 1 퍼즈</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>현재 blk000??.dat 파일의 블록체인 인덱스를 다시 구축합니다</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>P2P 네크워크로 부터 경고를 받고 보여줍니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>누적 기 데이터베이스 다시 색인화</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>릴레이 및 채굴 데이터 이동매체 트랜잭션 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>non-P2SH multisig 중계 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation>누락된 지갑 트랜잭션에 대해 블록체인을 다시 스캔합니다</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>다시 스캔하는 중...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>생성된 제로코인 초기화 완료:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>사용된 제로코인 초기화 완료:</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>주기적으로 지갑을 플러쉬하는 스레드를 실행합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>백그라운드에서 상주하며 실행하고 명령을 받습니다</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>무료 수수료 트랜잭션이 가능할 경우 무료 수수료로 트랜잭션을 전송합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Session not complete!</source>
+        <translation>세션이 완료되지 않았습니다!</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>세션이 만료되었습니다.</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>데이터베이스 캐시 크기를 메가바이트 단위로 설정합니다 (%d 에서 %d, 기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation>마스터노드에 접속하려면 외부 주소:포트를 설정하십시오 (예시: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>키 풀 크기를 &lt;n&gt; 로 설정합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>최대 블록 크기를 바이트 단위로 설정합니다 (기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>최소 블록 크기를 바이트 단위로 설정합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>최대 재구성 깊이 설정 (기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>Set the masternode private key</source>
+        <translation>마스터노드 개인 키를 설정합니다</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>RPC 호출 서비스 스레드의 갯수를 설정합니다 (기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>지갑 db 환경에서 DB_PRIVATE 플래그를 설정합니다 (기본값 : %u)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>모든 디버깅 옵션 표시 (사용 방법: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>클라이언트 시작시에 debug.log 파일을 축소시킵니다 (기본값:1 아닐경우 -debug)</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>인증에 실패했습니다.</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>인증 시간 초과.</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>트랜잭션 인증 실패</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>구성 파일 지정 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>연결 시간 초과 단위를 100분의 1초 단위로 지정 (최소값: 1, 기본값: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>데이터 디렉토리 지정</translation>
+    </message>
+    <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>마스터노드 구성파일 지정 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>pid 파일 지정 (기본값: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>지갑 파일 지정 (데이터 디렉토리 내에서만)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>자신의 공용 주소를 지정</translation>
+    </message>
+    <message>
+        <source>Spend Valid</source>
+        <translation>유효한 지출</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>트랜잭션 전송시 승인되지 않은 변경사항을 전송합니다 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Staking options:</source>
+        <translation>스테이킹 옵션:</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>디스크에서 블록을 가져오면 실행 중지 (기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>마스터노드에 다음 항목들을 제출했습니다: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>마스터노드에 제출했습니다, 남은 항목들 기다리는중 ( %u / %d ) %s</translat
