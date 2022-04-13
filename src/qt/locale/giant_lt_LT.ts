@@ -240,4 +240,272 @@
     </message>
 </context>
 <context>
-    <name>Bip38To
+    <name>Bip38ToolDialog</name>
+    <message>
+        <source>BIP 38 Tool</source>
+        <translation>BIP 38 įrankis</translation>
+    </message>
+    <message>
+        <source>&amp;BIP 38 Encrypt</source>
+        <translation>&amp;BIP 38 Užšifravimas</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adresas:</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Įveskite GIANT adresą, kurį norėtumėte užšifruoti naudojant BIP 38. Vidiniame laukelyje įrašykite slaptą frazę. Paspauskite užšifruoti, jei norite gauti užšifruotą privatųjį raktą.</translation>
+    </message>
+    <message>
+        <source>The GIANT address to encrypt</source>
+        <translation>GIANT adresas, kurį norite užšifruoti</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Pasirinkti prieš tai naudotą adresą</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Įklijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Passphrase: </source>
+        <translation>Slaptafrazė:</translation>
+    </message>
+    <message>
+        <source>Encrypted Key:</source>
+        <translation>Užšifruotas Raktas:</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Kopijuoti dabartinį parašą</translation>
+    </message>
+    <message>
+        <source>Encrypt the private key for this GIANT address</source>
+        <translation>Užšifruoti šio GIANT adreso privatų raktą</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>Atstatyti visus laukelius</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>Užšifruotas privatus raktas</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>Iššifruoti įvestą raktą naudojant slaptą frazę</translation>
+    </message>
+    <message>
+        <source>Encrypt &amp;Key</source>
+        <translation>Užšifruoti &amp;Raktas</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Išvalyti &amp;Viskas</translation>
+    </message>
+    <message>
+        <source>&amp;BIP 38 Decrypt</source>
+        <translation>&amp;BIP 38 Iššifruoti</translation>
+    </message>
+    <message>
+        <source>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</source>
+        <translation>Įveskite BIP 38 užšifruotą privatųjį raktą. Įveskite slaptafrazę viduriniame laukelyje. Paspauskite "Iššifruoti raktą", jei norite apskaičiuoti privatųjį raktą. Kai raktas bus iššifruotas, spustelėjus "Importuoti adresą" šis asmeninis raktas bus pridėtas į piniginę.</translation>
+    </message>
+    <message>
+        <source>Decrypt &amp;Key</source>
+        <translation>Iššifruoti &amp;Raktas</translation>
+    </message>
+    <message>
+        <source>Decrypted Key:</source>
+        <translation>Iššifruotas Raktas:</translation>
+    </message>
+    <message>
+        <source>Import Address</source>
+        <translation>Importuoti adresą</translation>
+    </message>
+    <message>
+        <source>Click "Decrypt Key" to compute key</source>
+        <translation>Spustelėkite "Iššifruoti raktą", kad apskaičiuotumėte raktą</translation>
+    </message>
+    <message>
+        <source>The entered passphrase is invalid. </source>
+        <translation>Įvesta slaptafrazė neteisinga.</translation>
+    </message>
+    <message>
+        <source>Allowed: 0-9,a-z,A-Z,</source>
+        <translation>Leidžiama: 0-9, a-z, A-Z,</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Įvestas adresas yra neteisingas.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Patikrinkite adresą ir bandykite dar kartą.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Įvestas adresas nenurodo rakto.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Piniginės atrakinimas buvo atšauktas.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Privatus raktas nurodytam adresui nėra prieinamas.</translation>
+    </message>
+    <message>
+        <source>Failed to decrypt.</source>
+        <translation>Nepavyko iššifruoti.</translation>
+    </message>
+    <message>
+        <source>Please check the key and passphrase and try again.</source>
+        <translation>Peržiūrėkite raktą ir slaptafrazę ir bandykite dar kartą.</translation>
+    </message>
+    <message>
+        <source>Data Not Valid.</source>
+        <translation>Duomenys netinkami.</translation>
+    </message>
+    <message>
+        <source>Please try again.</source>
+        <translation>Bandykite dar kartą.</translation>
+    </message>
+    <message>
+        <source>Please wait while key is imported</source>
+        <translation>Palaukite kol raktas bus importuotas</translation>
+    </message>
+    <message>
+        <source>Key Already Held By Wallet</source>
+        <translation>Raktas jau yra piniginėje</translation>
+    </message>
+    <message>
+        <source>Error Adding Key To Wallet</source>
+        <translation>Klaida pridedant raktą į piniginę</translation>
+    </message>
+    <message>
+        <source>Successfully Added Private Key To Wallet</source>
+        <translation>Privatus raktas sėkmingai pridėtas į piniginę</translation>
+    </message>
+</context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Wallet</source>
+        <translation>Piniginė</translation>
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>"Node'as"</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Peržiūra</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Rodyti bendrą piniginės vaizdą.</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Siųsti</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Priimti</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Pavedimai</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Naršyti pavedimų istoriją</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zGIC</source>
+        <translation>zGIC Saugumo Veiksmai </translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>&amp;Išeiti</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Uždaryti programą</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Apie &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Rodyti informaciją apie Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Nustatymai</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Rodyti / Paslėpti</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Rodyti arba paslėpti pagrindinį langą</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>&amp;Užšifruoti Piniginę</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Užšifruoti privačius raktus, kurie priklauso jūsų piniginei</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Sukurti atsarginę piniginės kopiją</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>&amp;Sukurti atsarginę piniginės kopiją kitoje vietoje</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Pakeisti slaptafrazę</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Pakeisti slaptafrazę naudojama piniginės šifravimui</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Atrakinti piniginę</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Atrakinti piniginę</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Užrakinti piniginę</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Žinutės &amp;pasirašymas</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>&amp;Patvirtinti žinutę</translation>
+    </message>
+    <
