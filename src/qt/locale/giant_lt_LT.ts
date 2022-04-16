@@ -769,4 +769,325 @@
         <translation>Pavedimai po šio dar nėra matomi.</translation>
     </message>
     <message>
-        <source>Er
+        <source>Error</source>
+        <translation>Klaida</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Įspėjimas</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Siųsti pavedimą</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Gaunamasis pavedimas</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Išsiųstas MultiSend pavedimas</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Data: %1
+Kiekis: %2
+Tipas: %3
+Adresas: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>Stake'inimas aktyvuotas
+MultiSend: %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktyvuota</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>Neaktyvuota</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>Stake'inimas neaktyvuotas
+MultiSend: %1</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint šiuo metu įgalintas ir nustatytas</translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>AutoMint išjungtas</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Piniginė yra &lt;b&gt;užšifruota&lt;/b&gt; ir šiuo metu &lt;b&gt;atrakinta&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Piniginė yra &lt;b&gt;užšifruota&lt;/b&gt; ir šiuo metu &lt;b&gt;užrakinta&lt;/b&gt;</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>Blockchain Naršyklė</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Atgal</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Pirmyn</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>Adresas / Blokas / Pavedimas</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Ieškoti</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Teksto etiketė</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>Ne visi pavedimai bus rodomi. Norėdami peržiūrėti visus pavedimus, reikia nustatyti txindex = 1 konfigūracijos faile (giant.conf).</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Iš viso: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Nežinomi: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>Tinklo Įspėjimas</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kiekis:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Baitai: </translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritetas:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Mokestis: </translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>Monetų Pasirinkimas</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Po mokesčių: </translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Grąža: </translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>(at)pažymėti viską</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>įjungti užrakinimo būseną</translation>
+    </message>
+    <message>
+        <source>Tree mode</source>
+        <translation>Medžio rėžimas</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Sąrašo rėžimas</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 užrakintas)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Gauta su etikete</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Gauta su adresu</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipas</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Patvirtinimų</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Patvirtinta</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioritetas</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopijuoti etiketę</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopijuoti sumą</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopijuoti pavedimo ID</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Užrakinti neišnaudotus</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Atrakinti neišnaudotus</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopijuoti kiekį</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopijuoti mokestį</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopijuoti po mokesčio</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopijuoti baitus</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopijuoti prioritetą</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopijuoti grąžą</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>Norėdami naudoti šią funkciją, pereikite prie "Sąrašo rėžimo".</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>aukščiausias</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>aukštesnis</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>aukštas</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>vidutinis-aukštas</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>vidutinis</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>žemas-vidutinis</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>žemas</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>žemesnis</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>žemiausias</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 užrakinta)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>nieko</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>taip</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>Ši etiketė būna raudona, jei operacijos dydis yra didesnis nei 1000 baitų.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Tai reiškia, kad reikia ne mažesnio kaip %1 mokesčio už kB.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Gali skirtis +/- 1 baitas kiekvienoje įvestyje.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Pavedimai su didesniu prioritetu turi didesnį šansą būti įtraukti į bloką.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is
