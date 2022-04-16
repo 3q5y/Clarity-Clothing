@@ -1352,4 +1352,271 @@ MultiSend: %1</translation>
         <translation>&amp;Paleisti slapyvardį</translation>
     </message>
     <message>
-      
+        <source>Start &amp;all</source>
+        <translation>Paleisti &amp;visus</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Paleisti &amp;TRŪKSTAMUS</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Atnaujinti statusą</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Būsena bus automatiškai atnaujinta po (sek.):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Paleisti slapyvardį</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Patvirtinti masternod'o paleidimą</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Ar tikrai norite paleisti %1 masternodą?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Patvirtinti visų masternod'u paleidimą</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Ar tikrai norite paleisti VISUS masternod'us?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Komanda šiuo metu negalima</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Šios komandos negalima naudoti, kol masternod'ų sąrašas nebus susinchronizuotas</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Patvirtinti trūkstamų masternod'ų paleidimą</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Ar tikrai norite paleisti visus TRŪKSTAMUS masternod'us?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>MultiSend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Įveskite sveikus skaičius 1-100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Įveskite % kad duotumėte (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Įveskite adresą kuriam norite siųsti</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend leidžia automatiškai išsiųsti iki 100% jūsų stake'inimo ar masternod'ų atlygio į kitus GIANT adresus.
+Norėdami pridėti: įveskite pateiktą procentą ir GIANT adresą, kurį norite pridėti prie MultiSend sąrašo.
+Norėdami ištrinti: įveskite adresą, kurį norite ištrinti, ir paspauskite ištrinti
+MultiSend nebus aktyvuotas, nebent paspausite "Įjungti"</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Pridėti į MultiSend sąrašą</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Pridėti</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Išjungti MultiSend</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Išjungti</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Pasirinkite adresą iš adresų knygos</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Procentas kurį norite siųsti</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Procentas:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Adresas kuriam siųsti dalį atlygio:</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adresas:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Etiketė:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Įveskite pavadinimą šiam adresui kad pridėtumėte jį į savo adresų knygą</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Ištrinti Adresą Iš MultiSend Sąrašo</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Ištrinti</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Įjungti MultiSend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Įjungti</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Žiūrėti MultiSend sąrašą</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Žiūrėti MultiSend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Siųsti Už Stake'inimą</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Siųsti Už Masternod'ų Atlygį</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(nėra etiketės)</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Įveskite 1-100 procentų</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Multisignature Adreso Sąveikos</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Sukurti MultiSignature &amp;Adresą</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Kiek žmonių turi pasirašyti, norėdami patvirtinti pavedimą</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Įveskite minimalų parašų skaičių, reikalingą pasirašyti pavedimams.</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Adreso Etiketė:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Pridėkite kitą adresą, kuris galėtų pasirašyti, kad patvirtina operaciją iš MultiSignature adreso.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Pridėti Adresą / Raktą</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Vietiniai adresai arba vieši raktai, kurie gali pasirašyti:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Sukurti naują MultiSignature adresą</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>&amp;Sukurti</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Statusas:</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Sukurti MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Įvestis:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Monetų Kontrolė</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Pasirinktas Kiekis:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Pridėti Gryną Įvestį</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Adresas / Suma:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Pridėkite vietas, kurioms norite siųsti GIC</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Pridėti &amp;Vietą</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>&amp;Sukurti pavedimų objektą naudodami nurodytas įvestis ir išvestis.</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;Sukurti</translation>
+    </message>
+ 
