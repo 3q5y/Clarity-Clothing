@@ -1090,4 +1090,266 @@ MultiSend: %1</translation>
         <translation>Pavedimai su didesniu prioritetu turi didesnį šansą būti įtraukti į bloką.</translation>
     </message>
     <message>
-        <source>This label turns red, if the priority is
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Ši etiketė taps raudona, jei prioritetas yra mažesnis nei "vidutinis".</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Ši etiketė taps raudona, jei gavėjas gaus sumą mažesnę už %1</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Gali skirtis +/- %1 ugic kiekvienoje įvestyje.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(nėra etiketės)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>pakeisti iš %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(keisti)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Keisti Adresą</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Etiketė</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Etiketė, susieta su šiuo adresų sąrašo įrašu</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Adresas</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Adresas, susietas su šiuo adresų sąrašo įrašu. Tai galima pakeisti tik siuntimo adresams.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>Naujas gavimo adresas</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Naujas siuntimo adresas</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Keisti gavimo adresą</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Keisti siuntimo adresą</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>Įvestas adresas "%1" nėra galiojantis GIANT adresas.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Įvestas adresas "%1" jau yra adresų knygoje.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Nepavyko atrakinti piniginės.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Naujo rakto generavimas nepavyko.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>Bus sukurtas naujas duomenų katalogas.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>pavadinimas</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Katalogas jau egzistuoja. Pridėkite %1, jei ketinate čia kurti naują katalogą.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Trumpinys jau egzistuoja ir tai nėra aplankas.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Sukurti duomenų katalogo čia negalima .</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>versija</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bitai)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>Apie GIANT Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Komandų eilutės parinktys</translation>
+    </message>
+    <message>
+        <source>Usage:</source>
+        <translation>Naudojimas: </translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>komandų eilutės parinktys</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>Vartotojo sąsajos pasirinktys:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Pasirinkti duomenų katalogą paleidžiant (numatytasis: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Rodyti ekrano užsklanda paleidžiant (numatytasis: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Nustatykite kalbą, pvz., "de_DE" (numatytasis: sistemos kalba)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Paleisti sumažintą</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>SSL sertifikatų nustatymas mokėjimo užklausai (numatytasis: -system-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Sveiki</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Sveiki atvykę į GIANT Core</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>Kadangi programa paleista pirmą kartą, galite pasirinkti kur GIANT Core saugos savo duomenis.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Core atsisiųs ir saugos GIANT blockchain'o kopiją. Šiame kataloge bus saugomas ne mažesnis kaip %1GB duomenų kiekis, kuris laikui bėgant augs. Piniginė taip pat bus saugoma šiame kataloge.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Naudoti numatytąjį duomenų katalogą</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Naudoti pasirinktą duomenų katalogą:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Klaida: negalima sukurti nurodyto duomenų katalogo "%1".</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Klaida</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB laisvos vietos yra prieinama</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(iš %1 GB reikiamos)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTERNOD'AI</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Pastaba: vietinės piniginės masternod'ų būklė gali būti šiek tiek neteisinga. &lt;br /&gt;Visada palaukite, kol piniginė sinchronizuos papildomus duomenis, o po to dukart patikrinkite iš kito nod'o&lt;br /&gt; jei jūsų nod'as turėtų būti paleistas, bet lauke "Būsena" vis tiek matote "TRŪKSTAMAS".</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Slapyvardis</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokolas</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Statusas</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktyvuota</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Paskutinį kartą matytas (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Viešas raktas</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>&amp;Paleisti slapyvardį</translation>
+    </message>
+    <message>
+      
