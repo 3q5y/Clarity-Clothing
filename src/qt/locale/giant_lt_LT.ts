@@ -508,4 +508,265 @@
         <source>&amp;Verify message...</source>
         <translation>&amp;Patvirtinti žinutę</translation>
     </message>
-    <
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informacija</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>Rodyti diagnostinę informaciją</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debug konsolė</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Atidaryti debugging konsolę</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Tinklo Monitorius</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Rodyti tinklo monitorių</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;"Peers" sąrašas</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Rodyti "peers" informacija</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>Piniginės &amp;Taisymas</translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Rodyti piniginės taisymo parinktis</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Atidaryti konfiguracijos failą</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Rodyti Automatines Atsargines Kopijas</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Rodyti automatiškai sukurtas piniginės atsargines kopijas</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Siuntimo adresai...</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Rodyti naudotų siuntimo adresų ir etikečių sąrašą</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Gavimo adresai...</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Rodyti naudotų gavimo adresų ir etikečių sąrašą</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;"Daugiaparašo" kūrimas...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Sukurti naują multisignature adresą ir pridėti jį prie šios piniginės</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;"Multisignature" išlaidos...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Išleisti iš "multisignature" adreso</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;"Multisignature" parašas...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>P</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Atidaryti &amp;URI</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Komandinės eilutės parinktys</translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Sinchronizuojami papildomi duomenys: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 atsilieka. Nuskaitomas %2 blokas.</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Piniginė yra &lt;b&gt;užšifruota&lt;/b&gt; ir šiuo metu &lt;b&gt;atrakinta&lt;/b&gt; tik anonimizacijos ir stake'inimo tikslais</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Failas</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Nustatymai</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;Įrankiai</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Pagalba</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Skirtukų įrankių juosta</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Siųsti monetas į GIANT adresą</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Prašyti mokėjimų (sugeneruoja QR kodus ir GIANT URI)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privatumas</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Masternod'ai</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Naršyti masternod'us</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>&amp;Apie GIANT Core</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Rodyti informaciją apie GIANT Core</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Keisti GIANT konfigūravimo parinktis</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Pasirašykite pranešimus naudodami savo GIANT adresus, kad įrodytumėte, kad juos turite</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Patvirtinkite pranešimus, kad jie būtų pasirašyti su nurodytais GIANT adresais</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>&amp;BIP38 įrankis</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Užšifruoti ir iššifruoti privačius raktus naudojant slaptafrazę</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;MultiSend</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>&amp;MultiSend Nustatymai</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Atidaryti Piniginės &amp;Konfigūracijos Failą</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Atidaryti &amp;Masternod'o Konfigūracijos Failą</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Atidaryti Masternod'o konfigūracijos failą</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Atidaryti GIANT: URI arba mokėjimo prašymą</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>&amp;Blockchain naršyklė</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Blokų naršyklės langas</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Rodyti GIANT Core žinyną, kad gautumėte sąrašą su galimomis GIANT komandinės eilutės parinktimis</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT Core piniginė</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Sinchronizuojama su tinklu ...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Importuojami blokai iš disko...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Tvarkomi blokai diske...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>Nėra bloko šaltinio...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Atnaujinta</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 ir %2</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Atnaujinama...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Paskutinis priimtas blokas buvo sukurtas prieš %1.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Pavedimai po šio dar nėra matomi.</translation>
+    </message>
+    <message>
+        <source>Er
