@@ -1619,4 +1619,236 @@ MultiSend nebus aktyvuotas, nebent paspausite "Įjungti"</translation>
         <source>Cr&amp;eate</source>
         <translation>&amp;Sukurti</translation>
     </message>
- 
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Pasirašyti MultiSignature Pavedimą</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Pavedimo Kodas:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Pasirašykite pavedima iš šios piniginės arba iš privačių raktų</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;Pasirašyti</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;IŠJUNGTA, kol sandoris bus patvirtintas pakankamai kartų.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Sk&amp;irti</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Pridėti privačius raktus, skirtus pasirašyti operacijoms</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Pridėti Privatų &amp;Raktą</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Pasirašyti tik su privačiais raktais (Nerekomenduojama)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Netinkamas Pavedimo Kodas.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout pozicija turi būti teigiama.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Pasiektas maksimalus galimų adresų skaičius. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout Pozicija:</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maksimalus (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Konfigūruoti Obfuscation</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Pagrindinis Privatumas</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Aukštas Privatumas</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maksimalus Privatumas</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Pasirinkite privatumo lygmenį.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Naudokite 2 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Naudokite 8 atskirus masternod'us, kad sumaišytumėte lėšas iki 10 000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Naudokite 16 atskirų masternod'ų</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>Ši parinktis yra greičiausia ir kainuos apie ~0.025 GIC, kad anonimizuotų 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>Ši parinktis yra vidutiniškai greita ir kainuoja apie 0,05 GIC, kad anonimizuotų 10000 GIC</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Tai yra lėčiausias ir saugiausias variantas. Maksimalus anonimiškumas kainuos.</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>0.1 GIC kas 1000 GIC kuriuos anonimizuosite.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Obfuscation Konfigūracija</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation buvo sėkmingai nustatytas į paprastą (%1 ir 2 raundai). Bet kada galite tai pakeisti, atidarę GIANT konfigūracijos ekraną.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation buvo sėkmingai nustatytas į aukštą (%1 ir 8 raundai). Bet kada galite tai pakeisti, atidarę GIANT konfigūracijos ekraną.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Obfuscation buvo sėkmingai nustatytas į maksimumą (%1 ir 16 raundai). Bet kada galite tai pakeisti, atidarę GIANT konfigūracijos ekraną.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Atidaryti URI</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Pasirinkite mokėjimo užklausos failą</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Pasirinkite norimą atidaryti mokėjimo užklausą</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Nustatymai</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>&amp;Duomenų bazės talpyklos dydis</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>P&amp;iniginė</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Priimti prisijungimus iš išorės</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Leisti įeinančius ryšius</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Ekspertas</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>Automatiškai paleisti GIANT prisijungus prie sistemos.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;Paleisti GIANT sistemai įsijungiant</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Ar rodyti monetos kontrolės funkcijas ar ne.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Įgalinti monetų &amp;valdymo funkcijas</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Rodyti papildomą skirtuką, kuriame pateikiami visi jūsų masternod'ai pirmame&lt;br/&gt; skirtuke ir visi antrame skirtuke visi tinkle esantys masternod'ai.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Rodyti Masternod'ų Langelį</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp;Išleisti nepatvirtintą grąžą</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Tinklas</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>Čia galite nustatyti vartotojo sąsajos kalbą. Šis nustatymas įsigalios iš naujo paleidus "GIANT".</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Trūksta kalbos arba vertimas nebaigtas? Padėkite prisidėdami prie vertimų čia: 
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Įrašyti prievadą naudojant &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>Įgalinti automatinį konvertavimą iš GIC į zGIC</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>Įgalinti zGIC Automatinį nukaldinima</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming
