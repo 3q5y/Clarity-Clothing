@@ -1851,4 +1851,248 @@ https://giantpay.network/translations</translation>
         <translation>Įgalinti zGIC Automatinį nukaldinima</translation>
     </message>
     <message>
-        <source>Percentage of incoming
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procentas gauto GIC, kuris automatiškai bus konvertuotas į zGIC naudojant Zerocoin Protokolą (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>Automatiškai sukurtų zGIC procentas</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>Pageidautinas zGIC Automatinio Nukaldinimo Nominalas</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Jungtis prie GIANT tinklo naudojant SOCKS5 tarpinį serverį.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP: </translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP proxy adresas (pvz. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Prievadas (angl. port):</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Proxy prievadas (pvz. 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Langas</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Po lango minimizavimo rodyti tik piktogramą.</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Rodyti</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Dešimtainiai skaitmenys</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Slėpti tuščius balansus</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Trečių šalių pavedimų URL adresai</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Iš naujo nustatyti visas parinktis.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Atstatyti Nustatymus</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;Gerai</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Atšaukti</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>Bet koks</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>numatytas</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>nieko</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Patvirtinti nustatymų atstatymą</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Reikalingas pakartotinis programos paleidimas norint aktyvuoti pakeitimus.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Programa bus išjungta, ar norite tęsti?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>Šis pakeitimas reikalauja programos perkrovimo.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>Pateiktas tarpinio serverio adresas neteisingas.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>Pateiktas tarpinio serverio prievadas yra netinkamas.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>Pateikti tarpinio serverio nustatymai yra netinkami.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Prieinama: </translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Jūsų dabartinis balansas, kurį galite išleisti</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Bendras balansas, įskaitant visas nepasiekiamas monetas.</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC Balansas</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Laukiama: </translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Visi pavedimai, kurie dar turi būti patvirtinti ir yra dar nepripažįstami likusiajam balansui</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Nesubrendęs:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Dar nesubrendęs stake'inimo arba masternod'ų atlygis.</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Dabartinis bendras užrakintas balansas tik žiūrėjimo adresuose</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Jūsų dabartinis GIANT balansas, įskaitant nepatvirtintus ir nesubrendusius sandorius</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC Balansas</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>Subrendę: daugiau nei 20 patvirtinimų ir daugiau nei 1 konvertacija to pačio nominalo, kai jis jau buvo konvertuotas.
+Šiuos zGIC galima išleisti.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Nepatvirtinta: mažiau nei 20 patvirtinimų
+Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo po to, kai buvo konvertuotas.</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Rodoma informacija gali būti pasenusi. Jūsų piniginė automatiškai sinchronizuojasi su GIANT tinklu po ryšio aktyvavimo, tačiau šis procesas dar nebaigtas.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>APŽVALGA</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Kombinuotas balansas (įskaitant nepatvirtintas ir nesubrandintas monetas)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Kombinuotas balansas</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Nepatvirtinti sandoriai tik žiūrėjimo adresams</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Stake'inimo ar masternod'ų atlygiai tik žiūrėjimo adresuose, kurie dar nėra subrendę</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Visas:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Dabartinis bendras balansas tik žiūrėjimo adresuose</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Tik žiūrėjimo:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Dabartinis balansas tik žiūrėjimo adresuose</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Prienamas išleidimui:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>Užrakinti GIC arba Masternode užstatai. Jie yra neįtraukti į zGIC kalimą.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Užrakinta:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Nepatvirtinta:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Naujausios operacijos</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>nesinchronizuotas</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint šiuo metu įgalintas ir nustatytas</translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>Norėdami išjungti Automatinį
