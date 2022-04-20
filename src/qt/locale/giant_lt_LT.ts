@@ -2095,4 +2095,291 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     </message>
     <message>
         <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
-        <translation>Norėdami išjungti Automatinį
+        <translation>Norėdami išjungti Automatinį Kalimą pridėkite 'enablezeromint=0' giant.conf faile.</translation>
+    </message>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Mokėjimo užklausos klaida</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Netinkamas mokėjimo adresas %1</translation>
+    </message>
+    <message>
+        <source>Cannot start GIANT: click-to-pay handler</source>
+        <translation>Nepavyksta paleisti GIANT: apdorojimo "spustelėjimo ir apmokėjimo" funkcijos klaida</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Mokėjimo užklausos failas negali būti nuskaitytas! Tai gali sukelti netinkamas mokėjimo prašymo failas.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Mokėjimo užklausa atmesta</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Klaida susisiekiant su %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Negalima išnagrinėti mokėjimo užklausos!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Blogas serverio %1 atsakymas</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Tinklo užklausos klaida</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Mokėjimas patvirtintas</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Adresas / pavadinimas</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versija</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping'o laikas</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Zerocoin Veiksmai:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>Rodoma informacija gali būti pasenusi. Jūsų piniginė automatiškai sinchronizuojasi su GIANT tinklu po ryšio aktyvavimo, tačiau šis procesas dar nebaigtas.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Konvertuoti į Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>Galimos konvertavimui monetos, kurios yra patvirtintos ir neužrakintos, arba Masternod'ų užstatai.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Prieinama Konvertavimui:</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 GIC</source>
+        <translation>0.000 000 00 GIC</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Atitaisyti</translation>
+    </message>
+    <message>
+        <source>Coin Control...</source>
+        <translation>Monetų Kontrolė...</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kiekis:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
+        <translation>Iš naujo nuskenuokite blockchain'ą Zerocoin konvertacijoms ir jų metaduomenims.</translation>
+    </message>
+    <message>
+        <source>ReScan</source>
+        <translation>Nuskenuoti iš naujo</translation>
+    </message>
+    <message>
+        <source>PRIVACY</source>
+        <translation>PRIVATUMAS</translation>
+    </message>
+    <message>
+        <source>zGIC Control</source>
+        <translation>zGIC Kontrolė</translation>
+    </message>
+    <message>
+        <source>zGIC Selected:</source>
+        <translation>Pasirinkta zGIC:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Pasirinktas Kiekis:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
+        <translation>Išleisti Zerocoin. Be "Mokėti:" adreso sukuria mokėjimus sau.</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Išleisti Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Prieinamas Balansas: </translation>
+    </message>
+    <message>
+        <source>0 zGIC</source>
+        <translation>0 zGIC</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>&amp;Mokėti:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Pasirinkti prieš tai naudotą adresą</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Įklijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiketė:</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>S&amp;uma:</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Sumažinti Grąžą</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Zerocoin Statistika:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zGIC</source>
+        <translation>Bendras balansas, įskaitant nepatvirtintą ir nesubrendusį zGIC</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Visas Zerocoin Balansas:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1:</source>
+        <translation>Nominalai su verte 1:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1:</source>
+        <translation>Nomin. su verte 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Nepatvirtinta: mažiau nei 20 patvirtinimų
+Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo po to, kai buvo konvertuotas.</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Nomin.  1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Nomin. 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Nomin.  10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Nomin. 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Nomin.  100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Nomin. 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Nomin.  1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Nomin. 5000:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>Nominalai su verte 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Nomin. su verte 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>Nominalai su verte 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Nomin. su verte 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>Nominalai su verte 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Nomin. su verte 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>Nominalai su verte 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Nomin. su verte 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>Nominalai su verte 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Nomin. su verte 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <trans
