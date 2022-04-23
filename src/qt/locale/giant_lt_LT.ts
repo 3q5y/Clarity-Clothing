@@ -2695,4 +2695,346 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     <message>
         <source>Client version</source>
         <translation>Kliento versija</translation>
-    </messa
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Naudojant BerkeleyDB versiją</translation>
+    </message>
+    <message>
+        <source>Block chain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Number of Masternodes</source>
+        <translation>Masternod'ų skaičius</translation>
+    </message>
+    <message>
+        <source>&amp;Console</source>
+        <translation>&amp;Konsolė</translation>
+    </message>
+    <message>
+        <source>Clear console</source>
+        <translation>Išvalyti konsolę</translation>
+    </message>
+    <message>
+        <source>&amp;Network Traffic</source>
+        <translation>&amp;Tinklo Srautas</translation>
+    </message>
+    <message>
+        <source>&amp;Clear</source>
+        <translation>&amp;Išvalyti</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Gauta</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Išsiųsta</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Peers</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Pasirinkite peer, kad peržiūrėtumėte detalią informaciją.</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokolas</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versija</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Išsiųsta Baitų</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Gauta Baitų</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping'o laikas</translation>
+    </message>
+    <message>
+        <source>&amp;Wallet Repair</source>
+        <translation>&amp;Piniginės Taisymas</translation>
+    </message>
+    <message>
+        <source>In:</source>
+        <translation>Į:</translation>
+    </message>
+    <message>
+        <source>Out:</source>
+        <translation>Iš:</translation>
+    </message>
+    <message>
+        <source>Welcome to the GIANT RPC console.</source>
+        <translation>Sveiki atvykę į GIANT RPC konsolę.</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>niekada</translation>
+    </message>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>S&amp;uma:</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiketė:</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;Prašyti mokėjimo</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Išvalyti visus laukelius.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Išvalyti</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Rodyti</translation>
+    </message>
+    <message>
+        <source>Remove the selected entries from the list</source>
+        <translation>Pašalinti pasirinktus įrašus iš sąrašo.</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Pašalinti</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopijuoti etiketę</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>Kopijuoti žinutę</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopijuoti sumą</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopijuoti adresą</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR Kodas</translation>
+    </message>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Išsaugoti Paveikslėlį</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiketė</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Žinutė</translation>
+    </message>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiketė</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Žinutė</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(nėra etiketės)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(nėra žinutės)</translation>
+    </message>
+    <message>
+        <source>(no amount)</source>
+        <translation>(nėra sumos)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Siųsti Monetas</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Monetų Valdymo Funkcijos</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Nepakankamai lėšų!</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kiekis:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Baitai: </translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritetas:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>vidutinis</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Mokestis: </translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Po mokesčių: </translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Grąža: </translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Pasirinktinio pakeitimo adresas</translation>
+    </message>
+    <message>
+        <source>0 GIC</source>
+        <translation>0 GIC</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>Pavedimo Mokestis:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Pasirinkti...</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Sumažinti</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>kas kilobaitą</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Patvirtinimo laikas:</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Atidaryti Monetų Valdymą...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Monetos pasirinktos automatiškai </translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>normalus</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>greitas</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Rekomenduojamas</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation> Jei galima, siųsti pavedimą be pavedimo mokesčio</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(patvirtinimas gali užtrukti ilgiau)</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>Patvirtinti siuntimo veiksmą</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Išvalyti visus laukelius.</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Išvalyti &amp;Viskas</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Balansas:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopijuoti kiekį</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopijuoti sumą</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopijuoti mokestį</translation>
+    </message>
+    <message>
+        <sou
