@@ -2382,4 +2382,317 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     </message>
     <message>
         <source>Denominations with value 1000:</source>
-        <trans
+        <translation>Nominalai su verte 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Nomin. su verte 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>Nominalai su verte 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Nomin. su verte 5000:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioritetas:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Teksto etiketė</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Mokestis: </translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>ne</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Baitai: </translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Nepakankamai lėšų!</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Monetos pasirinktos automatiškai </translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>vidutinis</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Monetų Valdymo Funkcijos</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Pasirinktinio pakeitimo adresas</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>Suma Po Mokesčių:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Grąža: </translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>nesinchronizuotas</translation>
+    </message>
+    <message>
+        <source>Mint Status: Okay</source>
+        <translation>Konvertavimo Statusas: Geras</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopijuoti kiekį</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopijuoti sumą</translation>
+    </message>
+    <message>
+        <source>zGIC Spend #: </source>
+        <translation>zGIC Išleidimas #:</translation>
+    </message>
+    <message>
+        <source>zGIC Mint</source>
+        <translation>zGIC Konvertavimas</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;įjungta&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation>&lt;b&gt;išjungta&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Nomin. su verte &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>Auto-Konvertavimo Statusas:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Nomin.  &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Nomin. &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Nomin.  &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Nomin. &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Nomin.  &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Nomin. &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Nomin.  &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Nomin. &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
+        <translation>Klaida: jūsų piniginė užrakinta. Pirmiausia įveskite piniginės slaptažodį.</translation>
+    </message>
+    <message>
+        <source>Invalid GIANT Address</source>
+        <translation>Netinkamas GIANT Adresas</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>Netinkama Siuntimo Suma</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Patvirtinkite papildomus mokesčius</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Ar tikrai norite siųsti?&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source> to address </source>
+        <translation>į adresą</translation>
+    </message>
+    <message>
+        <source>serial: </source>
+        <translation>serija:</translation>
+    </message>
+    <message>
+        <source>address: </source>
+        <translation>adresas:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>mokestis: </translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Enter a GIANT address (e.g. %1)</source>
+        <translation>Įveskite GIANT adresą (pvz. %1)</translation>
+    </message>
+    <message>
+        <source>%1 d</source>
+        <translation>%1 d</translation>
+    </message>
+    <message>
+        <source>%1 h</source>
+        <translation>%1 v</translation>
+    </message>
+    <message>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
+    </message>
+    <message>
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>TINKLAS</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>NEŽINOMAS</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Niekas</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Išsaugoti Paveikslėlį</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Kopijuoti Paveikslėlį</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Išsaugoti QR Kodą</translation>
+    </message>
+    <message>
+        <source>PNG Image (*.png)</source>
+        <translation>PNG Paveikslėlis (*.png)</translation>
+    </message>
+</context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>Tools window</source>
+        <translation>Įrankių langas</translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informacija</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation>Bendras</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pavadinimas</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Number of connections</source>
+        <translation>Prisijungimų skaičius</translation>
+    </message>
+    <message>
+        <source>&amp;Open</source>
+        <translation>&amp;Atidaryti</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Tinklas</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Paskutinio bloko laikas</translation>
+    </message>
+    <message>
+        <source>Current number of blocks</source>
+        <translation>Dabartinis blokų skaičius</translation>
+    </message>
+    <message>
+        <source>Client version</source>
+        <translation>Kliento versija</translation>
+    </messa
