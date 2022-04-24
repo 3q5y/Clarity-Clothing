@@ -3037,4 +3037,335 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Kopijuoti mokestį</translation>
     </message>
     <message>
+        <source>Copy after fee</source>
+        <translation>Kopijuoti po mokesčio</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopijuoti baitus</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopijuoti prioritetą</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopijuoti grąžą</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>Ši suma viršija jūsų likutį.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>Mokėjimo kūrimas nepavyko!</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(nėra etiketės)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>Tai normalus mokėjimas.</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>&amp;Mokėti:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Pasirinkti prieš tai naudotą adresą</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Įklijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etiketė:</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>S&amp;uma:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Įveskite pavadinimą šiam adresui kad pridėtumėte jį į savo adresų knygą</translation>
+    </message>
+</context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>GIANT adresas, kuriuo pasirašyti žinute</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Pasirinkti prieš tai naudotą adresą</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Įklijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Kopijuoti dabartinį parašą</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>Pažymėkite žinutę, kad įrodytumėte, jog jūs šio GIANT adreso savininkas</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>GIANT adresas, kurio buvo pasirašyta žinutė</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>Patikrinkite pranešimą, kad jis būtų pasirašytas su nurodytu GIANT adresu</translation>
+    </message>
+    <message>
+        <source>Reset all sign message fields</source>
+        <translation>Atstatyti visus pažymėtus laukus</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Išvalyti &amp;Viskas</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fields</source>
+        <translation>Išvalyti visus patvirtinimo pranešimų laukus</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Įvestas adresas yra neteisingas.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Patikrinkite adresą ir bandykite dar kartą.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Įvestas adresas nenurodo rakto.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Piniginės atrakinimas buvo atšauktas.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Privatus raktas nurodytam adresui nėra prieinamas.</translation>
+    </message>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>Status</source>
+        <translation>Statusas</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Žinutė</translation>
+    </message>
+    <message>
+        <source>Transaction</source>
+        <translation>Pavedimas</translation>
+    </message>
+    <message>
+        <source>Inputs</source>
+        <translation>Įvestys</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>true</source>
+        <translation>tiesa</translation>
+    </message>
+    <message>
+        <source>false</source>
+        <translation>netiesa</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionDescDialog</name>
+    <message>
+        <source>Transaction details</source>
+        <translation>Pavedimo detalės</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipas</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Neprisijungęs</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Nepatvirtinta:</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Išsiųsta</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Iškasta</translation>
+    </message>
+    <message>
+        <source>(n/a)</source>
+        <translation>(n/a)</translation>
+    </message>
+    <message>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>Pavedimo statusas. Užveskite pelės žymeklį virš šio lauko, kad būtų rodomas patvirtinimų skaičius.</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Operacijos tipas.</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Viskas</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Šiandien</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Šią savaitę</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Šį mėnesį</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Praeitą mėnesį</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Šiais metais</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Išsiųsta</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Iškasta</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>Nukalta</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Kita</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopijuoti adresą</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopijuoti etiketę</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopijuoti sumą</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopijuoti pavedimo ID</translation>
+    </message>
+    <message>
+        <source>Show transaction details</source>
+        <translation>Rodyti operacijos detales</translation>
+    </message>
+    <message>
+        <source>Export Transaction History</source>
+        <translation>Eksportuoti Pavedimų Istoriją</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Taškais atskirtas failas (* .csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Patvirtinta</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipas</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiketė</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresas</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
         <sou
