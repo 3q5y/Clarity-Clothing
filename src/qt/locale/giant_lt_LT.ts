@@ -3368,4 +3368,299 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>ID</translation>
     </message>
     <message>
-        <sou
+        <source>Exporting Failed</source>
+        <translation>Eksportavimas Nepavyko</translation>
+    </message>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Siųsti Monetas</translation>
+    </message>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>ISTORIJA</translation>
+    </message>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Eksportuoti</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Eksportuoti duomenis dabartiniame skirtuke į failą</translation>
+    </message>
+    </context>
+<context>
+    <name>ZGICControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    </context>
+<context>
+    <name>giant-core</name>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(numatytas: %s)</translation>
+    </message>
+    <message>
+        <source>(default: 1)</source>
+        <translation>(numatytas: 1)</translation>
+    </message>
+    <message>
+        <source>Already have that input.</source>
+        <translation>Jau turi tą įvestį.</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>Krovimas baigtas</translation>
+    </message>
+    <message>
+        <source>Entries are full.</source>
+        <translation>Įvestys pilnos.</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>Klaida kraunant blokų duomenų bazę</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat</source>
+        <translation>Klaida kraunant wallet.dat</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation>Klaida kraunant wallet.dat: Piniginė yra sugadinta</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation>Klaida kraunant wallet.dat: Piniginė reikalauja naujesnės GIANT Core versijos</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>Klaida atidarant blokų duomenų bazę</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Klaida</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation>Klaida: Įvyko vidinė klaida, dėl išsamesnės informacijos žr. Debug.log</translation>
+    </message>
+    <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>Klaida: Nepavyko pasirinkti esamų nominalo įvesčių</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>Klaida: Diske mažai vietos!</translation>
+    </message>
+    <message>
+        <source>Failed to read block</source>
+        <translation>Klaida nuskaitant bloką</translation>
+    </message>
+    <message>
+        <source>Finalizing transaction.</source>
+        <translation>Sandoris užbaiginėjamas.</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Importuojama...</translation>
+    </message>
+    <message>
+        <source>Incompatible mode.</source>
+        <translation>Nesuderinamas režimas.</translation>
+    </message>
+    <message>
+        <source>Incompatible version.</source>
+        <translation>Nesuderinama versija.</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacija</translation>
+    </message>
+    <message>
+        <source>Input is not valid.</source>
+        <translation>Įvestis neteisinga.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Nepakankamai lėšų</translation>
+    </message>
+    <message>
+        <source>Insufficient funds.</source>
+        <translation>Nepakankamai lėšų.</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Neteisinga suma</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Neteisingas privatus raktas.</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>Aptiktas netinkamas programos kodas.</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX nustatymai:</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Nepavyko pasirinkti zerocoin</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Kraunami adresai....</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Kraunamas bloko indeksas...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Kraunamas biudžeto podėlis...</translation>
+    </message>
+    <message>
+        <source>Loading masternode cache...</source>
+        <translation>Kraunamas masternodų podėlis...</translation>
+    </message>
+    <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Kraunamas masternodų išmokų podėlis...</translation>
+    </message>
+    <message>
+        <source>Loading sporks...</source>
+        <translation>Kraunami sporkai...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Kraunama piniginė... (%3.2f %%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Kraunama piniginė...</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Masternod'ų nustatymai:</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Masternod'as:</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Nėra Masternod'ų sąraše.</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Nustatymai:</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Neteisingas -proxy adresas arba mazgo pavadinimas: '%s'</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>Sesijos laikas baigėsi.</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>Prisijungimas nepavyko.</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>Prisijungimo laikas baigėsi.</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Sinchronizavimas nepavyko</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>Sinchronizavimas baigtas</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>Laukiama sinchronizavimo...</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Sinchronizuojami biudžetai...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>Sinchronizuojami Masternod'ų nugalėtojai...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Sinchronizuojami Masternod'ai..</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Šis pagalbos pranešimas</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>Sandoris Sukurtas</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Sandorio suma per maža</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Sandorio sumos turi būti teigiamos</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>Sandoris sėkmingai sukurtas.</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Sandorio mokesčiai yra per dideli.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Sandoris negalioja.</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Sandoris per didelis</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>Perduodamas galutinis sandoris.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>Atnaujinti piniginę į naujausią formatą</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Naudoti bandomajį tinklą</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Patvirtinami blokai...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <transla
