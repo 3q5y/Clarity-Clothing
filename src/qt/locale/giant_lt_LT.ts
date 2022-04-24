@@ -3663,4 +3663,75 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     </message>
     <message>
         <source>Verifying wallet...</source>
-        <transla
+        <translation>Patvirtinama piniginė...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Piniginė %s yra ne duomenų kataloge %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Piniginė užrakinta.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Piniginę reikia perrašyti: paleiskite GIANT Core iš naujo</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Piniginės nustatymai:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Piniginės lango pavadinimas</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Įspėjimas</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Įspėjimas: ši versija yra pasenusi, būtina ją atnaujinti!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Įspėjimas: nepalaikomas argumentas -benchmark ignored, naudokite -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Įspėjimas: nepalaikomas argumentas -debugnet ignored naudokite -debug=net.</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Neturite pakankamai Zerocoin monetų savo piniginėje</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Jūsų įrašai sėkmingai pridėti.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Jūsų sandoris buvo priimtas į "baseiną"!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Trinami visi sandoriai iš piniginės...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ pranešimų nustatymai:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin nustatymai:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>paleidus</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat sugadintas, surinkimas nepavyko</translation>
+    </message>
+</context>
+</TS>
