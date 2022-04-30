@@ -403,4 +403,275 @@
     <message>
         <source>Wallet</source>
         <translation>Portemonnee</translation>
- 
+    </message>
+    <message>
+        <source>Node</source>
+        <translation>Node</translation>
+    </message>
+    <message>
+        <source>&amp;Overview</source>
+        <translation>&amp;Overzicht</translation>
+    </message>
+    <message>
+        <source>Show general overview of wallet</source>
+        <translation>Toon algemeen overzicht van de portemonnee</translation>
+    </message>
+    <message>
+        <source>&amp;Send</source>
+        <translation>&amp;Verzenden</translation>
+    </message>
+    <message>
+        <source>&amp;Receive</source>
+        <translation>&amp;Ontvangen</translation>
+    </message>
+    <message>
+        <source>&amp;Transactions</source>
+        <translation>&amp;Transacties</translation>
+    </message>
+    <message>
+        <source>Browse transaction history</source>
+        <translation>Blader door transactiegescheidenis</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zGIC</source>
+        <translation>Privacy Acties voor zGIC</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>S&amp;luiten</translation>
+    </message>
+    <message>
+        <source>Quit application</source>
+        <translation>Programma afsluiten</translation>
+    </message>
+    <message>
+        <source>About &amp;Qt</source>
+        <translation>Over &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Toon informatie over Qt</translation>
+    </message>
+    <message>
+        <source>&amp;Options...</source>
+        <translation>&amp;Opties...</translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Tonen / Verbergen</translation>
+    </message>
+    <message>
+        <source>Show or hide the main Window</source>
+        <translation>Toon of verberg het hoofdvenster</translation>
+    </message>
+    <message>
+        <source>&amp;Encrypt Wallet...</source>
+        <translation>$Versleutel portemonnee...</translation>
+    </message>
+    <message>
+        <source>Encrypt the private keys that belong to your wallet</source>
+        <translation>Versleutel de privé sleutels die bij uw portemonnee horen</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>&amp;Backup Portemonnee...</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Backup portemonnee naar een andere locatie</translation>
+    </message>
+    <message>
+        <source>&amp;Change Passphrase...</source>
+        <translation>&amp;Wijzig Wachtwoordzin...</translation>
+    </message>
+    <message>
+        <source>Change the passphrase used for wallet encryption</source>
+        <translation>Wijzig de wachtwoordzin die gebruikt wordt voor uw portemonnee versleuteling</translation>
+    </message>
+    <message>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Open portemonnee...</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Open portemonnee</translation>
+    </message>
+    <message>
+        <source>&amp;Lock Wallet</source>
+        <translation>&amp;Sluit portemonnee</translation>
+    </message>
+    <message>
+        <source>Sign &amp;message...</source>
+        <translation>Bericht &amp;Ondertekenen...</translation>
+    </message>
+    <message>
+        <source>&amp;Verify message...</source>
+        <translation>Bericht &amp;Verifiëren... </translation>
+    </message>
+    <message>
+        <source>&amp;Information</source>
+        <translation>&amp;Informatie</translation>
+    </message>
+    <message>
+        <source>Show diagnostic information</source>
+        <translation>Toon diagnostische informatie</translation>
+    </message>
+    <message>
+        <source>&amp;Debug console</source>
+        <translation>&amp;Debug console</translation>
+    </message>
+    <message>
+        <source>Open debugging console</source>
+        <translation>Open debugging console</translation>
+    </message>
+    <message>
+        <source>&amp;Network Monitor</source>
+        <translation>&amp;Netwerk Monitor</translation>
+    </message>
+    <message>
+        <source>Show network monitor</source>
+        <translation>Toon netwerk monitor</translation>
+    </message>
+    <message>
+        <source>&amp;Peers list</source>
+        <translation>&amp;Peers lijst</translation>
+    </message>
+    <message>
+        <source>Show peers info</source>
+        <translation>Toon informatie van peers</translation>
+    </message>
+    <message>
+        <source>Wallet &amp;Repair</source>
+        <translation>Portemonnee &amp;Repareren </translation>
+    </message>
+    <message>
+        <source>Show wallet repair options</source>
+        <translation>Toon portemonnee reparatie opties</translation>
+    </message>
+    <message>
+        <source>Open configuration file</source>
+        <translation>Open configuratie bestand</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Toon Automatische &amp;Backups</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Toon automatisch aangemaakte portemonnee backups</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Verzendadressen...</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Toon de lijst van gebruikte verzendadressen en labels</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Ontvangstadressen...</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Toon de lijst van gebruikte ontvangstadressen en labels</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;Multisignature aanmaak...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Creëer een nieuw multisignature adres en voeg het toe aan deze portemonnee</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;Multisignature spenderen...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Besteden vanuit een multisignature adres</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>Ondertekenen van &amp;Multisignature...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Onderteken met een multisignature adres</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Open &amp;URI...</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>&amp;Opdrachtregelopties</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>%n blokken verwerkt van de transactiegeschiedenis</numerusform><numerusform>%n blokken verwerkt van de transactiegeschiedenis</numerusform></translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Synchroniseren aanvullende gegevens: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 achter. Scannen van block %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Portemonnee is &lt;b&gt;versleuteld&lt;/b&gt; en momenteel &lt;b&gt;geopend&lt;/b&gt;enkel voor anonimisering en staking</translation>
+    </message>
+    <message>
+        <source>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
+        <translation>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Bestand</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Instellingen</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>&amp;Gereedschap</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Tabblad werkbalk</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Verstuur munten naar een GIANT adres</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Vraag betaling aan (genereert QR codes en giant: URI's)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;Privacy</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Masternodes</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Bekijk masternodes</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        
