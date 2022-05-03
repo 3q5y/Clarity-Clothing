@@ -953,4 +953,309 @@ MultiSend: %1</translation>
         <source>toggle lock state</source>
         <translation>Schakel lock status</translation>
     </message>
-   
+    <message>
+        <source>Tree mode</source>
+        <translation>Tree modus</translation>
+    </message>
+    <message>
+        <source>List mode</source>
+        <translation>Lijst modus</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 locked)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Received with label</source>
+        <translation>Ontvangen met label</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Ontvangen met adres</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Bevestigingen</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestigd</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Prioriteit</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopiëer label</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopieer transactie ID</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>Lock niet besteed</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Unlock niet besteed</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopieer kwantiteit</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopieer fee</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopieer na fee</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopieer bytes</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopieer prioriteit</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopieer dust</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopieer wisselgeld</translation>
+    </message>
+    <message>
+        <source>Please switch to "List mode" to use this function.</source>
+        <translation>Schakel alsjeblieft over naar "Lijst modus" om deze functie te gebruiken.</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>hoogste</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>hoger</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>hoog</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>medium-hoog</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>medium</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>laag-medium</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>laag</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>lager</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>laagst</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 vergrendeld)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>geen</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>ja</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nee</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
+        <translation>Dit label wordt rood, als de transactiegrootte groter is dan 1000 bytes.</translation>
+    </message>
+    <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Dit betekent dat een fee van minstens %1 per kB vereist is.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Kan variëren van +/- 1 byte per invoer.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Transacties met hogere prioriteit zullen waarschijnlijk eerder in een blok opgenomen worden.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Dit label wordt rood, als de prioriteit lager is dan "medium".</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Dit label wordt rood, als een ontvanger een hoeveelheid kleiner dan %1 ontvangt.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 ugic per input.</source>
+        <translation>Kan +/-%1 ugic per invoer variëren.</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen label)</translation>
+    </message>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>wijzig van %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(wijzig)</translation>
+    </message>
+</context>
+<context>
+    <name>EditAddressDialog</name>
+    <message>
+        <source>Edit Address</source>
+        <translation>Wijzig Adres</translation>
+    </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Label</translation>
+    </message>
+    <message>
+        <source>The label associated with this address list entry</source>
+        <translation>Het label dat geassocieerd is met deze adreslijst invoer</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Adres</translation>
+    </message>
+    <message>
+        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
+        <translation>Het adres geassocieerd met deze adreslijst invoer. Dit kan alleen worden gewijzigd voor verzend adressen.</translation>
+    </message>
+    <message>
+        <source>New receiving address</source>
+        <translation>Nieuw ontvangst adres</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Nieuw verzend adres</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Wijzig ontvangst adres</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Wijzig verzend adres</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid GIANT address.</source>
+        <translation>Het ingevoerde adres: "%1" is geen geldig GIANT adres.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Het ingevoerde adres: "%1" staat al in uw adresboek.</translation>
+    </message>
+    <message>
+        <source>Could not unlock wallet.</source>
+        <translation>Kan portemonnee niet ontgrendelen.</translation>
+    </message>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Aanmaken nieuwe key mislukt.</translation>
+    </message>
+</context>
+<context>
+    <name>FreespaceChecker</name>
+    <message>
+        <source>A new data directory will be created.</source>
+        <translation>Een nieuwe data directory zal worden aangemaakt.</translation>
+    </message>
+    <message>
+        <source>name</source>
+        <translation>naam</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Map bestaat reeds. Voeg %1 toe als je van plan bent om hier een nieuwe map te creëren.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Pad bestaat al en is geen directory.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Kan de data directory hier niet aanmaken.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formulier</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>version</source>
+        <translation>versie</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About GIANT Core</source>
+        <translation>Over GIANT Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Command-line opties</translation>
+    </message>
+    <message>
+        <source>Usage:
