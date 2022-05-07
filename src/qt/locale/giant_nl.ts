@@ -1258,4 +1258,251 @@ MultiSend: %1</translation>
         <translation>Command-line opties</translation>
     </message>
     <message>
-        <source>Usage:
+        <source>Usage:</source>
+        <translation>Gebruik:</translation>
+    </message>
+    <message>
+        <source>command-line options</source>
+        <translation>command-line opties</translation>
+    </message>
+    <message>
+        <source>UI Options:</source>
+        <translation>UI Opties:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Kies data directory bij opstarten (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Toon splash scherm bij opstarten (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Stel taal in, bijvoorbeeld "de_DE" (standaard: systeem locale)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Geminimaliseerd starten</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Stel SSL root certificaten in voor betalingsverzoek (standaard: -systeem-)</translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>Welcome</source>
+        <translation>Welkom</translation>
+    </message>
+    <message>
+        <source>Welcome to GIANT Core.</source>
+        <translation>Welkom bij GIANT Core.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where GIANT Core will store its data.</source>
+        <translation>Aangezien dit de eerste keer is dat het programma is gestart, kun je kiezen waar GIANT Core zijn data opslaat.</translation>
+    </message>
+    <message>
+        <source>GIANT Core will download and store a copy of the GIANT block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GIANT Core zal een kopie van de GIANT blockchain downloaden en opslaan. Tenminste %1GB aan data zal worden opgeslagen in deze map en het zal over de tijd groeien. De portemonnee zal ook in deze map worden opgeslagen.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Gebruik de standaard datafolder </translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Gebruik een aangepaste data directory:</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Fout: opgegeven data directory "%1" kan niet worden gemaakt.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB beschikbare schijfruimte</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(van de %1 GB benodigd)</translation>
+    </message>
+</context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Form</source>
+        <translation>Formulier</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTERNODES</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Opmerking: De status van uw masternodes in de lokale portemonnee kan mogelijk iets afwijken. &lt;br /&gt;Wacht altijd op de portemonnee om additionele data te synchroniseren en verifieer dit vanuit een andere node &lt;br /&gt;mocht de node nu aan het draaien zijn maar je ziet nog steeds 'MISSING' in het 'Status' veld.</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protocol</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Actief</translation>
+    </message>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Laatst gezien (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Pubkey</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>S&amp;tart alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>&amp;all starten</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Start &amp;MISSING</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Status bijwerken</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Status wordt automatisch bijgewerkt in (sec):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Start alias</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Bevestig start masternode</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Weet je zeker dat je masternode %1 wilt starten?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Bevestig start alle masternodes</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Weet je zeker dat je ALLE masternodes wilt starten?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Commando is nu niet beschikbaar</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Je kunt dit commando niet gebruiken tot de masternode lijst is gesynchroniseerd</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Bevestig start ontbrekende masternodes</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Weet je zeker dat je alle ONTBREKENDE masternodes wilt starten?</translation>
+    </message>
+</context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>MultiSend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Geef volledige cijfers in 1 - 100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Voer % in om te geven (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Vul het adres in om naar te verzenden</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other GIANT addresses after it matures.
+To Add: enter percentage to give and GIANT address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend stelt je in staat om automatisch tot 100% van uw stake of masternode beloning automatisch te verzenden naar een lijst van andere GIANT adressen nadat het volwassen is. 
+Toevoegen: voer het te geven percentage in en GIANT adres om toe te voegen aan de MultiSend vector.
+Verwijderen: Voer adres in om te verwijderen en druk op delete.
+MultiSend zal niet worden geactiveerd tenzij je op Activeer hebt geklikt</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Aan MultiSend Vector toevoegen</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Toevoegen</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Deactiveer MultiSend</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Deactiveren</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Kies een adres uit het adresboek</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Percentage of stake to send</source>
+        <translation>Staking percentage om te verzenden</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Percentage:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Adres om een ​​deel van de stake te verzenden naar</translation>
+    </message>
+    <message>
+        <source>Address:</source>
