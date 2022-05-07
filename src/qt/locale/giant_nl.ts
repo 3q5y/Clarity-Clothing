@@ -1506,3 +1506,250 @@ MultiSend zal niet worden geactiveerd tenzij je op Activeer hebt geklikt</transl
     </message>
     <message>
         <source>Address:</source>
+        <translation>Adres:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Label:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Voer een label in voor dit adres om het toe te voegen aan jouw adresboek</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Verwijder adres van MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Wissen</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Activeer MultiSend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Activeren</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Bekijk MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Bekijk MultiSend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Verstuur voor stakes</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Verstuur voor Masternode beloningen</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen label)</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Stakes and Masternode Rewards</source>
+        <translation>MultiSend Actief voor Stakes en Masternodebeloningen</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Stakes</source>
+        <translation>MultiSend Actief voor Stakes</translation>
+    </message>
+    <message>
+        <source>MultiSend Active for Masternode Rewards</source>
+        <translation>MultiSend Actief voor Masternodebeloningen</translation>
+    </message>
+    <message>
+        <source>MultiSend Not Active</source>
+        <translation>MultiSend Niet Actief</translation>
+    </message>
+    <message>
+        <source>The entered address: %1 is invalid.
+Please check the address and try again.</source>
+        <translation>Het ingevoerde adres: %1 is ongeldig.
+Controleer het adres en probeer opnieuw.</translation>
+    </message>
+    <message>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
+        <translation>De totale hoeveelheid van je MultiSend vector is meer dan 100% van je inzet beloning</translation>
+    </message>
+    <message>
+        <source>Saved the MultiSend to memory, but failed saving properties to the database.</source>
+        <translation>De MultiSend in het geheugen opgeslagen, maar mislukt om de eigenschappen op te slaan in de database.</translation>
+    </message>
+    <message>
+        <source>MultiSend Vector</source>
+        <translation>MultiSend Vector</translation>
+    </message>
+    <message>
+        <source>Removed %1</source>
+        <translation>Verwijderd %1</translation>
+    </message>
+    <message>
+        <source>Could not locate address</source>
+        <translation>Kan het adres niet lokaliseren</translation>
+    </message>
+    <message>
+        <source>Unable to activate MultiSend, check MultiSend vector</source>
+        <translation>Onmogelijk om MultiSend te activeren, controleer MultiSend vector</translation>
+    </message>
+    <message>
+        <source>MultiSend activated but writing settings to DB failed</source>
+        <translation>MultiSend geactiveerd maar instellingen naar DB wegschrijven mislukt</translation>
+    </message>
+    <message>
+        <source>MultiSend activated</source>
+        <translation>MultiSend geactiveerd</translation>
+    </message>
+    <message>
+        <source>First Address Not Valid</source>
+        <translation>Eerste Adres Niet Gevalideerd</translation>
+    </message>
+    <message>
+        <source>MultiSend deactivated but writing settings to DB failed</source>
+        <translation>MultiSend gedeactiveerd maar instellingen naar DB wegschrijven mislukt</translation>
+    </message>
+    <message>
+        <source>MultiSend deactivated</source>
+        <translation>MultiSend gedeactiveerd</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Vul alsjeblieft 1 - 100 voor procent in.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Multisignature Adres Interacties</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Creëer MultiSignature &amp;Adres</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Hoeveel mensen moeten ondertekenen om een transactie te verifiëren</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Voer het minimale aantal vereiste ondertekeningen in om de transacties te ondertekenen</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Adreslabel:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Voeg een ander adres toe die kan ondertekenen om een transactie vanuit het multisig adres te verifiëren.</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Voeg Adres / Sleutel toe</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Lokale adressen of publieke sleutels die kunnen ondertekenen:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Creëer een nieuw multisig adres</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>C&amp;reëer</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Status:</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>Gebruik onderstaande om snel een adres te importeren door in te wisselen. Vergeet niet om een label toe te voegen voordat u op importeren klikt!
+Houd er rekening mee dat de portemonnee de blockchain opnieuw doorzoekt om transacties te vinden die het nieuwe adres bevatten.
+Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;Importeer Inlossen</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Creëer MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Inputs</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Munt Controle</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Hoeveelheid geselecteerd:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Bedrag:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Voeg een invoer toe om de uitvoer te financieren</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Voer een Raw invoer in</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Adres / Bedrag:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send GIC to</source>
+        <translation>Voeg bestemmingen toe om GIC naar te verzenden</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Voeg &amp;Bestemming toe</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Maak een transactie object aan met behulp van de gegeven invoer voor de gegeven uitvoer</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Cr&amp;eëer</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Onderteken MultiSignature Tx</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transactie Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Onderteken de transactie vanuit deze portemonnee of vanuit aangeboden privésleutels</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>O&amp;nderteken</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;UITGESCHAKELD totdat de transactie voldoende is ondertekend.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </messag
