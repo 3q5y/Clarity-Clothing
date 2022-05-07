@@ -1752,4 +1752,230 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;UITGESCHAKELD totdat de transactie voldoende is ondertekend.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </messag
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>&amp;Engageer</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Voeg privésleutels toe om de transactie met te ondertekenen</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Voeg &amp;Privésleutel toe</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Onderteken met enkel privésleutels (Niet Aanbevolen)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Ongeldige Tx Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Je positie moet positief zijn. </translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Maximale mogelijke adressen bereikt. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Jouw Positie:</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Hoeveelheid:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maximum (15)</translation>
+    </message>
+</context>
+<context>
+    <name>ObfuscationConfig</name>
+    <message>
+        <source>Configure Obfuscation</source>
+        <translation>Configureer verduistering</translation>
+    </message>
+    <message>
+        <source>Basic Privacy</source>
+        <translation>Basis Privacy</translation>
+    </message>
+    <message>
+        <source>High Privacy</source>
+        <translation>Hoge Privacy</translation>
+    </message>
+    <message>
+        <source>Maximum Privacy</source>
+        <translation>Maximum Privacy</translation>
+    </message>
+    <message>
+        <source>Please select a privacy level.</source>
+        <translation>Selecteer de privacy level.</translation>
+    </message>
+    <message>
+        <source>Use 2 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 8 separate masternodes to mix funds up to 10000 GIC</source>
+        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 10000 GIC</translation>
+    </message>
+    <message>
+        <source>Use 16 separate masternodes</source>
+        <translation>Gebruik 16 aparte masternodes</translation>
+    </message>
+    <message>
+        <source>This option is the quickest and will cost about ~0.025 GIC to anonymize 10000 GIC</source>
+        <translation>Deze optie is het snelst en kost ongeveer ~0,025 GIC om 10000 GIC te anonimiseren</translation>
+    </message>
+    <message>
+        <source>This option is moderately fast and will cost about 0.05 GIC to anonymize 10000 GIC</source>
+        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 GIC om 10000 GIC te anonimiseren</translation>
+    </message>
+    <message>
+        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
+        <translation>Dit is de langzaamste en veiligste optie. Het gebruik van maximale anonimiteit kost</translation>
+    </message>
+    <message>
+        <source>0.1 GIC per 10000 GIC you anonymize.</source>
+        <translation>je anonimiseert 0,1 GIC per 10000 GIC.</translation>
+    </message>
+    <message>
+        <source>Obfuscation Configuration</source>
+        <translation>Verduistering configuratie</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Verduistering is succesvol ingesteld op basic (%1 en 2 rondes). Je kunt dit op elk gewenst moment wijzigen door het configuratiescherm van GIANT te openen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Verduistering is succesvol ingesteld op hoog (%1 en 8 rondes). U kunt dit op elk gewenst moment wijzigen door het configuratiescherm van GIANT te openen.</translation>
+    </message>
+    <message>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.</source>
+        <translation>Verduistering is succesvol ingesteld op hoog (%1 en 16 rondes). U kunt dit op elk gewenst moment wijzigen door het configuratiescherm van GIANT te openen.</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>URI openen</translation>
+    </message>
+    <message>
+        <source>Open payment request from URI or file</source>
+        <translation>Open betalingsverzoek van URL of bestand</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    <message>
+        <source>Select payment request file</source>
+        <translation>Selecteer betalingsverzoek bestand</translation>
+    </message>
+    <message>
+        <source>Select payment request file to open</source>
+        <translation>Selecteer betalingsverzoek bestand dat geopend moet worden</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Opties</translation>
+    </message>
+    <message>
+        <source>&amp;Main</source>
+        <translation>&amp;Algemeen</translation>
+    </message>
+    <message>
+        <source>Size of &amp;database cache</source>
+        <translation>Grootte van cache &amp;gegevens</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Number of script &amp;verification threads</source>
+        <translation>Aantal script en verificatie threads</translation>
+    </message>
+    <message>
+        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
+        <translation>(0 = auto, &lt;0 = laat dat aantal cores vrij)</translation>
+    </message>
+    <message>
+        <source>W&amp;allet</source>
+        <translation>P&amp;ortemonnee</translation>
+    </message>
+    <message>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
+        <translation>Als je de uitgaven van onbevestigde wijzigingen uitschakelt, de wijziging van een transactie&lt;br/&gt;kan niet worden gebruikt tot die transactie tenminste één bevestiging heeft.&lt;br/&gt;Dit beïnvloedt ook hoe uw saldo is berekend.</translation>
+    </message>
+    <message>
+        <source>Automatically open the GIANT client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Open de GIANT client poort automatisch op de router. Dit werkt alleen als je router UPnP ondersteunt en het is ingeschakeld.</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside</source>
+        <translation>Accepteer externe connecties</translation>
+    </message>
+    <message>
+        <source>Allow incoming connections</source>
+        <translation>Sta inkomende connecties toe</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp; Verbind via SOCKS5 proxy (standaard proxy):</translation>
+    </message>
+    <message>
+        <source>Expert</source>
+        <translation>Expert</translation>
+    </message>
+    <message>
+        <source>Automatically start GIANT after logging in to the system.</source>
+        <translation>GIANT automatisch opstarten na inloggen op het systeem.</translation>
+    </message>
+    <message>
+        <source>&amp;Start GIANT on system login</source>
+        <translation>&amp;GIANT starten bij systeemlogin</translation>
+    </message>
+    <message>
+        <source>Whether to show coin control features or not.</source>
+        <translation>Of je de muntcontrolefuncties wilt tonen of niet.</translation>
+    </message>
+    <message>
+        <source>Enable coin &amp;control features</source>
+        <translation>Munt- en controlefuncties inschakelen</translation>
+    </message>
+    <message>
+        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
+        <translation>Toon extra tabblad waarin al je masternodes worden vermeld in het eerste sub-tabblad&lt;br/&gt;en alle masternodes op het netwerk in het tweede sub-tabblad.</translation>
+    </message>
+    <message>
+        <source>Show Masternodes Tab</source>
+        <translation>Toon Masternodes Tab</translation>
+    </message>
+    <message>
+        <source>&amp;Spend unconfirmed change</source>
+        <translation>&amp; Besteed onbevestigd wisselgeld</translation>
+    </message>
+    <message>
+        <source>&amp;Network</source>
+        <translation>&amp;Netwerk</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting GIANT.</source>
+        <translation>De gebruikersinterface taal kan hier ingesteld worden. Deze instelling zal uitgevoerd na herstart van GIANT.</translation>
+    </message>
+    <message>
+        <source>Language missing or translation incomplete? Help contributing translations here:
+https://giantpay.network/translations</source>
+        <translation>Taal ontbreekt of vertaling onvolledig? Help om bij te dragen aan vertalingen:
+https://giantpay.net
