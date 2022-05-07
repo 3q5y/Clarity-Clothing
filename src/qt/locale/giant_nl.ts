@@ -1978,4 +1978,236 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
         <source>Language missing or translation incomplete? Help contributing translations here:
 https://giantpay.network/translations</source>
         <translation>Taal ontbreekt of vertaling onvolledig? Help om bij te dragen aan vertalingen:
-https://giantpay.net
+https://giantpay.network/translations</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Map poort gebruikt &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of GIC units to zGIC</source>
+        <translation>Schakel automatisch slaan van GIC-eenheden in op zGIC</translation>
+    </message>
+    <message>
+        <source>Enable zGIC Automint</source>
+        <translation>Schakel zGIC Automint in</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming GIC which get automatically converted to zGIC via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentage inkomende GIC die automatisch wordt omgezet naar zGIC via Zerocoin Protocol (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zGIC</source>
+        <translation>Percentage autominted zGIC</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough GIC for this denomination is available</source>
+        <translation>Wacht met automatische omzetting naar Zerocoin totdat er genoeg GIC voor deze denominatie beschikbaar is</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zGIC Denomination</source>
+        <translation>Gewenste Automint zGIC denominatie</translation>
+    </message>
+    <message>
+        <source>Stake split threshold:</source>
+        <translation>Inzet splitdrempel:</translation>
+    </message>
+    <message>
+        <source>Connect to the GIANT network through a SOCKS5 proxy.</source>
+        <translation>Maak verbinding met het GIANT netwerk via een SOCKS5 proxy.</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP:</translation>
+    </message>
+    <message>
+        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
+        <translation>IP adres van de proxy (bijvoorbeeld IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Poort:</translation>
+    </message>
+    <message>
+        <source>Port of the proxy (e.g. 9050)</source>
+        <translation>Proxy-poort (v.b. 9050)</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Venster</translation>
+    </message>
+    <message>
+        <source>Show only a tray icon after minimizing the window.</source>
+        <translation>Toon alleen een tray icoon na minimalisering van het venster.</translation>
+    </message>
+    <message>
+        <source>&amp;Minimize to the tray instead of the taskbar</source>
+        <translation>&amp; Minimaliseer naar de tray in plaats van de taakbalk</translation>
+    </message>
+    <message>
+        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
+        <translation>Minimaliseer in plaats van de applicatie te verlaten wanneer het venster wordt gesloten. Wanneer deze optie is ingeschakeld, wordt de applicatie alleen gesloten nadat in het menu Quit wordt gekozen.</translation>
+    </message>
+    <message>
+        <source>M&amp;inimize on close</source>
+        <translation>Minimaliseer bij sluiten</translation>
+    </message>
+    <message>
+        <source>&amp;Display</source>
+        <translation>&amp;Weergave</translation>
+    </message>
+    <message>
+        <source>User Interface &amp;language:</source>
+        <translation>Gebruiksinterface &amp;language:</translation>
+    </message>
+    <message>
+        <source>User Interface Theme:</source>
+        <translation>Gebruiksinterface thema:</translation>
+    </message>
+    <message>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>Toon &amp;Unit in volgende hoeveelheden:</translation>
+    </message>
+    <message>
+        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+        <translation>Kies de standaard onderverdelingseenheid die in de interface wordt weergegeven en bij het verzenden van munten.</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Decimale cijfers</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Verberg lege saldi</translation>
+    </message>
+    <message>
+        <source>Hide orphan stakes in transaction lists</source>
+        <translation>Verberg orphan stakes in transactielijsten</translation>
+    </message>
+    <message>
+        <source>Hide orphan stakes</source>
+        <translation>Verberg orphan stakes</translation>
+    </message>
+    <message>
+        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
+        <translation>URL's van derden (bijvoorbeeld een blok verkenner) die in het tabblad transacties verschijnen als contextmenu items. %s in de URL wordt vervangen door transactie hash. Meerdere URL's worden gescheiden door verticale balk |.</translation>
+    </message>
+    <message>
+        <source>Third party transaction URLs</source>
+        <translation>Transactie URL's van derden</translation>
+    </message>
+    <message>
+        <source>Active command-line options that override above options:</source>
+        <translation>Actieve command line opties die bovenstaande opties overschrijven:</translation>
+    </message>
+    <message>
+        <source>Reset all client options to default.</source>
+        <translation>Reset alle client instellingen naar standaardinstellingen.</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>&amp;Herstellings Opties</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Annuleren</translation>
+    </message>
+    <message>
+        <source>Any</source>
+        <translation>een</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>standaard</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>geen</translation>
+    </message>
+    <message>
+        <source>Confirm options reset</source>
+        <translation>Bevestig reset instellingen</translation>
+    </message>
+    <message>
+        <source>Client restart required to activate changes.</source>
+        <translation>Client herstart vereist om wijzigingen te activeren.</translation>
+    </message>
+    <message>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation>Client wordt uitgeschakeld, wil je doorgaan?</translation>
+    </message>
+    <message>
+        <source>This change would require a client restart.</source>
+        <translation>Deze wijziging vereist een herstart van de client.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy address is invalid.</source>
+        <translation>Het opgegeven proxyadres is ongeldig.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>De meegeleverde proxy-poort is ongeldig.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>De geleverde proxy-instellingen zijn ongeldig.</translation>
+    </message>
+</context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formulier</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Beschikbaar:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Uw huidige bestedingsruimte</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Totaal saldo, inclusief alle niet-beschikbare munten.</translation>
+    </message>
+    <message>
+        <source>GIC Balance</source>
+        <translation>GIC Saldi</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>In afwachting:</translation>
+    </message>
+    <message>
+        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
+        <translation>Totaal aantal transacties die nog niet zijn bevestigd en nog niet meetellen in het uitgeefbare saldo</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Immatuur:</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards that has not yet matured</source>
+        <translation>Staked of masternode beloningen die nog niet volwassen zijn</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Huidige vergrendelde balans in alleen-lezen-adressen</translation>
+    </message>
+    <message>
+        <source>Your current GIANT balance, unconfirmed and immature transactions included</source>
+        <translation>Uw huidige GIANT-saldo, onbevestigde en onvolgroeide transacties inbegrepen</translation>
+    </message>
+    <message>
+        <source>zGIC Balance</source>
+        <translation>zGIC-saldo</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zGIC are spendable.</source>
+        <translation>Volwassen: meer dan 20 bevestigingen en meer dan 1 mint
