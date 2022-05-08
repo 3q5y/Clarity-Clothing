@@ -2210,4 +2210,241 @@ https://giantpay.network/translations</translation>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
 These zGIC are spendable.</source>
-        <translation>Volwassen: meer dan 20 bevestigingen en meer dan 1 mint
+        <translation>Volwassen: meer dan 20 bevestigingen en meer dan 1 mint van dezelfde denominatie nadat het gemint was.
+Deze zPIB zijn besteedbaar.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Onbevestigd: minder dan 20 bevestigingen
+Onvolwassen: bevestigd, maar minder dan 1 mint van dezelfde denominatie nadat het gemint was.</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>De weergegeven informatie kan verouderd zijn. Je portemonnee synchroniseert automatisch met het GIANT netwerk nadat een verbinding is opgezet, maar dit proces is nog niet afgerond.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>OVERZICHT</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Gecombineerde Saldi (inclusief onbevestigde en onvolwassen munten)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Gecombineerde balans</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Onbevestigde transacties naar watch-only adressen</translation>
+    </message>
+    <message>
+        <source>Staked or masternode rewards in watch-only addresses that has not yet matured</source>
+        <translation>Staked of masternode beloningen in watch-only adressen die nog niet volwassen zijn</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Totaal:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Huidig ​​totaal saldo in watch-only adressen</translation>
+    </message>
+    <message>
+        <source>Watch-only:</source>
+        <translation>Watch-only:</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Je huidige saldo in watch-only adressen</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Uitgeefbaar:</translation>
+    </message>
+    <message>
+        <source>Locked GIC or Masternode collaterals. These are excluded from zGIC minting.</source>
+        <translation>Vergrendelde GIC of Masternode onderpanden. Deze zijn uitgesloten van de zGIC muntage.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Vergrendeld:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Onbevestigd:</translation>
+    </message>
+    <message>
+        <source>Your current zGIC balance, unconfirmed and immature zGIC included.</source>
+        <translation>Uw huidige zGIC-saldo, onbevestigde en onvolgroeide zGIC inbegrepen.</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Recente transacties</translation>
+    </message>
+    <message>
+        <source>out of sync</source>
+        <translation>niet gesynchroniseerd</translation>
+    </message>
+    <message>
+        <source>Current percentage of zGIC.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>Huidige percentage van zGIC
+Als AutoMint ingeschakeld is zal deze percentage afhangen van de geconfigureerde AutoMint percentage (standaard = 10%).
+</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>AutoMint is momenteel ingeschakeld en ingesteld op</translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in giant.conf.</source>
+        <translation>Om AutoMint uit te schakelen, voeg je 'enablezeromint=0' toe aan giant.conf.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf</source>
+        <translation>AutoMint is momenteel uitgeschakeld.
+Om AutoMint in te schakelend verander je 'enablezeromint=0' naar 'enablezeromint=1' in giant.conf</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Payment request error</source>
+        <translation>Fout bij betalingsverzoek</translation>
+    </message>
+    <message>
+        <source>URI handling</source>
+        <translation>URL behandeling</translation>
+    </message>
+    <message>
+        <source>Payment request fetch URL is invalid: %1</source>
+        <translation>Betalingsverzoek ophalen URL is ongeldig: %1</translation>
+    </message>
+    <message>
+        <source>Payment request file handling</source>
+        <translation>Betalingsaanvraag bestandsverwerking</translation>
+    </message>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Ongeldig betalingsadres %1</translation>
+    </message>
+    <message>
+        <source>Cannot start giant: click-to-pay handler</source>
+        <translation>Kan giant niet starten: click-to-pay handler</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid GIANT address or malformed URI parameters.</source>
+        <translation>URL kan niet ontleed worden! Dit kan worden veroorzaakt door een ongeldig GIANT adres of misvormde URL parameters.</translation>
+    </message>
+    <message>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Uw betalingsverzoek kan niet worden gelezen! Dit kan worden veroorzaakt door een ongeldig betalingsverzoek bestand.</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Betalingsverzoek afgewezen</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Het betalingsverzoek netwerk komt niet overeen met het client netwerk.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Betalingsverzoek is verlopen.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Betalingsverzoek is niet geïnitialiseerd. </translation>
+    </message>
+    <message>
+        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
+        <translation>Niet geverifieerde betalingsverzoeken naar aangepaste betaal scripts worden niet ondersteund.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>Gevraagd betalingsbedrag van %1 is te klein (beschouwd als dust).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Terugbetaling van %1</translation>
+    </message>
+    <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Betalingsverzoek %1 is te groot (%2 bytes, toegestaan %3 bytes).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Betalingsverzoek DoS bescherming</translation>
+    </message>
+    <message>
+        <source>Error communicating with %1: %2</source>
+        <translation>Fout communiceren met %1: %2</translation>
+    </message>
+    <message>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Betalingsaanvraag kan niet worden geanalyseerd!</translation>
+    </message>
+    <message>
+        <source>Bad response from server %1</source>
+        <translation>Bad response van server %1</translation>
+    </message>
+    <message>
+        <source>Network request error</source>
+        <translation>Netwerkverzoek fout</translation>
+    </message>
+    <message>
+        <source>Payment acknowledged</source>
+        <translation>Betaling erkend</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Adres/Hostnaam</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versie</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Pingtijd</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Zerocoin Acties:</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GIANT network after a connection is established, but this process has not completed yet.</source>
+        <translation>De weergegeven informatie kan verouderd zijn. Je portemonnee synchroniseert automatisch met het GIANT netwerk nadat een verbinding is opgezet, maar dit proces is nog niet afgerond.</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Mint Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zGIC</source>
+        <translation>zGIC</translation>
+    </message>
+    <message>
+        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
+        <translation>Beschikbaar voor muntage zijn munten die bevestigd en niet vergrendeld of Masternode onderpanden zijn.</translation>
+    </message>
+    <message>
+        <source>Available for Minting:</source>
+        <translation>Beschikbaar voor minting:</translation>
+    </message>
+    <message>
+        <source>0.000 0
