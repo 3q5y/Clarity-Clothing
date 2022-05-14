@@ -4581,4 +4581,301 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>zGIC Stake</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</so
+        <source>Obfuscation Denominate</source>
+        <translation>Verduistering denominatie</translation>
+    </message>
+    <message>
+        <source>Obfuscation Collateral Payment</source>
+        <translation>Verduistering zijdelingse betaling</translation>
+    </message>
+    <message>
+        <source>Obfuscation Make Collateral Inputs</source>
+        <translation>Verduistering maakt zijdelingse inputs</translation>
+    </message>
+    <message>
+        <source>Obfuscation Create Denominations</source>
+        <translation>Verduistering creëert denominaties</translation>
+    </message>
+    <message>
+        <source>Converted GIC to zGIC</source>
+        <translation>Geconverteerde GIC naar zGIC</translation>
+    </message>
+    <message>
+        <source>Spent zGIC</source>
+        <translation>Bestede zGIC</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Ontvangen GIC van zGIC</translation>
+    </message>
+    <message>
+        <source>Minted Change as zGIC from zGIC Spend</source>
+        <translation>Gemint wisselgeld als zGIC van bestede zGIC</translation>
+    </message>
+    <message>
+        <source>Converted zGIC to GIC</source>
+        <translation>Geconverteerde zGIC naar GIC</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Transaction)</source>
+        <translation>Anonieme (zGIC transactie)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zGIC Stake)</source>
+        <translation>Anonieme (zGIC stake)</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Verzenden naar</translation>
+    </message>
+    <message>
+        <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
+        <translation>Orphan Block - Gegenereerd maar niet geaccepteerd. Dit heeft geen invloed op uw bezit.</translation>
+    </message>
+    <message>
+        <source>Payment to yourself</source>
+        <translation>Betaling naar jezelf</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Mined</translation>
+    </message>
+    <message>
+        <source>Obfuscated</source>
+        <translation>Verduisterd</translation>
+    </message>
+    <message>
+        <source>watch-only</source>
+        <translation>watch-only</translation>
+    </message>
+    <message>
+        <source>(n/a)</source>
+        <translation>(n/b)</translation>
+    </message>
+    <message>
+        <source>Transaction status. Hover over this field to show number of confirmations.</source>
+        <translation>Transactie status. Beweeg over dit veld om het aantal bevestigingen te tonen.</translation>
+    </message>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Datum en tijd waarop de transactie is ontvangen.</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Type transactie.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Of een watch-only adres wel of niet betrokken is bij deze transactie.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>Bestemming adres van de transactie.</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Bedrag verwijderd uit of toegevoegd aan saldo.</translation>
+    </message>
+</context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Alle</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Vandaag</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Deze week</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Deze maand</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Afgelopen maand</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Dit jaar</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Omvang...</translation>
+    </message>
+    <message>
+        <source>Most Common</source>
+        <translation>Meest voorkomend</translation>
+    </message>
+    <message>
+        <source>Received with</source>
+        <translation>Ontvangen met</translation>
+    </message>
+    <message>
+        <source>Sent to</source>
+        <translation>Verzenden naar</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>Naar jezelf</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Mined</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>Minted</translation>
+    </message>
+    <message>
+        <source>Masternode Reward</source>
+        <translation>Masternode beloning</translation>
+    </message>
+    <message>
+        <source>Zerocoin Mint</source>
+        <translation>Zerocoin Mint</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend</source>
+        <translation>Zerocoin uitgegeven</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend to Self</source>
+        <translation>Zerocoin uitgegeven aan jezelf</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation>Andere</translation>
+    </message>
+    <message>
+        <source>Enter address or label to search</source>
+        <translation>Adres of label invullen om te zoeken</translation>
+    </message>
+    <message>
+        <source>Min amount</source>
+        <translation>Minimale hoeveelheid</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopiëer label</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Kopieer transactie ID</translation>
+    </message>
+    <message>
+        <source>Edit label</source>
+        <translation>Label wijzigen</translation>
+    </message>
+    <message>
+        <source>Show transaction details</source>
+        <translation>Bekijk transactiedetails</translation>
+    </message>
+    <message>
+        <source>Hide orphan stakes</source>
+        <translation>Verberg orphan stakes</translation>
+    </message>
+    <message>
+        <source>Export Transaction History</source>
+        <translation>Exporteer Transactiegeschiedenis</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Kommagescheiden bestand (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestigd</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>Watch-only</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Export Mislukt</translation>
+    </message>
+    <message>
+        <source>There was an error trying to save the transaction history to %1.</source>
+        <translation>Er is een fout opgetreden om de transactiegeschiedenis te bewaren naar %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Successful</source>
+        <translation>Exporteren succesvol</translation>
+    </message>
+    <message>
+        <source>Received GIC from zGIC</source>
+        <translation>Ontvangen GIC van zGIC</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zGIC</source>
+        <translation>Zerocoin besteed, wisselgeld in zGIC</translation>
+    </message>
+    <message>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>De transactiegeschiedenis is succesvol bewaard in %1.</translation>
+    </message>
+    <message>
+        <source>Range:</source>
+        <translation>Bereik:</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>naar</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Eenheid om bedragen te laten zien. Klik om een andere eenheid te selecteren.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletFrame</name>
+    <message>
+        <source>No wallet has been loaded.</source>
+        <translation>Er is geen portemonnee ingeladen.</translation>
+    </message>
+</context>
+<context>
+    <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Verzend Munten</translation>
+    </message>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 GIC.</source>
+        <translation>SwiftTX ondersteunt geen verzendwaarden die zo hoog zijn. Transacties zijn 
