@@ -3560,4 +3560,298 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>ontvangen</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the paym
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the GIANT network.</source>
+        <translation>Een optioneel bericht dat aan het betalingsverzoek wordt gehecht, dat wordt weergegeven wanneer het verzoek wordt geopend.&lt;br&gt;Opmerking: het bericht wordt niet verzonden met de betaling via het GIANT netwerk.</translation>
+    </message>
+    <message>
+        <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
+        <translation>Gebruik dit formulier om betalingen aan te vragen. Alle velden zijn&lt;b&gt;optioneel&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Label:</translation>
+    </message>
+    <message>
+        <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
+        <translation>Een optioneel bedrag om te vragen. Laat dit leeg of vul een nul in om geen specifiek bedrag te vragen.</translation>
+    </message>
+    <message>
+        <source>&amp;Request payment</source>
+        <translation>&amp;Verzoek betaling</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Leeg alle velden van het formulier.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Leegmaken</translation>
+    </message>
+    <message>
+        <source>Receiving Addresses</source>
+        <translation>Ontvangstadressen</translation>
+    </message>
+    <message>
+        <source>Requested payments history</source>
+        <translation>Betalingsverzoeken geschiedenis</translation>
+    </message>
+    <message>
+        <source>Show the selected request (does the same as double clicking an entry)</source>
+        <translation>Toon het geselecteerde verzoek (doet hetzelfde als dubbelklik op een item)</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Toon</translation>
+    </message>
+    <message>
+        <source>Remove the selected entries from the list</source>
+        <translation>Verwijder de geselecteerde vermeldingen uit de lijst</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Verwijder</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Kopiëer label</translation>
+    </message>
+    <message>
+        <source>Copy message</source>
+        <translation>Bericht kopiëren</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopieer adres</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation>QR Code</translation>
+    </message>
+    <message>
+        <source>Copy &amp;URI</source>
+        <translation>Kopieer &amp;URI</translation>
+    </message>
+    <message>
+        <source>Copy &amp;Address</source>
+        <translation>Kopieer &amp;Adres</translation>
+    </message>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Afbeelding opslaan...</translation>
+    </message>
+    <message>
+        <source>Request payment to %1</source>
+        <translation>Verzoek betaling aan %1</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>Betalingsinformatie</translation>
+    </message>
+    <message>
+        <source>URI</source>
+        <translation>URI</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Bericht</translation>
+    </message>
+    <message>
+        <source>Resulting URI too long, try to reduce the text for label / message.</source>
+        <translation>Resulterende URI te lang geleden, probeer de tekst voor label/bericht te verminderen.</translation>
+    </message>
+    <message>
+        <source>Error encoding URI into QR Code.</source>
+        <translation>Fout bij het coderen van URI in QR-code.</translation>
+    </message>
+</context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Bericht</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen label)</translation>
+    </message>
+    <message>
+        <source>(no message)</source>
+        <translation>(geen bericht)</translation>
+    </message>
+    <message>
+        <source>(no amount)</source>
+        <translation>(geen hoeveelheid)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Verzend Munten</translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>STUREN</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Munt controle kenmerken</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Onvoldoende saldo!</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Kwantiteit:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytes:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Bedrag:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Prioriteit:</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>medium</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Fee:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Dust:</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>nee</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Na de fee:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Wisselgeld:</translation>
+    </message>
+    <message>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>Als dit geactiveerd is, maar het wisselgeld adres is leeg of ongeldig, wordt het wisselgeld verzonden naar een nieuw gegenereerd adres.</translation>
+    </message>
+    <message>
+        <source>Custom change address</source>
+        <translation>Aangepast wisselgeld adres</translation>
+    </message>
+    <message>
+        <source>Split UTXO</source>
+        <translation>Split UTXO</translation>
+    </message>
+    <message>
+        <source># of outputs</source>
+        <translation># outputs</translation>
+    </message>
+    <message>
+        <source>UTXO Size:</source>
+        <translation>UTXO grootte:</translation>
+    </message>
+    <message>
+        <source>0 GIC</source>
+        <translation>0 GIC</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>Transactiekosten: </translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Kies...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>Klap kosten instellingen in</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimaliseer</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>per kilobyte</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>totaal tenminste</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(lees de tooltip)</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Aangepast:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Smart fee nog niet geïnitialiseerd. Dit duurt meestal een paar blokken ...)</translation>
+    </message>
+    <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Bevestigingstijd:</translation>
+    </message>
+    <message>
+        <source>Open Coin Control...</source>
+        <translation>Open munt controle...</translation>
+    </message>
+    <message>
+        <source>Coins automatically selected</source>
+        <translation>Munten automatisch geselecteerd</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uGICs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uGIC's in vergoeding,&lt;br /&gt;terwijl "minstens" 1000 uGIC's betaalt. Voor transacties die gro
