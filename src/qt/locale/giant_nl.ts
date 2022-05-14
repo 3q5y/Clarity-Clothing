@@ -3854,4 +3854,220 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uGICs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uGIC's in vergoeding,&lt;br /&gt;terwijl "minstens" 1000 uGIC's betaalt. Voor transacties die gro
+        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uGICs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uGIC's in vergoeding,&lt;br /&gt;terwijl "minstens" 1000 uGIC's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 uGICs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uGICs in fee,&lt;br /&gt;while "total at least" pays 1000 uGICs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uGICs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uGIC's in vergoeding,&lt;br /&gt;terwijl "totaal minstens" 1000 uGIC's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for GIANT transactions than the network can process.</source>
+        <translation>Alleen de minimale vergoeding betalen is prima, zolang er minder transactie volume is dan ruimte in de blokken. &lt;br /&gt;Maar wees ervan bewust dat dit kan leiden tot een nooit bevestigende transactie wanneer er meer vraag is naar GIANT transacties dan het netwerk kan verwerken.</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>normaal</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>snel</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation>Aanbevolen</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Zend als zero-fee transactie indien mogelijk</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(bevestiging kan langer duren)</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>Bevestig de verzendactie</translation>
+    </message>
+    <message>
+        <source>S&amp;end</source>
+        <translation>V&amp;erzenden</translation>
+    </message>
+    <message>
+        <source>Clear all fields of the form.</source>
+        <translation>Leeg alle velden van het formulier.</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Verwijder &amp;Alles</translation>
+    </message>
+    <message>
+        <source>Send to multiple recipients at once</source>
+        <translation>Verzend naar meerdere ontvangers tegelijk</translation>
+    </message>
+    <message>
+        <source>Add &amp;Recipient</source>
+        <translation>Voeg &amp;ontvanger toe</translation>
+    </message>
+    <message>
+        <source>Anonymized GIC</source>
+        <translation>Geanonimiseerde GIC</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Balans:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Kopieer kwantiteit</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Kopieer bedrag</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Kopieer fee</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Kopieer na fee</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Kopieer bytes</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Kopieer prioriteit</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Kopieer dust</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Kopieer wisselgeld</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work when sending to outside addresses. Try again.</source>
+        <translation>Het split block tool werkt niet bij het verzenden naar externe adressen. Probeer het nog eens.</translation>
+    </message>
+    <message>
+        <source>The split block tool does not work with multiple addresses. Try again.</source>
+        <translation>Het split block tool werkt niet met meerdere adressen. Probeer het nog eens.</translation>
+    </message>
+    <message>
+        <source>Warning: Invalid GIANT address</source>
+        <translation>Waarschuwing: Ongeldig GIANT adres</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 naar %2</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Ben je zeker dat je wilt verzenden?</translation>
+    </message>
+    <message>
+        <source>are added as transaction fee</source>
+        <translation>worden toegevoegd als transactiekosten</translation>
+    </message>
+    <message>
+        <source>Total Amount = &lt;b&gt;%1&lt;/b&gt;&lt;br /&gt;= %2</source>
+        <translation>Totale hoeveelheid = &lt;b&gt;%1 &lt;/b&gt;&lt;br /&gt;= %2</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Bevestig verzending coins</translation>
+    </message>
+    <message>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation>Een vergoeding %1 keer hoger dan %2 per kB wordt beschouwd als een zwaar hoge vergoeding.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>Schatting om te beginnen met bevestiging in %n blokken.</numerusform><numerusform>Schatting om te beginnen met bevestiging in %n blokken.</numerusform></translation>
+    </message>
+    <message>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation>Het ontvangstadres is niet geldig, controleer deze.</translation>
+    </message>
+    <message>
+        <source>using SwiftX</source>
+        <translation>met SwiftX</translation>
+    </message>
+    <message>
+        <source> split into %1 outputs using the UTXO splitter.</source>
+        <translation>gesplitst in %1 outputs met behulp van de UTXO splitter.</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</source>
+        <translation>&lt;b&gt;(%1 van %2 vermeldingen weergegeven)</translation>
+    </message>
+    <message>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation>Het te betalen bedrag moet groter zijn dan 0.</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>Het bedrag overschrijdt uw saldo.</translation>
+    </message>
+    <message>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation>Het totaal overschrijdt uw saldo wanneer de transactievergoeding %1 is inbegrepen.</translation>
+    </message>
+    <message>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation>Dubbel adres gevonden, kan alleen per keer per verzendoperatie naar elk adres versturen.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!</source>
+        <translation>Transactie creatie mislukt!</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>De transactie is afgewezen! Dit kan gebeuren als sommige munten in je portemonnee al waren uitgegeven, zoals als je een kopie van de wallet.dat en munten in de kopie waren besteed maar niet gemarkeerd zoals hier besteed.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren. Ontgrendelen geannuleerd.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Betaal alleen de minimumkost van %1</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown change address</source>
+        <translation>Waarschuwing: Ongekend wisselgeld adres</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(geen label)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>This is a normal payment.</source>
+        <translation>Dit is een normale betaling.</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Betaal &amp;Naar:</translation>
+    </message>
+    <message>
+        <source>The GIANT address to send the payment to</source>
+        <translation>Het GIANT adres om de betaling naar te verzenden</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Kies een eerder gebruikt adres</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    <
