@@ -5387,4 +5387,229 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>Error connecting to Masternode.</source>
-        <translation>Fout bij verbinden met Ma
+        <translation>Fout bij verbinden met Masternode.</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation>Fout bij het initialiseren van blok database</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation>Fout bij het initialiseren van de wallet database omgeving %s!</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>Error tijdens het laden van de block database</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat</source>
+        <translation>Error tijdens het laden van wallet.dat</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet corrupted</source>
+        <translation>Error tijdens het laden van wallet.dat: Portemonnee corrupt</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of GIANT Core</source>
+        <translation>Fout bij het laden van wallet.dat: Portemonnee vereist een nieuwere versie van GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>Error tijdens het openen van de block database</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Error tijdens het lezen van de database, aan het afsluiten.</translation>
+    </message>
+    <message>
+        <source>Error recovering public key.</source>
+        <translation>Fout bij het herstellen van de publieke sleutel.</translation>
+    </message>
+    <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>Fout bij het schrijven van zerocoinDB naar schijf</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation>Fout: Er is een fatale interne fout opgetreden, zie debug.log voor details</translation>
+    </message>
+    <message>
+        <source>Error: Can't select current denominated inputs</source>
+        <translation>Fout: Kan de huidige gedenomineerde inputs niet selecteren</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>Error: Schijfruimte is laag!</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Fout: Niet ondersteunde argument -tor gevonden, gebruik -onion.</translation>
+    </message>
+    <message>
+        <source>Error: Wallet locked, unable to create transaction!</source>
+        <translation>Fout: Portemonnee vergrendeld, niet in staat om transactie te creëren!</translation>
+    </message>
+    <message>
+        <source>Error: You already have pending entries in the Obfuscation pool</source>
+        <translation>Fout: U heeft al entries in afwachting in de verduistering pool</translation>
+    </message>
+    <message>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>Kon het controlepunt van de accumulator niet berekenen</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>Niet gelukt om te luisteren op een poort. Gebruik -listen=0 als je dit wilt.</translation>
+    </message>
+    <message>
+        <source>Failed to parse host:port string</source>
+        <translation>Kan host: poortreeks niet parseren</translation>
+    </message>
+    <message>
+        <source>Failed to read block</source>
+        <translation>Mislukt om block te lezen</translation>
+    </message>
+    <message>
+        <source>Fee (in GIC/kB) to add to transactions you send (default: %s)</source>
+        <translation>Fee (in GIC/kB) om toe te voegen aan transacties die je verzendt (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Finalizing transaction.</source>
+        <translation>Transactie aan het voltooien.</translation>
+    </message>
+    <message>
+        <source>Force safe mode (default: %u)</source>
+        <translation>Forceer safe mode (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation>Genoeg gebruikers gevonden, aan het ondertekenen (%s aan het wachten)</translation>
+    </message>
+    <message>
+        <source>Found enough users, signing ...</source>
+        <translation>Genoeg gebruikers gevonden, aan het ondertekenen ...</translation>
+    </message>
+    <message>
+        <source>Generate coins (default: %u)</source>
+        <translation>Genereer munten (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Hoeveel blokken bij het opstarten controleren (standaard: %u, 0 = alles)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation>Als &lt;category&gt; niet is opgegeven, output alle debugging informatie.</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Importeren...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file</source>
+        <translation>Importeert blokken uit extern blk000??.dat bestand</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Inclusief IP adressen in debug output (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Incompatible mode.</source>
+        <translation>Modus is niet compatibel.</translation>
+    </message>
+    <message>
+        <source>Incompatible version.</source>
+        <translation>Versie is niet compatibel.</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation>Het genesis block kan niet worden gevonden of is incorrect. Klopt datadir voor het netwerk?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informatie</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. GIANT Core is shutting down.</source>
+        <translation>Initialisatie saniteitscontrole mislukt. GIANT Core wordt afgesloten.</translation>
+    </message>
+    <message>
+        <source>Input is not valid.</source>
+        <translation>Ongeldige invoer.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Onvoldoende saldo.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds.</source>
+        <translation>Onvoldoende saldo.</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address or hostname: '%s'</source>
+        <translation>Ongeldig -onion adres of hostnaam: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldige hoeveelheid voor -maxtxfee=&lt;amount&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldige hoeveelheid voor -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldige hoeveelheid voor -mintxfee=&lt;amount&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Ongeldige hoeveelheid voor -paytxfee=&lt;amount&gt;: '%s' (moet tenminste %s zijn)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldige hoeveelheid voor -paytxfee=&lt;amount&gt;: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
+        <translation>Ongeldige hoeveelheid voor -reservebalance=&lt;amount&gt;</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Ongeldige hoeveelheid</translation>
+    </message>
+    <message>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation>Ongeldige masternodeprivkey. Zie documentatie.</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Ongeldige netmask opgegeven in -whitelist: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Ongeldige poort gedetecteerd in masternode.conf</translation>
+    </message>
+    <message>
+        <source>Invalid private key.</source>
+        <translation>Ongeldige privésleutel.</translation>
+    </message>
+    <message>
+        <source>Invalid script detected.</source>
+        <translation>Ongeldige script gedetecteerd.</translation>
+    </message>
+    <message>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>Percentage automatisch geminte Zerocoin (10-100, standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the GIC and zGIC money supply statistics</source>
+        <translation>Indexeer de GIC- en zGIC-geldvoorraadstatistieken opnieuw</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Her-indexeren Zerocoin database...</translation>
+    </message>
