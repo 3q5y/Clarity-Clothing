@@ -5178,4 +5178,213 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Waarschuwing: fout lezen wallet.dat! Alle sleutels lezen correct, maar transactie gegevens of adresboek invoeringen kunnen missen of niet correct zijn.</translation>
     </message>
     <message>
-        <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if 
+        <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation>Waarschuwing: wallet.dat corrupt, data gered! Originele wallet.dat opgeslagen als wallet.{timestamp}.bak in %s; als je saldo of transacties onjuist zijn, moet je een back-up herstellen.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Whitelist peers verbinden van het opgegeven netmask of IP adres. Kan meerdere keren worden opgegeven.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Whitelisted peers kunnen niet DoS banned worden en hun transacties worden altijd doorgestuurd, zelfs als ze al in de mempool zijn, nuttig bijv. voor een gateway</translation>
+    </message>
+    <message>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation>Je moet een masternodeprivkey opgeven in de configuratie. Raadpleeg de documentatie voor hulp.</translation>
+    </message>
+    <message>
+        <source>(40444 could be used only on mainnet)</source>
+        <translation>(40444 kan alleen op mainnet worden gebruikt)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(standaard: %s)</translation>
+    </message>
+    <message>
+        <source>(default: 1)</source>
+        <translation>(standaard: 1)</translation>
+    </message>
+    <message>
+        <source>(must be 40444 for mainnet)</source>
+        <translation>(moet 40444 voor mainnet zijn)</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation>Accepteer command line en JSON-RPC commando's</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Accepteer verbindingen van buitenaf (standaard: 1 als geen -proxy of -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Accepteer publieke REST verzoeken (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation>Voeg een node toe om verbinding mee te maken en probeer de verbinding open te houden</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation>DNS lookups toestaan voor -addnode, -seednode en -connect</translation>
+    </message>
+    <message>
+        <source>Already have that input.</source>
+        <translation>Heeft die input al.</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Vraag altijd naar peer adressen via DNS lookup (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation>Voeg opmerking toe aan de user agent string</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>Poog om privé sleutels te herstellen van een corrupte wallet.dat</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>Creëer automatisch de Tor verborgen service (standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation>Block creatie opties:</translation>
+    </message>
+    <message>
+        <source>Calculating missing accumulators...</source>
+        <translation>Calculeren van ontbrekende accumulators...</translation>
+    </message>
+    <message>
+        <source>Can't denominate: no compatible inputs left.</source>
+        <translation>Kan niet denomineren: er zijn geen compatibele inputs over.</translation>
+    </message>
+    <message>
+        <source>Can't find random Masternode.</source>
+        <translation>Kan geen willekeurige Masternode vinden.</translation>
+    </message>
+    <message>
+        <source>Can't mix while sync in progress.</source>
+        <translation>Kan niet mixen terwijl synchronisatie wordt uitgevoerd.</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation>Kan de portemonnee niet downgraden</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>Kan -bind adres niet oplossen: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>Kan -externalip adres niet oplossen: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>Kan -whitebind adres niet oplossen: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation>Kan standaard adres niet schrijven</translation>
+    </message>
+    <message>
+        <source>Collateral not valid.</source>
+        <translation>Terugbetaling niet geldig.</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Verbind alleen met de opgegeven node(s)</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Verbind via SOCKS5 proxy</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation>Verbind met een node om peer adressen te verkrijgen en verbreek verbinding</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation>Connectie opties:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i The Bitcoin Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2014-%i The Dash Core Developers</source>
+        <translation>Copyright (C) 2014-%i The Dash Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
+        <translation>Copyright (C) 2015-%i The PIVX Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The GIANT Core Developers</source>
+        <translation>Copyright (C) 2018-%i The GIANT Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation>Corrupte block database gedetecteerd</translation>
+    </message>
+    <message>
+        <source>Could not parse masternode.conf</source>
+        <translation>Kan masternode.conf niet parsen</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation>Debugging/Test opties:</translation>
+    </message>
+    <message>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation>Verwijder blockchain mappen en hersynchroniseer alles opnieuw</translation>
+    </message>
+    <message>
+        <source>Disable OS notifications for incoming transactions (default: %u)</source>
+        <translation>Schakel OS notificaties uit voor inkomende transacties (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>Schakel safe mode uit, override een echte safe mode gebeurtenis (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
+        <translation>Ontdek eigen IP adres (standaard: 1 bij luisteren en niet -externalip)</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation>Laad de portemonnee niet in en schakel portemonnee RPC oproepen uit</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation>Wil je de blok database nu herbouwen?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>Klaar met laden</translation>
+    </message>
+    <message>
+        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
+        <translation>Zet automatische Zerocoin minting aan (0-1, standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Activeer publicatie hash transactie (vergrendeld via SwiftTX) in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Activeer publicatie raw transactie (vergrendeld via SwiftTX) in &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation>Schakel de client in als masternode (0-1, standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Entries are full.</source>
+        <translation>De entries zijn vol.</translation>
+    </message>
+    <message>
+        <source>Error connecting to Masternode.</source>
+        <translation>Fout bij verbinden met Ma
