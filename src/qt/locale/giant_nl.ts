@@ -5782,4 +5782,241 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Line: %d</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default:
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Luister naar JSON-RPC verbindingen op &lt;port&gt; (standaard: %u of testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Luister naar verbindingen op &lt;port&gt; (standaard: %u of testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Adressen laden...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Blockindex laden...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Budget cache laden...</translation>
+    </message>
+    <message>
+        <source>Loading masternode cache...</source>
+        <translation>Masternode cache laden...</translation>
+    </message>
+    <message>
+        <source>Loading masternode payment cache...</source>
+        <translation>Masternode betalingscache laden...</translation>
+    </message>
+    <message>
+        <source>Loading sporks...</source>
+        <translation>Sporks laden...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Portemonnee laden... (%3.2f %%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Portemonnee aan het laden...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Locatie van de auth cookie (standaard: data dir)</translation>
+    </message>
+    <message>
+        <source>Lock is already in place.</source>
+        <translation>Vergrendeling is al uitgevoerd.</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Masternodes vergrendelen van masternode configuratiebestand (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Lookup (): ongeldig -proxy-adres of hostnaam: '%s'</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Bijhouden maximaal &lt;n&gt; connecties naar peers (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Masternode opties:</translation>
+    </message>
+    <message>
+        <source>Masternode queue is full.</source>
+        <translation>Masternode wachtrij zit vol.</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Masternode:</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximaal per connectie ontvangst buffer, &lt;n&gt;*1000 bytes (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximaal per connectie verstuur buffer, &lt;n&gt;*1000 bytes (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Mint did not make it into blockchain</source>
+        <translation>Mint heeft de blockchain niet gehaald</translation>
+    </message>
+    <message>
+        <source>Missing input transaction information.</source>
+        <translation>Ontbrekende invoer transactie informatie ontbreekt.</translation>
+    </message>
+    <message>
+        <source>Mixing in progress...</source>
+        <translation>Bezig met mixen...</translation>
+    </message>
+    <message>
+        <source>Need address because change is not exact</source>
+        <translation>Noodzaak van adres omdat wijziging niet exact is</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Moet een poort opgeven met -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>No Masternodes detected.</source>
+        <translation>Geen Masternodes gedetecteerd.</translation>
+    </message>
+    <message>
+        <source>No compatible Masternode found.</source>
+        <translation>Geen compatibele Masternode gevonden.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>Geen fondsen gedetecteerd die denominatie nodig hebben.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>Geen passende denominaties gevonden voor mixing.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Node relay opties:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>Niet standaard publieke sleutel gedetecteerd.</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>Niet compatibel met bestaande transacties.</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Niet genoeg bestandsbeschrijvingen beschikbaar.</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Niet in de Masternode lijst.</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>Aantal automatische portemonnee backups (standaard: 10)</translation>
+    </message>
+    <message>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Aantal aangepaste locatie back-ups om te behouden (standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>Verduistering is inactief.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Verduistering verzoek compleet:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Verduistering verzoek incompleet:</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Accepteer alleen blockchain matching met ingebouwde controlepunten (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Verbind alleen met nodes in het netwerk &lt;net&gt; (ipv4, ipv6 of onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Opties:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Wachtwoord voor JSON-RPC connecties</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid (): ongeldig -proxy-adres of hostnaam: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>Voorbereiden van hersynchronisatie...</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Voeg debug output met timestamp toe (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Print versie en verlaat</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>RPC server opties:</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>Willekeurig laten vallen van 1 van elke &lt;n&gt;netwerk berichten</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>Willekeurig vervagen van 1 van elke &lt;n&gt; netwerk berichten</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>Herstel blockchain index van huidige blk000??.dat bestanden</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>Ontvang en laat P2P netwerkmeldingen zien (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>Herindexeer de verzameldatabase</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Relay en mine data carrier transacties (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Relay non P2SH multisig (default: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation>Rescan de blockchain voor ontbrekende portemonnee transacties</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Opnieuw scannen...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>ResetMintZerocoin voltooid: </translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>ResetSpentZerocoin voltooid: </translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Voer regelmatig een
