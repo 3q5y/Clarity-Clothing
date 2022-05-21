@@ -1,0 +1,1 @@
+<TS language="sk" version="2.1
