@@ -6019,4 +6019,236 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>Run a thread to flush wallet periodically (default: %u)</source>
-        <translation>Voer regelmatig een
+        <translation>Voer regelmatig een thread om de portemonnee te spoelen uit (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>Voer op de achtergrond uit als een daemon en accepteer commando's</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Zend transacties als zero fee transacties indien mogelijk (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Session not complete!</source>
+        <translation>Sessie niet voltooid!</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>Sessie verlopen.</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>Stel de cache grootte van de database in megabytes in (%d tot %d, standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation>Extern adres instellen:poort om bij deze masternode te komen (voorbeeld: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Stel key pool grootte in op &lt;n&gt; (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>Stel maximale block grootte in bytes in (default: %d)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Stel minimale block grootte in bytes in (default: %u)</translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>Stel de Maximale reorg diepte in (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Set the masternode private key</source>
+        <translation>Stel de masternode privé sleutel in</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Stel het aantal threads in om RPC oproepen te bedienen (standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Stelt de DB_PRIVATE vlag in de portemonnee db omgeving in (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>Toon alle debugging opties (gebruik: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>Krimp debug.log bestand bij client startup (standaard: 1 wanneer geen -debug)</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>Ondertekenen mislukt.</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>Ondertekening time out.</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Ondertekening transactie mislukt.</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Specificeer configuratiebestand (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Specificeer verbinding time-out in milliseconden (minimum: 1, standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>Specificeer data directory.</translation>
+    </message>
+    <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>Specificeer masternode configuratie bestand (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Specificeer pid bestand (default: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>Specificeer portemonnee bestand (in data directory)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>Specificeer je eigen publieke addres</translation>
+    </message>
+    <message>
+        <source>Spend Valid</source>
+        <translation>Besteed geldig</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Onbevestigd wisselgeld besteden bij het verzenden van transacties (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Staking options:</source>
+        <translation>Staking opties:</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Stop na het importeren van blokken van schijf (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>Ingediende volgende vermeldingen in masternode: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>Ingediend naar masternode, wachten op meer inzendingen (%u / %d) %s</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation>Ingediend naar masternode, wachten in de wachtrij %s</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Synchronisatie mislukt</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>Synchronisatie voltooid</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>Synchronisatie in afwachting...</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Budgeten synchroniseren...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>Synchroniseren masternode winnaars...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Synchroniseren masternodes...</translation>
+    </message>
+    <message>
+        <source>Synchronizing sporks...</source>
+        <translation>Synchroniseren sporks...</translation>
+    </message>
+    <message>
+        <source>Syncing zGIC wallet...</source>
+        <translation>Synchroniseren zGIC portemonnee...</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>De muntuitgaven zijn gebruikt</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>De transactie heeft niet geverifieerd</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Dit help bericht</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Dit is experimentele software.</translation>
+    </message>
+    <message>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation>Dit is bedoeld voor regressie test tools en app ontwikkeling.</translation>
+    </message>
+    <message>
+        <source>This is not a Masternode.</source>
+        <translation>Dit is geen Masternode.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Drempel voor het verbreken van misdragende peers (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>Te veel uitgaven nodig</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Tor controle poort wachtwoord (standaard: leeg)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Tor controle poort om te gebruiken als onion listening geactiveerd is (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>Transactie gemaakt</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>Transactie startte met Mint</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Transactie bedrag te klein</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Transactie bedragen moeten positief zijn</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>Transactie is succesvol gemaakt.</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Transactiekosten zijn te hoog.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Transactie is niet geldig.</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Transacti
