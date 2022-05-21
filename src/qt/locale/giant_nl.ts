@@ -6251,4 +6251,167 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
-        <translation>Transacti
+        <translation>Transactie te groot voor kosten beleid</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Transactie te groot</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>Verzending van de definitieve transactie.</translation>
+    </message>
+    <message>
+        <source>Try to spend with a higher security level to include more coins</source>
+        <translation>Probeer te spenderen met een hoger beveiligingsniveau om meer munten op te nemen</translation>
+    </message>
+    <message>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>Probeer een reeds bestaand serienummer nog een keer uit te geven, probeer het opnieuw.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Niet mogelijk te binden aan %s op deze computer (bind stuurt fout %s terug)</translation>
+    </message>
+    <message>
+        <source>Unable to find transaction containing mint</source>
+        <translation>Kan transactie met mint niet vinden</translation>
+    </message>
+    <message>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation>Kan sporkbericht niet tekenen, verkeerde sleutel?</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Kan HTTP-server niet starten. Zie foutopsporingslog voor details.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Onbekend netwerk gespecificeerd in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>Onbekende staat: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>Upgrade portemonnee naar nieuwste formaat</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Gebruik UPnP om de luisterpoort te mappen (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>Gebruik UPnP om de luisterpoort te mappen (standaard: 1 bij het luisteren)</translation>
+    </message>
+    <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>Gebruik een aangepaste max chain reorganisatie diepte (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Gebruik het test netwerk</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation>User Agent opmerking (%s) bevat onveilige karakters.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Gebruikersnaam voor JSON-RPC verbindingen</translation>
+    </message>
+    <message>
+        <source>Value is below the smallest available denomination (= 1) of zGIC</source>
+        <translation>Waarde is minder dan de kleinst beschikbare denominatie (=1) van zGIC</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Waarde meer dan verduistering pool maximaal toestaat.</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Blokken verifiëren...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Portemonnee verifiëren...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Portemonnee %s verblijft buiten de data directory %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Portemonnee is vergrendeld.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Wallet moest worden herschreven: start GIANT Core opnieuw om te voltooien</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Portemonnee opties:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Portemonnee venster titel</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Waarschuwing</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Waarschuwing: Deze versie is verouderd, upgrade vereist!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Waarschuwing: Niet- ondersteund argument -benchmark genegeerd, gebruik -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Waarschuwing: Niet ondersteunde argument -debugnet genegeerd, gebruik -debug=net.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Zal het opnieuw proberen...</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Je hebt niet genoeg Zerocoins in je portemonnee</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Je moet de database herbouwen met -reindex om -txindex te wijzigen</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Je gegevens zijn succesvol toegevoegd.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Je transactie is geaccepteerd in de pool!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Verwijderen van alle transacties uit portemonnee...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ notificatie opties:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin opties:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>tijdens het opstarten</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat corrupt, redding mislukt</translation>
+    </message>
+</context>
+</TS>
