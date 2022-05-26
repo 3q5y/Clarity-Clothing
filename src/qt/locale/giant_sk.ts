@@ -510,4 +510,284 @@
     </message>
     <message>
         <source>Open configuration file</source>
-    
+        <translation>Otvoriť konfiguračný súbor</translation>
+    </message>
+    <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Zobraziť automatické zálohy</translation>
+    </message>
+    <message>
+        <source>Show automatically created wallet backups</source>
+        <translation>Zobraziť automaticky vytvorené zálohy peňaženky</translation>
+    </message>
+    <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>Odosielacie adresy</translation>
+    </message>
+    <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Zobraziť zoznam použitých odosielajúcich adries a štítkov</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>Prijímacie adresy...</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Zobraziť zoznam použitých odosielajúcich adries a štítkov</translation>
+    </message>
+    <message>
+        <source>Open &amp;URI...</source>
+        <translation>Otvoriť URI...</translation>
+    </message>
+    <message>
+        <source>&amp;Command-line options</source>
+        <translation>Možnosti príkazového riadku</translation>
+    </message>
+    <message>
+        <source>Synchronizing additional data: %p%</source>
+        <translation>Synchronizácia dodatočných údajov: %p%</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>Súbor</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>Nastavenia</translation>
+    </message>
+    <message>
+        <source>&amp;Tools</source>
+        <translation>Nástroje</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>Pomoc</translation>
+    </message>
+    <message>
+        <source>Tabs toolbar</source>
+        <translation>Panel nástrojov Záložky</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Send coins to a GIANT address</source>
+        <translation>Odoslať mince na adresu GIANT</translation>
+    </message>
+    <message>
+        <source>Request payments (generates QR codes and giant: URIs)</source>
+        <translation>Vyžiadať platby (generuje QR kódy a giant: identifikátory URI)</translation>
+    </message>
+    <message>
+        <source>&amp;Masternodes</source>
+        <translation>&amp;Masternodes</translation>
+    </message>
+    <message>
+        <source>Browse masternodes</source>
+        <translation>Prezrieť masternody</translation>
+    </message>
+    <message>
+        <source>&amp;About GIANT Core</source>
+        <translation>O GIANT Core</translation>
+    </message>
+    <message>
+        <source>Show information about GIANT Core</source>
+        <translation>Zobraziť informácie o GIANT Core</translation>
+    </message>
+    <message>
+        <source>Modify configuration options for GIANT</source>
+        <translation>Zmeňte možnosti konfigurácie pre GIANT</translation>
+    </message>
+    <message>
+        <source>Sign messages with your GIANT addresses to prove you own them</source>
+        <translation>Podpíšte správy pomocou adresy GIANT, aby ste preukázali, že ich vlastníte</translation>
+    </message>
+    <message>
+        <source>Verify messages to ensure they were signed with specified GIANT addresses</source>
+        <translation>Overte správy, aby sa zabezpečilo, že boli podpísané zadanými GIANT adresami</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>BIP 38 Utilita</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Šifrovať a dešifrovať privátne kľúče pomocou prístupovej frázy</translation>
+    </message>
+    <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;MultiSend</translation>
+    </message>
+    <message>
+        <source>MultiSend Settings</source>
+        <translation>MultiSend Nastavenia</translation>
+    </message>
+    <message>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Otvoriť konfiguračný súbor peňaženky</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Otvoriť konfiguračný súbor masternodu</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Otvoriť konfiguračný súbor masternodu</translation>
+    </message>
+    <message>
+        <source>Open a GIANT: URI or payment request</source>
+        <translation>Otvorte GIANT: URI alebo žiadosť o platbu</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>Blockchain prehliadač</translation>
+    </message>
+    <message>
+        <source>Block explorer window</source>
+        <translation>Okno blockchain prehliadača</translation>
+    </message>
+    <message>
+        <source>Show the GIANT Core help message to get a list with possible GIANT command-line options</source>
+        <translation>Zobraziť pomocnú správu programu GIANT Core a získajte zoznam možností príkazového riadka GIANT</translation>
+    </message>
+    <message>
+        <source>GIANT Core client</source>
+        <translation>GIANT Core klient</translation>
+    </message>
+    <message>
+        <source>Synchronizing with network...</source>
+        <translation>Synchronizácia so sieťou ...</translation>
+    </message>
+    <message>
+        <source>Importing blocks from disk...</source>
+        <translation>Importovanie blokov z disku ...</translation>
+    </message>
+    <message>
+        <source>Reindexing blocks on disk...</source>
+        <translation>Reindexovanie blokov na disku ...</translation>
+    </message>
+    <message>
+        <source>No block source available...</source>
+        <translation>Nie je dostupný žiadny zdroj blokov...</translation>
+    </message>
+    <message>
+        <source>Up to date</source>
+        <translation>Aktuálny</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 a %2</translation>
+    </message>
+    <message>
+        <source>Catching up...</source>
+        <translation>Dobieham...</translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation>Posledný prijatý blok bol vytvorený pred %1.</translation>
+    </message>
+    <message>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation>Po tomto ešte transakcie nebudú viditeľné.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Chyba</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Varovanie</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informácia</translation>
+    </message>
+    <message>
+        <source>Sent transaction</source>
+        <translation>Odoslaná transakcia</translation>
+    </message>
+    <message>
+        <source>Incoming transaction</source>
+        <translation>Prichádzajúca transakcia</translation>
+    </message>
+    <message>
+        <source>Sent MultiSend transaction</source>
+        <translation>Poslať MultiSend transakciu</translation>
+    </message>
+    <message>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation>Dátum: %1
+Suma: %2
+Typ: %3
+Adresa: %4
+</translation>
+    </message>
+    <message>
+        <source>Staking is active
+ MultiSend: %1</source>
+        <translation>Staking je aktívny
+MultiSend: %1</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktívny</translation>
+    </message>
+    <message>
+        <source>Not Active</source>
+        <translation>Neaktívny</translation>
+    </message>
+    <message>
+        <source>Staking is not active
+ MultiSend: %1</source>
+        <translation>Staking nie je aktívny
+MultiSend: %1</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;odomknutá&lt;/ b&gt;</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;zamknutá&lt;/ b&gt;</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    <message>
+        <source>Blockchain Explorer</source>
+        <translation>Blockchain prehliadač</translation>
+    </message>
+    <message>
+        <source>Address / Block / Transaction</source>
+        <translation>Adresa / Blok / Transakcia</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Hľadať</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (giant.conf).</source>
+        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (giant.conf) nastaviť txindex = 1.</translation>
+    </message>
+</context>
+<context>
+    <name>ClientModel</name>
+    <message>
+        <source>Network Alert</source>
+        <translation>Upozornenie siete </translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>Quantity:</source>
