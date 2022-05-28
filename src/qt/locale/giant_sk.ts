@@ -791,3 +791,381 @@ MultiSend: %1</translation>
     <name>CoinControlDialog</name>
     <message>
         <source>Quantity:</source>
+        <translation>Množstvo:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytov:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorita:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Poplatok:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Po poplatku:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Zmena:</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dátum</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Potvrdenia</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Potvrdené</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Priorita</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Skopírovať adresu</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Skopírovať štítok</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Skopírovať ID transakcie</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(žiaden štítok)</translation>
+    </message>
+    </context>
+<context>
+    <name>EditAddressDialog</name>
+    </context>
+<context>
+    <name>FreespaceChecker</name>
+    </context>
+<context>
+    <name>GovernancePage</name>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>Intro</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Chyba</translation>
+    </message>
+    </context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktívny</translation>
+    </message>
+    </context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Address:</source>
+        <translation>Adresa:</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(žiaden štítok)</translation>
+    </message>
+    </context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    </context>
+<context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
+    <name>OpenURIDialog</name>
+    </context>
+<context>
+    <name>OptionsDialog</name>
+    </context>
+<context>
+    <name>OverviewPage</name>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Množstvo:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Vyberte predtým použitú adresu</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Vložte adresu zo schránky</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorita:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Poplatok:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytov:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Zmena:</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
+    </context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
+<context>
+    <name>RPCConsole</name>
+    <message>
+        <source>&amp;Information</source>
+        <translation>Informácie</translation>
+    </message>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>Copy label</source>
+        <translation>Skopírovať štítok</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Skopírovať adresu</translation>
+    </message>
+</context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Štítok</translation>
+    </message>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Dátum</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Štítok</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(žiaden štítok)</translation>
+    </message>
+    </context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Quantity:</source>
+        <translation>Množstvo:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Bytov:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorita:</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Poplatok:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Po poplatku:</translation>
+    </message>
+    <message>
+        <source>Change:</source>
+        <translation>Zmena:</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Všetko zmazať</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(žiaden štítok)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Vyberte predtým použitú adresu</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Vložte adresu zo schránky</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    </context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    <message>
+        <source>The GIANT address to sign the message with</source>
+        <translation>Adresa GIANT, ktorou chcete správu podpísať</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Vyberte predtým použitú adresu</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Vložte adresu zo schránky</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Skopírujte aktuálny podpis do schránky</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this GIANT address</source>
+        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto GIANT adresy</translation>
+    </message>
+    <message>
+        <source>The GIANT address the message was signed with</source>
+        <translation>GIANT adresa, ktorou bola správa podpísaná</translation>
+    </message>
+    <message>
+        <source>Verify the message to ensure it was signed with the specified GIANT address</source>
+        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou GIANT adresou</translation>
+    </message>
+    <message>
+        <source>Reset all sign m
