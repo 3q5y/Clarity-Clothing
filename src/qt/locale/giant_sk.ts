@@ -1168,4 +1168,152 @@ MultiSend: %1</translation>
         <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou GIANT adresou</translation>
     </message>
     <message>
-        <source>Reset all sign m
+        <source>Reset all sign message fields</source>
+        <translation>Zmazať všetky polia správy</translation>
+    </message>
+    <message>
+        <source>Clear &amp;All</source>
+        <translation>Všetko zmazať</translation>
+    </message>
+    <message>
+        <source>Reset all verify message fields</source>
+        <translation>Zmazať všetky polia verifikácie správy</translation>
+    </message>
+    <message>
+        <source>The entered address is invalid.</source>
+        <translation>Zadaná adresa je neplatná.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation>Skontrolujte adresu a skúste to znova.</translation>
+    </message>
+    <message>
+        <source>The entered address does not refer to a key.</source>
+        <translation>Zadaná adresa neodkazuje na kľúč.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock was cancelled.</source>
+        <translation>Odomknutie peňaženky bolo zrušené.</translation>
+    </message>
+    <message>
+        <source>Private key for the entered address is not available.</source>
+        <translation>Súkromný kľúč pre zadanú adresu nie je k dispozícii.</translation>
+    </message>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    <message>
+        <source>GIANT Core</source>
+        <translation>GIANT Core</translation>
+    </message>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    <message>
+        <source>Date</source>
+        <translation>Dátum</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>Dátum</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>Copy address</source>
+        <translation>Skopírovať adresu</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Skopírovať štítok</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Skopírovať sumu</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>Skopírovať ID transakcie</translation>
+    </message>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Súbor oddelený čiarkami (*.csv)</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Potvrdené</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Dátum</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Štítok</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Export zlyhal</translation>
+    </message>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>Exportovať</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Exportovať údaje na aktuálnej karte do súboru</translation>
+    </message>
+    </context>
+<context>
+    <name>ZGICControlDialog</name>
+    </context>
+<context>
+    <name>giant-core</name>
+    <message>
+        <source>Error</source>
+        <translation>Chyba</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informácia</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Varovanie</translation>
+    </message>
+    </context>
+</TS>
