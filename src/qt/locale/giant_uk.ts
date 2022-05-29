@@ -128,4 +128,264 @@
         <translation>Нове кодове слово</translation>
     </message>
     <message>
-        <source>Repeat new passphras
+        <source>Repeat new passphrase</source>
+        <translation>Повторіть кодове слово</translation>
+    </message>
+    <message>
+        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
+        <translation>Для ввімкнення тривіальної відправки коштів при скомпрометуванні операційної системи. Не забезпечує реальної безпеки.</translation>
+    </message>
+    <message>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Введіть нове кодове слово гамамнця. &lt;br/&gt;Будь ласка, використовуйте кодове слово з &lt;b&gt;десяти і більше хаотичних символів&lt;/b&gt;, або &lt;b&gt;восьми і більше слів &lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation>Шифрувати гаманець</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Для розблокування гаманця потрібно його кодове слово.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Розблокувати гаманець</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Для розшифрування гаманція потрібно його кодове слово.</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation>Розшифрувати гаманець</translation>
+    </message>
+    <message>
+        <source>Change passphrase</source>
+        <translation>Змінити кодове слово</translation>
+    </message>
+    <message>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>Введіть попереднє і нове кодове слово гаманця.</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation>Підтвердження шифрування гаманця</translation>
+    </message>
+    <message>
+        <source>GIANT will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your GICs from being stolen by malware infecting your computer.</source>
+        <translation>GIANT зараз закриється, щоб завершити процес шифрування. Пам'ятайте, що шифрування гаманця не може повністю захистити ваші GIC'и від крадіжки зловмисним програмним забезпеченням, що заражає ваш комп'ютер.</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation>Ви впевнені, що хочете зашифрувати Ваш гаманець?</translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR GIC&lt;/b&gt;!</source>
+        <translation>Попередження: Якщо після шифрування гаманця Ви &lt;b&gt;загубите кодове слово, то ви втратите всі Ваші GIC'и&lt;/b&gt;!</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation>Гаманець зашифровано</translation>
+    </message>
+    </context>
+<context>
+    <name>BanTableModel</name>
+    </context>
+<context>
+    <name>Bip38ToolDialog</name>
+    </context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Розблокувати гаманець</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    </context>
+<context>
+    <name>ClientModel</name>
+    </context>
+<context>
+    <name>CoinControlDialog</name>
+    <message>
+        <source>(no label)</source>
+        <translation>(без міток)</translation>
+    </message>
+    </context>
+<context>
+    <name>EditAddressDialog</name>
+    </context>
+<context>
+    <name>FreespaceChecker</name>
+    </context>
+<context>
+    <name>GovernancePage</name>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    </context>
+<context>
+    <name>Intro</name>
+    </context>
+<context>
+    <name>MasternodeList</name>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    </context>
+<context>
+    <name>MultiSendDialog</name>
+    <message>
+        <source>(no label)</source>
+        <translation>(без міток)</translation>
+    </message>
+    </context>
+<context>
+    <name>MultisigDialog</name>
+    </context>
+<context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
+    <name>OpenURIDialog</name>
+    </context>
+<context>
+    <name>OptionsDialog</name>
+    </context>
+<context>
+    <name>OverviewPage</name>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    </context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
+<context>
+    <name>RPCConsole</name>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    </context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Мітка</translation>
+    </message>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Label</source>
+        <translation>Мітка</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(без міток)</translation>
+    </message>
+    </context>
+<context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>(no label)</source>
+        <translation>(без міток)</translation>
+    </message>
+</context>
+<context>
+    <name>SendCoinsEntry</name>
+    </context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    </context>
+<context>
+    <name>TransactionView</name>
+    <message>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Файл, розділений комами (*.csv)</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Мітка</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адреса</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>Не вдалося експортувати</translation>
+    </message>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>Експорт</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Експортуйтувати дані поточної вкладки у файл</translation>
+    </message>
+    </context>
+<context>
+    <name>ZGICControlDialog</name>
+    </context>
+<context>
+    <name>giant-core</name>
+    </context>
+</TS>
