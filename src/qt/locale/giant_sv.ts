@@ -5836,3 +5836,608 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Laddar huvudnod betalnings cache...</translation>
     </message>
     <message>
+        <source>Loading sporks...</source>
+        <translation>Laddar sporks...</translation>
+    </message>
+    <message>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation>Laddar plånbok... (%3.2f%%)</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Laddar plånbok...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Lokation av auth cookie (standard: data dir)</translation>
+    </message>
+    <message>
+        <source>Lock is already in place.</source>
+        <translation>Lås är redan på plats.</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Lås huvudnoder från huvudnod konfigurations fil (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Lookup(): Ogiltig -proxy adress eller värdnamn: '%s'</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Behåll som mest &lt;n&gt; anslutningar till peers (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Masternode options:</source>
+        <translation>Masternod val:</translation>
+    </message>
+    <message>
+        <source>Masternode queue is full.</source>
+        <translation>Masternodens kö är full.</translation>
+    </message>
+    <message>
+        <source>Masternode:</source>
+        <translation>Masternod:</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximala mottagna per-anslutning buffer, &lt;n&gt;*1000 bytes (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximala skicka per-anslutning buffer, &lt;n&gt;*1000 bytes (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Mint did not make it into blockchain</source>
+        <translation>Mint kom inte med i blockchain</translation>
+    </message>
+    <message>
+        <source>Missing input transaction information.</source>
+        <translation>Inmatad transaktions information fattas.</translation>
+    </message>
+    <message>
+        <source>Mixing in progress...</source>
+        <translation>Blandning pågår...</translation>
+    </message>
+    <message>
+        <source>Need address because change is not exact</source>
+        <translation>Adress behövs för att växel ej är exakt</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Port behöver specifieras med -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>No Masternodes detected.</source>
+        <translation>Inga Huvudnoder upptäckta.</translation>
+    </message>
+    <message>
+        <source>No compatible Masternode found.</source>
+        <translation>Inga kompatibla Huvudnoder hittade.</translation>
+    </message>
+    <message>
+        <source>No funds detected in need of denominating.</source>
+        <translation>Inga pengar o behov av benämnelse upptäckta.</translation>
+    </message>
+    <message>
+        <source>No matching denominations found for mixing.</source>
+        <translation>Inga matchande valörer hittade till blandning.</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Nod relä val:</translation>
+    </message>
+    <message>
+        <source>Non-standard public key detected.</source>
+        <translation>Ej-standard offentlig nyckel upptäckt.</translation>
+    </message>
+    <message>
+        <source>Not compatible with existing transactions.</source>
+        <translation>Ej kompatibel med existerande transaktioner.</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Ej tillräckliga fil deskriptorer tillgängliga.</translation>
+    </message>
+    <message>
+        <source>Not in the Masternode list.</source>
+        <translation>Inte i Huvudnod listan.</translation>
+    </message>
+    <message>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation>Antal automatiska plånboks backups (standard: 10)</translation>
+    </message>
+    <message>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Antal skräddarsydda platser för backup att behålla (standard: %d)</translation>
+    </message>
+    <message>
+        <source>Obfuscation is idle.</source>
+        <translation>Fördunkling är overksam.</translation>
+    </message>
+    <message>
+        <source>Obfuscation request complete:</source>
+        <translation>Fördunkling förfrågan avslutad:</translation>
+    </message>
+    <message>
+        <source>Obfuscation request incomplete:</source>
+        <translation>Fördunkling förfrågan ej avslutad:</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Acceptera endast block chain som matchar inbyggda kontrollstationer (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Anslut endast till noder i nätverk &lt;net&gt; (ipv4, ipv6 eller onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Val:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Lösenord för JSON-RPC anslutningar</translation>
+    </message>
+    <message>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Ogiltig -proxy adress eller värdnamn: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>Förbereder för omsynkronisering...</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Addera till början felsöknings utmatning med tidsstämpel (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Skriv ut version och stäng</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>RPC server alternativ:</translation>
+    </message>
+    <message>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>Slumpmässig släpp 1 för varje &lt;n&gt; nätverksmeddelanden</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>Slumpmässigt brusa 1 för varje &lt;n&gt; nätverksmeddelanden</translation>
+    </message>
+    <message>
+        <source>Rebuild block chain index from current blk000??.dat files</source>
+        <translation>Bygg om block chain index från nuvarande blk000??.dat filer</translation>
+    </message>
+    <message>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>Motta och visa P2P nätverk varningar (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>Indexera om ackumulator databasen</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Lägg om och utvinn data bärar transaktioner (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Lägg om icke-P2SH multisig (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions</source>
+        <translation>Skanna om block chain för transaktioner som fattas</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Skannar om...</translation>
+    </message>
+    <message>
+        <source>ResetMintZerocoin finished: </source>
+        <translation>ResetMintZerocoin färdig:</translation>
+    </message>
+    <message>
+        <source>ResetSpentZerocoin finished: </source>
+        <translation>ResetSpentZerocoin färdigt:</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Kör en tråd för att spola plånbok periodvis (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>Kör i bakgrunden som en daemon och acceptera kommandon</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Skicka transaktioner som avgiftsfria transaktioner om möjligt (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Session not complete!</source>
+        <translation>Sessionen är inte klar</translation>
+    </message>
+    <message>
+        <source>Session timed out.</source>
+        <translation>Sessionens tidsgräns överskriden</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>Ställ in databas cache storlek i megabytes (%d till %d, standard: %d)</translation>
+    </message>
+    <message>
+        <source>Set external address:port to get to this masternode (example: %s)</source>
+        <translation>Ställ in externa adress:port för att komma åt denna huvudnod (exempel: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Ställ in nyckel pool storlek till &lt;n&gt; (standard: %u) </translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>Ställ in maximala blockstorlek i bytes (standard: %d) </translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Ställ in minimum blockstorlek i bytes (standard: %u) </translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>Ställ in maximala reorg djup (standard: %u) </translation>
+    </message>
+    <message>
+        <source>Set the masternode private key</source>
+        <translation>Ställ in privata huvudnods nyckeln</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Ställ in antalet trådar att behandla RPC calls (default: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Ställer in DB_PRIVATE flaggan i plånbokens db miljö (standard: %u) </translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>Visa alla felsöknings alternativ (användning: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>Minska debug.log fil vid klient start (standard: 1 när ingen -debug)</translation>
+    </message>
+    <message>
+        <source>Signing failed.</source>
+        <translation>Signering misslyckades.</translation>
+    </message>
+    <message>
+        <source>Signing timed out.</source>
+        <translation>Signeringens tidsgräns överskriden</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Signering av transaktion misslyckades</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Specifiera konfigurationsfil (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Specifiera anslutnings timeout i millisekunder (minimum: 1, standard: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>Specificera data katalog</translation>
+    </message>
+    <message>
+        <source>Specify masternode configuration file (default: %s)</source>
+        <translation>Specifiera huvudnod konfigurationsfil (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Specifiera pid fil (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>Specifiera plånboksfil (inom data katalog)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>Specifiera din egna offentliga adress</translation>
+    </message>
+    <message>
+        <source>Spend Valid</source>
+        <translation>Spendering Giltig</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Spendera obekräftad växel när transaktioner skickas (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Staking options:</source>
+        <translation>Staking alternativ:</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Sluta kör efter block har importerats från disk (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation>Skickade in följande poster till huvudnod: %u / %d</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation>Inskickat till huvudnod, väntar på fler poster ( %u / %d ) %s</translation>
+    </message>
+    <message>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation>Inskickat till huvudnod, väntar i kö %s</translation>
+    </message>
+    <message>
+        <source>Synchronization failed</source>
+        <translation>Synchronisering misslyckad</translation>
+    </message>
+    <message>
+        <source>Synchronization finished</source>
+        <translation>Synkronisering klar</translation>
+    </message>
+    <message>
+        <source>Synchronization pending...</source>
+        <translation>Synchronisering väntar</translation>
+    </message>
+    <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Synchroniserar budgetar</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternode winners...</source>
+        <translation>Synkroniserar huvudnod vinnarna...</translation>
+    </message>
+    <message>
+        <source>Synchronizing masternodes...</source>
+        <translation>Synchroniserar masternoder</translation>
+    </message>
+    <message>
+        <source>Synchronizing sporks...</source>
+        <translation>Synkroniserar sporks...</translation>
+    </message>
+    <message>
+        <source>Syncing zGIC wallet...</source>
+        <translation>Synkroniserar zGIC plånbok...</translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>Mynt spenderingen har redan använts</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>Transaktionen verifierades inte</translation>
+    </message>
+    <message>
+        <source>This help message</source>
+        <translation>Detta hjälpmedelande</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Detta är experimentiell mjukvara</translation>
+    </message>
+    <message>
+        <source>This is intended for regression testing tools and app development.</source>
+        <translation>Det här är menat för regression testverktyg och app utveckling.</translation>
+    </message>
+    <message>
+        <source>This is not a Masternode.</source>
+        <translation>Dehär är ingen Masternod</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Tröskel för att koppla från peers som beteer sig illa (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>För många spenderingar behövda</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Tor kontroll port lösenord (standard: tom)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Tor kontroll port att använda om onion lystning är aktiverad (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction Created</source>
+        <translation>Transaktion Skapad</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>Transaktion Mint Startad</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Transaktionens antal för litet</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Transaktionens värde måste vara possitivt</translation>
+    </message>
+    <message>
+        <source>Transaction created successfully.</source>
+        <translation>Transaktion skapad framgångsrikt</translation>
+    </message>
+    <message>
+        <source>Transaction fees are too high.</source>
+        <translation>Transaktionsavgifter är för stora.</translation>
+    </message>
+    <message>
+        <source>Transaction not valid.</source>
+        <translation>Transaktionen inte giltig.</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Transaktionen för stor för avgifts policy</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Transaktion för stor</translation>
+    </message>
+    <message>
+        <source>Transmitting final transaction.</source>
+        <translation>Sänder ut slutgiltig transaktion.</translation>
+    </message>
+    <message>
+        <source>Try to spend with a higher security level to include more coins</source>
+        <translation>Försök att spendera med en högre säkerhetsnivå för att inkludera fler mynt</translation>
+    </message>
+    <message>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>Försöker spendera en redan spendera serie #, försök igen.</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Kan ej binda till %s på denna dator (bind återgav fel %s)</translation>
+    </message>
+    <message>
+        <source>Unable to find transaction containing mint</source>
+        <translation>Kan ej hitta transaktion innehållandes mint</translation>
+    </message>
+    <message>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation>Kan ej signera spork meddelande, fel nyckel?</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Kan ej starta HTTP server. Se felsöknings log för detaljer.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Okänt nätverk specifierat i -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unknown state: id = %u</source>
+        <translation>Okänt tillstånd: id = %u</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format</source>
+        <translation>Upgradera plånbok till senaste format</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Använd UPnP för att kartlägga den lystnande porten (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
+        <translation>Använd UPnP för att kartlägga den lyssnande porten (standard: 1 när lyssnar)</translation>
+    </message>
+    <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>Använd en skräddarsydd max chain reorganiserations djup (standard: %u)</translation>
+    </message>
+    <message>
+        <source>Use the test network</source>
+        <translation>Använd test nätverket</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation>Användaragent kommentar (%s) innehåller osäkra tecken.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Användarnamn för JSON-RPC anslutningar</translation>
+    </message>
+    <message>
+        <source>Value is below the smallest available denomination (= 1) of zGIC</source>
+        <translation>Värde är under den minsta tillgängliga valören (=1) av zGIC</translation>
+    </message>
+    <message>
+        <source>Value more than Obfuscation pool maximum allows.</source>
+        <translation>Värde högre än fördunklingspoolen maximalt tillåter.</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Verifierar block</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Verifierar plånbok</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Plånbok %s finns utanför data katalog %s</translation>
+    </message>
+    <message>
+        <source>Wallet is locked.</source>
+        <translation>Plånboken är låst.</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart GIANT Core to complete</source>
+        <translation>Plånbok behöver skrivas om: starta om GIANT Kärna för att göra klart</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Plånboks val:</translation>
+    </message>
+    <message>
+        <source>Wallet window title</source>
+        <translation>Plånboksfönster tittle</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Varning</translation>
+    </message>
+    <message>
+        <source>Warning: This version is obsolete, upgrade required!</source>
+        <translation>Varning: Denna version är föråldrad, upgradering krävs!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Varning: Argument -benchmark stödjes ej, ignoreras. Använd -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Varning: Argument -debugnet stödjes ej, ignoreras. Använd -debug=net.</translation>
+    </message>
+    <message>
+        <source>Will retry...</source>
+        <translation>Kommer försöka igen...</translation>
+    </message>
+    <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Du har inte tillräckligt med Zerocoins i din plånbok</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Du behöver bygga om databasen genom att använda -reindex för att ändra -txindex</translation>
+    </message>
+    <message>
+        <source>Your entries added successfully.</source>
+        <translation>Dina poster lyckades läggas till.</translation>
+    </message>
+    <message>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation>Din transaktion accepterades in i poolen!</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Zapping alla transaktioner från plånboken ...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ-anmälningsalternativ:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin alternativ:</translation>
+    </message>
+    <message>
+        <source>on startup</source>
+        <translation>Vid uppstart</translation>
+    </message>
+    <message>
+        <source>wallet.dat corrupt, salvage failed</source>
+        <translation>wallet.dat korrupt, räddning misslyckades</translation>
+    </message>
+</context>
+</TS>
