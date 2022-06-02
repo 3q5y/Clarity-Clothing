@@ -59,4 +59,165 @@
     </message>
     <message>
         <source>These are your GIANT addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Đây là địa chỉ ví GIANT của bạn để gửi đi. Luôn luôn kiểm tra số lượng và địa chỉ ví nhận trước khi gử
+        <translation>Đây là địa chỉ ví GIANT của bạn để gửi đi. Luôn luôn kiểm tra số lượng và địa chỉ ví nhận trước khi gửi.</translation>
+    </message>
+    <message>
+        <source>These are your GIANT addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Đây là địa chỉ ví GIANT của bạn để nhận. Bạn nên sử dụng địa chỉ ví nhận mới cho mỗi giao dịch</translation>
+    </message>
+    </context>
+<context>
+    <name>AddressTableModel</name>
+    </context>
+<context>
+    <name>AskPassphraseDialog</name>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Mở khóa ví</translation>
+    </message>
+    </context>
+<context>
+    <name>BanTableModel</name>
+    </context>
+<context>
+    <name>Bip38ToolDialog</name>
+    </context>
+<context>
+    <name>BitcoinGUI</name>
+    <message>
+        <source>Unlock wallet</source>
+        <translation>Mở khóa ví</translation>
+    </message>
+    </context>
+<context>
+    <name>BlockExplorer</name>
+    </context>
+<context>
+    <name>ClientModel</name>
+    </context>
+<context>
+    <name>CoinControlDialog</name>
+    </context>
+<context>
+    <name>EditAddressDialog</name>
+    </context>
+<context>
+    <name>FreespaceChecker</name>
+    </context>
+<context>
+    <name>GovernancePage</name>
+    </context>
+<context>
+    <name>HelpMessageDialog</name>
+    </context>
+<context>
+    <name>Intro</name>
+    </context>
+<context>
+    <name>MasternodeList</name>
+    </context>
+<context>
+    <name>MultiSendDialog</name>
+    </context>
+<context>
+    <name>MultisigDialog</name>
+    </context>
+<context>
+    <name>ObfuscationConfig</name>
+    </context>
+<context>
+    <name>OpenURIDialog</name>
+    </context>
+<context>
+    <name>OptionsDialog</name>
+    </context>
+<context>
+    <name>OverviewPage</name>
+    </context>
+<context>
+    <name>PaymentServer</name>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    </context>
+<context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
+    <name>QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
+<context>
+    <name>RPCConsole</name>
+    </context>
+<context>
+    <name>ReceiveCoinsDialog</name>
+    </context>
+<context>
+    <name>ReceiveRequestDialog</name>
+    </context>
+<context>
+    <name>RecentRequestsTableModel</name>
+    </context>
+<context>
+    <name>SendCoinsDialog</name>
+    </context>
+<context>
+    <name>SendCoinsEntry</name>
+    </context>
+<context>
+    <name>ShutdownWindow</name>
+    </context>
+<context>
+    <name>SignVerifyMessageDialog</name>
+    </context>
+<context>
+    <name>SplashScreen</name>
+    </context>
+<context>
+    <name>TrafficGraphWidget</name>
+    </context>
+<context>
+    <name>TransactionDesc</name>
+    </context>
+<context>
+    <name>TransactionDescDialog</name>
+    </context>
+<context>
+    <name>TransactionTableModel</name>
+    </context>
+<context>
+    <name>TransactionView</name>
+    </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>Xuất</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Xuất dữ liệu của tab hiện tại sang file</translation>
+    </message>
+    </context>
+<context>
+    <name>ZGICControlDialog</name>
+    </context>
+<context>
+    <name>giant-core</name>
+    </context>
+</TS>
