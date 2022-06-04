@@ -72,4 +72,8 @@ MacNotificationHandler *MacNotificationHandler::instance()
             // change NSBundle -bundleIdentifier method to return a correct bundle identifier
             // a bundle identifier is required to use OSXs User Notification Center
             method_exchangeImplementations(class_getInstanceMethod(aPossibleClass, @selector(bundleIdentifier)),
- 
+                                           class_getInstanceMethod(aPossibleClass, @selector(__bundleIdentifier)));
+        }
+    }
+    return s_instance;
+}
