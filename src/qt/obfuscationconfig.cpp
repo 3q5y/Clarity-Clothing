@@ -64,4 +64,30 @@ void ObfuscationConfig::clickHigh()
             "Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening GIANT's configuration screen.")
             .arg(strAmount));
 
-   
+    close();
+}
+
+void ObfuscationConfig::clickMax()
+{
+    configure(true, 1000, 16);
+
+    QString strAmount(BitcoinUnits::formatWithUnit(
+        model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
+    QMessageBox::information(this, tr("Obfuscation Configuration"),
+        tr(
+            "Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening GIANT's configuration screen.")
+            .arg(strAmount));
+
+    close();
+}
+
+void ObfuscationConfig::configure(bool enabled, int coins, int rounds)
+{
+    QSettings settings;
+
+    settings.setValue("nObfuscationRounds", rounds);
+    settings.setValue("nAnonymizeGiantAmount", coins);
+
+    nZeromintPercentage = rounds;
+    nAnonymizeGiantAmount = coins;
+}
