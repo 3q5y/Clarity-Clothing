@@ -183,4 +183,186 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentUnconfirmedZerocoinBalance = unconfirmedZerocoinBalance;
     currentimmatureZerocoinBalance = immatureZerocoinBalance;
     currentWatchOnlyBalance = watchOnlyBalance;
-  
+    currentWatchUnconfBalance = watchUnconfBalance;
+    currentWatchImmatureBalance = watchImmatureBalance;
+
+    CAmount nLockedBalance = 0;
+    CAmount nWatchOnlyLockedBalance = 0;
+    if (pwalletMain) {
+        nLockedBalance = pwalletMain->GetLockedCoins();
+        nWatchOnlyLockedBalance = pwalletMain->GetLockedWatchOnlyBalance();
+    }
+
+    // GIC Balance
+    CAmount nTotalBalance = balance + unconfirmedBalance;
+    CAmount gicAvailableBalance = balance - immatureBalance - nLockedBalance;
+    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
+
+    // GIC Watch-Only Balance
+    CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance;
+    CAmount nAvailableWatchBalance = watchOnlyBalance - watchImmatureBalance - nWatchOnlyLockedBalance;
+
+    // zGIC Balance
+    CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
+
+    // Percentages
+    QString szPercentage = "";
+    QString sPercentage = "";
+    getPercentage(nUnlockedBalance, zerocoinBalance, sPercentage, szPercentage);
+    // Combined balances
+    CAmount availableTotalBalance = gicAvailableBalance + matureZerocoinBalance;
+    CAmount sumTotalBalance = nTotalBalance + zerocoinBalance;
+
+    // GIC labels
+    ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, gicAvailableBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelLockedBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nLockedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelTotal->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalBalance, false, BitcoinUnits::separatorAlways));
+
+    // Watchonly labels
+    ui->labelWatchAvailable->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nAvailableWatchBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchPending->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, watchUnconfBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, watchImmatureBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchLocked->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nWatchOnlyLockedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchTotal->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalWatchBalance, false, BitcoinUnits::separatorAlways));
+
+    // zGIC labels
+    ui->labelzBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, zerocoinBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelzBalanceUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedZerocoinBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelzBalanceMature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, matureZerocoinBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelzBalanceImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureZerocoinBalance, false, BitcoinUnits::separatorAlways));
+
+    // Combined labels
+    ui->labelBalancez->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, availableTotalBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelTotalz->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, sumTotalBalance, false, BitcoinUnits::separatorAlways));
+
+    // Percentage labels
+    ui->labelGICPercent->setText(sPercentage);
+    ui->labelzGICPercent->setText(szPercentage);
+
+    // Adjust bubble-help according to AutoMint settings
+    QString automintHelp = tr("Current percentage of zGIC.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
+    bool fEnableZeromint = GetBoolArg("-enablezeromint", true);
+    int nZeromintPercentage = GetArg("-zeromintpercentage", 10);
+    if (fEnableZeromint) {
+        automintHelp += tr("AutoMint is currently enabled and set to ") + QString::number(nZeromintPercentage) + "%.\n";
+        automintHelp += tr("To disable AutoMint add 'enablezeromint=0' in giant.conf.");
+    }
+    else {
+        automintHelp += tr("AutoMint is currently disabled.\nTo enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in giant.conf");
+    }
+
+    // Only show most balances if they are non-zero for the sake of simplicity
+    QSettings settings;
+    bool settingShowAllBalances = !settings.value("fHideZeroBalances").toBool();
+
+    bool showSumAvailable = settingShowAllBalances || sumTotalBalance != availableTotalBalance;
+    ui->labelBalanceTextz->setVisible(showSumAvailable);
+    ui->labelBalancez->setVisible(showSumAvailable);
+
+    bool showWatchOnly = nTotalWatchBalance != 0;
+
+    // GIC Available
+    bool showGICAvailable = settingShowAllBalances || gicAvailableBalance != nTotalBalance;
+    bool showWatchOnlyGICAvailable = showGICAvailable || nAvailableWatchBalance != nTotalWatchBalance;
+    ui->labelBalanceText->setVisible(showGICAvailable || showWatchOnlyGICAvailable);
+    ui->labelBalance->setVisible(showGICAvailable || showWatchOnlyGICAvailable);
+    ui->labelWatchAvailable->setVisible(showWatchOnlyGICAvailable && showWatchOnly);
+
+    // GIC Pending
+    bool showGICPending = settingShowAllBalances || unconfirmedBalance != 0;
+    bool showWatchOnlyGICPending = showGICPending || watchUnconfBalance != 0;
+    ui->labelPendingText->setVisible(showGICPending || showWatchOnlyGICPending);
+    ui->labelUnconfirmed->setVisible(showGICPending || showWatchOnlyGICPending);
+    ui->labelWatchPending->setVisible(showWatchOnlyGICPending && showWatchOnly);
+
+    // GIC Immature
+    bool showGICImmature = settingShowAllBalances || immatureBalance != 0;
+    bool showWatchOnlyImmature = showGICImmature || watchImmatureBalance != 0;
+    ui->labelImmatureText->setVisible(showGICImmature || showWatchOnlyImmature);
+    ui->labelImmature->setVisible(showGICImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
+    ui->labelWatchImmature->setVisible(showWatchOnlyImmature && showWatchOnly); // show watch-only immature balance
+
+    // GIC Locked
+    bool showGICLocked = settingShowAllBalances || nLockedBalance != 0;
+    bool showWatchOnlyGICLocked = showGICLocked || nWatchOnlyLockedBalance != 0;
+    ui->labelLockedBalanceText->setVisible(showGICLocked || showWatchOnlyGICLocked);
+    ui->labelLockedBalance->setVisible(showGICLocked || showWatchOnlyGICLocked);
+    ui->labelWatchLocked->setVisible(showWatchOnlyGICLocked && showWatchOnly);
+
+    // zGIC
+    bool showzGICAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
+    bool showzGICUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
+    bool showzGICImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
+    ui->labelzBalanceMature->setVisible(showzGICAvailable);
+    ui->labelzBalanceMatureText->setVisible(showzGICAvailable);
+    ui->labelzBalanceUnconfirmed->setVisible(showzGICUnconfirmed);
+    ui->labelzBalanceUnconfirmedText->setVisible(showzGICUnconfirmed);
+    ui->labelzBalanceImmature->setVisible(showzGICImmature);
+    ui->labelzBalanceImmatureText->setVisible(showzGICImmature);
+
+    // Percent split
+    bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
+    ui->labelGICPercent->setVisible(showPercentages);
+    ui->labelzGICPercent->setVisible(showPercentages);
+
+    static int cachedTxLocks = 0;
+
+    if (cachedTxLocks != nCompleteTXLocks) {
+        cachedTxLocks = nCompleteTXLocks;
+        ui->listTransactions->update();
+    }
+}
+
+// show/hide watch-only labels
+void OverviewPage::updateWatchOnlyLabels(bool showWatchOnly)
+{
+    ui->labelSpendable->setVisible(showWatchOnly);      // show spendable label (only when watch-only is active)
+    ui->labelWatchonly->setVisible(showWatchOnly);      // show watch-only label
+    ui->labelWatchAvailable->setVisible(showWatchOnly); // show watch-only available balance
+    ui->labelWatchPending->setVisible(showWatchOnly);   // show watch-only pending balance
+    ui->labelWatchLocked->setVisible(showWatchOnly);     // show watch-only total balance
+    ui->labelWatchTotal->setVisible(showWatchOnly);     // show watch-only total balance
+
+    if (!showWatchOnly) {
+        ui->labelWatchImmature->hide();
+    } else {
+        ui->labelBalance->setIndent(20);
+        ui->labelUnconfirmed->setIndent(20);
+        ui->labelLockedBalance->setIndent(20);
+        ui->labelImmature->setIndent(20);
+        ui->labelTotal->setIndent(20);
+    }
+}
+
+void OverviewPage::setClientModel(ClientModel* model)
+{
+    this->clientModel = model;
+    if (model) {
+        // Show warning if this is a prerelease version
+        connect(model, SIGNAL(alertsChanged(QString)), this, SLOT(updateAlerts(QString)));
+        updateAlerts(model->getStatusBarWarnings());
+    }
+}
+
+void OverviewPage::setWalletModel(WalletModel* model)
+{
+    this->walletModel = model;
+    if (model && model->getOptionsModel()) {
+        // Set up transaction list
+        filter = new TransactionFilterProxy();
+        filter->setSourceModel(model->getTransactionTableModel());
+        filter->setLimit(NUM_ITEMS);
+        filter->setDynamicSortFilter(true);
+        filter->setSortRole(Qt::EditRole);
+        filter->setShowInactive(false);
+        filter->sort(TransactionTableModel::Date, Qt::DescendingOrder);
+
+        ui->listTransactions->setModel(filter);
+        ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
+
+        // Keep up to date with wallet
+        setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(),
+                   model->getZerocoinBalance(), model->getUnconfirmedZerocoinBalance(), model->getImmatureZerocoinBalance(),
+                   model->getWatch
