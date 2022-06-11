@@ -74,4 +74,68 @@ QIcon ColorizeIcon(const QString& filename, const QColor& colorbase)
 PlatformStyle::PlatformStyle(const QString& name, bool imagesOnButtons, bool colorizeIcons, bool useExtraSpacing) : name(name),
                                                                                                                     imagesOnButtons(imagesOnButtons),
                                                                                                                     colorizeIcons(colorizeIcons),
-                                                                                                                    useExtraSpacing(useExtraSpaci
+                                                                                                                    useExtraSpacing(useExtraSpacing),
+                                                                                                                    singleColor(0, 0, 0),
+                                                                                                                    textColor(0, 0, 0)
+{
+    // Determine icon highlighting color
+    if (colorizeIcons) {
+        const QColor colorHighlightBg(QApplication::palette().color(QPalette::Highlight));
+        const QColor colorHighlightFg(QApplication::palette().color(QPalette::HighlightedText));
+        const QColor colorText(QApplication::palette().color(QPalette::WindowText));
+        const int colorTextLightness = colorText.lightness();
+        QColor colorbase;
+        if (abs(colorHighlightBg.lightness() - colorTextLightness) < abs(colorHighlightFg.lightness() - colorTextLightness))
+            colorbase = colorHighlightBg;
+        else
+            colorbase = colorHighlightFg;
+        singleColor = colorbase;
+    }
+    // Determine text color
+    textColor = QColor(QApplication::palette().color(QPalette::WindowText));
+}
+
+QImage PlatformStyle::SingleColorImage(const QString& filename) const
+{
+    if (!colorizeIcons)
+        return QImage(filename);
+    return ColorizeImage(filename, SingleColor());
+}
+
+QIcon PlatformStyle::SingleColorIcon(const QString& filename) const
+{
+    if (!colorizeIcons)
+        return QIcon(filename);
+    return ColorizeIcon(filename, SingleColor());
+}
+
+QIcon PlatformStyle::SingleColorIcon(const QIcon& icon) const
+{
+    if (!colorizeIcons)
+        return icon;
+    return ColorizeIcon(icon, SingleColor());
+}
+
+QIcon PlatformStyle::TextColorIcon(const QString& filename) const
+{
+    return ColorizeIcon(filename, TextColor());
+}
+
+QIcon PlatformStyle::TextColorIcon(const QIcon& icon) const
+{
+    return ColorizeIcon(icon, TextColor());
+}
+
+const PlatformStyle* PlatformStyle::instantiate(const QString& platformId)
+{
+    for (unsigned x = 0; x < platform_styles_count; ++x) {
+        if (platformId == platform_styles[x].platformId) {
+            return new PlatformStyle(
+                platform_styles[x].platformId,
+                platform_styles[x].imagesOnButtons,
+                platform_styles[x].colorizeIcons,
+                platform_styles[x].useExtraSpacing);
+        }
+    }
+    return 0;
+}
