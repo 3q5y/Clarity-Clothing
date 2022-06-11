@@ -27,4 +27,13 @@ private:
     bool valid;
     const QValidator* checkValidator;
 
-public slot
+public slots:
+    void setValid(bool valid);
+    void setEnabled(bool enabled);
+
+private slots:
+    void markValid();
+    void checkValidity();
+};
+
+#endif // BITCOIN_QT_QVALIDATEDLINEEDIT_H
