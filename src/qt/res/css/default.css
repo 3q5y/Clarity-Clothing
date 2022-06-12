@@ -1222,4 +1222,328 @@ margin-left:0px;
 }
 
 QWidget .QFrame#frame_CombinedBalances .QLabel#labelTotalTextz { /* Available total Label */
-qproperty-alignment: 'AlignVCenter |
+qproperty-alignment: 'AlignVCenter | AlignLeft';
+min-width:160px;
+color:#115bba;
+margin-right:5px;
+padding-right:5px;
+font-weight:bold;
+font-size:12px;
+}
+
+QWidget .QFrame#frame_CombinedBalances .QLabel#labelTotalz { /* Available total Balance */
+qproperty-alignment: 'AlignVCenter | AlignLeft';
+font-size:26px;
+font-weight:normal;
+color:#115bba;
+}
+
+/**************************** RECENT TRANSACTIONS ***************************************/
+
+QWidget .QFrame#frame_RecentTransactions { /* Transactions Widget */
+min-width:410px;
+min-height:100px;
+margin-left:0;
+margin-top:0;
+}
+
+QWidget .QFrame#frame_RecentTransactions .QLabel#label_4 { /* Recent Transactions Label */
+qproperty-alignment: 'AlignVCenter | AlignLeft';
+min-width:180px;
+background-color:transparent;
+color:#115bba;
+font-weight:bold;
+font-size:14px;
+margin-right:5px;
+padding-right:5px;
+}
+
+QWidget .QFrame#frame_RecentTransactions .QLabel#labelTransactionsStatus { /* Recent Transactions Sync Status */
+qproperty-alignment: 'AlignVCenter | AlignLeft';
+margin-left:3px;
+}
+
+QWidget .QFrame#frame_RecentTransactions QListView { /* Transaction List */
+font-weight:normal;
+font-size:12px;
+max-width:369px;
+margin-top:12px;
+margin-left:0px; /* CSS Voodoo - set to -66px to hide default transaction icons */
+}
+
+/**************************** SEND DIALOG ***********************************************/
+
+QDialog#SendCoinsDialog {
+background-color:#fff;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl { /* Coin Control Section */
+background-color:#ffffff;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameFee { /* Coin Control Section */
+background-color:#ffffff;
+}
+
+QDialog#SendCoinsDialog .QFrame#frame_Send { /* Coin Control Section */
+background-color:#ffffff;
+margin-bottom:6px;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl { /* Coin Control Section */
+/* background-color:#ffff00; */
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl > .QLabel { /* Default Font Color and  Size */
+font-weight:normal;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl .QPushButton#pushButtonCoinControl { /* Coin Control Inputs Button */
+padding-left:10px;
+padding-right:10px;
+min-height:25px;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLabel#labelCoinControlFeatures { /* Coin Control Header */
+qproperty-alignment: 'AlignVCenter | AlignLeft';
+min-width:160px;
+background-color:transparent;
+color:#115bba;
+font-weight:bold;
+font-size:14px;
+margin-right:5px;
+padding-right:5px;
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl .QWidget#widgetCoinControl { /* Coin Control Inputs */
+}
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl .QWidget#widgetCoinControl > .QLabel { /* Coin Control Inputs Labels */
+padding:2px;
+}
+
+/* QDialog#SendCoinsDialog .QFrame#frameCoinControl .QCheckBox#checkBoxCoinControlChange { /* Custom Change Label */
+/* QDialog#SendCoinsDialog .QFrame#frameCoinControl .QValidatedLineEdit#lineEditCoinControlChange { /* Custom Change Address */
+/* QDialog#SendCoinsDialog .QFrame#frameCoinControl .QValidatedLineEdit#lineEditCoinControlChange:!focus { /* Custom Change Address */
+/* QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLineEdit#splitBlockLineEdit { */
+/* QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLineEdit#splitBlockLineEdit:!focus { /* TX Splitter */
+
+QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLabel#labelCoinControlChangeLabel { /* Custom Change Address Validation Label */
+font-weight:normal;
+}
+
+QDialog#SendCoinsDialog .QScrollArea#scrollArea .QWidget#scrollAreaWidgetContents { /* Send To Widget */
+background-color:#ffffff;
+}
+
+
+
+QDialog#SendCoinsDialog .QCheckBox#checkUseObfuscation { /* Obfuscation Checkbox */
+color:#616161;
+font-weight:bold;
+/*background: qradialgradient(cx:0.5, cy:0.5, radius: 0.5, fx:0.5, fy:0.5, stop:0 rgba(248, 246, 246, 128), stop: 1 rgba(0, 0, 0, 0));*/
+border-radius:5px;
+padding-top:20px;
+padding-bottom:18px;
+}
+
+QDialog#SendCoinsDialog .QCheckBox#checkSwiftTX { /* SwiftTX Checkbox */
+color:#616161;
+font-weight:bold;
+/*background: qradialgradient(cx:0.5, cy:0.5, radius: 0.5, fx:0.5, fy:0.5, stop:0 rgba(248, 246, 246, 128), stop: 1 rgba(0, 0, 0, 0));*/
+border-radius:5px;
+padding-top:20px;
+padding-bottom:18px;
+margin-left:10px;
+margin-right:20px;
+}
+
+/* This QLabel uses name = "label" which conflicts with Address Book -> New Address */
+/* To maximize backwards compatibility this formatting has been removed */
+
+QDialog#SendCoinsDialog QLabel#label {
+min-height:27px;
+}
+
+QDialog#SendCoinsDialog QLabel#labelBalance {
+margin-left:0px;
+padding-left:0px;
+color:#333333;
+min-height:27px;
+}
+
+/**************************** SEND COINS ENTRY ******************************************/
+
+QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel { /* Send Coin Entry Labels */
+min-width:10px;
+font-weight:bold;
+min-height:25px;
+margin-right:5px;
+padding-right:5px;
+}
+
+/* QStackedWidget#SendCoinsEntry .QValidatedLineEdit#payTo { /* Pay To Input Field */
+/* QStackedWidget#SendCoinsEntry .QValidatedLineEdit#payTo:!focus { /* Pay To Input Field */
+/* QStackedWidget#SendCoinsEntry .QToolButton { /* Pay To Custom ToolButton */
+/* QStackedWidget#SendCoinsEntry .QToolButton:hover { /* Pay To Custom ToolButton */
+/* QStackedWidget#SendCoinsEntry .QToolButton:focus { /* Pay To Custom ToolButton */
+/* QStackedWidget#SendCoinsEntry .QToolButton:pressed { /* Pay To Custom ToolButton */
+/* QStackedWidget#SendCoinsEntry .QToolButton#addressBookButton { /* Address Book Button */
+/* QStackedWidget#SendCoinsEntry .QToolButton#pasteButton { */
+/* QStackedWidget#SendCoinsEntry .QToolButton#deleteButton { */
+/* QStackedWidget#SendCoinsEntry .QLineEdit#addAsLabel { /* Pay To Input Field */
+/* QStackedWidget#SendCoinsEntry .QLineEdit#addAsLabel:!focus { /* Pay To Input Field */
+
+/**************************** COIN CONTROL POPUP ****************************************/
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlQuantityText { /* Coin Control Quantity Label */
+min-height:30px;
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlQuantity { /* Coin Control Quantity */
+min-height:30px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlBytesText { /* Coin Control Bytes Label */
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlBytes { /* Coin Control Bytes */
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlAmountText { /* Coin Control Amount Label */
+min-height:30px;
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlAmount { /* Coin Control Amount */
+min-height:30px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlPriorityText { /* Coin Control Priority Label */
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlPriority { /* Coin Control Priority */
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlFeeText { /* Coin Control Fee Label */
+min-height:30px;
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlFee { /* Coin Control Fee */
+min-height:30px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlLowOutputText { /* Coin Control Low Output Label */
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlLowOutput { /* Coin Control Low Output */
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlAfterFeeText { /* Coin Control After Fee Label */
+min-height:30px;
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlAfterFee { /* Coin Control After Fee */
+min-height:30px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlChangeText { /* Coin Control Change Label */
+padding-left:15px;
+}
+
+QDialog#CoinControlDialog .QLabel#labelCoinControlChange { /* Coin Control Change */
+
+}
+
+QDialog#CoinControlDialog .QFrame#frame .QPushButton#pushButtonSelectAll { /* (un)select all button */
+padding-left:10px;
+padding-right:10px;
+min-height:25px;
+}
+
+QDialog#CoinControlDialog .QFrame#frame .QPushButton#pushButtonToggleLock { /* Toggle lock state button */
+padding-left:10px;
+padding-right:10px;
+min-height:25px;
+}
+
+QDialog#CoinControlDialog .QDialogButtonBox#buttonBox QPushButton { /* Coin Control 'OK' button */
+}
+
+QDialog#CoinControlDialog .QFrame#frame .QRadioButton#radioTreeMode { /* Coin Control Tree Mode Selector */
+color:#818181;
+background-color:transparent;
+}
+
+QDialog#CoinControlDialog .QFrame#frame .QRadioButton#radioListMode { /* Coin Control List Mode Selector */
+color:#818181;
+background-color:transparent;
+}
+
+QDialog#CoinControlDialog QHeaderView::section:first { /* Bug Fix: the number "1" displays in this table for some reason... */
+color:transparent;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget { /* Coin Control Widget Container */
+outline:0;
+background-color:#ffffff;
+border:1px solid #333;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item {
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:selected { /* Coin Control Item (selected) */
+background-color:#115bba;
+color:#fff;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:checked { /* Coin Control Item (checked) */
+background-color:#f7f7f7;
+color:#fff;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:selected { /* Coin Control Branch Icon */
+background-image: url(':/images/qtreeview_selected');
+background-repeat:no-repeat;
+background-position:center;
+background-color:#f7f7f7;
+color:#333;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::branch:checked { /* Coin Control Branch Icon */
+background-image: url(':/images/qtreeview_selected');
+background-repeat:no-repeat;
+background-position:center;
+background-color:#f7f7f7;
+color:#333;
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::seperator {
+
+}
+
+QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::indicator { /* Coin Control Widget Checkbox */
+
+}
+
+QDialog#ZGICControlDialog .QTreeWidget#treeWidget { /* zGIC Control Widget Container */
+outline:0;
+background-color:#ffffff;
+border:1px solid #333;
+}
+
+/**************************** RECEIVE COINS *********************************************/
+
+QWidget#ReceiveCoinsDialog {
+background-color:#fff;
+}
+
+QWidget#ReceiveCoinsDialog .QFrame#frame {
+bac
