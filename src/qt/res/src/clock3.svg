@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -15,7 +16,7 @@
    id="svg2987"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="clock0.svg">
+   sodipodi:docname="clock1.svg">
   <defs
      id="defs2989">
     <linearGradient
@@ -47,13 +48,13 @@
          offset="0"
          style="stop-color:#ffffff;stop-opacity:1;" />
       <stop
-         style="stop-color:#ff848d;stop-opacity:0.49803922;"
+         style="stop-color:#ffa184;stop-opacity:0.49803922;"
          offset="0.36363637"
          id="stop4473" />
       <stop
          id="stop4361"
          offset="1"
-         style="stop-color:#ff0a1b;stop-opacity:0;" />
+         style="stop-color:#ff440a;stop-opacity:0;" />
     </linearGradient>
     <linearGradient
        id="linearGradient4347">
@@ -69,11 +70,11 @@
     <linearGradient
        id="linearGradient3767">
       <stop
-         style="stop-color:#ffae82;stop-opacity:1;"
+         style="stop-color:#ffda82;stop-opacity:1;"
          offset="0"
          id="stop3769" />
       <stop
-         style="stop-color:#ff6a19;stop-opacity:1;"
+         style="stop-color:#ffbb19;stop-opacity:1;"
          offset="1"
          id="stop3771" />
     </linearGradient>
@@ -140,9 +141,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="10.569917"
-     inkscape:cy="10.828475"
+     inkscape:zoom="23.894737"
+     inkscape:cx="16"
+     inkscape:cy="-1"
      inkscape:current-layer="layer5"
      showgrid="true"
      inkscape:grid-bbox="true"
@@ -204,8 +205,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Block"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <path
        sodipodi:type="arc"
        style="fill:url(#linearGradient4471);fill-opacity:1;stroke:none;display:inline"
@@ -214,9 +214,9 @@
        sodipodi:cy="8.1334372"
        sodipodi:rx="7.7781744"
        sodipodi:ry="7.7781744"
-       d="M 15.197954,11.184912 A 7.7781744,7.7781744 0 1 1 8.0707322,0.35531099 L 8.0433397,8.1334372 z"
+       d="M 8.2135533,15.909749 A 7.7781744,7.7781744 0 1 1 8.0707322,0.35531099 L 8.0433397,8.1334372 z"
        transform="matrix(0.91562931,0,0,0.91562931,0.64737218,0.56658541)"
-       sodipodi:start="0.4031442"
+       sodipodi:start="1.5489111"
        sodipodi:end="4.7159107" />
   </g>
   <g
