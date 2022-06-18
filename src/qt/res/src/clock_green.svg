@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -15,7 +16,7 @@
    id="svg2987"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="clock2.svg">
+   sodipodi:docname="clock_green.svg">
   <defs
      id="defs2989">
     <linearGradient
@@ -47,33 +48,33 @@
          offset="0"
          style="stop-color:#ffffff;stop-opacity:1;" />
       <stop
-         style="stop-color:#ffcc84;stop-opacity:0.49803922;"
+         style="stop-color:#baff84;stop-opacity:0.49803922;"
          offset="0.36363637"
          id="stop4473" />
       <stop
          id="stop4361"
          offset="1"
-         style="stop-color:#ff9a0a;stop-opacity:0;" />
+         style="stop-color:#76ff0a;stop-opacity:0;" />
     </linearGradient>
     <linearGradient
        id="linearGradient4347">
       <stop
          id="stop4349"
          offset="0"
-         style="stop-color:#909090;stop-opacity:1;" />
+         style="stop-color:#c1c1c1;stop-opacity:1;" />
       <stop
          id="stop4351"
          offset="1"
-         style="stop-color:#3c3c3c;stop-opacity:1;" />
+         style="stop-color:#8c8c8c;stop-opacity:1;" />
     </linearGradient>
     <linearGradient
        id="linearGradient3767">
       <stop
-         style="stop-color:#f8ff82;stop-opacity:1;"
+         style="stop-color:#82ff82;stop-opacity:1;"
          offset="0"
          id="stop3769" />
       <stop
-         style="stop-color:#f1ff19;stop-opacity:1;"
+         style="stop-color:#19ff19;stop-opacity:1;"
          offset="1"
          id="stop3771" />
     </linearGradient>
@@ -140,10 +141,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="8.6111742"
-     inkscape:cy="6.6684704"
-     inkscape:current-layer="layer5"
+     inkscape:zoom="8"
+     inkscape:cx="9.1870806"
+     inkscape:cy="14.089546"
+     inkscape:current-layer="layer3"
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
@@ -204,6 +205,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Block"
+     sodipodi:insensitive="true"
      style="display:inline">
     <path
        sodipodi:type="arc"
@@ -213,10 +215,10 @@
        sodipodi:cy="8.1334372"
        sodipodi:rx="7.7781744"
        sodipodi:ry="7.7781744"
-       d="M 1.7005474,12.635546 A 7.7781744,7.7781744 0 0 1 8.0707322,0.35531099 L 8.0433397,8.1334372 z"
+       d="M 14.4287,3.6919089 A 7.7781744,7.7781744 0 1 1 8.0707322,0.35531099 L 8.0433397,8.1334372 z"
        transform="matrix(0.91562931,0,0,0.91562931,0.64737218,0.56658541)"
-       sodipodi:start="2.5243203"
-       sodipodi:end="4.7159107" />
+       sodipodi:start="5.675432"
+       sodipodi:end="10.999096" />
   </g>
   <g
      inkscape:groupmode="layer"
