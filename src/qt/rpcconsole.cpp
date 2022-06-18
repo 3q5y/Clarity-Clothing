@@ -895,4 +895,174 @@ void RPCConsole::peerLayoutChanged()
         stats = clientModel->getPeerTableModel()->getNodeStats(detailNodeRow);
     }
 
-    if (fUnselect && selectedRow >=
+    if (fUnselect && selectedRow >= 0) {
+        clearSelectedNode();
+    }
+
+    if (fReselect) {
+        ui->peerWidget->selectRow(detailNodeRow);
+    }
+
+    if (stats)
+        updateNodeDetail(stats);
+}
+
+void RPCConsole::updateNodeDetail(const CNodeCombinedStats* stats)
+{
+    // Update cached nodeid
+    cachedNodeid = stats->nodeStats.nodeid;
+
+    // update the detail ui with latest node information
+    QString peerAddrDetails(QString::fromStdString(stats->nodeStats.addrName) + " ");
+    peerAddrDetails += tr("(node id: %1)").arg(QString::number(stats->nodeStats.nodeid));
+    if (!stats->nodeStats.addrLocal.empty())
+        peerAddrDetails += "<br />" + tr("via %1").arg(QString::fromStdString(stats->nodeStats.addrLocal));
+    ui->peerHeading->setText(peerAddrDetails);
+    ui->peerServices->setText(GUIUtil::formatServicesStr(stats->nodeStats.nServices));
+    ui->peerLastSend->setText(stats->nodeStats.nLastSend ? GUIUtil::formatDurationStr(GetTime() - stats->nodeStats.nLastSend) : tr("never"));
+    ui->peerLastRecv->setText(stats->nodeStats.nLastRecv ? GUIUtil::formatDurationStr(GetTime() - stats->nodeStats.nLastRecv) : tr("never"));
+    ui->peerBytesSent->setText(FormatBytes(stats->nodeStats.nSendBytes));
+    ui->peerBytesRecv->setText(FormatBytes(stats->nodeStats.nRecvBytes));
+    ui->peerConnTime->setText(GUIUtil::formatDurationStr(GetTime() - stats->nodeStats.nTimeConnected));
+    ui->peerPingTime->setText(GUIUtil::formatPingTime(stats->nodeStats.dPingTime));
+    ui->peerPingWait->setText(GUIUtil::formatPingTime(stats->nodeStats.dPingWait));
+    ui->timeoffset->setText(GUIUtil::formatTimeOffset(stats->nodeStats.nTimeOffset));
+    ui->peerVersion->setText(QString("%1").arg(QString::number(stats->nodeStats.nVersion)));
+    ui->peerSubversion->setText(QString::fromStdString(stats->nodeStats.cleanSubVer));
+    ui->peerDirection->setText(stats->nodeStats.fInbound ? tr("Inbound") : tr("Outbound"));
+    ui->peerHeight->setText(QString("%1").arg(QString::number(stats->nodeStats.nStartingHeight)));
+    ui->peerWhitelisted->setText(stats->nodeStats.fWhitelisted ? tr("Yes") : tr("No"));
+
+    // This check fails for example if the lock was busy and
+    // nodeStateStats couldn't be fetched.
+    if (stats->fNodeStateStatsAvailable) {
+        // Ban score is init to 0
+        ui->peerBanScore->setText(QString("%1").arg(stats->nodeStateStats.nMisbehavior));
+
+        // Sync height is init to -1
+        if (stats->nodeStateStats.nSyncHeight > -1)
+            ui->peerSyncHeight->setText(QString("%1").arg(stats->nodeStateStats.nSyncHeight));
+        else
+            ui->peerSyncHeight->setText(tr("Unknown"));
+
+        // Common height is init to -1
+        if (stats->nodeStateStats.nCommonHeight > -1)
+            ui->peerCommonHeight->setText(QString("%1").arg(stats->nodeStateStats.nCommonHeight));
+        else
+            ui->peerCommonHeight->setText(tr("Unknown"));
+    }
+
+    ui->detailWidget->show();
+}
+
+void RPCConsole::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+}
+
+void RPCConsole::showEvent(QShowEvent* event)
+{
+    QWidget::showEvent(event);
+
+    if (!clientModel || !clientModel->getPeerTableModel())
+        return;
+
+    // start PeerTableModel auto refresh
+    clientModel->getPeerTableModel()->startAutoRefresh();
+}
+
+void RPCConsole::hideEvent(QHideEvent* event)
+{
+    QWidget::hideEvent(event);
+
+    if (!clientModel || !clientModel->getPeerTableModel())
+        return;
+
+    // stop PeerTableModel auto refresh
+    clientModel->getPeerTableModel()->stopAutoRefresh();
+}
+
+void RPCConsole::showBackups()
+{
+    GUIUtil::showBackups();
+}
+
+void RPCConsole::showPeersTableContextMenu(const QPoint& point)
+{
+    QModelIndex index = ui->peerWidget->indexAt(point);
+    if (index.isValid())
+    peersTableContextMenu->exec(QCursor::pos());
+}
+
+void RPCConsole::showBanTableContextMenu(const QPoint& point)
+{
+    QModelIndex index = ui->banlistWidget->indexAt(point);
+    if (index.isValid())
+        banTableContextMenu->exec(QCursor::pos());
+}
+
+void RPCConsole::disconnectSelectedNode()
+{
+    // Get currently selected peer address
+    QString strNode = GUIUtil::getEntryData(ui->peerWidget, 0, PeerTableModel::Address);
+    // Find the node, disconnect it and clear the selected node
+    if (CNode *bannedNode = FindNode(strNode.toStdString())) {
+        bannedNode->CloseSocketDisconnect();
+        clearSelectedNode();
+    }
+}
+
+void RPCConsole::banSelectedNode(int bantime)
+{
+    if (!clientModel)
+        return;
+
+    // Get currently selected peer address
+    QString strNode = GUIUtil::getEntryData(ui->peerWidget, 0, PeerTableModel::Address);
+    // Find possible nodes, ban it and clear the selected node
+    if (FindNode(strNode.toStdString())) {
+        std::string nStr = strNode.toStdString();
+        std::string addr;
+        int port = 0;
+        SplitHostPort(nStr, port, addr);
+
+        CNode::Ban(CNetAddr(addr), BanReasonManuallyAdded, bantime);
+
+        clearSelectedNode();
+        clientModel->getBanTableModel()->refresh();
+    }
+}
+
+void RPCConsole::unbanSelectedNode()
+{
+    if (!clientModel)
+        return;
+
+    // Get currently selected ban address
+    QString strNode = GUIUtil::getEntryData(ui->banlistWidget, 0, BanTableModel::Address);
+    CSubNet possibleSubnet(strNode.toStdString());
+
+    if (possibleSubnet.IsValid())
+    {
+        CNode::Unban(possibleSubnet);
+        clientModel->getBanTableModel()->refresh();
+    }
+}
+
+void RPCConsole::clearSelectedNode()
+{
+    ui->peerWidget->selectionModel()->clearSelection();
+    cachedNodeid = -1;
+    ui->detailWidget->hide();
+    ui->peerHeading->setText(tr("Select a peer to view detailed information."));
+}
+
+void RPCConsole::showOrHideBanTableIfRequired()
+{
+    if (!clientModel)
+        return;
+
+    bool visible = clientModel->getBanTableModel()->shouldShow();
+    ui->banlistWidget->setVisible(visible);
+    ui->banHeading->setVisible(visible);
+}
