@@ -568,4 +568,331 @@ void RPCConsole::walletReindex()
 void RPCConsole::walletResync()
 {
     QString resyncWarning = tr("This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.<br /><br />");
-        resyncWarning +=   tr("This needs quite some time and downloads a lot o
+        resyncWarning +=   tr("This needs quite some time and downloads a lot of data.<br /><br />");
+        resyncWarning +=   tr("Your transactions and funds will be visible again after the download has completed.<br /><br />");
+        resyncWarning +=   tr("Do you want to continue?.<br />");
+    QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm resync Blockchain"),
+        resyncWarning,
+        QMessageBox::Yes | QMessageBox::Cancel,
+        QMessageBox::Cancel);
+
+    if (retval != QMessageBox::Yes) {
+        // Resync canceled
+        return;
+    }
+
+    // Restart and resync
+    buildParameterlist(RESYNC);
+}
+
+/** Build command-line parameter list for restart */
+void RPCConsole::buildParameterlist(QString arg)
+{
+    // Get command-line arguments and remove the application name
+    QStringList args = QApplication::arguments();
+    args.removeFirst();
+
+    // Remove existing repair-options
+    args.removeAll(SALVAGEWALLET);
+    args.removeAll(RESCAN);
+    args.removeAll(ZAPTXES1);
+    args.removeAll(ZAPTXES2);
+    args.removeAll(UPGRADEWALLET);
+    args.removeAll(REINDEX);
+
+    // Append repair parameter to command line.
+    args.append(arg);
+
+    // Send command-line arguments to BitcoinGUI::handleRestart()
+    emit handleRestart(args);
+}
+
+void RPCConsole::clear()
+{
+    ui->messagesWidget->clear();
+    history.clear();
+    historyPtr = 0;
+    ui->lineEdit->clear();
+    ui->lineEdit->setFocus();
+
+    // Add smoothly scaled icon images.
+    // (when using width/height on an img, Qt uses nearest instead of linear interpolation)
+    for (int i = 0; ICON_MAPPING[i].url; ++i) {
+        ui->messagesWidget->document()->addResource(
+            QTextDocument::ImageResource,
+            QUrl(ICON_MAPPING[i].url),
+            QImage(ICON_MAPPING[i].source).scaled(ICON_SIZE, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    }
+
+    // Set default style sheet
+    ui->messagesWidget->document()->setDefaultStyleSheet(
+        "table { }"
+        "td.time { color: #808080; padding-top: 3px; } "
+        "td.message { font-family: Courier, Courier New, Lucida Console, monospace; font-size: 12px; } " // Todo: Remove fixed font-size
+        "td.cmd-request { color: #006060; } "
+        "td.cmd-error { color: red; } "
+        ".secwarning { color: red; }"
+        "b { color: #006060; } ");
+
+#ifdef Q_OS_MAC
+    QString clsKey = "(⌘)-L";
+#else
+    QString clsKey = "Ctrl-L";
+#endif
+
+    message(CMD_REPLY, (tr("Welcome to the GIANT RPC console.") + "<br>" +
+                        tr("Use up and down arrows to navigate history, and %1 to clear screen.").arg("<b>"+clsKey+"</b>") + "<br>" +
+                        tr("Type <b>help</b> for an overview of available commands.") +
+                        "<br><span class=\"secwarning\"><br>" +
+                        tr("WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.") +
+                        "</span>"),
+                        true);
+}
+
+void RPCConsole::reject()
+{
+    // Ignore escape keypress if this is not a seperate window
+    if (windowType() != Qt::Widget)
+        QDialog::reject();
+}
+
+void RPCConsole::message(int category, const QString& message, bool html)
+{
+    QTime time = QTime::currentTime();
+    QString timeString = time.toString();
+    QString out;
+    out += "<table><tr><td class=\"time\" width=\"65\">" + timeString + "</td>";
+    out += "<td class=\"icon\" width=\"32\"><img src=\"" + categoryClass(category) + "\"></td>";
+    out += "<td class=\"message " + categoryClass(category) + "\" valign=\"middle\">";
+    if (html)
+        out += message;
+    else
+        out += GUIUtil::HtmlEscape(message, true);
+    out += "</td></tr></table>";
+    ui->messagesWidget->append(out);
+}
+
+void RPCConsole::setNumConnections(int count)
+{
+    if (!clientModel)
+        return;
+
+    QString connections = QString::number(count) + " (";
+    connections += tr("In:") + " " + QString::number(clientModel->getNumConnections(CONNECTIONS_IN)) + " / ";
+    connections += tr("Out:") + " " + QString::number(clientModel->getNumConnections(CONNECTIONS_OUT)) + ")";
+
+    ui->numberOfConnections->setText(connections);
+}
+
+void RPCConsole::setNumBlocks(int count)
+{
+    ui->numberOfBlocks->setText(QString::number(count));
+    if (clientModel)
+        ui->lastBlockTime->setText(clientModel->getLastBlockDate().toString());
+}
+
+void RPCConsole::setMasternodeCount(const QString& strMasternodes)
+{
+    ui->masternodeCount->setText(strMasternodes);
+}
+
+void RPCConsole::on_lineEdit_returnPressed()
+{
+    QString cmd = ui->lineEdit->text();
+    ui->lineEdit->clear();
+
+    if (!cmd.isEmpty()) {
+        message(CMD_REQUEST, cmd);
+        emit cmdRequest(cmd);
+        // Remove command, if already in history
+        history.removeOne(cmd);
+        // Append command to history
+        history.append(cmd);
+        // Enforce maximum history size
+        while (history.size() > CONSOLE_HISTORY)
+            history.removeFirst();
+        // Set pointer to end of history
+        historyPtr = history.size();
+        // Scroll console view to end
+        scrollToEnd();
+    }
+}
+
+void RPCConsole::browseHistory(int offset)
+{
+    historyPtr += offset;
+    if (historyPtr < 0)
+        historyPtr = 0;
+    if (historyPtr > history.size())
+        historyPtr = history.size();
+    QString cmd;
+    if (historyPtr < history.size())
+        cmd = history.at(historyPtr);
+    ui->lineEdit->setText(cmd);
+}
+
+void RPCConsole::startExecutor()
+{
+    QThread* thread = new QThread;
+    RPCExecutor* executor = new RPCExecutor();
+    executor->moveToThread(thread);
+
+    // Replies from executor object must go to this object
+    connect(executor, SIGNAL(reply(int, QString)), this, SLOT(message(int, QString)));
+    // Requests from this object must go to executor
+    connect(this, SIGNAL(cmdRequest(QString)), executor, SLOT(request(QString)));
+
+    // On stopExecutor signal
+    // - queue executor for deletion (in execution thread)
+    // - quit the Qt event loop in the execution thread
+    connect(this, SIGNAL(stopExecutor()), executor, SLOT(deleteLater()));
+    connect(this, SIGNAL(stopExecutor()), thread, SLOT(quit()));
+    // Queue the thread for deletion (in this thread) when it is finished
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+
+    // Default implementation of QThread::run() simply spins up an event loop in the thread,
+    // which is what we want.
+    thread->start();
+}
+
+void RPCConsole::on_tabWidget_currentChanged(int index)
+{
+    if (ui->tabWidget->widget(index) == ui->tab_console) {
+        ui->lineEdit->setFocus();
+    } else if (ui->tabWidget->widget(index) != ui->tab_peers) {
+        clearSelectedNode();
+    }
+}
+
+void RPCConsole::on_openDebugLogfileButton_clicked()
+{
+    GUIUtil::openDebugLogfile();
+}
+
+void RPCConsole::scrollToEnd()
+{
+    QScrollBar* scrollbar = ui->messagesWidget->verticalScrollBar();
+    scrollbar->setValue(scrollbar->maximum());
+}
+
+void RPCConsole::on_sldGraphRange_valueChanged(int value)
+{
+    const int multiplier = 5; // each position on the slider represents 5 min
+    int mins = value * multiplier;
+    setTrafficGraphRange(mins);
+}
+
+QString RPCConsole::FormatBytes(quint64 bytes)
+{
+    if (bytes < 1024)
+        return QString(tr("%1 B")).arg(bytes);
+    if (bytes < 1024 * 1024)
+        return QString(tr("%1 KB")).arg(bytes / 1024);
+    if (bytes < 1024 * 1024 * 1024)
+        return QString(tr("%1 MB")).arg(bytes / 1024 / 1024);
+
+    return QString(tr("%1 GB")).arg(bytes / 1024 / 1024 / 1024);
+}
+
+void RPCConsole::setTrafficGraphRange(int mins)
+{
+    ui->trafficGraph->setGraphRangeMins(mins);
+    ui->lblGraphRange->setText(GUIUtil::formatDurationStr(mins * 60));
+}
+
+void RPCConsole::updateTrafficStats(quint64 totalBytesIn, quint64 totalBytesOut)
+{
+    ui->lblBytesIn->setText(FormatBytes(totalBytesIn));
+    ui->lblBytesOut->setText(FormatBytes(totalBytesOut));
+}
+
+void RPCConsole::showInfo()
+{
+    ui->tabWidget->setCurrentIndex(0);
+    show();
+}
+
+void RPCConsole::showConsole()
+{
+    ui->tabWidget->setCurrentIndex(1);
+    show();
+}
+
+void RPCConsole::showNetwork()
+{
+    ui->tabWidget->setCurrentIndex(2);
+    show();
+}
+
+void RPCConsole::showPeers()
+{
+    ui->tabWidget->setCurrentIndex(3);
+    show();
+}
+
+void RPCConsole::showRepair()
+{
+    ui->tabWidget->setCurrentIndex(4);
+    show();
+}
+
+void RPCConsole::showConfEditor()
+{
+    GUIUtil::openConfigfile();
+}
+
+void RPCConsole::showMNConfEditor()
+{
+    GUIUtil::openMNConfigfile();
+}
+
+void RPCConsole::peerSelected(const QItemSelection& selected, const QItemSelection& deselected)
+{
+    Q_UNUSED(deselected);
+
+    if (!clientModel || !clientModel->getPeerTableModel() || selected.indexes().isEmpty())
+        return;
+
+    const CNodeCombinedStats* stats = clientModel->getPeerTableModel()->getNodeStats(selected.indexes().first().row());
+    if (stats)
+        updateNodeDetail(stats);
+}
+
+void RPCConsole::peerLayoutChanged()
+{
+    if (!clientModel || !clientModel->getPeerTableModel())
+        return;
+
+    const CNodeCombinedStats* stats = NULL;
+    bool fUnselect = false;
+    bool fReselect = false;
+
+    if (cachedNodeid == -1) // no node selected yet
+        return;
+
+    // find the currently selected row
+    int selectedRow = -1;
+    QModelIndexList selectedModelIndex = ui->peerWidget->selectionModel()->selectedIndexes();
+    if (!selectedModelIndex.isEmpty()) {
+        selectedRow = selectedModelIndex.first().row();
+    }
+
+    // check if our detail node has a row in the table (it may not necessarily
+    // be at selectedRow since its position can change after a layout change)
+    int detailNodeRow = clientModel->getPeerTableModel()->getRowByNodeId(cachedNodeid);
+
+    if (detailNodeRow < 0) {
+        // detail node dissapeared from table (node disconnected)
+        fUnselect = true;
+    } else {
+        if (detailNodeRow != selectedRow) {
+            // detail node moved position
+            fUnselect = true;
+            fReselect = true;
+        }
+
+        // get fresh stats on the detail node.
+        stats = clientModel->getPeerTableModel()->getNodeStats(detailNodeRow);
+    }
+
+    if (fUnselect && selectedRow >=
