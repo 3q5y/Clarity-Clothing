@@ -135,4 +135,26 @@ private:
     void setTrafficGraphRange(int mins);
     /** Build parameter list for restart */
     void buildParameterlist(QString arg);
-    /** show detailed information on ui about selec
+    /** show detailed information on ui about selected node */
+    void updateNodeDetail(const CNodeCombinedStats* stats);
+
+    enum ColumnWidths {
+        ADDRESS_COLUMN_WIDTH = 170,
+        SUBVERSION_COLUMN_WIDTH = 140,
+        PING_COLUMN_WIDTH = 80,
+        BANSUBNET_COLUMN_WIDTH = 200,
+        BANTIME_COLUMN_WIDTH = 250
+    };
+
+    Ui::RPCConsole* ui;
+    ClientModel* clientModel;
+    QStringList history;
+    int historyPtr;
+    NodeId cachedNodeid;
+    QCompleter *autoCompleter;
+    QMenu *peersTableContextMenu;
+    QMenu *banTableContextMenu;
+    RPCTimerInterface *rpcTimerInterface;
+};
+
+#endif // BITCOIN_QT_RPCCONSOLE_H
