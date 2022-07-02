@@ -213,4 +213,98 @@ public:
     bool isLockedCoin(uint256 hash, unsigned int n) const;
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
-    void listLockedCoins
+    void listLockedCoins(std::vector<COutPoint>& vOutpts);
+
+    void listZerocoinMints(std::set<CMintMeta>& setMints, bool fUnusedOnly = false, bool fMaturedOnly = false, bool fUpdateStatus = false, bool fWrongSeed = false);
+
+    string GetUniqueWalletBackupName();
+    void loadReceiveRequests(std::vector<std::string>& vReceiveRequests);
+    bool saveReceiveRequest(const std::string& sAddress, const int64_t nId, const std::string& sRequest);
+
+private:
+    CWallet* wallet;
+    bool fHaveWatchOnly;
+    bool fHaveMultiSig;
+    bool fForceCheckBalanceChanged;
+
+    // Wallet has an options model for wallet-specific options
+    // (transaction fee, for example)
+    OptionsModel* optionsModel;
+
+    AddressTableModel* addressTableModel;
+    TransactionTableModel* transactionTableModel;
+    RecentRequestsTableModel* recentRequestsTableModel;
+
+    // Cache some values to be able to detect changes
+    CAmount cachedBalance;
+    CAmount cachedUnconfirmedBalance;
+    CAmount cachedImmatureBalance;
+    CAmount cachedZerocoinBalance;
+    CAmount cachedUnconfirmedZerocoinBalance;
+    CAmount cachedImmatureZerocoinBalance;
+    CAmount cachedWatchOnlyBalance;
+    CAmount cachedWatchUnconfBalance;
+    CAmount cachedWatchImmatureBalance;
+    EncryptionStatus cachedEncryptionStatus;
+    int cachedNumBlocks;
+    int cachedTxLocks;
+    int cachedZeromintPercentage;
+
+    QTimer* pollTimer;
+
+    void subscribeToCoreSignals();
+    void unsubscribeFromCoreSignals();
+    Q_INVOKABLE void checkBalanceChanged();
+
+signals:
+    // Signal that balance in wallet changed
+    void balanceChanged(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance,
+                        const CAmount& zerocoinBalance, const CAmount& unconfirmedZerocoinBalance, const CAmount& immatureZerocoinBalance,
+                        const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
+
+    // Encryption status of wallet changed
+    void encryptionStatusChanged(int status);
+
+    // Signal emitted when wallet needs to be unlocked
+    // It is valid behaviour for listeners to keep the wallet locked after this signal;
+    // this means that the unlocking failed or was cancelled.
+    void requireUnlock(AskPassphraseDialog::Context context);
+
+    // Fired when a message should be reported to the user
+    void message(const QString& title, const QString& message, unsigned int style);
+
+    // Coins sent: from wallet, to recipient, in (serialized) transaction:
+    void coinsSent(CWallet* wallet, SendCoinsRecipient recipient, QByteArray transaction);
+
+    // Show progress dialog e.g. for rescan
+    void showProgress(const QString& title, int nProgress);
+
+    // Watch-only address added
+    void notifyWatchonlyChanged(bool fHaveWatchonly);
+
+    // MultiSig address added
+    void notifyMultiSigChanged(bool fHaveMultiSig);
+
+    // Receive tab address may have changed
+    void notifyReceiveAddressChanged();
+
+public slots:
+    /* Wallet status might have changed */
+    void updateStatus();
+    /* New transaction, or transaction changed status */
+    void updateTransaction();
+    /* New, updated or removed address book entry */
+    void updateAddressBook(const QString& address, const QString& label, bool isMine, const QString& purpose, int status);
+    /* Zerocoin update */
+    void updateAddressBook(const QString &pubCoin, const QString &isUsed, int status);
+    /* Watch-only added */
+    void updateWatchOnlyFlag(bool fHaveWatchonly);
+    /* MultiSig added */
+    void updateMultiSigFlag(bool fHaveMultiSig);
+    /* Current, immature or unconfirmed balance might have changed - emit 'balanceChanged' if so */
+    void pollBalanceChanged();
+    /* Update address book labels in the database */
+    void updateAddressBookLabels(const CTxDestination& address, const string& strName, const string& strPurpose);
+};
+
+#endif // BITCOIN_QT_WALLETMODEL_H
