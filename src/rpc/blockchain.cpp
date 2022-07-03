@@ -490,4 +490,236 @@ UniValue getrawmempool(const UniValue& params, bool fHelp)
             "\nExamples\n" +
             HelpExampleCli("getrawmempool", "true") + HelpExampleRpc("getrawmempool", "true"));
 
-    LOCK(c
+    LOCK(cs_main);
+
+    bool fVerbose = false;
+    if (params.size() > 0)
+        fVerbose = params[0].get_bool();
+
+    return mempoolToJSON(fVerbose);
+}
+
+UniValue getblockhash(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getblockhash index\n"
+            "\nReturns hash of block in best-block-chain at index provided.\n"
+
+            "\nArguments:\n"
+            "1. index         (numeric, required) The block index\n"
+
+            "\nResult:\n"
+            "\"hash\"         (string) The block hash\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getblockhash", "1000") + HelpExampleRpc("getblockhash", "1000"));
+
+    LOCK(cs_main);
+
+    int nHeight = params[0].get_int();
+    if (nHeight < 0 || nHeight > chainActive.Height())
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Block height out of range");
+
+    CBlockIndex* pblockindex = chainActive[nHeight];
+    return pblockindex->GetBlockHash().GetHex();
+}
+
+UniValue getblock(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 2)
+        throw runtime_error(
+            "getblock \"hash\" ( verbose )\n"
+            "\nIf verbose is false, returns a string that is serialized, hex-encoded data for block 'hash'.\n"
+            "If verbose is true, returns an Object with information about block <hash>.\n"
+
+            "\nArguments:\n"
+            "1. \"hash\"          (string, required) The block hash\n"
+            "2. verbose           (boolean, optional, default=true) true for a json object, false for the hex encoded data\n"
+
+            "\nResult (for verbose = true):\n"
+            "{\n"
+            "  \"hash\" : \"hash\",     (string) the block hash (same as provided)\n"
+            "  \"confirmations\" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain\n"
+            "  \"size\" : n,            (numeric) The block size\n"
+            "  \"height\" : n,          (numeric) The block height or index\n"
+            "  \"version\" : n,         (numeric) The block version\n"
+            "  \"merkleroot\" : \"xxxx\", (string) The merkle root\n"
+            "  \"tx\" : [               (array of string) The transaction ids\n"
+            "     \"transactionid\"     (string) The transaction id\n"
+            "     ,...\n"
+            "  ],\n"
+            "  \"time\" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)\n"
+            "  \"mediantime\" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)\n"
+            "  \"nonce\" : n,           (numeric) The nonce\n"
+            "  \"bits\" : \"1d00ffff\", (string) The bits\n"
+            "  \"difficulty\" : x.xxx,  (numeric) The difficulty\n"
+            "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
+            "  \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
+            "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
+            "}\n"
+
+            "\nResult (for verbose=false):\n"
+            "\"data\"             (string) A string that is serialized, hex-encoded data for block 'hash'.\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getblock", "\"00000000000fd08c2fb661d2fcb0d49abb3a91e5f27082ce64feed3b4dede2e2\"") +
+            HelpExampleRpc("getblock", "\"00000000000fd08c2fb661d2fcb0d49abb3a91e5f27082ce64feed3b4dede2e2\""));
+
+    LOCK(cs_main);
+
+    std::string strHash = params[0].get_str();
+    uint256 hash(strHash);
+
+    bool fVerbose = true;
+    if (params.size() > 1)
+        fVerbose = params[1].get_bool();
+
+    if (mapBlockIndex.count(hash) == 0)
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block not found");
+
+    CBlock block;
+    CBlockIndex* pblockindex = mapBlockIndex[hash];
+
+    if (!ReadBlockFromDisk(block, pblockindex))
+        throw JSONRPCError(RPC_INTERNAL_ERROR, "Can't read block from disk");
+
+    if (!fVerbose) {
+        CDataStream ssBlock(SER_NETWORK, PROTOCOL_VERSION);
+        ssBlock << block;
+        std::string strHex = HexStr(ssBlock.begin(), ssBlock.end());
+        return strHex;
+    }
+
+    return blockToJSON(block, pblockindex);
+}
+
+UniValue getblockheader(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 2)
+        throw runtime_error(
+            "getblockheader \"hash\" ( verbose )\n"
+            "\nIf verbose is false, returns a string that is serialized, hex-encoded data for block 'hash' header.\n"
+            "If verbose is true, returns an Object with information about block <hash> header.\n"
+
+            "\nArguments:\n"
+            "1. \"hash\"          (string, required) The block hash\n"
+            "2. verbose           (boolean, optional, default=true) true for a json object, false for the hex encoded data\n"
+
+            "\nResult (for verbose = true):\n"
+            "{\n"
+            "  \"version\" : n,         (numeric) The block version\n"
+            "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
+            "  \"merkleroot\" : \"xxxx\", (string) The merkle root\n"
+            "  \"time\" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)\n"
+            "  \"mediantime\" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)\n"
+            "  \"nonce\" : n,           (numeric) The nonce\n"
+            "  \"bits\" : \"1d00ffff\", (string) The bits\n"
+            "}\n"
+
+            "\nResult (for verbose=false):\n"
+            "\"data\"             (string) A string that is serialized, hex-encoded data for block 'hash' header.\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getblockheader", "\"00000000000fd08c2fb661d2fcb0d49abb3a91e5f27082ce64feed3b4dede2e2\"") +
+            HelpExampleRpc("getblockheader", "\"00000000000fd08c2fb661d2fcb0d49abb3a91e5f27082ce64feed3b4dede2e2\""));
+
+    std::string strHash = params[0].get_str();
+    uint256 hash(strHash);
+
+    bool fVerbose = true;
+    if (params.size() > 1)
+        fVerbose = params[1].get_bool();
+
+    if (mapBlockIndex.count(hash) == 0)
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block not found");
+
+    CBlockIndex* pblockindex = mapBlockIndex[hash];
+
+    if (!fVerbose) {
+        CDataStream ssBlock(SER_NETWORK, PROTOCOL_VERSION);
+        ssBlock << pblockindex->GetBlockHeader();
+        std::string strHex = HexStr(ssBlock.begin(), ssBlock.end());
+        return strHex;
+    }
+
+    return blockheaderToJSON(pblockindex);
+}
+
+UniValue gettxoutsetinfo(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "gettxoutsetinfo\n"
+            "\nReturns statistics about the unspent transaction output set.\n"
+            "Note this call may take some time.\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"height\":n,     (numeric) The current block height (index)\n"
+            "  \"bestblock\": \"hex\",   (string) the best block hash hex\n"
+            "  \"transactions\": n,      (numeric) The number of transactions\n"
+            "  \"txouts\": n,            (numeric) The number of output transactions\n"
+            "  \"bytes_serialized\": n,  (numeric) The serialized size\n"
+            "  \"hash_serialized\": \"hash\",   (string) The serialized hash\n"
+            "  \"total_amount\": x.xxx          (numeric) The total amount\n"
+            "}\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("gettxoutsetinfo", "") + HelpExampleRpc("gettxoutsetinfo", ""));
+
+    LOCK(cs_main);
+
+    UniValue ret(UniValue::VOBJ);
+
+    CCoinsStats stats;
+    FlushStateToDisk();
+    if (pcoinsTip->GetStats(stats)) {
+        ret.push_back(Pair("height", (int64_t)stats.nHeight));
+        ret.push_back(Pair("bestblock", stats.hashBlock.GetHex()));
+        ret.push_back(Pair("transactions", (int64_t)stats.nTransactions));
+        ret.push_back(Pair("txouts", (int64_t)stats.nTransactionOutputs));
+        ret.push_back(Pair("bytes_serialized", (int64_t)stats.nSerializedSize));
+        ret.push_back(Pair("hash_serialized", stats.hashSerialized.GetHex()));
+        ret.push_back(Pair("total_amount", ValueFromAmount(stats.nTotalAmount)));
+    }
+    return ret;
+}
+
+UniValue gettxout(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 2 || params.size() > 3)
+        throw runtime_error(
+            "gettxout \"txid\" n ( includemempool )\n"
+            "\nReturns details about an unspent transaction output.\n"
+
+            "\nArguments:\n"
+            "1. \"txid\"       (string, required) The transaction id\n"
+            "2. n              (numeric, required) vout value\n"
+            "3. includemempool  (boolean, optional) Whether to included the mem pool\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"bestblock\" : \"hash\",    (string) the block hash\n"
+            "  \"confirmations\" : n,       (numeric) The number of confirmations\n"
+            "  \"value\" : x.xxx,           (numeric) The transaction value in btc\n"
+            "  \"scriptPubKey\" : {         (json object)\n"
+            "     \"asm\" : \"code\",       (string) \n"
+            "     \"hex\" : \"hex\",        (string) \n"
+            "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
+            "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
+            "     \"addresses\" : [          (array of string) array of giant addresses\n"
+            "     \"giantaddress\"   	 	(string) giant address\n"
+            "        ,...\n"
+            "     ]\n"
+            "  },\n"
+            "  \"version\" : n,            (numeric) The version\n"
+            "  \"coinbase\" : true|false   (boolean) Coinbase or not\n"
+            "}\n"
+
+            "\nExamples:\n"
+            "\nGet unspent transactions\n" +
+            HelpExampleCli("listunspent", "") +
+            "\nView the details\n" +
+            HelpExampleCli("gettxout", "\"txid\" 1") +
+            "\nAs a json rpc call\n
