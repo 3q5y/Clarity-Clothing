@@ -221,4 +221,235 @@ UniValue submitbudget(const UniValue& params, bool fHelp)
         throw runtime_error("Proposal FeeTX is not valid - " + hash.ToString() + " - " + strError);
     }
 
-    if (!masternodeSync.IsBlockchai
+    if (!masternodeSync.IsBlockchainSynced()) {
+        throw runtime_error("Must wait for client to sync with masternode network. Try again in a minute or so.");
+    }
+
+    // if(!budgetProposalBroadcast.IsValid(strError)){
+    //     return "Proposal is not valid - " + budgetProposalBroadcast.GetHash().ToString() + " - " + strError;
+    // }
+
+    budget.mapSeenMasternodeBudgetProposals.insert(make_pair(budgetProposalBroadcast.GetHash(), budgetProposalBroadcast));
+    budgetProposalBroadcast.Relay();
+    if(budget.AddProposal(budgetProposalBroadcast)) {
+        return budgetProposalBroadcast.GetHash().ToString();
+    }
+    throw runtime_error("Invalid proposal, see debug.log for details.");
+}
+
+UniValue mnbudgetvote(const UniValue& params, bool fHelp)
+{
+    std::string strCommand;
+    if (params.size() >= 1) {
+        strCommand = params[0].get_str();
+
+        // Backwards compatibility with legacy `mnbudget` command
+        if (strCommand == "vote") strCommand = "local";
+        if (strCommand == "vote-many") strCommand = "many";
+        if (strCommand == "vote-alias") strCommand = "alias";
+    }
+
+    if (fHelp || (params.size() == 3 && (strCommand != "local" && strCommand != "many")) || (params.size() == 4 && strCommand != "alias") ||
+        params.size() > 4 || params.size() < 3)
+        throw runtime_error(
+            "mnbudgetvote \"local|many|alias\" \"votehash\" \"yes|no\" ( \"alias\" )\n"
+            "\nVote on a budget proposal\n"
+
+            "\nArguments:\n"
+            "1. \"mode\"      (string, required) The voting mode. 'local' for voting directly from a masternode, 'many' for voting with a MN controller and casting the same vote for each MN, 'alias' for voting with a MN controller and casting a vote for a single MN\n"
+            "2. \"votehash\"  (string, required) The vote hash for the proposal\n"
+            "3. \"votecast\"  (string, required) Your vote. 'yes' to vote for the proposal, 'no' to vote against\n"
+            "4. \"alias\"     (string, required for 'alias' mode) The MN alias to cast a vote for.\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"overall\": \"xxxx\",      (string) The overall status message for the vote cast\n"
+            "  \"detail\": [\n"
+            "    {\n"
+            "      \"node\": \"xxxx\",      (string) 'local' or the MN alias\n"
+            "      \"result\": \"xxxx\",    (string) Either 'Success' or 'Failed'\n"
+            "      \"error\": \"xxxx\",     (string) Error message, if vote failed\n"
+            "    }\n"
+            "    ,...\n"
+            "  ]\n"
+            "}\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("mnbudgetvote", "\"local\" \"ed2f83cedee59a91406f5f47ec4d60bf5a7f9ee6293913c82976bd2d3a658041\" \"yes\"") +
+            HelpExampleRpc("mnbudgetvote", "\"local\" \"ed2f83cedee59a91406f5f47ec4d60bf5a7f9ee6293913c82976bd2d3a658041\" \"yes\""));
+
+    uint256 hash = ParseHashV(params[1], "parameter 1");
+    std::string strVote = params[2].get_str();
+
+    if (strVote != "yes" && strVote != "no") return "You can only vote 'yes' or 'no'";
+    int nVote = VOTE_ABSTAIN;
+    if (strVote == "yes") nVote = VOTE_YES;
+    if (strVote == "no") nVote = VOTE_NO;
+
+    int success = 0;
+    int failed = 0;
+
+    UniValue resultsObj(UniValue::VARR);
+
+    if (strCommand == "local") {
+        CPubKey pubKeyMasternode;
+        CKey keyMasternode;
+        std::string errorMessage;
+
+        UniValue statusObj(UniValue::VOBJ);
+
+        while (true) {
+            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+                failed++;
+                statusObj.push_back(Pair("node", "local"));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Masternode signing error, could not set key correctly: " + errorMessage));
+                resultsObj.push_back(statusObj);
+                break;
+            }
+
+            CMasternode* pmn = mnodeman.Find(activeMasternode.vin);
+            if (pmn == NULL) {
+                failed++;
+                statusObj.push_back(Pair("node", "local"));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Failure to find masternode in list : " + activeMasternode.vin.ToString()));
+                resultsObj.push_back(statusObj);
+                break;
+            }
+
+            CBudgetVote vote(activeMasternode.vin, hash, nVote);
+            if (!vote.Sign(keyMasternode, pubKeyMasternode)) {
+                failed++;
+                statusObj.push_back(Pair("node", "local"));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Failure to sign."));
+                resultsObj.push_back(statusObj);
+                break;
+            }
+
+            std::string strError = "";
+            if (budget.UpdateProposal(vote, NULL, strError)) {
+                success++;
+                budget.mapSeenMasternodeBudgetVotes.insert(make_pair(vote.GetHash(), vote));
+                vote.Relay();
+                statusObj.push_back(Pair("node", "local"));
+                statusObj.push_back(Pair("result", "success"));
+                statusObj.push_back(Pair("error", ""));
+            } else {
+                failed++;
+                statusObj.push_back(Pair("node", "local"));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Error voting : " + strError));
+            }
+            resultsObj.push_back(statusObj);
+            break;
+        }
+
+        UniValue returnObj(UniValue::VOBJ);
+        returnObj.push_back(Pair("overall", strprintf("Voted successfully %d time(s) and failed %d time(s).", success, failed)));
+        returnObj.push_back(Pair("detail", resultsObj));
+
+        return returnObj;
+    }
+
+    if (strCommand == "many") {
+        for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
+            std::string errorMessage;
+            std::vector<unsigned char> vchMasterNodeSignature;
+            std::string strMasterNodeSignMessage;
+
+            CPubKey pubKeyCollateralAddress;
+            CKey keyCollateralAddress;
+            CPubKey pubKeyMasternode;
+            CKey keyMasternode;
+
+            UniValue statusObj(UniValue::VOBJ);
+
+            if (!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
+                failed++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Masternode signing error, could not set key correctly: " + errorMessage));
+                resultsObj.push_back(statusObj);
+                continue;
+            }
+
+            CMasternode* pmn = mnodeman.Find(pubKeyMasternode);
+            if (pmn == NULL) {
+                failed++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Can't find masternode by pubkey"));
+                resultsObj.push_back(statusObj);
+                continue;
+            }
+
+            CBudgetVote vote(pmn->vin, hash, nVote);
+            if (!vote.Sign(keyMasternode, pubKeyMasternode)) {
+                failed++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Failure to sign."));
+                resultsObj.push_back(statusObj);
+                continue;
+            }
+
+            std::string strError = "";
+            if (budget.UpdateProposal(vote, NULL, strError)) {
+                budget.mapSeenMasternodeBudgetVotes.insert(make_pair(vote.GetHash(), vote));
+                vote.Relay();
+                success++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "success"));
+                statusObj.push_back(Pair("error", ""));
+            } else {
+                failed++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", strError.c_str()));
+            }
+
+            resultsObj.push_back(statusObj);
+        }
+
+        UniValue returnObj(UniValue::VOBJ);
+        returnObj.push_back(Pair("overall", strprintf("Voted successfully %d time(s) and failed %d time(s).", success, failed)));
+        returnObj.push_back(Pair("detail", resultsObj));
+
+        return returnObj;
+    }
+
+    if (strCommand == "alias") {
+        std::string strAlias = params[3].get_str();
+        std::vector<CMasternodeConfig::CMasternodeEntry> mnEntries;
+        mnEntries = masternodeConfig.getEntries();
+
+        for (CMasternodeConfig::CMasternodeEntry mne : mnEntries) {
+
+            if( strAlias != mne.getAlias()) continue;
+
+            std::string errorMessage;
+            std::vector<unsigned char> vchMasterNodeSignature;
+            std::string strMasterNodeSignMessage;
+
+            CPubKey pubKeyCollateralAddress;
+            CKey keyCollateralAddress;
+            CPubKey pubKeyMasternode;
+            CKey keyMasternode;
+
+            UniValue statusObj(UniValue::VOBJ);
+
+            if(!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)){
+                failed++;
+                statusObj.push_back(Pair("node", mne.getAlias()));
+                statusObj.push_back(Pair("result", "failed"));
+                statusObj.push_back(Pair("error", "Masternode signing error, could not set key correctly: " + errorMessage));
+                resultsObj.push_back(statusObj);
+                continue;
+            }
+
+            CMasternode* pmn = mnodeman.Find(pubKeyMasternode);
+            if(pmn == NULL)
+            {
+                faile
