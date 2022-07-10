@@ -945,4 +945,9 @@ UniValue checkbudgets(const UniValue& params, bool fHelp)
             "\nInitiates a buddget check cycle manually\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("checkbudgets", "") + HelpExampleRpc("checkbu
+            HelpExampleCli("checkbudgets", "") + HelpExampleRpc("checkbudgets", ""));
+
+    budget.CheckAndRemove();
+
+    return NullUniValue;
+}
