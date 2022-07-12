@@ -477,4 +477,278 @@ UniValue startmasternode (const UniValue& params, bool fHelp)
 
             UniValue statusObj(UniValue::VOBJ);
             statusObj.push_back(Pair("alias", mne.getAlias()));
-            statusObj.push_back(Pair("result", result ? "success
+            statusObj.push_back(Pair("result", result ? "success" : "failed"));
+
+            if (result) {
+                successful++;
+                statusObj.push_back(Pair("error", ""));
+            } else {
+                failed++;
+                statusObj.push_back(Pair("error", errorMessage));
+            }
+
+            resultsObj.push_back(statusObj);
+        }
+        if (fLock)
+            pwalletMain->Lock();
+
+        UniValue returnObj(UniValue::VOBJ);
+        returnObj.push_back(Pair("overall", strprintf("Successfully started %d masternodes, failed to start %d, total %d", successful, failed, successful + failed)));
+        returnObj.push_back(Pair("detail", resultsObj));
+
+        return returnObj;
+    }
+
+    if (strCommand == "alias") {
+        std::string alias = params[2].get_str();
+
+        bool found = false;
+        int successful = 0;
+        int failed = 0;
+
+        UniValue resultsObj(UniValue::VARR);
+        UniValue statusObj(UniValue::VOBJ);
+        statusObj.push_back(Pair("alias", alias));
+
+        for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
+            if (mne.getAlias() == alias) {
+                found = true;
+                std::string errorMessage;
+                CMasternodeBroadcast mnb;
+
+                bool result = activeMasternode.CreateBroadcast(mne.getIp(), mne.getPrivKey(), mne.getTxHash(), mne.getOutputIndex(), errorMessage, mnb);
+
+                statusObj.push_back(Pair("result", result ? "successful" : "failed"));
+
+                if (result) {
+                    successful++;
+                    mnodeman.UpdateMasternodeList(mnb);
+                    mnb.Relay();
+                } else {
+                    failed++;
+                    statusObj.push_back(Pair("errorMessage", errorMessage));
+                }
+                break;
+            }
+        }
+
+        if (!found) {
+            failed++;
+            statusObj.push_back(Pair("result", "failed"));
+            statusObj.push_back(Pair("error", "could not find alias in config. Verify with list-conf."));
+        }
+
+        resultsObj.push_back(statusObj);
+
+        if (fLock)
+            pwalletMain->Lock();
+
+        UniValue returnObj(UniValue::VOBJ);
+        returnObj.push_back(Pair("overall", strprintf("Successfully started %d masternodes, failed to start %d, total %d", successful, failed, successful + failed)));
+        returnObj.push_back(Pair("detail", resultsObj));
+
+        return returnObj;
+    }
+    return NullUniValue;
+}
+
+UniValue createmasternodekey (const UniValue& params, bool fHelp)
+{
+    if (fHelp || (params.size() != 0))
+        throw runtime_error(
+            "createmasternodekey\n"
+            "\nCreate a new masternode private key\n"
+
+            "\nResult:\n"
+            "\"key\"    (string) Masternode private key\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("createmasternodekey", "") + HelpExampleRpc("createmasternodekey", ""));
+
+    CKey secret;
+    secret.MakeNewKey(false);
+
+    return CBitcoinSecret(secret).ToString();
+}
+
+UniValue getmasternodeoutputs (const UniValue& params, bool fHelp)
+{
+    if (fHelp || (params.size() != 0))
+        throw runtime_error(
+            "getmasternodeoutputs\n"
+            "\nPrint all masternode transaction outputs\n"
+
+            "\nResult:\n"
+            "[\n"
+            "  {\n"
+            "    \"txhash\": \"xxxx\",    (string) output transaction hash\n"
+            "    \"outputidx\": n       (numeric) output index number\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getmasternodeoutputs", "") + HelpExampleRpc("getmasternodeoutputs", ""));
+
+    // Find possible candidates
+    vector<COutput> possibleCoins = activeMasternode.SelectCoinsMasternode();
+
+    UniValue ret(UniValue::VARR);
+    for (COutput& out : possibleCoins) {
+        UniValue obj(UniValue::VOBJ);
+        obj.push_back(Pair("txhash", out.tx->GetHash().ToString()));
+        obj.push_back(Pair("outputidx", out.i));
+        ret.push_back(obj);
+    }
+
+    return ret;
+}
+
+UniValue listmasternodeconf (const UniValue& params, bool fHelp)
+{
+    std::string strFilter = "";
+
+    if (params.size() == 1) strFilter = params[0].get_str();
+
+    if (fHelp || (params.size() > 1))
+        throw runtime_error(
+            "listmasternodeconf ( \"filter\" )\n"
+            "\nPrint masternode.conf in JSON format\n"
+
+            "\nArguments:\n"
+            "1. \"filter\"    (string, optional) Filter search text. Partial match on alias, address, txHash, or status.\n"
+
+            "\nResult:\n"
+            "[\n"
+            "  {\n"
+            "    \"alias\": \"xxxx\",        (string) masternode alias\n"
+            "    \"address\": \"xxxx\",      (string) masternode IP address\n"
+            "    \"privateKey\": \"xxxx\",   (string) masternode private key\n"
+            "    \"txHash\": \"xxxx\",       (string) transaction hash\n"
+            "    \"outputIndex\": n,       (numeric) transaction output index\n"
+            "    \"status\": \"xxxx\"        (string) masternode status\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("listmasternodeconf", "") + HelpExampleRpc("listmasternodeconf", ""));
+
+    std::vector<CMasternodeConfig::CMasternodeEntry> mnEntries;
+    mnEntries = masternodeConfig.getEntries();
+
+    UniValue ret(UniValue::VARR);
+
+    for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
+        int nIndex;
+        if(!mne.castOutputIndex(nIndex))
+            continue;
+        CTxIn vin = CTxIn(uint256(mne.getTxHash()), uint32_t(nIndex));
+        CMasternode* pmn = mnodeman.Find(vin);
+
+        std::string strStatus = pmn ? pmn->Status() : "MISSING";
+
+        if (strFilter != "" && mne.getAlias().find(strFilter) == string::npos &&
+            mne.getIp().find(strFilter) == string::npos &&
+            mne.getTxHash().find(strFilter) == string::npos &&
+            strStatus.find(strFilter) == string::npos) continue;
+
+        UniValue mnObj(UniValue::VOBJ);
+        mnObj.push_back(Pair("alias", mne.getAlias()));
+        mnObj.push_back(Pair("address", mne.getIp()));
+        mnObj.push_back(Pair("privateKey", mne.getPrivKey()));
+        mnObj.push_back(Pair("txHash", mne.getTxHash()));
+        mnObj.push_back(Pair("outputIndex", mne.getOutputIndex()));
+        mnObj.push_back(Pair("status", strStatus));
+        ret.push_back(mnObj);
+    }
+
+    return ret;
+}
+
+UniValue getmasternodestatus (const UniValue& params, bool fHelp)
+{
+    if (fHelp || (params.size() != 0))
+        throw runtime_error(
+            "getmasternodestatus\n"
+            "\nPrint masternode status\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"txhash\": \"xxxx\",      (string) Collateral transaction hash\n"
+            "  \"outputidx\": n,        (numeric) Collateral transaction output index number\n"
+            "  \"netaddr\": \"xxxx\",     (string) Masternode network address\n"
+            "  \"addr\": \"xxxx\",        (string) GIANT address for masternode payments\n"
+            "  \"status\": \"xxxx\",      (string) Masternode status\n"
+            "  \"message\": \"xxxx\"      (string) Masternode status message\n"
+            "}\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getmasternodestatus", "") + HelpExampleRpc("getmasternodestatus", ""));
+
+    if (!fMasterNode) throw runtime_error("This is not a masternode");
+
+    CMasternode* pmn = mnodeman.Find(activeMasternode.vin);
+
+    if (pmn) {
+        UniValue mnObj(UniValue::VOBJ);
+        mnObj.push_back(Pair("level", pmn->GetLevelText()));
+        mnObj.push_back(Pair("txhash", activeMasternode.vin.prevout.hash.ToString()));
+        mnObj.push_back(Pair("outputidx", (uint64_t)activeMasternode.vin.prevout.n));
+        mnObj.push_back(Pair("netaddr", activeMasternode.service.ToString()));
+        mnObj.push_back(Pair("addr", CBitcoinAddress(pmn->pubKeyCollateralAddress.GetID()).ToString()));
+        mnObj.push_back(Pair("status", activeMasternode.status));
+        mnObj.push_back(Pair("message", activeMasternode.GetStatus()));
+        return mnObj;
+    }
+    throw runtime_error("Masternode not found in the list of available masternodes. Current status: "
+                        + activeMasternode.GetStatus());
+}
+
+UniValue getmasternodewinners (const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() > 3)
+        throw runtime_error(
+            "getmasternodewinners ( blocks \"filter\" )\n"
+            "\nPrint the masternode winners for the last n blocks\n"
+
+            "\nArguments:\n"
+            "1. blocks      (numeric, optional) Number of previous blocks to show (default: 10)\n"
+            "2. filter      (string, optional) Search filter matching MN address\n"
+
+            "\nResult (single winner):\n"
+            "[\n"
+            "  {\n"
+            "    \"nHeight\": n,            (numeric) block height\n"
+            "    \"winner\": {\n"
+            "      \"address\": \"xxxx\",   (string) GIANT MN Address\n"
+            "      \"level\": n,            (numeric) Masternode level\n"
+            "      \"nVotes\": n,           (numeric) Number of votes for winner\n"
+            "    }\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+
+            "\nResult (multiple winners):\n"
+            "[\n"
+            "  {\n"
+            "    \"nHeight\": n,            (numeric) block height\n"
+            "    \"winner\": [\n"
+            "      {\n"
+            "        \"address\": \"xxxx\", (string) GIANT MN Address\n"
+            "        \"level\": n,          (numeric) Masternode level\n"
+            "        \"nVotes\": n,         (numeric) Number of votes for winner\n"
+            "      }\n"
+            "      ,...\n"
+            "    ]\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("getmasternodewinners", "") + HelpExampleRpc("getmasternodewinners", ""));
+
+    int nHeight;
+    {
+        LOCK(cs_main);
+     
