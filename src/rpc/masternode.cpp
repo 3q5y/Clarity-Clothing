@@ -1016,4 +1016,87 @@ UniValue decodemasternodebroadcast(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "decodemasternodebroadcast \"hexs
+            "decodemasternodebroadcast \"hexstring\"\n"
+            "\nCommand to decode masternode broadcast messages\n"
+
+            "\nArgument:\n"
+            "1. \"hexstring\"        (string) The hex encoded masternode broadcast message\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"vin\": \"xxxx\"                (string) The unspent output which is holding the masternode collateral\n"
+            "  \"addr\": \"xxxx\"               (string) IP address of the masternode\n"
+            "  \"pubkeycollateral\": \"xxxx\"   (string) Collateral address's public key\n"
+            "  \"pubkeymasternode\": \"xxxx\"   (string) Masternode's public key\n"
+            "  \"vchsig\": \"xxxx\"             (string) Base64-encoded signature of this message (verifiable via pubkeycollateral)\n"
+            "  \"sigtime\": \"nnn\"             (numeric) Signature timestamp\n"
+            "  \"protocolversion\": \"nnn\"     (numeric) Masternode's protocol version\n"
+            "  \"nlastdsq\": \"nnn\"            (numeric) The last time the masternode sent a DSQ message (for mixing) (DEPRECATED)\n"
+            "  \"lastping\" : {                 (object) JSON object with information about the masternode's last ping\n"
+            "      \"vin\": \"xxxx\"            (string) The unspent output of the masternode which is signing the message\n"
+            "      \"blockhash\": \"xxxx\"      (string) Current chaintip blockhash minus 12\n"
+            "      \"sigtime\": \"nnn\"         (numeric) Signature time for this ping\n"
+            "      \"vchsig\": \"xxxx\"         (string) Base64-encoded signature of this ping (verifiable via pubkeymasternode)\n"
+            "}\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("decodemasternodebroadcast", "hexstring") + HelpExampleRpc("decodemasternodebroadcast", "hexstring"));
+
+    CMasternodeBroadcast mnb;
+
+    if (!DecodeHexMnb(mnb, params[0].get_str()))
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Masternode broadcast message decode failed");
+
+    if(!mnb.VerifySignature())
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Masternode broadcast signature verification failed");
+
+    UniValue resultObj(UniValue::VOBJ);
+
+    resultObj.push_back(Pair("vin", mnb.vin.prevout.ToString()));
+    resultObj.push_back(Pair("addr", mnb.addr.ToString()));
+    resultObj.push_back(Pair("pubkeycollateral", CBitcoinAddress(mnb.pubKeyCollateralAddress.GetID()).ToString()));
+    resultObj.push_back(Pair("pubkeymasternode", CBitcoinAddress(mnb.pubKeyMasternode.GetID()).ToString()));
+    resultObj.push_back(Pair("vchsig", EncodeBase64(&mnb.sig[0], mnb.sig.size())));
+    resultObj.push_back(Pair("sigtime", mnb.sigTime));
+    resultObj.push_back(Pair("protocolversion", mnb.protocolVersion));
+    resultObj.push_back(Pair("nlastdsq", mnb.nLastDsq));
+
+    UniValue lastPingObj(UniValue::VOBJ);
+    lastPingObj.push_back(Pair("vin", mnb.lastPing.vin.prevout.ToString()));
+    lastPingObj.push_back(Pair("blockhash", mnb.lastPing.blockHash.ToString()));
+    lastPingObj.push_back(Pair("sigtime", mnb.lastPing.sigTime));
+    lastPingObj.push_back(Pair("vchsig", EncodeBase64(&mnb.lastPing.vchSig[0], mnb.lastPing.vchSig.size())));
+
+    resultObj.push_back(Pair("lastping", lastPingObj));
+
+    return resultObj;
+}
+
+UniValue relaymasternodebroadcast(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "relaymasternodebroadcast \"hexstring\"\n"
+            "\nCommand to relay masternode broadcast messages\n"
+
+            "\nArguments:\n"
+            "1. \"hexstring\"        (string) The hex encoded masternode broadcast message\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("relaymasternodebroadcast", "hexstring") + HelpExampleRpc("relaymasternodebroadcast", "hexstring"));
+
+
+    CMasternodeBroadcast mnb;
+
+    if (!DecodeHexMnb(mnb, params[0].get_str()))
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Masternode broadcast message decode failed");
+
+    if(!mnb.VerifySignature())
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Masternode broadcast signature verification failed");
+
+    mnodeman.UpdateMasternodeList(mnb);
+    mnb.Relay();
+
+    return strprintf("Masternode broadcast sent (service %s, vin %s)", mnb.addr.ToString(), mnb.vin.ToString());
+}
+
