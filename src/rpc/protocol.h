@@ -70,4 +70,24 @@ enum RPCErrorCode {
     RPC_WALLET_INVALID_ACCOUNT_NAME     = -11, //! Invalid account name
     RPC_WALLET_KEYPOOL_RAN_OUT          = -12, //! Keypool ran out, call keypoolrefill first
     RPC_WALLET_UNLOCK_NEEDED            = -13, //! Enter the wallet passphrase with walletpassphrase first
-    RPC_WALLET_PASSPHRASE_INCORRECT     = -14, //! The wallet pas
+    RPC_WALLET_PASSPHRASE_INCORRECT     = -14, //! The wallet passphrase entered was incorrect
+    RPC_WALLET_WRONG_ENC_STATE          = -15, //! Command given in wrong wallet encryption state (encrypting an encrypted wallet etc.)
+    RPC_WALLET_ENCRYPTION_FAILED        = -16, //! Failed to encrypt the wallet
+    RPC_WALLET_ALREADY_UNLOCKED         = -17, //! Wallet is already unlocked
+};
+
+std::string JSONRPCRequest(const std::string& strMethod, const UniValue& params, const UniValue& id);
+UniValue JSONRPCReplyObj(const UniValue& result, const UniValue& error, const UniValue& id);
+std::string JSONRPCReply(const UniValue& result, const UniValue& error, const UniValue& id);
+UniValue JSONRPCError(int code, const std::string& message);
+
+/** Get name of RPC authentication cookie file */
+boost::filesystem::path GetAuthCookieFile();
+/** Generate a new RPC authentication cookie and write it to disk */
+bool GenerateAuthCookie(std::string *cookie_out);
+/** Read the RPC authentication cookie from disk */
+bool GetAuthCookie(std::string *cookie_out);
+/** Delete RPC authentication cookie from disk */
+void DeleteAuthCookie();
+
+#endif // BITCOIN_RPCPROTOCOL_H
