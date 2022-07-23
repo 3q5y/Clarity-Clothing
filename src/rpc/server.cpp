@@ -372,4 +372,224 @@ static const CRPCCommand vRPCCommands[] =
         {"giant", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
         {"giant", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
         {"giant", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"giant", "masternodedebug", &masternodedebug, tr
+        {"giant", "masternodedebug", &masternodedebug, true, true, false},
+        {"giant", "startmasternode", &startmasternode, true, true, false},
+        {"giant", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"giant", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"giant", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"giant", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"giant", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"giant", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"giant", "preparebudget", &preparebudget, true, true, false},
+        {"giant", "submitbudget", &submitbudget, true, true, false},
+        {"giant", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"giant", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"giant", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"giant", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"giant", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"giant", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"giant", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"giant", "checkbudgets", &checkbudgets, true, true, false},
+        {"giant", "mnsync", &mnsync, true, true, false},
+        {"giant", "spork", &spork, true, true, false},
+        {"giant", "getpoolinfo", &getpoolinfo, true, true, false},
+
+#ifdef ENABLE_WALLET
+        /* Wallet */
+        {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
+        {"wallet", "autocombinerewards", &autocombinerewards, false, false, true},
+        {"wallet", "backupwallet", &backupwallet, true, false, true},
+        {"wallet", "enableautomintaddress", &enableautomintaddress, true, false, true},
+        {"wallet", "createautomintaddress", &createautomintaddress, true, false, true},
+        {"wallet", "dumpprivkey", &dumpprivkey, true, false, true},
+        {"wallet", "dumpwallet", &dumpwallet, true, false, true},
+        {"wallet", "bip38encrypt", &bip38encrypt, true, false, true},
+        {"wallet", "bip38decrypt", &bip38decrypt, true, false, true},
+        {"wallet", "encryptwallet", &encryptwallet, true, false, true},
+        {"wallet", "getaccountaddress", &getaccountaddress, true, false, true},
+        {"wallet", "getaccount", &getaccount, true, false, true},
+        {"wallet", "getaddressesbyaccount", &getaddressesbyaccount, true, false, true},
+        {"wallet", "getbalance", &getbalance, false, false, true},
+        {"wallet", "getnewaddress", &getnewaddress, true, false, true},
+        {"wallet", "getrawchangeaddress", &getrawchangeaddress, true, false, true},
+        {"wallet", "getreceivedbyaccount", &getreceivedbyaccount, false, false, true},
+        {"wallet", "getreceivedbyaddress", &getreceivedbyaddress, false, false, true},
+        {"wallet", "getstakingstatus", &getstakingstatus, false, false, true},
+        {"wallet", "getstakesplitthreshold", &getstakesplitthreshold, false, false, true},
+        {"wallet", "gettransaction", &gettransaction, false, false, true},
+        {"wallet", "getunconfirmedbalance", &getunconfirmedbalance, false, false, true},
+        {"wallet", "getwalletinfo", &getwalletinfo, false, false, true},
+        {"wallet", "importprivkey", &importprivkey, true, false, true},
+        {"wallet", "importwallet", &importwallet, true, false, true},
+        {"wallet", "importaddress", &importaddress, true, false, true},
+        {"wallet", "keypoolrefill", &keypoolrefill, true, false, true},
+        {"wallet", "listaccounts", &listaccounts, false, false, true},
+        {"wallet", "listaddressgroupings", &listaddressgroupings, false, false, true},
+        {"wallet", "listlockunspent", &listlockunspent, false, false, true},
+        {"wallet", "listreceivedbyaccount", &listreceivedbyaccount, false, false, true},
+        {"wallet", "listreceivedbyaddress", &listreceivedbyaddress, false, false, true},
+        {"wallet", "listsinceblock", &listsinceblock, false, false, true},
+        {"wallet", "listtransactions", &listtransactions, false, false, true},
+        {"wallet", "listunspent", &listunspent, false, false, true},
+        {"wallet", "lockunspent", &lockunspent, true, false, true},
+        {"wallet", "move", &movecmd, false, false, true},
+        {"wallet", "multisend", &multisend, false, false, true},
+        {"wallet", "sendfrom", &sendfrom, false, false, true},
+        {"wallet", "sendmany", &sendmany, false, false, true},
+        {"wallet", "sendtoaddress", &sendtoaddress, false, false, true},
+        {"wallet", "sendtoaddressix", &sendtoaddressix, false, false, true},
+        {"wallet", "setaccount", &setaccount, true, false, true},
+        {"wallet", "setstakesplitthreshold", &setstakesplitthreshold, false, false, true},
+        {"wallet", "settxfee", &settxfee, true, false, true},
+        {"wallet", "signmessage", &signmessage, true, false, true},
+        {"wallet", "walletlock", &walletlock, true, false, true},
+        {"wallet", "walletpassphrasechange", &walletpassphrasechange, true, false, true},
+        {"wallet", "walletpassphrase", &walletpassphrase, true, false, true},
+
+        {"zerocoin", "createrawzerocoinstake", &createrawzerocoinstake, false, false, true},
+        {"zerocoin", "getzerocoinbalance", &getzerocoinbalance, false, false, true},
+        {"zerocoin", "listmintedzerocoins", &listmintedzerocoins, false, false, true},
+        {"zerocoin", "listspentzerocoins", &listspentzerocoins, false, false, true},
+        {"zerocoin", "listzerocoinamounts", &listzerocoinamounts, false, false, true},
+        {"zerocoin", "mintzerocoin", &mintzerocoin, false, false, true},
+        {"zerocoin", "spendzerocoin", &spendzerocoin, false, false, true},
+        {"zerocoin", "spendrawzerocoin", &spendrawzerocoin, true, false, false},
+        {"zerocoin", "spendzerocoinmints", &spendzerocoinmints, false, false, true},
+        {"zerocoin", "resetmintzerocoin", &resetmintzerocoin, false, false, true},
+        {"zerocoin", "resetspentzerocoin", &resetspentzerocoin, false, false, true},
+        {"zerocoin", "getarchivedzerocoin", &getarchivedzerocoin, false, false, true},
+        {"zerocoin", "importzerocoins", &importzerocoins, false, false, true},
+        {"zerocoin", "exportzerocoins", &exportzerocoins, false, false, true},
+        {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false, false, true},
+        {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false, false, false},
+        {"zerocoin", "getzgicseed", &getzgicseed, false, false, true},
+        {"zerocoin", "setzgicseed", &setzgicseed, false, false, true},
+        {"zerocoin", "generatemintlist", &generatemintlist, false, false, true},
+        {"zerocoin", "searchdzgic", &searchdzgic, false, false, true},
+        {"zerocoin", "dzgicstate", &dzgicstate, false, false, true},
+        {"zerocoin", "clearspendcache", &clearspendcache, false, false, true}
+
+#endif // ENABLE_WALLET
+};
+
+CRPCTable::CRPCTable()
+{
+    unsigned int vcidx;
+    for (vcidx = 0; vcidx < (sizeof(vRPCCommands) / sizeof(vRPCCommands[0])); vcidx++) {
+        const CRPCCommand* pcmd;
+
+        pcmd = &vRPCCommands[vcidx];
+        mapCommands[pcmd->name] = pcmd;
+    }
+}
+
+const CRPCCommand *CRPCTable::operator[](const std::string &name) const
+{
+    map<string, const CRPCCommand*>::const_iterator it = mapCommands.find(name);
+    if (it == mapCommands.end())
+        return NULL;
+    return (*it).second;
+}
+
+bool StartRPC()
+{
+    LogPrint("rpc", "Starting RPC\n");
+    fRPCRunning = true;
+    g_rpcSignals.Started();
+    return true;
+}
+
+void InterruptRPC()
+{
+    LogPrint("rpc", "Interrupting RPC\n");
+    // Interrupt e.g. running longpolls
+    fRPCRunning = false;
+}
+
+void StopRPC()
+{
+    LogPrint("rpc", "Stopping RPC\n");
+    deadlineTimers.clear();
+    g_rpcSignals.Stopped();
+}
+
+bool IsRPCRunning()
+{
+    return fRPCRunning;
+}
+
+void SetRPCWarmupStatus(const std::string& newStatus)
+{
+    LOCK(cs_rpcWarmup);
+    rpcWarmupStatus = newStatus;
+}
+
+void SetRPCWarmupFinished()
+{
+    LOCK(cs_rpcWarmup);
+    assert(fRPCInWarmup);
+    fRPCInWarmup = false;
+}
+
+bool RPCIsInWarmup(std::string* outStatus)
+{
+    LOCK(cs_rpcWarmup);
+    if (outStatus)
+        *outStatus = rpcWarmupStatus;
+    return fRPCInWarmup;
+}
+
+void JSONRequest::parse(const UniValue& valRequest)
+{
+    // Parse request
+    if (!valRequest.isObject())
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Invalid Request object");
+    const UniValue& request = valRequest.get_obj();
+
+    // Parse id now so errors from here on will have the id
+    id = find_value(request, "id");
+
+    // Parse method
+    UniValue valMethod = find_value(request, "method");
+    if (valMethod.isNull())
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Missing method");
+    if (!valMethod.isStr())
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Method must be a string");
+    strMethod = valMethod.get_str();
+    if (strMethod != "getblocktemplate")
+        LogPrint("rpc", "ThreadRPCServer method=%s\n", SanitizeString(strMethod));
+
+    // Parse params
+    UniValue valParams = find_value(request, "params");
+    if (valParams.isArray())
+        params = valParams.get_array();
+    else if (valParams.isNull())
+        params = UniValue(UniValue::VARR);
+    else
+        throw JSONRPCError(RPC_INVALID_REQUEST, "Params must be an array");
+}
+
+
+static UniValue JSONRPCExecOne(const UniValue& req)
+{
+    UniValue rpc_result(UniValue::VOBJ);
+
+    JSONRequest jreq;
+    try {
+        jreq.parse(req);
+
+        UniValue result = tableRPC.execute(jreq.strMethod, jreq.params);
+        rpc_result = JSONRPCReplyObj(result, NullUniValue, jreq.id);
+    } catch (const UniValue& objError) {
+        rpc_result = JSONRPCReplyObj(NullUniValue, objError, jreq.id);
+    } catch (std::exception& e) {
+        rpc_result = JSONRPCReplyObj(NullUniValue,
+            JSONRPCError(RPC_PARSE_ERROR, e.what()), jreq.id);
+    }
+
+    return rpc_result;
+}
+
+std::string JSONRPCExecBatch(const UniValue& vReq)
+{
+    Uni
