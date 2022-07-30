@@ -592,4 +592,79 @@ static UniValue JSONRPCExecOne(const UniValue& req)
 
 std::string JSONRPCExecBatch(const UniValue& vReq)
 {
-    Uni
+    UniValue ret(UniValue::VARR);
+    for (unsigned int reqIdx = 0; reqIdx < vReq.size(); reqIdx++)
+        ret.push_back(JSONRPCExecOne(vReq[reqIdx]));
+
+    return ret.write() + "\n";
+}
+
+UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params) const
+{
+    // Find method
+    const CRPCCommand* pcmd = tableRPC[strMethod];
+    if (!pcmd)
+        throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found");
+
+    g_rpcSignals.PreCommand(*pcmd);
+
+    try {
+        // Execute
+        return pcmd->actor(params, false);
+    } catch (std::exception& e) {
+        throw JSONRPCError(RPC_MISC_ERROR, e.what());
+    }
+
+    g_rpcSignals.PostCommand(*pcmd);
+}
+
+std::vector<std::string> CRPCTable::listCommands() const
+{
+    std::vector<std::string> commandList;
+    typedef std::map<std::string, const CRPCCommand*> commandMap;
+
+    std::transform( mapCommands.begin(), mapCommands.end(),
+                   std::back_inserter(commandList),
+                   boost::bind(&commandMap::value_type::first,_1) );
+    return commandList;
+}
+
+std::string HelpExampleCli(string methodname, string args)
+{
+    return "> giant-cli " + methodname + " " + args + "\n";
+}
+
+std::string HelpExampleRpc(string methodname, string args)
+{
+    return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
+           "\"method\": \"" +
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:51473/\n";
+}
+
+void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)
+{
+    if (!timerInterface)
+        timerInterface = iface;
+}
+
+void RPCSetTimerInterface(RPCTimerInterface *iface)
+{
+    timerInterface = iface;
+}
+
+void RPCUnsetTimerInterface(RPCTimerInterface *iface)
+{
+    if (timerInterface == iface)
+        timerInterface = NULL;
+}
+
+void RPCRunLater(const std::string& name, boost::function<void(void)> func, int64_t nSeconds)
+{
+    if (!timerInterface)
+        throw JSONRPCError(RPC_INTERNAL_ERROR, "No timer handler registered for RPC");
+    deadlineTimers.erase(name);
+    LogPrint("rpc", "queue run of timer %s in %i seconds (using %s)\n", name, nSeconds, timerInterface->Name());
+    deadlineTimers.insert(std::make_pair(name, boost::shared_ptr<RPCTimerBase>(timerInterface->NewTimer(func, nSeconds*1000))));
+}
+
+const CRPCTable tableRPC;
