@@ -912,4 +912,272 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, un
                         // See the script_(in)valid tests for details.
                         if (!CheckSignatureEncoding(vchSig, flags, serror) || !CheckPubKeyEncoding(vchPubKey, flags, serror)) {
                             // serror is set
-        
+                            return false;
+                        }
+
+                        // Check signature
+                        bool fOk = checker.CheckSig(vchSig, vchPubKey, scriptCode);
+
+                        if (fOk) {
+                            isig++;
+                            nSigsCount--;
+                        }
+                        ikey++;
+                        nKeysCount--;
+
+                        // If there are more signatures left than keys left,
+                        // then too many signatures have failed. Exit early,
+                        // without checking any further signatures.
+                        if (nSigsCount > nKeysCount)
+                            fSuccess = false;
+                    }
+
+                    // Clean up stack of actual arguments
+                    while (i-- > 1)
+                        popstack(stack);
+
+                    // A bug causes CHECKMULTISIG to consume one extra argument
+                    // whose contents were not checked in any way.
+                    //
+                    // Unfortunately this is a potential source of mutability,
+                    // so optionally verify it is exactly equal to zero prior
+                    // to removing it from the stack.
+                    if (stack.size() < 1)
+                        return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+                    if ((flags & SCRIPT_VERIFY_NULLDUMMY) && stacktop(-1).size())
+                        return set_error(serror, SCRIPT_ERR_SIG_NULLDUMMY);
+                    popstack(stack);
+
+                    stack.push_back(fSuccess ? vchTrue : vchFalse);
+
+                    if (opcode == OP_CHECKMULTISIGVERIFY)
+                    {
+                        if (fSuccess)
+                            popstack(stack);
+                        else
+                            return set_error(serror, SCRIPT_ERR_CHECKMULTISIGVERIFY);
+                    }
+                }
+                break;
+
+                default:
+                    return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
+            }
+
+            // Size limits
+            if (stack.size() + altstack.size() > 1000)
+                return set_error(serror, SCRIPT_ERR_STACK_SIZE);
+        }
+    }
+    catch (...)
+    {
+        return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
+    }
+
+    if (!vfExec.empty())
+        return set_error(serror, SCRIPT_ERR_UNBALANCED_CONDITIONAL);
+
+    return set_success(serror);
+}
+
+namespace {
+
+/**
+ * Wrapper that serializes like CTransaction, but with the modifications
+ *  required for the signature hash done in-place
+ */
+class CTransactionSignatureSerializer {
+private:
+    const CTransaction &txTo;  //! reference to the spending transaction (the one being serialized)
+    const CScript &scriptCode; //! output script being consumed
+    const unsigned int nIn;    //! input index of txTo being signed
+    const bool fAnyoneCanPay;  //! whether the hashtype has the SIGHASH_ANYONECANPAY flag set
+    const bool fHashSingle;    //! whether the hashtype is SIGHASH_SINGLE
+    const bool fHashNone;      //! whether the hashtype is SIGHASH_NONE
+
+public:
+    CTransactionSignatureSerializer(const CTransaction &txToIn, const CScript &scriptCodeIn, unsigned int nInIn, int nHashTypeIn) :
+        txTo(txToIn), scriptCode(scriptCodeIn), nIn(nInIn),
+        fAnyoneCanPay(!!(nHashTypeIn & SIGHASH_ANYONECANPAY)),
+        fHashSingle((nHashTypeIn & 0x1f) == SIGHASH_SINGLE),
+        fHashNone((nHashTypeIn & 0x1f) == SIGHASH_NONE) {}
+
+    /** Serialize the passed scriptCode, skipping OP_CODESEPARATORs */
+    template<typename S>
+    void SerializeScriptCode(S &s, int nType, int nVersion) const {
+        CScript::const_iterator it = scriptCode.begin();
+        CScript::const_iterator itBegin = it;
+        opcodetype opcode;
+        unsigned int nCodeSeparators = 0;
+        while (scriptCode.GetOp(it, opcode)) {
+            if (opcode == OP_CODESEPARATOR)
+                nCodeSeparators++;
+        }
+        ::WriteCompactSize(s, scriptCode.size() - nCodeSeparators);
+        it = itBegin;
+        while (scriptCode.GetOp(it, opcode)) {
+            if (opcode == OP_CODESEPARATOR) {
+                s.write((char*)&itBegin[0], it-itBegin-1);
+                itBegin = it;
+            }
+        }
+        if (itBegin != scriptCode.end())
+            s.write((char*)&itBegin[0], it-itBegin);
+    }
+
+    /** Serialize an input of txTo */
+    template<typename S>
+    void SerializeInput(S &s, unsigned int nInput, int nType, int nVersion) const {
+        // In case of SIGHASH_ANYONECANPAY, only the input being signed is serialized
+        if (fAnyoneCanPay)
+            nInput = nIn;
+        // Serialize the prevout
+        ::Serialize(s, txTo.vin[nInput].prevout, nType, nVersion);
+        // Serialize the script
+        if (nInput != nIn)
+            // Blank out other inputs' signatures
+            ::Serialize(s, CScript(), nType, nVersion);
+        else
+            SerializeScriptCode(s, nType, nVersion);
+        // Serialize the nSequence
+        if (nInput != nIn && (fHashSingle || fHashNone))
+            // let the others update at will
+            ::Serialize(s, (int)0, nType, nVersion);
+        else
+            ::Serialize(s, txTo.vin[nInput].nSequence, nType, nVersion);
+    }
+
+    /** Serialize an output of txTo */
+    template<typename S>
+    void SerializeOutput(S &s, unsigned int nOutput, int nType, int nVersion) const {
+        if (fHashSingle && nOutput != nIn)
+            // Do not lock-in the txout payee at other indices as txin
+            ::Serialize(s, CTxOut(), nType, nVersion);
+        else
+            ::Serialize(s, txTo.vout[nOutput], nType, nVersion);
+    }
+
+    /** Serialize txTo */
+    template<typename S>
+    void Serialize(S &s, int nType, int nVersion) const {
+        // Serialize nVersion
+        ::Serialize(s, txTo.nVersion, nType, nVersion);
+        // Serialize vin
+        unsigned int nInputs = fAnyoneCanPay ? 1 : txTo.vin.size();
+        ::WriteCompactSize(s, nInputs);
+        for (unsigned int nInput = 0; nInput < nInputs; nInput++)
+             SerializeInput(s, nInput, nType, nVersion);
+        // Serialize vout
+        unsigned int nOutputs = fHashNone ? 0 : (fHashSingle ? nIn+1 : txTo.vout.size());
+        ::WriteCompactSize(s, nOutputs);
+        for (unsigned int nOutput = 0; nOutput < nOutputs; nOutput++)
+             SerializeOutput(s, nOutput, nType, nVersion);
+        // Serialize nLockTime
+        ::Serialize(s, txTo.nLockTime, nType, nVersion);
+    }
+};
+
+} // anon namespace
+
+uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsigned int nIn, int nHashType)
+{
+    if (nIn >= txTo.vin.size()) {
+        //  nIn out of range
+        return 1;
+    }
+
+    // Check for invalid use of SIGHASH_SINGLE
+    if ((nHashType & 0x1f) == SIGHASH_SINGLE) {
+        if (nIn >= txTo.vout.size()) {
+            //  nOut out of range
+            return 1;
+        }
+    }
+
+    // Wrapper to serialize only the necessary parts of the transaction being signed
+    CTransactionSignatureSerializer txTmp(txTo, scriptCode, nIn, nHashType);
+
+    // Serialize and hash
+    CHashWriter ss(SER_GETHASH, 0);
+    ss << txTmp << nHashType;
+    return ss.GetHash();
+}
+
+bool TransactionSignatureChecker::VerifySignature(const std::vector<unsigned char>& vchSig, const CPubKey& pubkey, const uint256& sighash) const
+{
+    return pubkey.Verify(sighash, vchSig);
+}
+
+bool TransactionSignatureChecker::CheckSig(const vector<unsigned char>& vchSigIn, const vector<unsigned char>& vchPubKey, const CScript& scriptCode) const
+{
+    CPubKey pubkey(vchPubKey);
+    if (!pubkey.IsValid())
+        return false;
+
+    // Hash type is one byte tacked on to the end of the signature
+    vector<unsigned char> vchSig(vchSigIn);
+    if (vchSig.empty())
+        return false;
+    int nHashType = vchSig.back();
+    vchSig.pop_back();
+
+    uint256 sighash = SignatureHash(scriptCode, *txTo, nIn, nHashType);
+
+    if (!VerifySignature(vchSig, pubkey, sighash))
+        return false;
+
+    return true;
+}
+
+bool TransactionSignatureChecker::CheckLockTime(const CScriptNum& nLockTime) const
+{
+    // There are two times of nLockTime: lock-by-blockheight
+    // and lock-by-blocktime, distinguished by whether
+    // nLockTime < LOCKTIME_THRESHOLD.
+    //
+    // We want to compare apples to apples, so fail the script
+    // unless the type of nLockTime being tested is the same as
+    // the nLockTime in the transaction.
+    if (!(
+        (txTo->nLockTime <  LOCKTIME_THRESHOLD && nLockTime <  LOCKTIME_THRESHOLD) ||
+        (txTo->nLockTime >= LOCKTIME_THRESHOLD && nLockTime >= LOCKTIME_THRESHOLD)
+    ))
+        return false;
+
+    // Now that we know we're comparing apples-to-apples, the
+    // comparison is a simple numeric one.
+    if (nLockTime > (int64_t)txTo->nLockTime)
+        return false;
+
+    // Finally the nLockTime feature can be disabled and thus
+    // CHECKLOCKTIMEVERIFY bypassed if every txin has been
+    // finalized by setting nSequence to maxint. The
+    // transaction would be allowed into the blockchain, making
+    // the opcode ineffective.
+    //
+    // Testing if this vin is not final is sufficient to
+    // prevent this condition. Alternatively we could test all
+    // inputs, but testing just this input minimizes the data
+    // required to prove correct CHECKLOCKTIMEVERIFY execution.
+    if (txTo->vin[nIn].IsFinal())
+        return false;
+
+    return true;
+}
+
+
+bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigned int flags, const BaseSignatureChecker& checker, ScriptError* serror)
+{
+    set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
+
+    if ((flags & SCRIPT_VERIFY_SIGPUSHONLY) != 0 && !scriptSig.IsPushOnly()) {
+        return set_error(serror, SCRIPT_ERR_SIG_PUSHONLY);
+    }
+
+    vector<vector<unsigned char> > stack, stackCopy;
+    if (!EvalScript(stack, scriptSig, flags, checker, serror))
+        // serror is set
+        return false;
+    if (flags & SCRIPT_VERIFY_P2SH)
+        stackCopy = stack;
+    if (!EvalScript(stack, scriptPubKey, flags,
