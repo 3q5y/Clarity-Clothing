@@ -1180,4 +1180,41 @@ bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigne
         return false;
     if (flags & SCRIPT_VERIFY_P2SH)
         stackCopy = stack;
-    if (!EvalScript(stack, scriptPubKey, flags,
+    if (!EvalScript(stack, scriptPubKey, flags, checker, serror))
+        // serror is set
+        return false;
+    if (stack.empty())
+        return set_error(serror, SCRIPT_ERR_EVAL_FALSE);
+
+    if (CastToBool(stack.back()) == false)
+        return set_error(serror, SCRIPT_ERR_EVAL_FALSE);
+
+    // Additional validation for spend-to-script-hash transactions:
+    if ((flags & SCRIPT_VERIFY_P2SH) && scriptPubKey.IsPayToScriptHash())
+    {
+        // scriptSig must be literals-only or validation fails
+        if (!scriptSig.IsPushOnly())
+            return set_error(serror, SCRIPT_ERR_SIG_PUSHONLY);
+
+        // stackCopy cannot be empty here, because if it was the
+        // P2SH  HASH <> EQUAL  scriptPubKey would be evaluated with
+        // an empty stack and the EvalScript above would return false.
+        assert(!stackCopy.empty());
+
+        const valtype& pubKeySerialized = stackCopy.back();
+        CScript pubKey2(pubKeySerialized.begin(), pubKeySerialized.end());
+        popstack(stackCopy);
+
+        if (!EvalScript(stackCopy, pubKey2, flags, checker, serror))
+            // serror is set
+            return false;
+        if (stackCopy.empty())
+            return set_error(serror, SCRIPT_ERR_EVAL_FALSE);
+        if (!CastToBool(stackCopy.back()))
+            return set_error(serror, SCRIPT_ERR_EVAL_FALSE);
+        else
+            return set_success(serror);
+    }
+
+    return set_success(serror);
+}
