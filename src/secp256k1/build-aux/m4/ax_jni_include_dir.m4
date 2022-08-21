@@ -139,4 +139,7 @@ while ls -ld "$_cur" 2>/dev/null | grep " -> " >/dev/null; do
         # 'X' avoids triggering unwanted echo options.
         *) _cur=`echo "X$_cur" | sed -e 's/^X//' -e 's:[[^/]]*$::'`"$_slink";;
         esac
-        AC_MSG_RESULT([$_c
+        AC_MSG_RESULT([$_cur])
+done
+_ACJNI_FOLLOWED="$_cur"
+])# _ACJNI
