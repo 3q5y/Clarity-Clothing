@@ -111,4 +111,37 @@ static void secp256k1_gej_double_var(secp256k1_gej *r, const secp256k1_gej *a, s
 static void secp256k1_gej_add_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_gej *b, secp256k1_fe *rzr);
 
 /** Set r equal to the sum of a and b (with b given in affine coordinates, and not infinity). */
-static void secp256k1_gej_add_ge(secp256k1_gej
+static void secp256k1_gej_add_ge(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b);
+
+/** Set r equal to the sum of a and b (with b given in affine coordinates). This is more efficient
+    than secp256k1_gej_add_var. It is identical to secp256k1_gej_add_ge but without constant-time
+    guarantee, and b is allowed to be infinity. If rzr is non-NULL, r->z = a->z * *rzr (a cannot be infinity in that case). */
+static void secp256k1_gej_add_ge_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, secp256k1_fe *rzr);
+
+/** Set r equal to the sum of a and b (with the inverse of b's Z coordinate passed as bzinv). */
+static void secp256k1_gej_add_zinv_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, const secp256k1_fe *bzinv);
+
+#ifdef USE_ENDOMORPHISM
+/** Set r to be equal to lambda times a, where lambda is chosen in a way such that this is very fast. */
+static void secp256k1_ge_mul_lambda(secp256k1_ge *r, const secp256k1_ge *a);
+#endif
+
+/** Clear a secp256k1_gej to prevent leaking sensitive information. */
+static void secp256k1_gej_clear(secp256k1_gej *r);
+
+/** Clear a secp256k1_ge to prevent leaking sensitive information. */
+static void secp256k1_ge_clear(secp256k1_ge *r);
+
+/** Convert a group element to the storage type. */
+static void secp256k1_ge_to_storage(secp256k1_ge_storage *r, const secp256k1_ge *a);
+
+/** Convert a group element back from the storage type. */
+static void secp256k1_ge_from_storage(secp256k1_ge *r, const secp256k1_ge_storage *a);
+
+/** If flag is true, set *r equal to *a; otherwise leave it. Constant-time. */
+static void secp256k1_ge_storage_cmov(secp256k1_ge_storage *r, const secp256k1_ge_storage *a, int flag);
+
+/** Rescale a jacobian point by b which must be non-zero. Constant-time. */
+static void secp256k1_gej_rescale(secp256k1_gej *r, const secp256k1_fe *b);
+
+#endif /* SECP256K1_GROUP_H */
