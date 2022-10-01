@@ -372,4 +372,22 @@ void test_ecdsa_recovery_edge_cases(void) {
         sigcder[7] = 0;
         sigc64[31] = 1;
         sigc64[63] = 0;
-        CHECK(secp
+        CHECK(secp256k1_ecdsa_recoverable_signature_parse_compact(ctx, &rsig, sigc64, 0) == 1);
+        CHECK(secp256k1_ecdsa_recover(ctx, &pubkeyb, &rsig, msg32) == 0);
+        CHECK(secp256k1_ecdsa_signature_parse_der(ctx, &sig, sigcder, sizeof(sigcder)) == 1);
+        CHECK(secp256k1_ecdsa_verify(ctx, &sig, msg32, &pubkeyc) == 0);
+    }
+}
+
+void run_recovery_tests(void) {
+    int i;
+    for (i = 0; i < count; i++) {
+        test_ecdsa_recovery_api();
+    }
+    for (i = 0; i < 64*count; i++) {
+        test_ecdsa_recovery_end_to_end();
+    }
+    test_ecdsa_recovery_edge_cases();
+}
+
+#endif /* SECP256K1_MODULE_RECOVERY_TESTS_H */
