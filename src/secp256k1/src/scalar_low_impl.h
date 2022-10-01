@@ -98,4 +98,17 @@ static int secp256k1_scalar_shr_int(secp256k1_scalar *r, int n) {
     return ret;
 }
 
-static void secp256k1_scalar_sqr(secp256k1_scalar *r, const secp256k1_scalar *a)
+static void secp256k1_scalar_sqr(secp256k1_scalar *r, const secp256k1_scalar *a) {
+    *r = (*a * *a) % EXHAUSTIVE_TEST_ORDER;
+}
+
+static void secp256k1_scalar_split_128(secp256k1_scalar *r1, secp256k1_scalar *r2, const secp256k1_scalar *a) {
+    *r1 = *a;
+    *r2 = 0;
+}
+
+SECP256K1_INLINE static int secp256k1_scalar_eq(const secp256k1_scalar *a, const secp256k1_scalar *b) {
+    return *a == *b;
+}
+
+#endif /* SECP256K1_SCALAR_REPR_IMPL_H */
