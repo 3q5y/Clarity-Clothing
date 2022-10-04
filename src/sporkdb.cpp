@@ -17,4 +17,10 @@ bool CSporkDB::WriteSpork(const int nSporkId, const CSporkMessage& spork)
 
 bool CSporkDB::ReadSpork(const int nSporkId, CSporkMessage& spork)
 {
-    r
+    return Read(nSporkId, spork);
+}
+
+bool CSporkDB::SporkExists(const int nSporkId)
+{
+    return Exists(nSporkId);
+}
