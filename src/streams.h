@@ -243,4 +243,333 @@ public:
         if (nReadPosNext >= vch.size()) {
             if (nReadPosNext > vch.size())
                 throw std::ios_base::failure("CDataStream::ignore() : end of data");
-            nReadPos = 
+            nReadPos = 0;
+            vch.clear();
+            return (*this);
+        }
+        nReadPos = nReadPosNext;
+        return (*this);
+    }
+
+    CDataStream& write(const char* pch, size_t nSize)
+    {
+        // Write to the end of the buffer
+        vch.insert(vch.end(), pch, pch + nSize);
+        return (*this);
+    }
+
+    template <typename Stream>
+    void Serialize(Stream& s, int nType, int nVersion) const
+    {
+        // Special case: stream << stream concatenates like stream += stream
+        if (!vch.empty())
+            s.write((char*)&vch[0], vch.size() * sizeof(vch[0]));
+    }
+
+    template <typename T>
+    unsigned int GetSerializeSize(const T& obj)
+    {
+        // Tells the size of the object if serialized to this stream
+        return ::GetSerializeSize(obj, nType, nVersion);
+    }
+
+    template <typename T>
+    CDataStream& operator<<(const T& obj)
+    {
+        // Serialize to this stream
+        ::Serialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+
+    template <typename T>
+    CDataStream& operator>>(T& obj)
+    {
+        // Unserialize from this stream
+        ::Unserialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+
+    void GetAndClear(CSerializeData& data)
+    {
+        data.insert(data.end(), begin(), end());
+        clear();
+    }
+};
+
+
+/** Non-refcounted RAII wrapper for FILE*
+ *
+ * Will automatically close the file when it goes out of scope if not null.
+ * If you're returning the file pointer, return file.release().
+ * If you need to close the file early, use file.fclose() instead of fclose(file).
+ */
+class CAutoFile
+{
+private:
+    // Disallow copies
+    CAutoFile(const CAutoFile&);
+    CAutoFile& operator=(const CAutoFile&);
+
+    int nType;
+    int nVersion;
+
+    FILE* file;
+
+public:
+    CAutoFile(FILE* filenew, int nTypeIn, int nVersionIn)
+    {
+        file = filenew;
+        nType = nTypeIn;
+        nVersion = nVersionIn;
+    }
+
+    ~CAutoFile()
+    {
+        fclose();
+    }
+
+    void fclose()
+    {
+        if (file) {
+            ::fclose(file);
+            file = NULL;
+        }
+    }
+
+    /** Get wrapped FILE* with transfer of ownership.
+     * @note This will invalidate the CAutoFile object, and makes it the responsibility of the caller
+     * of this function to clean up the returned FILE*.
+     */
+    FILE* release()
+    {
+        FILE* ret = file;
+        file = NULL;
+        return ret;
+    }
+
+    /** Get wrapped FILE* without transfer of ownership.
+     * @note Ownership of the FILE* will remain with this class. Use this only if the scope of the
+     * CAutoFile outlives use of the passed pointer.
+     */
+    FILE* Get() const { return file; }
+
+    /** Return true if the wrapped FILE* is NULL, false otherwise.
+     */
+    bool IsNull() const { return (file == NULL); }
+
+    //
+    // Stream subset
+    //
+    void SetType(int n) { nType = n; }
+    int GetType() { return nType; }
+    void SetVersion(int n) { nVersion = n; }
+    int GetVersion() { return nVersion; }
+    void ReadVersion() { *this >> nVersion; }
+    void WriteVersion() { *this << nVersion; }
+
+    CAutoFile& read(char* pch, size_t nSize)
+    {
+        if (!file)
+            throw std::ios_base::failure("CAutoFile::read : file handle is NULL");
+        if (fread(pch, 1, nSize, file) != nSize)
+            throw std::ios_base::failure(feof(file) ? "CAutoFile::read : end of file" : "CAutoFile::read : fread failed");
+        return (*this);
+    }
+
+    CAutoFile& write(const char* pch, size_t nSize)
+    {
+        if (!file)
+            throw std::ios_base::failure("CAutoFile::write : file handle is NULL");
+        if (fwrite(pch, 1, nSize, file) != nSize)
+            throw std::ios_base::failure("CAutoFile::write : write failed");
+        return (*this);
+    }
+
+    template <typename T>
+    unsigned int GetSerializeSize(const T& obj)
+    {
+        // Tells the size of the object if serialized to this stream
+        return ::GetSerializeSize(obj, nType, nVersion);
+    }
+
+    template <typename T>
+    CAutoFile& operator<<(const T& obj)
+    {
+        // Serialize to this stream
+        if (!file)
+            throw std::ios_base::failure("CAutoFile::operator<< : file handle is NULL");
+        ::Serialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+
+    template <typename T>
+    CAutoFile& operator>>(T& obj)
+    {
+        // Unserialize from this stream
+        if (!file)
+            throw std::ios_base::failure("CAutoFile::operator>> : file handle is NULL");
+        ::Unserialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+};
+
+/** Non-refcounted RAII wrapper around a FILE* that implements a ring buffer to
+ *  deserialize from. It guarantees the ability to rewind a given number of bytes.
+ *
+ *  Will automatically close the file when it goes out of scope if not null.
+ *  If you need to close the file early, use file.fclose() instead of fclose(file).
+ */
+class CBufferedFile
+{
+private:
+    // Disallow copies
+    CBufferedFile(const CBufferedFile&);
+    CBufferedFile& operator=(const CBufferedFile&);
+
+    int nType;
+    int nVersion;
+
+    FILE* src;                // source file
+    uint64_t nSrcPos;         // how many bytes have been read from source
+    uint64_t nReadPos;        // how many bytes have been read from this
+    uint64_t nReadLimit;      // up to which position we're allowed to read
+    uint64_t nRewind;         // how many bytes we guarantee to rewind
+    std::vector<char> vchBuf; // the buffer
+
+protected:
+    // read data from the source to fill the buffer
+    bool Fill()
+    {
+        unsigned int pos = nSrcPos % vchBuf.size();
+        unsigned int readNow = vchBuf.size() - pos;
+        unsigned int nAvail = vchBuf.size() - (nSrcPos - nReadPos) - nRewind;
+        if (nAvail < readNow)
+            readNow = nAvail;
+        if (readNow == 0)
+            return false;
+        size_t read = fread((void*)&vchBuf[pos], 1, readNow, src);
+        if (read == 0) {
+            throw std::ios_base::failure(feof(src) ? "CBufferedFile::Fill : end of file" : "CBufferedFile::Fill : fread failed");
+        } else {
+            nSrcPos += read;
+            return true;
+        }
+    }
+
+public:
+    CBufferedFile(FILE* fileIn, uint64_t nBufSize, uint64_t nRewindIn, int nTypeIn, int nVersionIn) : nSrcPos(0), nReadPos(0), nReadLimit((uint64_t)(-1)), nRewind(nRewindIn), vchBuf(nBufSize, 0)
+    {
+        src = fileIn;
+        nType = nTypeIn;
+        nVersion = nVersionIn;
+    }
+
+    ~CBufferedFile()
+    {
+        fclose();
+    }
+
+    void fclose()
+    {
+        if (src) {
+            ::fclose(src);
+            src = NULL;
+        }
+    }
+
+    // check whether we're at the end of the source file
+    bool eof() const
+    {
+        return nReadPos == nSrcPos && feof(src);
+    }
+
+    // read a number of bytes
+    CBufferedFile& read(char* pch, size_t nSize)
+    {
+        if (nSize + nReadPos > nReadLimit)
+            throw std::ios_base::failure("Read attempted past buffer limit");
+        if (nSize + nRewind > vchBuf.size())
+            throw std::ios_base::failure("Read larger than buffer size");
+        while (nSize > 0) {
+            if (nReadPos == nSrcPos)
+                Fill();
+            unsigned int pos = nReadPos % vchBuf.size();
+            size_t nNow = nSize;
+            if (nNow + pos > vchBuf.size())
+                nNow = vchBuf.size() - pos;
+            if (nNow + nReadPos > nSrcPos)
+                nNow = nSrcPos - nReadPos;
+            memcpy(pch, &vchBuf[pos], nNow);
+            nReadPos += nNow;
+            pch += nNow;
+            nSize -= nNow;
+        }
+        return (*this);
+    }
+
+    // return the current reading position
+    uint64_t GetPos()
+    {
+        return nReadPos;
+    }
+
+    // rewind to a given reading position
+    bool SetPos(uint64_t nPos)
+    {
+        nReadPos = nPos;
+        if (nReadPos + nRewind < nSrcPos) {
+            nReadPos = nSrcPos - nRewind;
+            return false;
+        } else if (nReadPos > nSrcPos) {
+            nReadPos = nSrcPos;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    bool Seek(uint64_t nPos)
+    {
+        long nLongPos = nPos;
+        if (nPos != (uint64_t)nLongPos)
+            return false;
+        if (fseek(src, nLongPos, SEEK_SET))
+            return false;
+        nLongPos = ftell(src);
+        nSrcPos = nLongPos;
+        nReadPos = nLongPos;
+        return true;
+    }
+
+    // prevent reading beyond a certain position
+    // no argument removes the limit
+    bool SetLimit(uint64_t nPos = (uint64_t)(-1))
+    {
+        if (nPos < nReadPos)
+            return false;
+        nReadLimit = nPos;
+        return true;
+    }
+
+    template <typename T>
+    CBufferedFile& operator>>(T& obj)
+    {
+        // Unserialize from this stream
+        ::Unserialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+
+    // search for a given byte in the stream, and remain positioned on it
+    void FindByte(char ch)
+    {
+        while (true) {
+            if (nReadPos == nSrcPos)
+                Fill();
+            if (vchBuf[nReadPos % vchBuf.size()] == ch)
+                break;
+            nReadPos++;
+        }
+    }
+};
+
+#endif // BITCOIN_STREAMS_H
