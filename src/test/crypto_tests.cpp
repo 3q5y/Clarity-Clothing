@@ -228,4 +228,58 @@ BOOST_AUTO_TEST_CASE(hmac_sha512_testvectors) {
     TestHMACSHA512("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                
+                   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                   "aaaaaa",
+                   "54657374205573696e67204c6172676572205468616e20426c6f636b2d53697a"
+                   "65204b6579202d2048617368204b6579204669727374",
+                   "80b24263c7c1a3ebb71493c1dd7be8b49b46d1f41b4aeec1121b013783f8f352"
+                   "6b56d037e05f2598bd0fd2215d6a1e5295e64f73f63f0aec8b915a985d786598");
+    TestHMACSHA512("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                   "aaaaaa",
+                   "5468697320697320612074657374207573696e672061206c6172676572207468"
+                   "616e20626c6f636b2d73697a65206b657920616e642061206c61726765722074"
+                   "68616e20626c6f636b2d73697a6520646174612e20546865206b6579206e6565"
+                   "647320746f20626520686173686564206265666f7265206265696e6720757365"
+                   "642062792074686520484d414320616c676f726974686d2e",
+                   "e37b6a775dc87dbaa4dfa9f96e5e3ffddebd71f8867289865df5a32d20cdc944"
+                   "b6022cac3c4982b10d5eeb55c3e4de15134676fb6de0446065c97440fa8c6a58");
+}
+
+void TestRFC6979(const std::string& hexkey, const std::string& hexmsg, const std::vector<std::string>& hexout)
+{
+    std::vector<unsigned char> key = ParseHex(hexkey);
+    std::vector<unsigned char> msg = ParseHex(hexmsg);
+    RFC6979_HMAC_SHA256 rng(&key[0], key.size(), &msg[0], msg.size());
+
+    for (unsigned int i = 0; i < hexout.size(); i++) {
+        std::vector<unsigned char> out = ParseHex(hexout[i]);
+        std::vector<unsigned char> gen;
+        gen.resize(out.size());
+        rng.Generate(&gen[0], gen.size());
+        BOOST_CHECK(out == gen);
+    }
+}
+
+BOOST_AUTO_TEST_CASE(rfc6979_hmac_sha256)
+{
+    TestRFC6979(
+        "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f00",
+        "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+        boost::assign::list_of
+            ("4fe29525b2086809159acdf0506efb86b0ec932c7ba44256ab321e421e67e9fb")
+            ("2bf0fff1d3c378a22dc5de1d856522325c65b504491a0cbd01cb8f3aa67ffd4a")
+            ("f528b410cb541f77000d7afb6c5b53c5c471eab43e466d9ac5190c39c82fd82e"));
+
+    TestRFC6979(
+        "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        boost::assign::list_of
+            ("9c236c165b82ae0cd590659e100b6bab3036e7ba8b06749baf6981e16f1a2b95")
+            ("df471061625bc0ea14b682feee2c9c02f235da04204c1d62a1536c6e17aed7a9")
+            ("7597887cbd76321f32e30440679a22cf7f8d9d2eac390e581fea091ce202ba94"));
+}
+
+BOOST_AUTO_TEST_SUITE_END()
