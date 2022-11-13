@@ -231,4 +231,39 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx2.vin[0].prevout.n = 0;
     tx2.vin[0].scriptSig = CScript() << OP_1;
     tx2.vin[0].nSequence = 0;
-    tx2.v
+    tx2.vout.resize(1);
+    tx2.vout[0].nValue = 4900000000LL;
+    tx2.vout[0].scriptPubKey = CScript() << OP_1;
+    tx2.nLockTime = chainActive.Tip()->GetMedianTimePast()+1;
+    hash = tx2.GetHash();
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx2, 11, GetTime(), 111.0, 11));
+    BOOST_CHECK(!IsFinalTx(tx2));
+
+    BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
+
+    // Neither tx should have make it into the template.
+    BOOST_CHECK_EQUAL(pblocktemplate->block.vtx.size(), 1);
+    delete pblocktemplate;
+
+    // However if we advance height and time by one, both will.
+    chainActive.Tip()->nHeight++;
+    SetMockTime(chainActive.Tip()->GetMedianTimePast()+2);
+
+    BOOST_CHECK(IsFinalTx(tx, chainActive.Tip()->nHeight + 1));
+    BOOST_CHECK(IsFinalTx(tx2));
+
+    BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
+    BOOST_CHECK_EQUAL(pblocktemplate->block.vtx.size(), 3);
+    delete pblocktemplate;
+
+    chainActive.Tip()->nHeight--;
+    SetMockTime(0);
+    mempool.clear();
+
+    for (CTransaction *tx : txFirst)
+        delete tx;
+
+    Checkpoints::fEnabled = true;
+}
+
+BOOST_AUTO_TEST_SUITE_END()
