@@ -793,3 +793,182 @@ BOOST_AUTO_TEST_CASE(script_CHECKMULTISIG23)
     CScript goodsig3 = sign_multisig(scriptPubKey23, keys, txTo23);
     BOOST_CHECK(VerifyScript(goodsig3, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
     BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_OK, ScriptErrorString(err));
+
+    keys.clear();
+    keys.push_back(key2); keys.push_back(key2); // Can't re-use sig
+    CScript badsig1 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig1, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_EVAL_FALSE, ScriptErrorString(err));
+
+    keys.clear();
+    keys.push_back(key2); keys.push_back(key1); // sigs must be in correct order
+    CScript badsig2 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig2, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_EVAL_FALSE, ScriptErrorString(err));
+
+    keys.clear();
+    keys.push_back(key3); keys.push_back(key2); // sigs must be in correct order
+    CScript badsig3 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig3, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_EVAL_FALSE, ScriptErrorString(err));
+
+    keys.clear();
+    keys.push_back(key4); keys.push_back(key2); // sigs must match pubkeys
+    CScript badsig4 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig4, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_EVAL_FALSE, ScriptErrorString(err));
+
+    keys.clear();
+    keys.push_back(key1); keys.push_back(key4); // sigs must match pubkeys
+    CScript badsig5 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig5, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_EVAL_FALSE, ScriptErrorString(err));
+
+    keys.clear(); // Must have signatures
+    CScript badsig6 = sign_multisig(scriptPubKey23, keys, txTo23);
+    BOOST_CHECK(!VerifyScript(badsig6, scriptPubKey23, flags, MutableTransactionSignatureChecker(&txTo23, 0), &err));
+    BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_INVALID_STACK_OPERATION, ScriptErrorString(err));
+}    
+
+BOOST_AUTO_TEST_CASE(script_combineSigs)
+{
+    // Test the CombineSignatures function
+    CBasicKeyStore keystore;
+    vector<CKey> keys;
+    vector<CPubKey> pubkeys;
+    for (int i = 0; i < 3; i++)
+    {
+        CKey key;
+        key.MakeNewKey(i%2 == 1);
+        keys.push_back(key);
+        pubkeys.push_back(key.GetPubKey());
+        keystore.AddKey(key);
+    }
+
+    CMutableTransaction txFrom = BuildCreditingTransaction(GetScriptForDestination(keys[0].GetPubKey().GetID()));
+    CMutableTransaction txTo = BuildSpendingTransaction(CScript(), txFrom);
+    CScript& scriptPubKey = txFrom.vout[0].scriptPubKey;
+    CScript& scriptSig = txTo.vin[0].scriptSig;
+
+    CScript empty;
+    CScript combined = CombineSignatures(scriptPubKey, txTo, 0, empty, empty);
+    BOOST_CHECK(combined.empty());
+
+    // Single signature case:
+    SignSignature(keystore, txFrom, txTo, 0); // changes scriptSig
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSig, empty);
+    BOOST_CHECK(combined == scriptSig);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, empty, scriptSig);
+    BOOST_CHECK(combined == scriptSig);
+    CScript scriptSigCopy = scriptSig;
+    // Signing again will give a different, valid signature:
+    SignSignature(keystore, txFrom, txTo, 0);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSigCopy, scriptSig);
+    BOOST_CHECK(combined == scriptSigCopy || combined == scriptSig);
+
+    // P2SH, single-signature case:
+    CScript pkSingle; pkSingle << ToByteVector(keys[0].GetPubKey()) << OP_CHECKSIG;
+    keystore.AddCScript(pkSingle);
+    scriptPubKey = GetScriptForDestination(CScriptID(pkSingle));
+    SignSignature(keystore, txFrom, txTo, 0);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSig, empty);
+    BOOST_CHECK(combined == scriptSig);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, empty, scriptSig);
+    BOOST_CHECK(combined == scriptSig);
+    scriptSigCopy = scriptSig;
+    SignSignature(keystore, txFrom, txTo, 0);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSigCopy, scriptSig);
+    BOOST_CHECK(combined == scriptSigCopy || combined == scriptSig);
+    // dummy scriptSigCopy with placeholder, should always choose non-placeholder:
+    scriptSigCopy = CScript() << OP_0 << static_cast<vector<unsigned char> >(pkSingle);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSigCopy, scriptSig);
+    BOOST_CHECK(combined == scriptSig);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSig, scriptSigCopy);
+    BOOST_CHECK(combined == scriptSig);
+
+    // Hardest case:  Multisig 2-of-3
+    scriptPubKey = GetScriptForMultisig(2, pubkeys);
+    keystore.AddCScript(scriptPubKey);
+    SignSignature(keystore, txFrom, txTo, 0);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, scriptSig, empty);
+    BOOST_CHECK(combined == scriptSig);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, empty, scriptSig);
+    BOOST_CHECK(combined == scriptSig);
+
+    // A couple of partially-signed versions:
+    vector<unsigned char> sig1;
+    uint256 hash1 = SignatureHash(scriptPubKey, txTo, 0, SIGHASH_ALL);
+    BOOST_CHECK(keys[0].Sign(hash1, sig1));
+    sig1.push_back(SIGHASH_ALL);
+    vector<unsigned char> sig2;
+    uint256 hash2 = SignatureHash(scriptPubKey, txTo, 0, SIGHASH_NONE);
+    BOOST_CHECK(keys[1].Sign(hash2, sig2));
+    sig2.push_back(SIGHASH_NONE);
+    vector<unsigned char> sig3;
+    uint256 hash3 = SignatureHash(scriptPubKey, txTo, 0, SIGHASH_SINGLE);
+    BOOST_CHECK(keys[2].Sign(hash3, sig3));
+    sig3.push_back(SIGHASH_SINGLE);
+
+    // Not fussy about order (or even existence) of placeholders or signatures:
+    CScript partial1a = CScript() << OP_0 << sig1 << OP_0;
+    CScript partial1b = CScript() << OP_0 << OP_0 << sig1;
+    CScript partial2a = CScript() << OP_0 << sig2;
+    CScript partial2b = CScript() << sig2 << OP_0;
+    CScript partial3a = CScript() << sig3;
+    CScript partial3b = CScript() << OP_0 << OP_0 << sig3;
+    CScript partial3c = CScript() << OP_0 << sig3 << OP_0;
+    CScript complete12 = CScript() << OP_0 << sig1 << sig2;
+    CScript complete13 = CScript() << OP_0 << sig1 << sig3;
+    CScript complete23 = CScript() << OP_0 << sig2 << sig3;
+
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial1a, partial1b);
+    BOOST_CHECK(combined == partial1a);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial1a, partial2a);
+    BOOST_CHECK(combined == complete12);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial2a, partial1a);
+    BOOST_CHECK(combined == complete12);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial1b, partial2b);
+    BOOST_CHECK(combined == complete12);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial3b, partial1b);
+    BOOST_CHECK(combined == complete13);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial2a, partial3a);
+    BOOST_CHECK(combined == complete23);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial3b, partial2b);
+    BOOST_CHECK(combined == complete23);
+    combined = CombineSignatures(scriptPubKey, txTo, 0, partial3b, partial3a);
+    BOOST_CHECK(combined == partial3c);
+}
+
+BOOST_AUTO_TEST_CASE(script_standard_push)
+{
+    ScriptError err;
+    for (int i=0; i<67000; i++) {
+        CScript script;
+        script << i;
+        BOOST_CHECK_MESSAGE(script.IsPushOnly(), "Number " << i << " is not pure push.");
+        BOOST_CHECK_MESSAGE(VerifyScript(script, CScript() << OP_1, SCRIPT_VERIFY_MINIMALDATA, BaseSignatureChecker(), &err), "Number " << i << " push is not minimal data.");
+        BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_OK, ScriptErrorString(err));
+    }
+
+    for (unsigned int i=0; i<=MAX_SCRIPT_ELEMENT_SIZE; i++) {
+        std::vector<unsigned char> data(i, '\111');
+        CScript script;
+        script << data;
+        BOOST_CHECK_MESSAGE(script.IsPushOnly(), "Length " << i << " is not pure push.");
+        BOOST_CHECK_MESSAGE(VerifyScript(script, CScript() << OP_1, SCRIPT_VERIFY_MINIMALDATA, BaseSignatureChecker(), &err), "Length " << i << " push is not minimal data.");
+        BOOST_CHECK_MESSAGE(err == SCRIPT_ERR_OK, ScriptErrorString(err));
+    }
+}
+
+BOOST_AUTO_TEST_CASE(script_IsPushOnly_on_invalid_scripts)
+{
+    // IsPushOnly returns false when given a script containing only pushes that
+    // are invalid due to truncation. IsPushOnly() is consensus critical
+    // because P2SH evaluation uses it, although this specific behavior should
+    // not be consensus critical as the P2SH evaluation would fail first due to
+    // the invalid push. Still, it doesn't hurt to test it explicitly.
+    static const unsigned char direct[] = { 1 };
+    BOOST_CHECK(!CScript(direct, direct+sizeof(direct)).IsPushOnly());
+}
+
+BOOST_AUTO_TEST_SUITE_END()
