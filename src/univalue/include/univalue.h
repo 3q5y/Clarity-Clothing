@@ -209,3 +209,88 @@ static inline std::pair<std::string,UniValue> Pair(const char *cKey, bool iVal)
     std::string key(cKey);
     UniValue uVal(iVal);
     return std::make_pair(key, uVal);
+}
+
+static inline std::pair<std::string,UniValue> Pair(const char *cKey, int iVal)
+{
+    std::string key(cKey);
+    UniValue uVal(iVal);
+    return std::make_pair(key, uVal);
+}
+
+static inline std::pair<std::string,UniValue> Pair(const char *cKey, double dVal)
+{
+    std::string key(cKey);
+    UniValue uVal(dVal);
+    return std::make_pair(key, uVal);
+}
+
+static inline std::pair<std::string,UniValue> Pair(const char *cKey, const UniValue& uVal)
+{
+    std::string key(cKey);
+    return std::make_pair(key, uVal);
+}
+
+static inline std::pair<std::string,UniValue> Pair(std::string key, const UniValue& uVal)
+{
+    return std::make_pair(key, uVal);
+}
+
+enum jtokentype {
+    JTOK_ERR        = -1,
+    JTOK_NONE       = 0,                           // eof
+    JTOK_OBJ_OPEN,
+    JTOK_OBJ_CLOSE,
+    JTOK_ARR_OPEN,
+    JTOK_ARR_CLOSE,
+    JTOK_COLON,
+    JTOK_COMMA,
+    JTOK_KW_NULL,
+    JTOK_KW_TRUE,
+    JTOK_KW_FALSE,
+    JTOK_NUMBER,
+    JTOK_STRING,
+};
+
+extern enum jtokentype getJsonToken(std::string& tokenVal,
+                                    unsigned int& consumed, const char *raw, const char *end);
+extern const char *uvTypeName(UniValue::VType t);
+
+static inline bool jsonTokenIsValue(enum jtokentype jtt)
+{
+    switch (jtt) {
+    case JTOK_KW_NULL:
+    case JTOK_KW_TRUE:
+    case JTOK_KW_FALSE:
+    case JTOK_NUMBER:
+    case JTOK_STRING:
+        return true;
+
+    default:
+        return false;
+    }
+
+    // not reached
+}
+
+static inline bool json_isspace(int ch)
+{
+    switch (ch) {
+    case 0x20:
+    case 0x09:
+    case 0x0a:
+    case 0x0d:
+        return true;
+
+    default:
+        return false;
+    }
+
+    // not reached
+}
+
+extern const UniValue NullUniValue;
+
+const UniValue& find_value( const UniValue& obj, const std::string& name);
+
+#endif // __UNIVALUE_H__
