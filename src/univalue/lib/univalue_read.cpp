@@ -291,4 +291,164 @@ bool UniValue::read(const char *raw, size_t size)
                 return false;
 
         } else if (expect(COLON)) {
-            if (tok != JTOK_COLON
+            if (tok != JTOK_COLON)
+                return false;
+            clearExpect(COLON);
+
+        } else if (!expect(COLON) && (tok == JTOK_COLON)) {
+            return false;
+        }
+
+        if (expect(NOT_VALUE)) {
+            if (isValueOpen)
+                return false;
+            clearExpect(NOT_VALUE);
+        }
+
+        switch (tok) {
+
+        case JTOK_OBJ_OPEN:
+        case JTOK_ARR_OPEN: {
+            VType utyp = (tok == JTOK_OBJ_OPEN ? VOBJ : VARR);
+            if (!stack.size()) {
+                if (utyp == VOBJ)
+                    setObject();
+                else
+                    setArray();
+                stack.push_back(this);
+            } else {
+                UniValue tmpVal(utyp);
+                UniValue *top = stack.back();
+                top->values.push_back(tmpVal);
+
+                UniValue *newTop = &(top->values.back());
+                stack.push_back(newTop);
+            }
+
+            if (utyp == VOBJ)
+                setExpect(OBJ_NAME);
+            else
+                setExpect(ARR_VALUE);
+            break;
+            }
+
+        case JTOK_OBJ_CLOSE:
+        case JTOK_ARR_CLOSE: {
+            if (!stack.size() || (last_tok == JTOK_COMMA))
+                return false;
+
+            VType utyp = (tok == JTOK_OBJ_CLOSE ? VOBJ : VARR);
+            UniValue *top = stack.back();
+            if (utyp != top->getType())
+                return false;
+
+            stack.pop_back();
+            clearExpect(OBJ_NAME);
+            setExpect(NOT_VALUE);
+            break;
+            }
+
+        case JTOK_COLON: {
+            if (!stack.size())
+                return false;
+
+            UniValue *top = stack.back();
+            if (top->getType() != VOBJ)
+                return false;
+
+            setExpect(VALUE);
+            break;
+            }
+
+        case JTOK_COMMA: {
+            if (!stack.size() ||
+                (last_tok == JTOK_COMMA) || (last_tok == JTOK_ARR_OPEN))
+                return false;
+
+            UniValue *top = stack.back();
+            if (top->getType() == VOBJ)
+                setExpect(OBJ_NAME);
+            else
+                setExpect(ARR_VALUE);
+            break;
+            }
+
+        case JTOK_KW_NULL:
+        case JTOK_KW_TRUE:
+        case JTOK_KW_FALSE: {
+            UniValue tmpVal;
+            switch (tok) {
+            case JTOK_KW_NULL:
+                // do nothing more
+                break;
+            case JTOK_KW_TRUE:
+                tmpVal.setBool(true);
+                break;
+            case JTOK_KW_FALSE:
+                tmpVal.setBool(false);
+                break;
+            default: /* impossible */ break;
+            }
+
+            if (!stack.size()) {
+                *this = tmpVal;
+                break;
+            }
+
+            UniValue *top = stack.back();
+            top->values.push_back(tmpVal);
+
+            setExpect(NOT_VALUE);
+            break;
+            }
+
+        case JTOK_NUMBER: {
+            UniValue tmpVal(VNUM, tokenVal);
+            if (!stack.size()) {
+                *this = tmpVal;
+                break;
+            }
+
+            UniValue *top = stack.back();
+            top->values.push_back(tmpVal);
+
+            setExpect(NOT_VALUE);
+            break;
+            }
+
+        case JTOK_STRING: {
+            if (expect(OBJ_NAME)) {
+                UniValue *top = stack.back();
+                top->keys.push_back(tokenVal);
+                clearExpect(OBJ_NAME);
+                setExpect(COLON);
+            } else {
+                UniValue tmpVal(VSTR, tokenVal);
+                if (!stack.size()) {
+                    *this = tmpVal;
+                    break;
+                }
+                UniValue *top = stack.back();
+                top->values.push_back(tmpVal);
+            }
+
+            setExpect(NOT_VALUE);
+            break;
+            }
+
+        default:
+            return false;
+        }
+    } while (!stack.empty ());
+
+    /* Check that nothing follows the initial construct (parsed above).  */
+    tok = getJsonToken(tokenVal, consumed, raw, end);
+    if (tok != JTOK_NONE)
+        return false;
+
+    return true;
+}
+
+bool UniValue::read(const char *raw) {
+    return read(raw, strlen(raw));
+}
