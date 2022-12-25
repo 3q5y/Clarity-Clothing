@@ -88,4 +88,21 @@ Each ```TestInstance``` consists of:
     ```None``` is specified, then the test will compare all the giantd's
     being tested to see if they all agree on what the best tip is.
     * ```hash``` is the block hash of the tip to compare against. Optional to
-    specify; if left out then the hash of the block passe
+    specify; if left out then the hash of the block passed in will be used as
+    the expected tip.  This allows for specifying an expected tip while testing
+    the handling of either invalid blocks or blocks delivered out of order,
+    which complete a longer chain.
+  - ```sync_every_block```: ```True/False```.  If ```False```, then all blocks
+    are inv'ed together, and the test runner waits until the node receives the
+    last one, and tests only the last block for tip acceptance using the
+    outcome and specified tip.  If ```True```, then each block is tested in
+    sequence and synced (this is slower when processing many blocks).
+  - ```sync_every_transaction```: ```True/False```.  Analogous to
+    ```sync_every_block```, except if the outcome on the last tx is "None",
+    then the contents of the entire mempool are compared across all giantd
+    connections.  If ```True``` or ```False```, then only the last tx's
+    acceptance is tested against the given outcome.
+
+* For examples of tests written in this framework, see
+  ```invalidblockrequest.py``` and ```p2p-fullblocktest.py```.
+
