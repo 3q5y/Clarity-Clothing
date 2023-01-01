@@ -62,4 +62,93 @@ def create_transaction(node, coinbase, to_address, amount):
 class BIP65Test(BitcoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
-        self.extra_args = [['-promiscuousmempoolflags=1', '-
+        self.extra_args = [['-promiscuousmempoolflags=1', '-whitelist=127.0.0.1']]
+        self.setup_clean_chain = True
+
+    def run_test(self):
+        self.nodes[0].add_p2p_connection(P2PInterface())
+
+        network_thread_start()
+
+        # wait_for_verack ensures that the P2P connection is fully up.
+        self.nodes[0].p2p.wait_for_verack()
+
+        self.log.info("Mining %d blocks", CLTV_HEIGHT - 2)
+        self.coinbase_blocks = self.nodes[0].generate(CLTV_HEIGHT - 2)
+        self.nodeaddress = self.nodes[0].getnewaddress()
+
+        self.log.info("Test that an invalid-according-to-CLTV transaction can still appear in a block")
+
+        spendtx = create_transaction(self.nodes[0], self.coinbase_blocks[0],
+                self.nodeaddress, 1.0)
+        cltv_invalidate(spendtx)
+        spendtx.rehash()
+
+        tip = self.nodes[0].getbestblockhash()
+        block_time = self.nodes[0].getblockheader(tip)['mediantime'] + 1
+        block = create_block(int(tip, 16), create_coinbase(CLTV_HEIGHT - 1), block_time)
+        block.nVersion = 4
+        block.vtx.append(spendtx)
+        block.hashMerkleRoot = block.calc_merkle_root()
+        block.solve()
+
+        self.nodes[0].p2p.send_and_ping(msg_block(block))
+        assert_equal(self.nodes[0].getbestblockhash(), block.hash)
+
+        self.nodes[0].generate(205)
+
+        self.log.info("Test that blocks must now be at least version 5")
+        tip = self.nodes[0].getbestblockhash()
+        block_time = self.nodes[0].getblockheader(tip)['mediantime'] + 1
+        block = create_block(int(tip, 16), create_coinbase(CLTV_HEIGHT + 205), block_time)
+        block.nVersion = 4
+        block.solve()
+        self.nodes[0].p2p.send_and_ping(msg_block(block))
+
+        wait_until(lambda: "reject" in self.nodes[0].p2p.last_message.keys(), lock=mininode_lock)
+        with mininode_lock:
+            assert_equal(self.nodes[0].p2p.last_message["reject"].code, REJECT_OBSOLETE)
+            assert_equal(self.nodes[0].p2p.last_message["reject"].reason, b'bad-version')
+            assert_equal(self.nodes[0].p2p.last_message["reject"].data, block.sha256)
+            del self.nodes[0].p2p.last_message["reject"]
+
+        self.log.info("Test that invalid-according-to-cltv transactions cannot appear in a block")
+        block.nVersion = 5
+
+        spendtx = create_transaction(self.nodes[0], self.coinbase_blocks[1],
+                self.nodeaddress, 1.0)
+        cltv_invalidate(spendtx)
+        spendtx.rehash()
+
+        # Verify that a block with this transaction is invalid.
+        block.vtx.append(spendtx)
+        block.hashMerkleRoot = block.calc_merkle_root()
+        block.solve()
+
+        self.nodes[0].p2p.send_and_ping(msg_block(block))
+
+        wait_until(lambda: "reject" in self.nodes[0].p2p.last_message.keys(), lock=mininode_lock)
+        with mininode_lock:
+            assert self.nodes[0].p2p.last_message["reject"].code in [REJECT_INVALID, REJECT_NONSTANDARD]
+            assert_equal(self.nodes[0].p2p.last_message["reject"].data, block.sha256)
+            if self.nodes[0].p2p.last_message["reject"].code == REJECT_INVALID:
+                # Generic rejection when a block is invalid
+                assert_equal(self.nodes[0].p2p.last_message["reject"].reason, b'block-validation-failed')
+            else:
+                assert b'Negative locktime' in self.nodes[0].p2p.last_message["reject"].reason
+
+        self.log.info("Test that a version 5 block with a valid-according-to-CLTV transaction is accepted")
+        spendtx = cltv_validate(self.nodes[0], spendtx, CLTV_HEIGHT - 1)
+        spendtx.rehash()
+
+        block.vtx.pop(1)
+        block.vtx.append(spendtx)
+        block.hashMerkleRoot = block.calc_merkle_root()
+        block.solve()
+
+        self.nodes[0].p2p.send_and_ping(msg_block(block))
+        assert_equal(int(self.nodes[0].getbestblockhash(), 16), block.sha256)
+
+
+if __name__ == '__main__':
+    BIP65Test().main()
