@@ -296,4 +296,31 @@ class RESTTest (BitcoinTestFramework):
         json_string = http_get_call(url.hostname, url.port, '/rest/mempool/contents'+self.FORMAT_SEPARATOR+'json')
         json_obj = json.loads(json_string)
         for tx in txs:
-            assert_
+            assert_equal(tx in json_obj, True)
+
+        # now mine the transactions
+        newblockhash = self.nodes[1].generate(1)
+        self.sync_all()
+
+        #check if the 3 tx show up in the new block
+        json_string = http_get_call(url.hostname, url.port, '/rest/block/'+newblockhash[0]+self.FORMAT_SEPARATOR+'json')
+        json_obj = json.loads(json_string)
+        for tx in json_obj['tx']:
+            if not 'coinbase' in tx['vin'][0]: #exclude coinbase
+                assert_equal(tx['txid'] in txs, True)
+
+        #check the same but without tx details
+        json_string = http_get_call(url.hostname, url.port, '/rest/block/notxdetails/'+newblockhash[0]+self.FORMAT_SEPARATOR+'json')
+        json_obj = json.loads(json_string)
+        for tx in txs:
+            assert_equal(tx in json_obj['tx'], True)
+
+        #test rest bestblock
+        bb_hash = self.nodes[0].getbestblockhash()
+
+        json_string = http_get_call(url.hostname, url.port, '/rest/chaininfo.json')
+        json_obj = json.loads(json_string)
+        assert_equal(json_obj['bestblockhash'], bb_hash)
+
+if __name__ == '__main__':
+    RESTTest ().main ()
