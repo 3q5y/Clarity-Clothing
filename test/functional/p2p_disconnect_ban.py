@@ -68,4 +68,40 @@ class DisconnectBanTest(BitcoinTestFramework):
         self.start_node(1)
 
         listAfterShutdown = self.nodes[1].listbanned()
-        as
+        assert_equal("127.0.0.0/24", listAfterShutdown[0]['address'])
+        assert_equal("127.0.0.0/32", listAfterShutdown[1]['address'])
+        assert_equal("/19" in listAfterShutdown[2]['address'], True)
+
+        # Clear ban lists
+        self.nodes[1].clearbanned()
+        connect_nodes_bi(self.nodes, 0, 1)
+
+        self.log.info("Test disconnectnode RPCs")
+
+        #self.log.info("disconnectnode: fail to disconnect when calling with address and nodeid")
+        #address1 = self.nodes[0].getpeerinfo()[0]['addr']
+        #node1 = self.nodes[0].getpeerinfo()[0]['addr']
+        #assert_raises_rpc_error(-32602, "Only one of address and nodeid should be provided.", self.nodes[0].disconnectnode, address=address1, nodeid=node1)
+
+        self.log.info("disconnectnode: fail to disconnect when calling with junk address")
+        assert_raises_rpc_error(-29, "Node not found in connected nodes", self.nodes[0].disconnectnode, "221B Baker Street")
+
+        self.log.info("disconnectnode: successfully disconnect node by address")
+        address1 = self.nodes[0].getpeerinfo()[0]['addr']
+        self.nodes[0].disconnectnode(address1)
+        wait_until(lambda: len(self.nodes[0].getpeerinfo()) == 1, timeout=10)
+        assert not [node for node in self.nodes[0].getpeerinfo() if node['addr'] == address1]
+
+        self.log.info("disconnectnode: successfully reconnect node")
+        connect_nodes_bi(self.nodes, 0, 1)  # reconnect the node
+        assert_equal(len(self.nodes[0].getpeerinfo()), 2)
+        assert [node for node in self.nodes[0].getpeerinfo() if node['addr'] == address1]
+
+        #self.log.info("disconnectnode: successfully disconnect node by node id")
+        #id1 = self.nodes[0].getpeerinfo()[0]['id']
+        #self.nodes[0].disconnectnode(nodeid=id1)
+        #wait_until(lambda: len(self.nodes[0].getpeerinfo()) == 1, timeout=10)
+        #assert not [node for node in self.nodes[0].getpeerinfo() if node['id'] == id1]
+
+if __name__ == '__main__':
+    DisconnectBanTest().main()
