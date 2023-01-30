@@ -90,4 +90,5 @@ class NetTest(BitcoinTestFramework):
         assert_equal(peer_info[0][0]['addrbind'], peer_info[1][0]['addr'])
         assert_equal(peer_info[1][0]['addrbind'], peer_info[0][0]['addr'])
 
-if __name__ == '__main__'
+if __name__ == '__main__':
+    NetTest().main()
