@@ -136,4 +136,43 @@ class AuthServiceProxy():
             raise JSONRPCException(response['error'])
         elif 'result' not in response:
             raise JSONRPCException({
-    
+                'code': -343, 'message': 'missing JSON-RPC result'})
+        else:
+            return response['result']
+
+    def batch(self, rpc_call_list):
+        postdata = json.dumps(list(rpc_call_list), default=EncodeDecimal, ensure_ascii=self.ensure_ascii)
+        log.debug("--> " + postdata)
+        return self._request('POST', self.__url.path, postdata.encode('utf-8'))
+
+    def _get_response(self):
+        req_start_time = time.time()
+        try:
+            http_response = self.__conn.getresponse()
+        except socket.timeout as e:
+            raise JSONRPCException({
+                'code': -344,
+                'message': '%r RPC took longer than %f seconds. Consider '
+                           'using larger timeout for calls that take '
+                           'longer to return.' % (self._service_name,
+                                                  self.__conn.timeout)})
+        if http_response is None:
+            raise JSONRPCException({
+                'code': -342, 'message': 'missing HTTP response from server'})
+
+        content_type = http_response.getheader('Content-Type')
+        if content_type != 'application/json':
+            raise JSONRPCException({
+                'code': -342, 'message': 'non-JSON HTTP response with \'%i %s\' from server' % (http_response.status, http_response.reason)})
+
+        responsedata = http_response.read().decode('utf8')
+        response = json.loads(responsedata, parse_float=decimal.Decimal)
+        elapsed = time.time() - req_start_time
+        if "error" in response and response["error"] is None:
+            log.debug("<-%s- [%.6f] %s" % (response["id"], elapsed, json.dumps(response["result"], default=EncodeDecimal, ensure_ascii=self.ensure_ascii)))
+        else:
+            log.debug("<-- [%.6f] %s" % (elapsed, responsedata))
+        return response
+
+    def __truediv__(self, relative_uri):
+        return AuthServiceProxy("{}/{}".format(self.__service_url, relative_uri), self._service_name, connection=self.__conn)
