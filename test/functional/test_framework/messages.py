@@ -439,4 +439,270 @@ class CBlockHeader():
         r += ser_uint256(self.hashMerkleRoot)
         r += struct.pack("<I", self.nTime)
         r += struct.pack("<I", self.nBits)
-    
+        r += struct.pack("<I", self.nNonce)
+        r += ser_uint256(self.nAccumulatorCheckpoint)
+        return r
+
+    def calc_sha256(self):
+        if self.sha256 is None:
+            r = b""
+            r += struct.pack("<i", self.nVersion)
+            r += ser_uint256(self.hashPrevBlock)
+            r += ser_uint256(self.hashMerkleRoot)
+            r += struct.pack("<I", self.nTime)
+            r += struct.pack("<I", self.nBits)
+            r += struct.pack("<I", self.nNonce)
+            r += ser_uint256(self.nAccumulatorCheckpoint)
+            self.sha256 = uint256_from_str(hash256(r))
+            self.hash = encode(hash256(r)[::-1], 'hex_codec').decode('ascii')
+
+    def rehash(self):
+        self.sha256 = None
+        self.calc_sha256()
+        return self.sha256
+
+    # GIC Uniqueness
+    def get_uniqueness(self, prevout):
+        r = b""
+        r += struct.pack("<I", prevout.n)
+        r += ser_uint256(prevout.hash)
+        return r
+
+    def solve_stake(self, prevouts):
+        target0 = uint256_from_compact(self.nBits)
+        loop = True
+        while loop:
+            for prevout in prevouts:
+                nvalue, txBlockTime, stakeModifier, hashStake = prevouts[prevout]
+                target = int(target0 * nvalue / 100) % 2**256
+                data = b""
+                data += ser_uint64(stakeModifier)
+                data += struct.pack("<I", txBlockTime)
+                # prevout for zPoS is serial hashes hex strings
+                if isinstance(prevout, COutPoint):
+                    data += self.get_uniqueness(prevout)
+                else:
+                    data += ser_uint256(uint256_from_str(bytes.fromhex(hashStake)[::-1]))
+                data += struct.pack("<I", self.nTime)
+                posHash = uint256_from_str(hash256(data))
+                if posHash <= target:
+                    self.prevoutStake = prevout
+                    loop = False
+                    break
+            if loop:
+                self.nTime += 1
+        return True
+
+    def __repr__(self):
+        return "CBlockHeader(nVersion=%i hashPrevBlock=%064x hashMerkleRoot=%064x nTime=%s nBits=%08x nNonce=%08x)" \
+            % (self.nVersion, self.hashPrevBlock, self.hashMerkleRoot,
+               time.ctime(self.nTime), self.nBits, self.nNonce)
+
+
+class CBlock(CBlockHeader):
+    def __init__(self, header=None):
+        super(CBlock, self).__init__(header)
+        self.vtx = []
+
+    def deserialize(self, f):
+        super(CBlock, self).deserialize(f)
+        self.vtx = deser_vector(f, CTransaction)
+
+    def serialize(self, with_witness=False):
+        r = b""
+        r += super(CBlock, self).serialize()
+        if with_witness:
+            r += ser_vector(self.vtx, "serialize_with_witness")
+        else:
+            r += ser_vector(self.vtx, "serialize_without_witness")
+            if hasattr(self, 'vchBlockSig'):
+                r += ser_string(self.vchBlockSig)
+        return r
+
+    # Calculate the merkle root given a vector of transaction hashes
+    @classmethod
+    def get_merkle_root(cls, hashes):
+        while len(hashes) > 1:
+            newhashes = []
+            for i in range(0, len(hashes), 2):
+                i2 = min(i+1, len(hashes)-1)
+                newhashes.append(hash256(hashes[i] + hashes[i2]))
+            hashes = newhashes
+        return uint256_from_str(hashes[0])
+
+    def calc_merkle_root(self):
+        hashes = []
+        for tx in self.vtx:
+            tx.calc_sha256()
+            hashes.append(ser_uint256(tx.sha256))
+        return self.get_merkle_root(hashes)
+
+    def calc_witness_merkle_root(self):
+        # For witness root purposes, the hash of the
+        # coinbase, with witness, is defined to be 0...0
+        hashes = [ser_uint256(0)]
+
+        for tx in self.vtx[1:]:
+            # Calculate the hashes with witness data
+            hashes.append(ser_uint256(tx.calc_sha256(True)))
+
+        return self.get_merkle_root(hashes)
+
+    def is_valid(self):
+        self.calc_sha256()
+        target = uint256_from_compact(self.nBits)
+        if self.sha256 > target:
+            return False
+        for tx in self.vtx:
+            if not tx.is_valid():
+                return False
+        if self.calc_merkle_root() != self.hashMerkleRoot:
+            return False
+        return True
+
+    def solve(self):
+        self.rehash()
+        target = uint256_from_compact(self.nBits)
+        while self.sha256 > target:
+            self.nNonce += 1
+            self.rehash()
+
+    def sign_block(self, key, low_s=True):
+        data = b""
+        data += struct.pack("<i", self.nVersion)
+        data += ser_uint256(self.hashPrevBlock)
+        data += ser_uint256(self.hashMerkleRoot)
+        data += struct.pack("<I", self.nTime)
+        data += struct.pack("<I", self.nBits)
+        data += struct.pack("<I", self.nNonce)
+        data += ser_uint256(self.nAccumulatorCheckpoint)
+        sha256NoSig = hash256(data)
+        self.vchBlockSig = key.sign(sha256NoSig, low_s=low_s)
+
+    def __repr__(self):
+        return "CBlock(nVersion=%i hashPrevBlock=%064x hashMerkleRoot=%064x nTime=%s nBits=%08x nNonce=%08x vtx=%s)" \
+            % (self.nVersion, self.hashPrevBlock, self.hashMerkleRoot,
+               time.ctime(self.nTime), self.nBits, self.nNonce, repr(self.vtx))
+
+
+class PrefilledTransaction():
+    def __init__(self, index=0, tx = None):
+        self.index = index
+        self.tx = tx
+
+    def deserialize(self, f):
+        self.index = deser_compact_size(f)
+        self.tx = CTransaction()
+        self.tx.deserialize(f)
+
+    def serialize(self, with_witness=True):
+        r = b""
+        r += ser_compact_size(self.index)
+        if with_witness:
+            r += self.tx.serialize_with_witness()
+        else:
+            r += self.tx.serialize_without_witness()
+        return r
+
+    def serialize_without_witness(self):
+        return self.serialize(with_witness=False)
+
+    def serialize_with_witness(self):
+        return self.serialize(with_witness=True)
+
+    def __repr__(self):
+        return "PrefilledTransaction(index=%d, tx=%s)" % (self.index, repr(self.tx))
+
+# This is what we send on the wire, in a cmpctblock message.
+class P2PHeaderAndShortIDs():
+    def __init__(self):
+        self.header = CBlockHeader()
+        self.nonce = 0
+        self.shortids_length = 0
+        self.shortids = []
+        self.prefilled_txn_length = 0
+        self.prefilled_txn = []
+
+    def deserialize(self, f):
+        self.header.deserialize(f)
+        self.nonce = struct.unpack("<Q", f.read(8))[0]
+        self.shortids_length = deser_compact_size(f)
+        for i in range(self.shortids_length):
+            # shortids are defined to be 6 bytes in the spec, so append
+            # two zero bytes and read it in as an 8-byte number
+            self.shortids.append(struct.unpack("<Q", f.read(6) + b'\x00\x00')[0])
+        self.prefilled_txn = deser_vector(f, PrefilledTransaction)
+        self.prefilled_txn_length = len(self.prefilled_txn)
+
+    # When using version 2 compact blocks, we must serialize with_witness.
+    def serialize(self, with_witness=False):
+        r = b""
+        r += self.header.serialize()
+        r += struct.pack("<Q", self.nonce)
+        r += ser_compact_size(self.shortids_length)
+        for x in self.shortids:
+            # We only want the first 6 bytes
+            r += struct.pack("<Q", x)[0:6]
+        if with_witness:
+            r += ser_vector(self.prefilled_txn, "serialize_with_witness")
+        else:
+            r += ser_vector(self.prefilled_txn, "serialize_without_witness")
+        return r
+
+    def __repr__(self):
+        return "P2PHeaderAndShortIDs(header=%s, nonce=%d, shortids_length=%d, shortids=%s, prefilled_txn_length=%d, prefilledtxn=%s" % (repr(self.header), self.nonce, self.shortids_length, repr(self.shortids), self.prefilled_txn_length, repr(self.prefilled_txn))
+
+# P2P version of the above that will use witness serialization (for compact
+# block version 2)
+class P2PHeaderAndShortWitnessIDs(P2PHeaderAndShortIDs):
+    def serialize(self):
+        return super(P2PHeaderAndShortWitnessIDs, self).serialize(with_witness=True)
+
+# Calculate the BIP 152-compact blocks shortid for a given transaction hash
+def calculate_shortid(k0, k1, tx_hash):
+    expected_shortid = siphash256(k0, k1, tx_hash)
+    expected_shortid &= 0x0000ffffffffffff
+    return expected_shortid
+
+# This version gets rid of the array lengths, and reinterprets the differential
+# encoding into indices that can be used for lookup.
+class HeaderAndShortIDs():
+    def __init__(self, p2pheaders_and_shortids = None):
+        self.header = CBlockHeader()
+        self.nonce = 0
+        self.shortids = []
+        self.prefilled_txn = []
+        self.use_witness = False
+
+        if p2pheaders_and_shortids != None:
+            self.header = p2pheaders_and_shortids.header
+            self.nonce = p2pheaders_and_shortids.nonce
+            self.shortids = p2pheaders_and_shortids.shortids
+            last_index = -1
+            for x in p2pheaders_and_shortids.prefilled_txn:
+                self.prefilled_txn.append(PrefilledTransaction(x.index + last_index + 1, x.tx))
+                last_index = self.prefilled_txn[-1].index
+
+    def to_p2p(self):
+        if self.use_witness:
+            ret = P2PHeaderAndShortWitnessIDs()
+        else:
+            ret = P2PHeaderAndShortIDs()
+        ret.header = self.header
+        ret.nonce = self.nonce
+        ret.shortids_length = len(self.shortids)
+        ret.shortids = self.shortids
+        ret.prefilled_txn_length = len(self.prefilled_txn)
+        ret.prefilled_txn = []
+        last_index = -1
+        for x in self.prefilled_txn:
+            ret.prefilled_txn.append(PrefilledTransaction(x.index - last_index - 1, x.tx))
+            last_index = x.index
+        return ret
+
+    def get_siphash_keys(self):
+        header_nonce = self.header.serialize()
+        header_nonce += struct.pack("<Q", self.nonce)
+        hash_header_nonce_as_str = sha256(header_nonce)
+        key0 = struct.unpack("<Q", hash_header_nonce_as_str[0:8])[0]
+        key1 = struct.unpack("<
