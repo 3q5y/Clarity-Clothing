@@ -1045,4 +1045,269 @@ class msg_generic():
         return self.data
 
     def __repr__(self):
-        return "m
+        return "msg_generic()"
+
+class msg_witness_block(msg_block):
+
+    def serialize(self):
+        r = self.block.serialize(with_witness=True)
+        return r
+
+class msg_getaddr():
+    command = b"getaddr"
+
+    def __init__(self):
+        pass
+
+    def deserialize(self, f):
+        pass
+
+    def serialize(self):
+        return b""
+
+    def __repr__(self):
+        return "msg_getaddr()"
+
+
+class msg_ping():
+    command = b"ping"
+
+    def __init__(self, nonce=0):
+        self.nonce = nonce
+
+    def deserialize(self, f):
+        self.nonce = struct.unpack("<Q", f.read(8))[0]
+
+    def serialize(self):
+        r = b""
+        r += struct.pack("<Q", self.nonce)
+        return r
+
+    def __repr__(self):
+        return "msg_ping(nonce=%08x)" % self.nonce
+
+
+class msg_pong():
+    command = b"pong"
+
+    def __init__(self, nonce=0):
+        self.nonce = nonce
+
+    def deserialize(self, f):
+        self.nonce = struct.unpack("<Q", f.read(8))[0]
+
+    def serialize(self):
+        r = b""
+        r += struct.pack("<Q", self.nonce)
+        return r
+
+    def __repr__(self):
+        return "msg_pong(nonce=%08x)" % self.nonce
+
+
+class msg_mempool():
+    command = b"mempool"
+
+    def __init__(self):
+        pass
+
+    def deserialize(self, f):
+        pass
+
+    def serialize(self):
+        return b""
+
+    def __repr__(self):
+        return "msg_mempool()"
+
+class msg_sendheaders():
+    command = b"sendheaders"
+
+    def __init__(self):
+        pass
+
+    def deserialize(self, f):
+        pass
+
+    def serialize(self):
+        return b""
+
+    def __repr__(self):
+        return "msg_sendheaders()"
+
+
+# getheaders message has
+# number of entries
+# vector of hashes
+# hash_stop (hash of last desired block header, 0 to get as many as possible)
+class msg_getheaders():
+    command = b"getheaders"
+
+    def __init__(self):
+        self.locator = CBlockLocator()
+        self.hashstop = 0
+
+    def deserialize(self, f):
+        self.locator = CBlockLocator()
+        self.locator.deserialize(f)
+        self.hashstop = deser_uint256(f)
+
+    def serialize(self):
+        r = b""
+        r += self.locator.serialize()
+        r += ser_uint256(self.hashstop)
+        return r
+
+    def __repr__(self):
+        return "msg_getheaders(locator=%s, stop=%064x)" \
+            % (repr(self.locator), self.hashstop)
+
+
+# headers message has
+# <count> <vector of block headers>
+class msg_headers():
+    command = b"headers"
+
+    def __init__(self, headers=None):
+        self.headers = headers if headers is not None else []
+
+    def deserialize(self, f):
+        # comment in bitcoind indicates these should be deserialized as blocks
+        blocks = deser_vector(f, CBlock)
+        for x in blocks:
+            self.headers.append(CBlockHeader(x))
+
+    def serialize(self):
+        blocks = [CBlock(x) for x in self.headers]
+        return ser_vector(blocks)
+
+    def __repr__(self):
+        return "msg_headers(headers=%s)" % repr(self.headers)
+
+
+class msg_reject():
+    command = b"reject"
+    REJECT_MALFORMED = 1
+
+    def __init__(self):
+        self.message = b""
+        self.code = 0
+        self.reason = b""
+        self.data = 0
+
+    def deserialize(self, f):
+        self.message = deser_string(f)
+        self.code = struct.unpack("<B", f.read(1))[0]
+        self.reason = deser_string(f)
+        if (self.code != self.REJECT_MALFORMED and
+                (self.message == b"block" or self.message == b"tx")):
+            self.data = deser_uint256(f)
+
+    def serialize(self):
+        r = ser_string(self.message)
+        r += struct.pack("<B", self.code)
+        r += ser_string(self.reason)
+        if (self.code != self.REJECT_MALFORMED and
+                (self.message == b"block" or self.message == b"tx")):
+            r += ser_uint256(self.data)
+        return r
+
+    def __repr__(self):
+        return "msg_reject: %s %d %s [%064x]" \
+            % (self.message, self.code, self.reason, self.data)
+
+class msg_feefilter():
+    command = b"feefilter"
+
+    def __init__(self, feerate=0):
+        self.feerate = feerate
+
+    def deserialize(self, f):
+        self.feerate = struct.unpack("<Q", f.read(8))[0]
+
+    def serialize(self):
+        r = b""
+        r += struct.pack("<Q", self.feerate)
+        return r
+
+    def __repr__(self):
+        return "msg_feefilter(feerate=%08x)" % self.feerate
+
+class msg_sendcmpct():
+    command = b"sendcmpct"
+
+    def __init__(self):
+        self.announce = False
+        self.version = 1
+
+    def deserialize(self, f):
+        self.announce = struct.unpack("<?", f.read(1))[0]
+        self.version = struct.unpack("<Q", f.read(8))[0]
+
+    def serialize(self):
+        r = b""
+        r += struct.pack("<?", self.announce)
+        r += struct.pack("<Q", self.version)
+        return r
+
+    def __repr__(self):
+        return "msg_sendcmpct(announce=%s, version=%lu)" % (self.announce, self.version)
+
+class msg_cmpctblock():
+    command = b"cmpctblock"
+
+    def __init__(self, header_and_shortids = None):
+        self.header_and_shortids = header_and_shortids
+
+    def deserialize(self, f):
+        self.header_and_shortids = P2PHeaderAndShortIDs()
+        self.header_and_shortids.deserialize(f)
+
+    def serialize(self):
+        r = b""
+        r += self.header_and_shortids.serialize()
+        return r
+
+    def __repr__(self):
+        return "msg_cmpctblock(HeaderAndShortIDs=%s)" % repr(self.header_and_shortids)
+
+class msg_getblocktxn():
+    command = b"getblocktxn"
+
+    def __init__(self):
+        self.block_txn_request = None
+
+    def deserialize(self, f):
+        self.block_txn_request = BlockTransactionsRequest()
+        self.block_txn_request.deserialize(f)
+
+    def serialize(self):
+        r = b""
+        r += self.block_txn_request.serialize()
+        return r
+
+    def __repr__(self):
+        return "msg_getblocktxn(block_txn_request=%s)" % (repr(self.block_txn_request))
+
+class msg_blocktxn():
+    command = b"blocktxn"
+
+    def __init__(self):
+        self.block_transactions = BlockTransactions()
+
+    def deserialize(self, f):
+        self.block_transactions.deserialize(f)
+
+    def serialize(self):
+        r = b""
+        r += self.block_transactions.serialize(with_witness=False)
+        return r
+
+    def __repr__(self):
+        return "msg_blocktxn(block_transactions=%s)" % (repr(self.block_transactions))
+
+class msg_witness_blocktxn(msg_blocktxn):
+    def serialize(self):
+        r = b""
+        r += self.block_transactions.serialize(with_witness=True)
+        return r
