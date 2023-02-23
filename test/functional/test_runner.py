@@ -267,4 +267,238 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
     # Warn if there is a cache directory
     cache_dir = "%s/test/cache" % build_dir
     if os.path.isdir(cache_dir):
-        print("%sWARNING!%s There is a cache directory here: %s. If tests fail u
+        print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
+
+    #Set env vars
+    if "BITCOIND" not in os.environ:
+        os.environ["BITCOIND"] = build_dir + '/src/giantd' + exeext
+        os.environ["BITCOINCLI"] = build_dir + '/src/giant-cli' + exeext
+
+    tests_dir = src_dir + '/test/functional/'
+
+    flags = ["--srcdir={}/src".format(build_dir)] + args
+    flags.append("--cachedir=%s" % cache_dir)
+
+    if enable_coverage:
+        coverage = RPCCoverage()
+        flags.append(coverage.flag)
+        logging.debug("Initializing coverage directory at %s" % coverage.dir)
+    else:
+        coverage = None
+
+    if len(test_list) > 1 and jobs > 1:
+        # Populate cache
+        try:
+            subprocess.check_output([tests_dir + 'create_cache.py'] + flags + ["--tmpdir=%s/cache" % tmpdir])
+        except subprocess.CalledProcessError as e:
+            sys.stdout.buffer.write(e.output)
+            raise
+
+    #Run Tests
+    job_queue = TestHandler(jobs, tests_dir, tmpdir, test_list, flags)
+    time0 = time.time()
+    test_results = []
+
+    max_len_name = len(max(test_list, key=len))
+
+    for _ in range(len(test_list)):
+        test_result, testdir, stdout, stderr = job_queue.get_next()
+        test_results.append(test_result)
+
+        if test_result.status == "Passed":
+            logging.debug("\n%s%s%s passed, Duration: %s s" % (BOLD[1], test_result.name, BOLD[0], test_result.time))
+        elif test_result.status == "Skipped":
+            logging.debug("\n%s%s%s skipped" % (BOLD[1], test_result.name, BOLD[0]))
+        else:
+            print("\n%s%s%s failed, Duration: %s s\n" % (BOLD[1], test_result.name, BOLD[0], test_result.time))
+            print(BOLD[1] + 'stdout:\n' + BOLD[0] + stdout + '\n')
+            print(BOLD[1] + 'stderr:\n' + BOLD[0] + stderr + '\n')
+            if combined_logs_len and os.path.isdir(testdir):
+                # Print the final `combinedlogslen` lines of the combined logs
+                print('{}Combine the logs and print the last {} lines ...{}'.format(BOLD[1], combined_logs_len, BOLD[0]))
+                print('\n============')
+                print('{}Combined log for {}:{}'.format(BOLD[1], testdir, BOLD[0]))
+                print('============\n')
+                combined_logs, _ = subprocess.Popen([os.path.join(tests_dir, 'combine_logs.py'), '-c', testdir], universal_newlines=True, stdout=subprocess.PIPE).communicate()
+                print("\n".join(deque(combined_logs.splitlines(), combined_logs_len)))
+
+    print_results(test_results, max_len_name, (int(time.time() - time0)))
+
+    if coverage:
+        coverage.report_rpc_coverage()
+
+        logging.debug("Cleaning up coverage data")
+        coverage.cleanup()
+
+    # Clear up the temp directory if all subdirectories are gone
+    if not os.listdir(tmpdir):
+        os.rmdir(tmpdir)
+
+    all_passed = all(map(lambda test_result: test_result.was_successful, test_results))
+
+    sys.exit(not all_passed)
+
+def print_results(test_results, max_len_name, runtime):
+    results = "\n" + BOLD[1] + "%s | %s | %s\n\n" % ("TEST".ljust(max_len_name), "STATUS   ", "DURATION") + BOLD[0]
+
+    test_results.sort(key=lambda result: result.name.lower())
+    all_passed = True
+    time_sum = 0
+
+    for test_result in test_results:
+        all_passed = all_passed and test_result.was_successful
+        time_sum += test_result.time
+        test_result.padding = max_len_name
+        results += str(test_result)
+
+    status = TICK + "Passed" if all_passed else CROSS + "Failed"
+    results += BOLD[1] + "\n%s | %s | %s s (accumulated) \n" % ("ALL".ljust(max_len_name), status.ljust(9), time_sum) + BOLD[0]
+    results += "Runtime: %s s\n" % (runtime)
+    print(results)
+
+class TestHandler:
+    """
+    Trigger the test scripts passed in via the list.
+    """
+
+    def __init__(self, num_tests_parallel, tests_dir, tmpdir, test_list=None, flags=None):
+        assert(num_tests_parallel >= 1)
+        self.num_jobs = num_tests_parallel
+        self.tests_dir = tests_dir
+        self.tmpdir = tmpdir
+        self.test_list = test_list
+        self.flags = flags
+        self.num_running = 0
+        # In case there is a graveyard of zombie giantds, we can apply a
+        # pseudorandom offset to hopefully jump over them.
+        # (625 is PORT_RANGE/MAX_NODES)
+        self.portseed_offset = int(time.time() * 1000) % 625
+        self.jobs = []
+
+    def get_next(self):
+        while self.num_running < self.num_jobs and self.test_list:
+            # Add tests
+            self.num_running += 1
+            t = self.test_list.pop(0)
+            portseed = len(self.test_list) + self.portseed_offset
+            portseed_arg = ["--portseed={}".format(portseed)]
+            log_stdout = tempfile.SpooledTemporaryFile(max_size=2**16)
+            log_stderr = tempfile.SpooledTemporaryFile(max_size=2**16)
+            test_argv = t.split()
+            testdir = "{}/{}_{}".format(self.tmpdir, re.sub(".py$", "", test_argv[0]), portseed)
+            tmpdir_arg = ["--tmpdir={}".format(testdir)]
+            self.jobs.append((t,
+                              time.time(),
+                              subprocess.Popen([self.tests_dir + test_argv[0]] + test_argv[1:] + self.flags + portseed_arg + tmpdir_arg,
+                                               universal_newlines=True,
+                                               stdout=log_stdout,
+                                               stderr=log_stderr),
+                              testdir,
+                              log_stdout,
+                              log_stderr))
+        if not self.jobs:
+            raise IndexError('pop from empty list')
+        while True:
+            # Return first proc that finishes
+            time.sleep(.5)
+            for j in self.jobs:
+                (name, time0, proc, testdir, log_out, log_err) = j
+                if os.getenv('TRAVIS') == 'true' and int(time.time() - time0) > 20 * 60:
+                    # In travis, timeout individual tests after 20 minutes (to stop tests hanging and not
+                    # providing useful output.
+                    proc.send_signal(signal.SIGINT)
+                if proc.poll() is not None:
+                    log_out.seek(0), log_err.seek(0)
+                    [stdout, stderr] = [l.read().decode('utf-8') for l in (log_out, log_err)]
+                    log_out.close(), log_err.close()
+                    if proc.returncode == TEST_EXIT_PASSED and stderr == "":
+                        status = "Passed"
+                    elif proc.returncode == TEST_EXIT_SKIPPED:
+                        status = "Skipped"
+                    else:
+                        status = "Failed"
+                    self.num_running -= 1
+                    self.jobs.remove(j)
+
+                    return TestResult(name, status, int(time.time() - time0)), testdir, stdout, stderr
+            print('.', end='', flush=True)
+
+class TestResult():
+    def __init__(self, name, status, time):
+        self.name = name
+        self.status = status
+        self.time = time
+        self.padding = 0
+
+    def __repr__(self):
+        if self.status == "Passed":
+            color = BLUE
+            glyph = TICK
+        elif self.status == "Failed":
+            color = RED
+            glyph = CROSS
+        elif self.status == "Skipped":
+            color = GREY
+            glyph = CIRCLE
+
+        return color[1] + "%s | %s%s | %s s\n" % (self.name.ljust(self.padding), glyph, self.status.ljust(7), self.time) + color[0]
+
+    @property
+    def was_successful(self):
+        return self.status != "Failed"
+
+
+def check_script_prefixes():
+    """Check that at most a handful of the
+       test scripts don't start with one of the allowed name prefixes."""
+
+    # LEEWAY is provided as a transition measure, so that pull-requests
+    # that introduce new tests that don't conform with the naming
+    # convention don't immediately cause the tests to fail.
+    LEEWAY = 10
+
+    good_prefixes_re = re.compile("(example|feature|interface|mempool|mining|p2p|rpc|wallet|zerocoin)_")
+    bad_script_names = [script for script in ALL_SCRIPTS if good_prefixes_re.match(script) is None]
+
+    if len(bad_script_names) > 0:
+        print("INFO: %d tests not meeting naming conventions:" % (len(bad_script_names)))
+        print("  %s" % ("\n  ".join(sorted(bad_script_names))))
+    assert len(bad_script_names) <= LEEWAY, "Too many tests not following naming convention! (%d found, maximum: %d)" % (len(bad_script_names), LEEWAY)
+
+
+def check_script_list(src_dir):
+    """Check scripts directory.
+
+    Check that there are no scripts in the functional tests directory which are
+    not being run by pull-tester.py."""
+    script_dir = src_dir + '/test/functional/'
+    python_files = set([t for t in os.listdir(script_dir) if t[-3:] == ".py"])
+    missed_tests = list(python_files - set(map(lambda x: x.split()[0], ALL_SCRIPTS + NON_SCRIPTS)))
+    if len(missed_tests) != 0:
+        print("%sWARNING!%s The following scripts are not being run: %s. Check the test lists in test_runner.py." % (BOLD[1], BOLD[0], str(missed_tests)))
+        if os.getenv('TRAVIS') == 'true':
+            # On travis this warning is an error to prevent merging incomplete commits into master
+            sys.exit(1)
+
+class RPCCoverage():
+    """
+    Coverage reporting utilities for test_runner.
+
+    Coverage calculation works by having each test script subprocess write
+    coverage files into a particular directory. These files contain the RPC
+    commands invoked during testing, as well as a complete listing of RPC
+    commands per `giant-cli help` (`rpc_interface.txt`).
+
+    After all tests complete, the commands run are combined and diff'd against
+    the complete list to calculate uncovered RPC commands.
+
+    See also: test/functional/test_framework/coverage.py
+
+    """
+    def __init__(self):
+        self.dir = tempfile.mkdtemp(prefix="coverage")
+        self.flag = '--coveragedir=%s' % self.dir
+
+    def report_rpc_coverage(self):
+        """
+        Print out RPC commands that were unexercised by te
