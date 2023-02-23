@@ -501,4 +501,51 @@ class RPCCoverage():
 
     def report_rpc_coverage(self):
         """
-        Print out RPC commands that were unexercised by te
+        Print out RPC commands that were unexercised by tests.
+
+        """
+        uncovered = self._get_uncovered_rpc_commands()
+
+        if uncovered:
+            print("Uncovered RPC commands:")
+            print("".join(("  - %s\n" % i) for i in sorted(uncovered)))
+        else:
+            print("All RPC commands covered.")
+
+    def cleanup(self):
+        return shutil.rmtree(self.dir)
+
+    def _get_uncovered_rpc_commands(self):
+        """
+        Return a set of currently untested RPC commands.
+
+        """
+        # This is shared from `test/functional/test-framework/coverage.py`
+        reference_filename = 'rpc_interface.txt'
+        coverage_file_prefix = 'coverage.'
+
+        coverage_ref_filename = os.path.join(self.dir, reference_filename)
+        coverage_filenames = set()
+        all_cmds = set()
+        covered_cmds = set()
+
+        if not os.path.isfile(coverage_ref_filename):
+            raise RuntimeError("No coverage reference found")
+
+        with open(coverage_ref_filename, 'r') as f:
+            all_cmds.update([i.strip() for i in f.readlines()])
+
+        for root, dirs, files in os.walk(self.dir):
+            for filename in files:
+                if filename.startswith(coverage_file_prefix):
+                    coverage_filenames.add(os.path.join(root, filename))
+
+        for filename in coverage_filenames:
+            with open(filename, 'r') as f:
+                covered_cmds.update([i.strip() for i in f.readlines()])
+
+        return all_cmds - covered_cmds
+
+
+if __name__ == '__main__':
+    main()
