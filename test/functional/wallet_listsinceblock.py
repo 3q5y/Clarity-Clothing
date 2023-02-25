@@ -146,4 +146,133 @@ class ListSinceBlockTest (BitcoinTestFramework):
         self.nodes[1].importprivkey(privkey)
 
         # send from nodes[1] using utxo to nodes[0]
-       
+        change = '%.8f' % (float(utxo['amount']) - 1.0003)
+        recipientDict = {
+            self.nodes[0].getnewaddress(): 1,
+            self.nodes[1].getnewaddress(): change,
+        }
+        utxoDicts = [{
+            'txid': utxo['txid'],
+            'vout': utxo['vout'],
+        }]
+        txid1 = self.nodes[1].sendrawtransaction(
+            self.nodes[1].signrawtransaction(
+                self.nodes[1].createrawtransaction(utxoDicts, recipientDict))['hex'])
+
+        # send from nodes[2] using utxo to nodes[3]
+        recipientDict2 = {
+            self.nodes[3].getnewaddress(): 1,
+            self.nodes[2].getnewaddress(): change,
+        }
+        self.nodes[2].sendrawtransaction(
+            self.nodes[2].signrawtransaction(
+                self.nodes[2].createrawtransaction(utxoDicts, recipientDict2))['hex'])
+
+        # generate on both sides
+        lastblockhash = self.nodes[1].generate(3)[2]
+        self.nodes[2].generate(4)
+
+        self.join_network()
+
+        self.sync_all()
+
+        # gettransaction should work for txid1
+        assert self.nodes[0].gettransaction(txid1)['txid'] == txid1, "gettransaction failed to find txid1"
+
+        # listsinceblock(lastblockhash) should now include txid1, as seen from nodes[0]
+        lsbres = self.nodes[0].listsinceblock(lastblockhash)
+        assert any(tx['txid'] == txid1 for tx in lsbres['removed'])
+
+        # but it should not include 'removed' if include_removed=false
+        lsbres2 = self.nodes[0].listsinceblock(blockhash=lastblockhash, include_removed=False)
+        assert 'removed' not in lsbres2
+
+    def test_double_send(self):
+        '''
+        This tests the case where the same transaction is submitted twice on two
+        separate blocks as part of a reorg. The former will vanish and the
+        latter will appear as the true transaction (with confirmations dropping
+        as a result).
+
+             ab0
+          /       \
+        aa1 [tx1]   bb1
+         |           |
+        aa2         bb2
+         |           |
+        aa3         bb3 [tx1]
+                     |
+                    bb4
+
+        Asserted:
+
+        1. tx1 is listed in listsinceblock.
+        2. It is included in 'removed' as it was removed, even though it is now
+           present in a different block.
+        3. It is listed with a confirmations count of 2 (bb3, bb4), not
+           3 (aa1, aa2, aa3).
+        '''
+
+        self.sync_all()
+
+        # Split network into two
+        self.split_network()
+
+        # create and sign a transaction
+        utxos = self.nodes[2].listunspent()
+        utxo = utxos[0]
+        change = '%.8f' % (float(utxo['amount']) - 1.0003)
+        recipientDict = {
+            self.nodes[0].getnewaddress(): 1,
+            self.nodes[2].getnewaddress(): change,
+        }
+        utxoDicts = [{
+            'txid': utxo['txid'],
+            'vout': utxo['vout'],
+        }]
+        signedtxres = self.nodes[2].signrawtransaction(
+                self.nodes[2].createrawtransaction(utxoDicts, recipientDict))
+        assert signedtxres['complete']
+
+        signedtx = signedtxres['hex']
+
+        # send from nodes[1]; this will end up in aa1
+        txid1 = self.nodes[1].sendrawtransaction(signedtx)
+
+        # generate bb1-bb2 on right side
+        self.nodes[2].generate(2)
+
+        # send from nodes[2]; this will end up in bb3
+        txid2 = self.nodes[2].sendrawtransaction(signedtx)
+
+        assert_equal(txid1, txid2)
+
+        # generate on both sides
+        lastblockhash = self.nodes[1].generate(3)[2]
+        self.nodes[2].generate(2)
+
+        self.join_network()
+
+        self.sync_all()
+
+        # gettransaction should work for txid1
+        self.nodes[0].gettransaction(txid1)
+
+        # listsinceblock(lastblockhash) should now include txid1 in transactions
+        # as well as in removed
+        lsbres = self.nodes[0].listsinceblock(lastblockhash)
+        assert any(tx['txid'] == txid1 for tx in lsbres['transactions'])
+        assert any(tx['txid'] == txid1 for tx in lsbres['removed'])
+
+        # find transaction and ensure confirmations is valid
+        for tx in lsbres['transactions']:
+            if tx['txid'] == txid1:
+                assert_equal(tx['confirmations'], 2)
+
+        # the same check for the removed array; confirmations should STILL be 2
+        for tx in lsbres['removed']:
+            if tx['txid'] == txid1:
+                assert_equal(tx['confirmations'], 2)
+
+if __name__ == '__main__':
+    ListSinceBlockTest().main()
